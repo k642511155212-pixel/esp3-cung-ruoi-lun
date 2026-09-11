@@ -15,7 +15,7 @@ Website học và luyện thi ESP3 bao phủ toàn bộ 10 unit trong giáo trì
 
 ## Nội dung
 
-- 211 flashcards thuật ngữ và định nghĩa tiếng Anh, kèm nghĩa tiếng Việt.
+- 469 flashcards gồm core terms, từ trong readings/case studies và vocabulary exercises; có danh từ, động từ, tính từ, phrasal verbs và collocations, kèm định nghĩa tiếng Anh và nghĩa tiếng Việt.
 - 44 phần lý thuyết được giảng bằng tiếng Anh; key terms và từ chuyên ngành có bản dịch tiếng Việt trong ngoặc.
 - 310 câu gap filling theo exam style cho cả 10 unit: một chỗ trống, một đáp án chính xác và không có word bank. Unit 2, 3, 4 và 9 bám sát tài liệu ôn ESP231.
 - 65 câu hỏi ngắn với model answers không quá 40 từ.
