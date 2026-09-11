@@ -837,11 +837,148 @@ const ESP3_GAP_ACCEPTS = {
   "INCOTERMS": ["Incoterms"]
 };
 
+// Additional midterm-style practice items. These extend the supplied revision
+// materials without changing the current midterm scope (Units 1, 2, 3, 4 and 9).
+const ESP3_EXTRA_MIDTERM_GAPS = {
+  "unit-1": [
+    gap("The extension of a firm's economic activities across national borders is known as _______.", "Internationalization"),
+    gap("The amount of direct investment entering or leaving a country during a stated period is an _______.", "FDI flow", ["Foreign direct investment flow"]),
+    gap("The accumulated value of foreign direct investment held at a particular point in time is the _______.", "FDI stock", ["Foreign direct investment stock"]),
+    gap("Buying foreign financial assets without seeking managerial control is called _______.", "Portfolio investment", ["Foreign portfolio investment"]),
+    gap("A new idea, design, product or process that has not necessarily been commercially applied is an _______.", "Invention"),
+    gap("The accumulated stock of innovations used to produce goods and services is _______.", "Technology"),
+    gap("Hiring an external organization to perform an activity previously completed inside the firm is _______.", "Outsourcing"),
+    gap("Relocating a business activity to another country, whether internally or through a supplier, is _______.", "Offshoring"),
+    gap("Moving an activity to a nearby foreign country to reduce distance and coordination costs is _______.", "Nearshoring"),
+    gap("A cross-border network of firms and institutions that cooperate and compete to create and capture value is a _______.", "Global production network (GPN)", ["Global production network", "GPN"]),
+    gap("A chain in which a technology-intensive manufacturer controls design, R&D and major production decisions is a _______.", "Producer-driven value chain", ["Producer-driven chain"]),
+    gap("A chain in which retailers or brand owners control specifications, marketing and supplier selection is a _______.", "Buyer-driven value chain", ["Buyer-driven chain"]),
+    gap("Offering substantially the same product and business model across countries is called _______.", "Standardization", ["Standardisation"]),
+    gap("Modifying products or business practices to suit local market conditions is called _______.", "Adaptation"),
+    gap("A relatively small firm that may compete internationally through flexibility, innovation and niche specialization is an _______.", "Small and medium-sized enterprise (SME)", ["Small and medium-sized enterprise", "SME"])
+  ],
+  "unit-2": [
+    gap("Land, labour, capital and entrepreneurial ability used to produce goods and services are _______.", "Factors of production", ["Production factors"]),
+    gap("International transactions involving tangible goods rather than services are called _______.", "Visible trade"),
+    gap("Dividing production into specialized tasks so that workers can become more efficient is the _______.", "Division of labour", ["Division of labor"]),
+    gap("Reductions in average production cost achieved as output increases are known as _______.", "Economies of scale"),
+    gap("A government-imposed numerical limit on the quantity of a product that may be imported is a _______.", "Quota", ["Import quota"]),
+    gap("Using slow licensing, inspection or customs procedures to restrict imports is an _______.", "Administrative delay", ["Administrative delays"]),
+    gap("A restriction that limits access to foreign currency for the purchase of imports is _______.", "Foreign exchange control", ["Exchange control", "Foreign exchange controls"]),
+    gap("A rule requiring public bodies or consumers to prefer domestically produced goods is a _______.", "Buy-national restriction", ["Buy national restriction", "Buy-national policy"]),
+    gap("Government-backed credit or funding that helps domestic firms sell abroad is _______.", "Export financing", ["Export finance"]),
+    gap("A public organization established to provide information and practical support to exporters is a _______.", "Special government agency", ["Government agency"]),
+    gap("A group of producers that coordinates output or prices to influence a market is a _______.", "Cartel"),
+    gap("The direct exchange of one product for another without using money is _______.", "Barter"),
+    gap("An international transaction in which the seller accepts goods, services or other reciprocal obligations as payment is _______.", "Countertrade", ["Counter trade"]),
+    gap("A tax charged on goods passing through a country on their way to another destination is a _______.", "Transit tariff")
+  ],
+  "unit-3": [
+    gap("The part of the balance of payments that records transactions in financial assets and liabilities is the _______.", "Financial account"),
+    gap("A trade remedy imposed when dumped imports cause material injury to domestic producers is an _______.", "Anti-dumping measure", ["Anti-dumping duty"]),
+    gap("Temporary trade protection permitted only when specified conditions and evidence of harm are present is _______.", "Contingent protection"),
+    gap("The WTO principle requiring a trade advantage granted to one member to be extended to other relevant members is _______.", "Most-favoured-nation treatment (MFN)", ["Most-favoured-nation treatment", "Most favored nation treatment", "MFN"]),
+    gap("The principle requiring imported products, after entry, to receive treatment no less favourable than similar domestic products is _______.", "National treatment"),
+    gap("A temporary restriction used to protect a domestic industry from serious injury caused by a sudden rise in imports is a _______.", "Safeguard", ["Safeguard measure"]),
+    gap("Making trade rules and procedures clear, published and predictable supports _______.", "Transparency"),
+    gap("A special import duty used to offset an unfair foreign government subsidy is a _______.", "Countervailing duty"),
+    gap("A policy instrument used to respond to injury allegedly caused by imports is a _______.", "Trade remedy"),
+    gap("A restriction on trade that operates through regulations, standards or procedures rather than a customs tax is a _______.", "Non-tariff measure", ["Non-tariff barrier"]),
+    gap("The formal WTO process through which members resolve disagreements about trade obligations is _______.", "WTO dispute settlement", ["Dispute settlement"]),
+    gap("The accounting method under which each international transaction is entered as both a credit and a debit is _______.", "Double-entry accounting", ["Double entry accounting"]),
+    gap("A cross-border payment such as a gift, remittance or aid contribution made without receiving a product in return is a _______.", "Current transfer"),
+    gap("The conditions under which foreign goods and services may enter and compete in a national market are called _______.", "Market access"),
+    gap("The overall benefit consumers receive from competitive prices, quality and product choice is _______.", "Consumer welfare")
+  ],
+  "unit-4": [
+    gap("Allowing a foreign firm to use intellectual property in return for a fee or royalty is _______.", "Licensing"),
+    gap("The owner that grants another party permission to use intellectual property is the _______.", "Licensor"),
+    gap("The party receiving permission to use intellectual property under a contract is the _______.", "Licensee"),
+    gap("A foreign business whose entire equity is held by its parent company is a _______.", "Wholly owned subsidiary", ["Wholly-owned subsidiary"]),
+    gap("A combination of firms operating in unrelated industries is a _______.", "Conglomerate merger"),
+    gap("A combination of related firms that do not sell the same product is a _______.", "Congeneric merger"),
+    gap("A combination of firms selling similar products in different geographic markets is a _______.", "Market-extension merger", ["Market extension merger"]),
+    gap("An acquisition supported by the target company's management and board is a _______.", "Friendly acquisition", ["Friendly takeover"]),
+    gap("An arrangement in which a private company acquires a public company to obtain its stock-market listing is a _______.", "Reverse acquisition", ["Reverse takeover"]),
+    gap("A transaction in which the acquiring firm later becomes a subsidiary of the purchased company is a _______.", "Back-flip acquisition", ["Back flip acquisition"]),
+    gap("An acquisition pursued despite opposition from the target company's management is a _______.", "Hostile acquisition", ["Hostile takeover"]),
+    gap("An acquisition financed mainly with borrowed funds secured against the target's assets is a _______.", "Leveraged buyout (LBO)", ["Leveraged buyout", "LBO"]),
+    gap("A purchase in which the existing managers acquire the business they operate is a _______.", "Management buyout (MBO)", ["Management buyout", "MBO"]),
+    gap("The profit or loss an investor anticipates from an investment is the _______.", "Expected return")
+  ],
+  "unit-9": [
+    gap("Marine protection against accidental loss except risks specifically excluded by the policy is _______.", "All-risks cover", ["All risks cover", "All-risk cover"]),
+    gap("A deliberate act by the insured that causes a loss and is normally excluded from cover is _______.", "Willful misconduct", ["Wilful misconduct"]),
+    gap("Gradual deterioration resulting from ordinary use rather than an accidental event is _______.", "Wear and tear"),
+    gap("A loss caused by the natural characteristics or internal defect of the insured goods is _______.", "Inherent vice"),
+    gap("Normal loss of quantity or damage during transit that is commonly excluded is _______.", "Ordinary leakage and breakage", ["Ordinary leakage", "Ordinary breakage"]),
+    gap("A formal request by a policyholder for payment after an insured loss is an _______.", "Insurance claim", ["Claim"]),
+    gap("Marine insurance combining time-based and voyage-based protection in one contract is a _______.", "Mixed policy"),
+    gap("A contract that states a maximum amount of cover while shipment details are declared later is a _______.", "Floating policy"),
+    gap("Protection against loss of or damage to buildings, equipment or other physical assets is _______.", "Property insurance"),
+    gap("Protection against legal responsibility for injury or damage suffered by another party is _______.", "Liability insurance"),
+    gap("Destruction or loss so complete that the insured property has no remaining recoverable value is a _______.", "Total loss"),
+    gap("Damage affecting only part of the value of the insured property is a _______.", "Partial loss"),
+    gap("A company responsible for transporting goods from one place to another is the _______.", "Carrier"),
+    gap("The person or organization named to receive a shipment is the _______.", "Consignee"),
+    gap("The person or organization sending goods to another party is the _______.", "Consignor"),
+    gap("A document prepared by an independent expert describing the nature and extent of cargo damage is a _______.", "Survey report")
+  ]
+};
+
+const ESP3_EXTRA_MIDTERM_SHORTS = {
+  "unit-1": [
+    {q:"How does outsourcing differ from offshoring?",a:"Outsourcing concerns who performs an activity: an external supplier. Offshoring concerns where it is performed: another country. A firm can outsource domestically or offshore work to its own foreign subsidiary."},
+    {q:"How does FDI flow differ from FDI stock?",a:"FDI flow measures direct investment entering or leaving a country during a period, whereas FDI stock is the total accumulated value of direct investment at a specific time."},
+    {q:"How do formal institutions differ from informal institutions?",a:"Formal institutions are written and enforceable laws, rules or regulations. Informal institutions are unwritten customs, traditions and accepted patterns of behaviour that shape business interactions."}
+  ],
+  "unit-2": [
+    {q:"What are three methods governments use to promote international trade?",a:"Governments may provide export subsidies, loan guarantees and export financing. They can also create foreign trade zones or special agencies that supply information and practical support to exporters."},
+    {q:"Why do governments impose trade barriers?",a:"Governments may protect jobs, infant industries, national security or consumers. They may also respond to unfair trade, improve the balance of payments or pursue political objectives."},
+    {q:"How does visible trade differ from invisible trade?",a:"Visible trade involves exports and imports of tangible goods. Invisible trade involves cross-border services and income flows, such as transport, tourism, insurance, banking and investment earnings."}
+  ],
+  "unit-3": [
+    {q:"How do most-favoured-nation treatment and national treatment differ?",a:"MFN requires a trade advantage granted to one relevant WTO member to be extended to others. National treatment requires imported products, after entry, to receive treatment no less favourable than similar domestic products."},
+    {q:"How does the current account differ from the financial account?",a:"The current account records goods, services, income and current transfers. The financial account records cross-border transactions involving financial assets and liabilities, including direct and portfolio investment."},
+    {q:"What are the main forms of contingent protection?",a:"Contingent protection includes anti-dumping duties against injurious dumping, countervailing duties against subsidized imports and safeguards responding to serious injury caused by a sudden increase in imports."}
+  ],
+  "unit-4": [
+    {q:"How does licensing differ from a joint venture?",a:"Licensing permits a foreign firm to use intellectual property for royalties, usually without shared ownership. A joint venture creates a jointly owned business whose partners share control, resources, risks and returns."},
+    {q:"What should an MNE consider before choosing an FDI location?",a:"It should assess market size, costs, skills, infrastructure, political and legal risk, investment incentives, cultural distance, supply networks and whether the location complements its firm-specific advantages."},
+    {q:"How does a horizontal merger differ from a vertical merger?",a:"A horizontal merger combines competitors operating at the same stage of an industry. A vertical merger combines firms at different stages of the same supply chain, such as a producer and supplier."}
+  ],
+  "unit-9": [
+    {q:"Why is marine insurance important in international trade?",a:"It transfers financial exposure from cargo owners to insurers when goods face loss or damage during international transit, supporting predictable costs, trade finance and business continuity."},
+    {q:"Which losses are commonly excluded from marine insurance?",a:"Common exclusions include willful misconduct, ordinary leakage, normal wear and tear, inherent vice, delay and losses caused by insufficient packing, unless a policy specifically provides wider cover."},
+    {q:"What documents may support a marine cargo claim?",a:"The claimant may provide the insurance policy, bill of lading, commercial invoice, packing list, notice of loss, survey report, delivery receipt and evidence of the amount claimed."}
+  ]
+};
+
+const ESP3_EXTRA_MIDTERM_ESSAYS = {
+  "unit-1": [
+    {prompt:"What lessons should multinational enterprises learn from unsuccessful foreign-market entries?",thesis:"Failed entries show that strong global advantages are insufficient without local research, cultural understanding and selective adaptation of products, operations and entry modes.",outline:["Define liability of foreignness and foreign-market fit.","Use Starbucks, Walmart or IKEA as evidence of failed assumptions.","Explain how market research, local partners and adaptation reduce risk.","Conclude that firms should standardize their core but adapt where local differences matter."]}
+  ],
+  "unit-2": [
+    {prompt:"Evaluate the benefits and costs of government measures that promote international trade.",thesis:"Trade-promotion measures can correct financing and information gaps, but poorly targeted support may waste public money, distort competition and provoke retaliation.",outline:["Explain export subsidies, financing, guarantees, trade zones and agencies.","Assess benefits for exporters, employment and market entry.","Assess fiscal cost, inefficiency and possible trade disputes.","Recommend transparent, temporary and capability-building support."]}
+  ],
+  "unit-3": [
+    {prompt:"Should governments prioritize free trade or protectionism when domestic industries face strong import competition?",thesis:"Governments should preserve an open trade regime while using temporary, evidence-based adjustment support or contingent protection when serious injury is demonstrated.",outline:["Define free trade, protectionism and import competition.","Assess gains from prices, choice, competition and specialization.","Assess employment, infant-industry and strategic-security concerns.","Recommend targeted, transparent and time-limited intervention rather than permanent protection."]}
+  ],
+  "unit-4": [
+    {prompt:"Should host governments use investment incentives to attract foreign direct investment?",thesis:"Investment incentives are justified only when the long-term spillovers from carefully selected FDI exceed their fiscal cost and the investment would not otherwise occur.",outline:["Define investment incentives and their purposes.","Benefits: capital, jobs, technology, exports and supplier development.","Costs: lost revenue, subsidy competition and weak additionality.","Propose performance conditions, transparency and periodic evaluation."]}
+  ],
+  "unit-9": [
+    {prompt:"To what extent do the core principles of insurance protect both insurers and policyholders?",thesis:"Indemnity, insurable interest, subrogation and utmost good faith create a fair risk-transfer system, although effective protection also depends on clear exclusions and honest claims handling.",outline:["Explain the purpose of the main insurance principles.","Show how they prevent speculation, fraud and double recovery.","Explain how disclosure and clear policy wording protect policyholders.","Conclude with the need for balanced enforcement and transparent claims procedures."]}
+  ]
+};
+
 window.ESP3_DATA.units.forEach(unit => {
   const prompts = ESP3_EXAM_GAP_PROMPTS[unit.id];
   const examStyleGaps = prompts?.map((prompt, index) => {
     const term = unit.terms[index][0];
     return gap(prompt, term, ESP3_GAP_ACCEPTS[term] || []);
   });
-  unit.gaps = ESP3_SOURCE_GAPS[unit.id] || examStyleGaps;
+  unit.gaps = [...(ESP3_SOURCE_GAPS[unit.id] || examStyleGaps), ...(ESP3_EXTRA_MIDTERM_GAPS[unit.id] || [])];
+  unit.shortAnswers = [...unit.shortAnswers, ...(ESP3_EXTRA_MIDTERM_SHORTS[unit.id] || [])];
+  unit.essays = [...unit.essays, ...(ESP3_EXTRA_MIDTERM_ESSAYS[unit.id] || [])];
 });

@@ -27,6 +27,8 @@
     gapCorrectTotal: 0,
     practiceUnit: "all",
     practiceIndex: 0,
+    midtermMode: "gaps",
+    midtermUnit: "all",
     exam: null,
     examHistory: []
   };
@@ -109,12 +111,11 @@
 
   function dashboard() {
     const mastered = Object.values(state.termStatus).filter(value => value === "mastered").length;
-    const lastResult = state.examHistory[0];
     const body = `
       <section class="dashboard-intro">
         <div class="dashboard-copy">
           <span class="kicker">FULL COURSE · 10 UNITS</span>
-          <span class="gap-release">236 GAP-FILLING QUESTIONS · ALL 10 UNITS</span>
+          <span class="gap-release">${allGaps.length} GAP-FILLING QUESTIONS · ALL 10 UNITS</span>
           <h2>Learn it clearly.<br><em>Answer it confidently.</em></h2>
           <p>Theory is taught in English, with Vietnamese translations beside key terms and specialist vocabulary. Model answers are ready for the exact exam format.</p>
           <img class="dashboard-mascot" src="${MASCOTS.flower}" alt="Cute fly holding a flower">
@@ -141,14 +142,18 @@
           <button data-route="gaps">Luyện gap filling <span>→</span></button>
         </article>
         <article class="space-card dark">
-          <span class="space-number">03</span><img class="space-mascot" src="${MASCOTS.sideeye}" alt="" aria-hidden="true"><div><small>EXAM SIMULATION</small><h3>Midterm 60 phút</h3><p>10 gap-filling key terms, 3 short answers và chọn 1 trong 2 essay — đúng cấu trúc 3 + 3 + 4 điểm.</p></div>
-          <button data-route="mock-test">Vào phòng thi <span>→</span></button>
+          <span class="space-number">03</span><img class="space-mascot" src="${MASCOTS.sideeye}" alt="" aria-hidden="true"><div><small>MIDTERM PRACTICE</small><h3>Ôn riêng từng dạng</h3><p>Chọn Gap filling, Q&amp;A hoặc Essay cho riêng Unit 1, 2, 3, 4, 9 hay trộn cả năm unit.</p></div>
+          <button data-route="mock-test">Mở khu ôn midterm <span>→</span></button>
         </article>
       </section>
 
       <section class="resume-panel">
-        <div><span class="eyebrow">TIẾN ĐỘ THỰC</span><h2>${state.completedUnits.length}/10 unit đã hoàn thành</h2><p>${mastered}/${allTerms.length} thuật ngữ được đánh dấu “Đã nhớ”.${lastResult ? ` Bài thi gần nhất: ${lastResult.termCorrect}/10 thuật ngữ đúng.` : ""}</p></div>
+        <div><span class="eyebrow">TIẾN ĐỘ THỰC</span><h2>${state.completedUnits.length}/10 unit đã hoàn thành</h2><p>${mastered}/${allTerms.length} thuật ngữ được đánh dấu “Đã nhớ”.</p></div>
         <button class="outline-btn" data-route="progress">Xem tiến độ</button>
+      </section>
+
+      <section class="donate-banner">
+        <img src="${MASCOTS.heart}" alt="" aria-hidden="true"><div><span>SUPPORT ESP3 MASTERY</span><h2>Thích trang web này?</h2><p>Bạn có thể ghé mục Donate để ủng hộ người làm nội dung.</p></div><button class="outline-btn" data-route="donate">Mở mục Donate →</button>
       </section>`;
     return page({ eyebrow: "ESP3 · INTERNATIONAL BUSINESS", title: "Course dashboard", lead: "Toàn bộ giáo trình, với Unit 1, 2, 3, 4 và 9 được đánh dấu là phạm vi midterm hiện tại.", body, className: "dashboard-page" });
   }
@@ -342,22 +347,113 @@
   }
 
   function mockHome() {
-    const last = state.examHistory[0];
-    const body = `<div class="exam-setup">
-      <section class="exam-brief">
-        <img class="exam-mascot" src="${MASCOTS.sideeye}" alt="" aria-hidden="true"><span>SIMULATED MIDTERM</span><strong>60</strong><h2>minutes</h2>
-        <div class="score-map"><div><b>3</b><span>Gap filling<br>10 terms</span></div><div><b>3</b><span>Short answers<br>3 questions</span></div><div><b>4</b><span>Essay<br>Choose 1 of 2</span></div></div>
-      </section>
-      <section class="exam-options">
-        <h2>Chọn phạm vi đề</h2>
-        <label class="scope-option selected"><input type="radio" name="examScope" value="midterm" checked><span><b>Midterm hiện tại</b><small>Unit 1, 2, 3, 4 và 9</small></span></label>
-        <label class="scope-option"><input type="radio" name="examScope" value="all"><span><b>Full-book test</b><small>Trộn câu hỏi từ toàn bộ 10 unit</small></span></label>
-        <ul class="exam-rules"><li>Không hiển thị đáp án trong thời gian làm bài.</li><li>Short answers phải không quá 40 từ.</li><li>Essay phải đạt ít nhất 300 từ.</li><li>Terminology được chấm tự động; phần viết đối chiếu sau khi nộp.</li></ul>
-        <button class="start-exam" id="startExam">Bắt đầu bài thi →</button>
-        ${last ? `<p class="last-result">Lần gần nhất: ${last.termCorrect}/10 terminology đúng · ${new Date(last.at).toLocaleDateString("vi-VN")}</p>` : ""}
-      </section>
-    </div>`;
-    return page({eyebrow:"MIDTERM TEST",title:"Mô phỏng đúng cấu trúc đề",lead:"Đề được tạo lại mỗi lần bắt đầu và giữ tiến độ nếu bạn tải lại trang.",body});
+    const coreUnits = D.units.filter(unit => D.course.midtermUnits.includes(unit.num));
+    const validUnitIds = new Set(coreUnits.map(unit => unit.id));
+    if (state.midtermUnit !== "all" && !validUnitIds.has(state.midtermUnit)) state.midtermUnit = "all";
+    if (!["gaps", "short", "essay"].includes(state.midtermMode)) state.midtermMode = "gaps";
+    const selectedUnits = state.midtermUnit === "all" ? coreUnits : coreUnits.filter(unit => unit.id === state.midtermUnit);
+    const gapCount = selectedUnits.reduce((sum, unit) => sum + unit.gaps.length, 0);
+    const shortCount = selectedUnits.reduce((sum, unit) => sum + unit.shortAnswers.length, 0);
+    const essayCount = selectedUnits.reduce((sum, unit) => sum + unit.essays.length, 0);
+    const scopeName = state.midtermUnit === "all" ? "Units 1, 2, 3, 4 & 9" : `Unit ${selectedUnits[0].num}`;
+
+    const unitOptionsHtml = `<option value="all" ${state.midtermUnit === "all" ? "selected" : ""}>Tất cả · Unit 1, 2, 3, 4 &amp; 9</option>${coreUnits.map(unit => `<option value="${unit.id}" ${state.midtermUnit === unit.id ? "selected" : ""}>Unit ${unit.num} · ${esc(unit.title)}</option>`).join("")}`;
+    const modeContent = state.midtermMode === "gaps"
+      ? midtermGapWorksheet(selectedUnits)
+      : state.midtermMode === "short"
+        ? midtermShortWorksheet(selectedUnits)
+        : midtermEssayWorksheet(selectedUnits);
+
+    const body = `<section class="midterm-review-hero">
+      <div><span>MIDTERM SCOPE</span><h2>Unit 1 · 2 · 3 · 4 · 9</h2><p>Không có full test và không có đồng hồ. Chọn đúng phần bạn muốn luyện rồi làm toàn bộ ngân hàng câu hỏi exam style.</p></div>
+      <img src="${MASCOTS.sideeye}" alt="" aria-hidden="true">
+    </section>
+    <section class="midterm-controls" aria-label="Midterm practice filters">
+      <div class="midterm-mode-switch" role="tablist" aria-label="Chọn dạng bài">
+        <button role="tab" aria-selected="${state.midtermMode === "gaps"}" class="${state.midtermMode === "gaps" ? "active" : ""}" data-midterm-mode="gaps"><img src="${MASCOTS.neutral}" alt="" aria-hidden="true"><span><small>PART 1</small><strong>Gap filling</strong><em>${gapCount} questions</em></span></button>
+        <button role="tab" aria-selected="${state.midtermMode === "short"}" class="${state.midtermMode === "short" ? "active" : ""}" data-midterm-mode="short"><img src="${MASCOTS.heart}" alt="" aria-hidden="true"><span><small>PART 2</small><strong>Q&amp;A</strong><em>${shortCount} questions · ≤40 words</em></span></button>
+        <button role="tab" aria-selected="${state.midtermMode === "essay"}" class="${state.midtermMode === "essay" ? "active" : ""}" data-midterm-mode="essay"><img src="${MASCOTS.mustache}" alt="" aria-hidden="true"><span><small>PART 3</small><strong>Essay &amp; outline</strong><em>${essayCount} topics · ≥300 words</em></span></button>
+      </div>
+      <div class="midterm-filter-row">
+        <label>Phạm vi ôn<select id="midtermUnit">${unitOptionsHtml}</select></label>
+        <div><span>ĐANG HIỂN THỊ</span><strong>${esc(scopeName)} · ${state.midtermMode === "gaps" ? `${gapCount} gap-fillings` : state.midtermMode === "short" ? `${shortCount} Q&amp;A` : `${essayCount} essay topics`}</strong></div>
+      </div>
+    </section>
+    <section class="midterm-question-bank">${modeContent}</section>`;
+    return page({eyebrow:"MIDTERM PRACTICE",title:"Ôn đúng phần bạn cần",lead:"Tất cả câu hỏi đều viết theo exam style và chỉ lấy phạm vi Unit 1, 2, 3, 4, 9.",body,className:"midterm-review-page"});
+  }
+
+  function midtermGroupHeader(unit, type, count) {
+    const labels = {gaps:"GAP FILLING",short:"SHORT ANSWERS",essay:"ESSAY PREPARATION"};
+    return `<header class="midterm-unit-head"><div><span>UNIT ${String(unit.num).padStart(2,"0")} · ${labels[type]}</span><h2>${esc(unit.title)}</h2></div><b>${count} ${count === 1 ? "item" : "items"}</b></header>`;
+  }
+
+  function midtermGapWorksheet(units) {
+    let number = 0;
+    return units.map(unit => `<section class="midterm-unit-group">
+      ${midtermGroupHeader(unit,"gaps",unit.gaps.length)}
+      <p class="exam-direction">Complete each sentence with the correct English key term. No word bank is provided.</p>
+      <div class="gap-list">${unit.gaps.map((item,index) => {
+        number += 1;
+        return `<article class="gap-card" data-unit-gap-card="${unit.id}:${index}">
+          <div class="question-label"><span>QUESTION ${String(number).padStart(2,"0")}</span><b>UNIT ${unit.num} · EXAM STYLE</b></div>
+          <h3>${esc(item.prompt)}</h3>
+          <div class="gap-entry"><input type="text" data-unit-gap-input="${index}" placeholder="Type the missing term…" autocomplete="off"><button class="solid-btn" data-unit-gap-check="${index}" data-gap-unit-id="${unit.id}">Check</button></div>
+          <div class="gap-feedback" data-unit-gap-feedback="${index}" hidden aria-live="polite"></div>
+        </article>`;
+      }).join("")}</div>
+    </section>`).join("");
+  }
+
+  function midtermShortWorksheet(units) {
+    let number = 0;
+    return units.map(unit => `<section class="midterm-unit-group">
+      ${midtermGroupHeader(unit,"short",unit.shortAnswers.length)}
+      <p class="exam-direction">Answer each question in English in no more than 40 words.</p>
+      <div class="short-list">${unit.shortAnswers.map(item => {
+        number += 1;
+        return `<article class="short-card" data-short-card>
+          <div class="question-label"><span>QUESTION ${String(number).padStart(2,"0")}</span><b>MAXIMUM 40 WORDS</b></div>
+          <h3>${esc(item.q)}</h3>
+          <textarea rows="4" data-word-limit="40" placeholder="Write your answer in English…"></textarea>
+          <div class="answer-controls"><span data-word-count>0 / 40 words</span><button class="outline-btn" data-reveal-answer>Reveal model answer</button></div>
+          <div class="model-answer" hidden><img class="feedback-mascot" src="${MASCOTS.heart}" alt="" aria-hidden="true"><small>MODEL ANSWER · ${wordCount(item.a)} WORDS</small><p>${esc(item.a)}</p></div>
+        </article>`;
+      }).join("")}</div>
+    </section>`).join("");
+  }
+
+  function midtermEssayWorksheet(units) {
+    let number = 0;
+    return units.map(unit => `<section class="midterm-unit-group">
+      ${midtermGroupHeader(unit,"essay",unit.essays.length)}
+      <p class="exam-direction">Study the topic, decide your position, then plan an essay of at least 300 words before revealing the suggested structure.</p>
+      <div class="essay-list">${unit.essays.map(essay => {
+        number += 1;
+        return `<article class="essay-card">
+          <div class="question-label"><span>TOPIC ${String(number).padStart(2,"0")}</span><b>MINIMUM 300 WORDS</b></div>
+          <h3>${esc(essay.prompt)}</h3>
+          <button class="outline-btn" data-reveal-outline>Reveal thesis &amp; outline</button>
+          <div class="essay-outline" hidden><img class="feedback-mascot" src="${MASCOTS.mustache}" alt="" aria-hidden="true"><div class="thesis"><small>SUGGESTED THESIS</small><p>${esc(essay.thesis)}</p></div><ol>${essay.outline.map(step => `<li>${esc(step)}</li>`).join("")}</ol></div>
+        </article>`;
+      }).join("")}</div>
+    </section>`).join("");
+  }
+
+  function donatePage() {
+    const body = `<section class="donate-shell">
+      <div class="donate-copy">
+        <span>SUPPORT THE PROJECT</span>
+        <h2>Một chút động lực cho người làm web.</h2>
+        <p>Nếu ESP3 Mastery giúp việc ôn tập của bạn dễ dàng hơn, bạn có thể quét mã trong ảnh để ủng hộ.</p>
+        <div class="donate-thank-you"><img src="${MASCOTS.heart}" alt="" aria-hidden="true"><div><small>SPECIAL THANKS</small><strong>Cảm ơn Phước Nguyên đã gợi ý</strong></div></div>
+      </div>
+      <figure class="donate-image-card">
+        <img src="assets/donate-phuoc-nguyen.png" alt="Ảnh donate kèm mã QR do người dùng cung cấp">
+        <figcaption>Quét mã QR trong ảnh để donate</figcaption>
+      </figure>
+    </section>`;
+    return page({eyebrow:"ESP3 MASTERY · DONATE",title:"Donate",lead:"Cảm ơn bạn đã học cùng những chú ruồi nhỏ.",body,className:"donate-page"});
   }
 
   function createExam(scope) {
@@ -473,13 +569,13 @@
     else if (route === "gaps") html = gapFilling();
     else if (route === "practice") html = practice();
     else if (route === "essay") html = essayLibrary();
-    else if (route === "mock-test") html = state.exam?.active ? examPage() : state.exam && !state.exam.active ? examResult() : mockHome();
+    else if (route === "mock-test") html = mockHome();
+    else if (route === "donate") html = donatePage();
     else if (route === "progress") html = progressPage();
     else html = dashboard();
     app.innerHTML = html;
     document.body.classList.remove("menu-open");
     updateHeaderProgress();
-    if (state.exam?.active && route === "mock-test") startExamTimer();
     app.focus({preventScroll:true});
     window.scrollTo({top:preserveScroll ? previousScroll : 0,behavior:"auto"});
     render.lastRoute = route;
@@ -568,13 +664,15 @@
     if (revealAnswer) { const panel = revealAnswer.closest("[data-short-card]").querySelector(".model-answer"); panel.hidden = !panel.hidden; revealAnswer.textContent = panel.hidden ? "Reveal model answer" : "Hide model answer"; return; }
     const revealOutline = event.target.closest("[data-reveal-outline]");
     if (revealOutline) { const panel = revealOutline.parentElement.querySelector(".essay-outline"); panel.hidden = !panel.hidden; revealOutline.textContent = panel.hidden ? "Reveal thesis & outline" : "Hide thesis & outline"; return; }
+    const midtermMode = event.target.closest("[data-midterm-mode]");
+    if (midtermMode) { state.midtermMode = midtermMode.dataset.midtermMode; saveState(); render(); return; }
     if (event.target.closest("#randomShort")) { const pool = state.practiceUnit === "all" ? allShort : allShort.filter(item=>item.unit.id===state.practiceUnit); state.practiceIndex = Math.floor(Math.random()*pool.length); saveState(); render(); return; }
     if (event.target.closest("#prevShort")) { const pool = state.practiceUnit === "all" ? allShort : allShort.filter(item=>item.unit.id===state.practiceUnit); state.practiceIndex = (state.practiceIndex - 1 + pool.length) % pool.length; saveState(); render(); return; }
     if (event.target.closest("#nextShort")) { const pool = state.practiceUnit === "all" ? allShort : allShort.filter(item=>item.unit.id===state.practiceUnit); state.practiceIndex = (state.practiceIndex + 1) % pool.length; saveState(); render(); return; }
     if (event.target.closest("#startExam")) { const scope = document.querySelector('input[name="examScope"]:checked')?.value || "midterm"; createExam(scope); return; }
     if (event.target.closest("#submitExam")) { if (confirm("Submit this test now? Answers cannot be edited after submission.")) submitExam(false); return; }
     if (event.target.closest("#newExam")) { state.exam = null; saveState(); render(); return; }
-    if (event.target.closest("#resetProgress")) { if (confirm("Xóa toàn bộ tiến độ, flashcards và lịch sử bài thi trên trình duyệt này?")) { localStorage.removeItem(STORE); state = {...defaults}; render(); } return; }
+    if (event.target.closest("#resetProgress")) { if (confirm("Xóa toàn bộ tiến độ và trạng thái flashcards trên trình duyệt này?")) { localStorage.removeItem(STORE); state = {...defaults}; render(); } return; }
     const searchRoute = event.target.closest("[data-search-route]");
     if (searchRoute) { document.getElementById("searchDialog").close(); routeTo(searchRoute.dataset.searchRoute); return; }
   });
@@ -585,6 +683,7 @@
     if (event.target.id === "gapUnit") { state.gapUnit = event.target.value; state.gapIndex = 0; state.gapAnswer = ""; state.gapChecked = false; state.gapCorrect = false; saveState(); render(); }
     if (event.target.id === "practiceUnit") { state.practiceUnit = event.target.value; state.practiceIndex = 0; saveState(); render(); }
     if (event.target.id === "essayUnit") { document.querySelectorAll("[data-essay-unit]").forEach(card => card.hidden = event.target.value !== "all" && card.dataset.essayUnit !== event.target.value); }
+    if (event.target.id === "midtermUnit") { state.midtermUnit = event.target.value; saveState(); render(); }
     if (event.target.matches('input[name="examScope"]')) document.querySelectorAll(".scope-option").forEach(label => label.classList.toggle("selected", label.contains(event.target)));
     if (event.target.matches("[data-exam-essay-choice]")) { state.exam.essayChoice = Number(event.target.dataset.examEssayChoice); saveState(); document.querySelectorAll(".essay-choices label").forEach((label,index)=>label.classList.toggle("selected",index===state.exam.essayChoice)); }
   });
