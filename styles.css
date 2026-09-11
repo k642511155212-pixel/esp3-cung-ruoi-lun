@@ -155,6 +155,40 @@ select { min-height: 45px; padding: 8px 38px 8px 11px; border: 1px solid current
 .outline-btn { border: 1px solid var(--ink); background: transparent; color: var(--ink); }
 .outline-btn:hover, .solid-btn:hover { transform: translateY(-1px); }
 
+.gap-list { display: grid; gap: 14px; }
+.gap-card { padding: 24px; border: 1px solid var(--ink); border-radius: var(--radius); background: white; }
+.gap-card h3 { margin: 20px 0; font-size: 1.2rem; line-height: 1.45; }
+.gap-entry { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 10px; }
+.gap-entry input { width: 100%; min-height: 46px; padding: 10px 13px; border: 1px solid var(--line); border-radius: 9px; background: #fbfaf7; color: var(--ink); outline: 0; }
+.gap-entry input.correct { border-color: #148954; background: #effcf5; }
+.gap-entry input.wrong { border-color: #c64035; background: #fff3f1; }
+.gap-feedback { margin-top: 13px; padding: 13px 15px; display: flex; align-items: center; gap: 12px; border-radius: 10px; }
+.gap-feedback.correct { border: 1px solid #89cbaa; background: #effcf5; }
+.gap-feedback.wrong { border: 1px solid #e2a39b; background: #fff3f1; }
+.gap-feedback img { width: 56px; height: 56px; object-fit: contain; }
+.gap-feedback div { display: grid; gap: 2px; }
+.gap-feedback small, .gap-result small { color: var(--blue); font-size: .63rem; font-weight: 900; letter-spacing: .12em; }
+.gap-feedback strong { font-size: 1.03rem; }
+.gap-feedback p { margin: 2px 0 0; color: var(--muted); font-size: .78rem; }
+
+.gap-score { display: grid; text-align: center; }
+.gap-score strong { font-size: 1.25rem; }
+.gap-score span { color: var(--muted); font-size: .72rem; font-weight: 750; }
+.gap-stage { max-width: 940px; margin: 0 auto; padding: clamp(26px,5vw,54px); border: 1px solid var(--ink); border-radius: var(--radius); background: linear-gradient(145deg, #fff, #fff8ed); box-shadow: var(--shadow); }
+.gap-stage > h2 { margin: 35px 0 24px; font-size: clamp(1.65rem,3.3vw,3rem); line-height: 1.18; letter-spacing: -.04em; }
+.gap-word-bank { margin-bottom: 20px; padding: 16px; border: 1px dashed #aa9c91; border-radius: 12px; background: #fffaf5; }
+.gap-word-bank > small { display: block; margin-bottom: 10px; color: var(--blue); font-size: .62rem; font-weight: 900; letter-spacing: .13em; }
+.gap-word-bank > div { display: flex; flex-wrap: wrap; gap: 7px; }
+.gap-word-bank button { padding: 7px 10px; border: 1px solid var(--line); border-radius: 99px; background: white; color: var(--ink); font-size: .78rem; font-weight: 750; }
+.gap-word-bank button:hover:not(:disabled) { border-color: var(--blue); color: var(--blue); }
+.gap-word-bank button:disabled { opacity: .55; }
+.gap-entry.large input { min-height: 54px; font-size: 1rem; }
+.gap-result { position: relative; margin-top: 18px; min-height: 112px; padding: 22px 118px 22px 22px; display: grid; align-content: center; border-radius: 12px; }
+.gap-result.correct { border: 1px solid #78bf99; background: #e9faef; }
+.gap-result.wrong { border: 1px solid #e0a095; background: #fff0ed; }
+.gap-result > strong { display: block; margin-top: 4px; font-size: 1.35rem; }
+.gap-result > p { margin: 5px 0 0; color: var(--muted); font-size: .82rem; }
+
 .short-list, .essay-list, .essay-library { display: grid; gap: 18px; }
 .short-card, .essay-card, .practice-stage { padding: 28px; border: 1px solid var(--ink); border-radius: var(--radius); background: white; }
 .question-label { display: flex; justify-content: space-between; gap: 16px; color: var(--blue); font-size: .65rem; font-weight: 900; letter-spacing: .12em; }
@@ -369,6 +403,8 @@ textarea:focus, input:focus, select:focus { border-color: var(--blue); box-shado
   .term-table article { grid-template-columns: 38px 1fr 10px; padding: 17px 13px; }
   .question-label { align-items: start; }
   .answer-controls { align-items: stretch; flex-direction: column; }
+  .gap-entry { grid-template-columns: 1fr; }
+  .gap-result { padding-right: 20px; }
   .flash-toolbar, .practice-toolbar, .essay-library-head { align-items: stretch; flex-direction: column; }
   .flash-toolbar label, .practice-toolbar label, .essay-library-head label { min-width: 0; }
   .flash-card { min-height: 360px; padding: 23px; }

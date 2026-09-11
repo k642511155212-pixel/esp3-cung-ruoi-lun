@@ -17,11 +17,12 @@ Website học và luyện thi ESP3 bao phủ toàn bộ 10 unit trong giáo trì
 
 - 211 flashcards thuật ngữ và định nghĩa tiếng Anh, kèm nghĩa tiếng Việt.
 - 44 phần lý thuyết được giảng bằng tiếng Anh; key terms và từ chuyên ngành có bản dịch tiếng Việt trong ngoặc.
+- 236 câu gap filling cho cả 10 unit; Unit 2, 3, 4 và 9 bám sát dạng định nghĩa trong tài liệu ôn ESP231.
 - 50 câu hỏi ngắn với model answers không quá 40 từ.
 - 20 đề essay kèm suggested thesis và outline.
 - Bộ mascot ruồi với nhiều biểu cảm xuất hiện ở dashboard, tiêu đề, unit cards, flashcards, đáp án và kết quả kiểm tra.
 - Midterm Simulation 60 phút:
-  - Part 1: 10 terminology questions — 3 points.
+  - Part 1: 10 terminology gap-filling questions — 3 points.
   - Part 2: 3 open-ended questions, maximum 40 words each — 3 points.
   - Part 3: choose 1 of 2 essays, minimum 300 words — 4 points.
 - Midterm mặc định sử dụng Unit 1, 2, 3, 4 và 9; Full-book mode sử dụng cả 10 unit.
@@ -45,8 +46,8 @@ Bạn cũng có thể chọn **Deploy from a branch → main → /(root)** vì �
 
 - `index.html` — khung giao diện và metadata.
 - `styles.css` — toàn bộ giao diện responsive.
-- `data.js` — nội dung 10 unit, flashcards, short answers và essays.
-- `app.js` — điều hướng, flashcards, bộ đếm từ, tìm kiếm, tiến độ và test simulation.
+- `data.js` — nội dung 10 unit, flashcards, gap filling, short answers và essays.
+- `app.js` — điều hướng, flashcards, gap-filling trainer, bộ đếm từ, tìm kiếm, tiến độ và test simulation.
 - `mascots.js` — bộ ảnh mascot ruồi được nhúng trực tiếp để không lỗi đường dẫn khi đưa lên GitHub Pages.
 - `.github/workflows/deploy-pages.yml` — triển khai GitHub Pages.
 

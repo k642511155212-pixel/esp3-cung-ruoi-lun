@@ -560,3 +560,132 @@ const ESP3_ENGLISH_THEORY = [
 ];
 
 window.ESP3_DATA.units.forEach((unit, index) => Object.assign(unit, ESP3_ENGLISH_THEORY[index]));
+
+// Gap-filling bank. Units 2, 3, 4 and 9 follow the definition-led wording
+// found in the supplied ESP231 revision sheets; the remaining units are
+// generated from their complete key-term banks so every unit is covered.
+const gap = (prompt, answer, accept = []) => ({ prompt, answer, accept });
+const ESP3_SOURCE_GAPS = {
+  "unit-2": [
+    gap("The purchase, sale or exchange of goods and services across national borders is called _______.", "International trade"),
+    gap("The theory that encourages exports and restricts imports to accumulate wealth in precious metals is called _______.", "Mercantilism"),
+    gap("When the value of a nation's exports is greater than the value of its imports, it has a _______.", "Trade surplus"),
+    gap("When the value of a country's imports is greater than the value of its exports, it has a _______.", "Trade deficit"),
+    gap("Sending goods to another country for sale or trade is called _______.", "Exporting", ["Export"]),
+    gap("The theory that nations should specialize in goods they can produce more efficiently than anyone else is the _______.", "Theory of absolute advantage", ["Absolute advantage"]),
+    gap("Bringing goods in from another country for sale or trade is called _______.", "Importing", ["Import"]),
+    gap("The theory that nations should produce goods for which they have the greatest relative advantage is the _______.", "Theory of comparative advantage", ["Comparative advantage"]),
+    gap("The theory that countries export products using abundant production factors and import products requiring scarce factors is the _______.", "Factor endowment theory", ["Factor endowments theory"]),
+    gap("Government financial assistance to domestic producers, such as cash payments, tax breaks or price support, is a _______.", "Subsidy"),
+    gap("A government promise to repay a company's loan if the company defaults is a _______.", "Loan guarantee"),
+    gap("A designated area where goods pass with lower duties or fewer customs procedures is a _______.", "Foreign trade zone", ["FTZ"]),
+    gap("The theory explaining how production moves abroad as a new product matures and becomes standardized is the _______.", "International product life cycle theory", ["IPLC", "IPLC theory", "International product life cycle"]),
+    gap("A complete official ban on trade in specified products or with a particular country is an _______.", "Embargo"),
+    gap("The only international organization administering global rules of trade between nations is the _______.", "World Trade Organization", ["WTO"]),
+    gap("The modern policy of promoting exports and restraining imports to pursue national economic objectives is _______.", "Neo-mercantilism"),
+    gap("The treaty designed to reduce tariff and non-tariff barriers before the WTO was the _______.", "General Agreement on Tariffs and Trade", ["GATT"]),
+    gap("The trade theory linking specialization to the relative abundance and cost of labour and capital is the _______.", "Heckscher–Ohlin theory", ["Heckscher Ohlin theory"]),
+    gap("The unexpected finding that US exports appeared more labour-intensive than its imports is the _______.", "Leontief paradox"),
+    gap("Visible trade in Britain, or merchandise trade in the United States, is trade in _______.", "Commodities", ["Goods"]),
+    gap("Foodstuffs, fuels and industrial raw materials are examples of _______ commodities.", "Primary"),
+    gap("The ratio of the unit price of exports to the unit price of imports is called the _______.", "Terms of trade", ["TOT"]),
+    gap("A government tax levied on a product as it enters or leaves a country is a _______.", "Tariff"),
+    gap("A tariff levied by the country from which a product is sent abroad is an _______.", "Export tariff"),
+    gap("A tariff levied by the country into which a product is brought is an _______.", "Import tariff"),
+    gap("A tariff calculated as a percentage of an imported product's stated value is an _______ tariff.", "Ad valorem", ["Ad valorem tariff", "Ad valorem duty"]),
+    gap("A tariff charged as a fixed fee for each physical unit of an imported product is a _______.", "Specific tariff", ["Specific duty"]),
+    gap("A tariff combining a percentage of value with a fixed fee per unit is a _______.", "Compound tariff", ["Compound duty"]),
+    gap("The international body that administers agreements and settles disputes over trade rules is the _______.", "World Trade Organization", ["WTO"]),
+    gap("Selling a product abroad below its normal home-market price or cost is called _______.", "Dumping")
+  ],
+  "unit-3": [
+    gap("A situation in which every country can benefit from trade, even if some benefit more than others, is a _______.", "Positive-sum game", ["Positive sum game"]),
+    gap("The gradual or complete removal of existing impediments to trade in goods and services is called _______.", "Trade liberalization", ["Trade liberalisation"]),
+    gap("The BOP component showing trade in goods and services, income and current transfers is the _______.", "Current account"),
+    gap("The theory that firm or industry success rests on cost advantages or differentiated products concerns _______.", "Competitive advantage"),
+    gap("The increasing integration of national economies through trade, investment and capital flows is _______.", "Globalization", ["Globalisation"]),
+    gap("The economic philosophy advocating simultaneous export promotion and import restriction is _______.", "Mercantilism"),
+    gap("A non-binding intergovernmental instrument regulating specified government or corporate behaviour is a _______.", "Code of conduct"),
+    gap("The extension of economic activity across national borders to use lower costs and production specialization is _______.", "Internationalization", ["Internationalisation"]),
+    gap("The claim that new industries need temporary protection until they can compete internationally is the _______.", "Infant industry argument"),
+    gap("An agreement between two countries setting the conditions under which they trade is a _______.", "Bilateral trade agreement"),
+    gap("Moving away from a system of distinct national markets is called the _______.", "Globalization of markets", ["Globalisation of markets"]),
+    gap("Government financial assistance provided to a domestic producer is a _______.", "Subsidy"),
+    gap("The difference or relationship between an economy's exports and imports is its _______.", "Balance of trade"),
+    gap("A jurisdiction with exceptionally low or zero income taxes is a _______.", "Tax haven"),
+    gap("Laws designed to protect domestic producers from unfairly low-priced imports are _______.", "Anti-dumping laws", ["Antidumping laws"]),
+    gap("An intergovernmental agreement creating non-discriminatory, predictable and transparent trade rights and obligations is a _______.", "Multilateral trade agreement"),
+    gap("A policy climate that shields domestic producers from the rigours of international markets is _______.", "Protectionism"),
+    gap("Government acts, policies and practices that influence trade in goods and services form _______.", "Commercial policy"),
+    gap("FDI in the same industry abroad as the investing firm operates in at home is _______.", "Horizontal FDI", ["Horizontal foreign direct investment"]),
+    gap("A group of countries that pursues a common external trade policy is a _______.", "Common market"),
+    gap("An economic system combining private ownership and markets with significant government ownership or planning is a _______.", "Mixed economy"),
+    gap("The output level at which most plant-level economies of scale are exhausted is the _______.", "Minimum efficient scale", ["MES"]),
+    gap("The absence of artificial barriers to the flow of goods and services between countries is _______.", "Free trade"),
+    gap("The BOP account recording cross-border transactions in financial assets, investments and loans is the _______.", "Capital account"),
+    gap("A measure of how strongly demand responds to a change in price is _______.", "Price elasticity of demand", ["PED"]),
+    gap("The full framework of laws, agreements and negotiating positions used to secure market access is _______.", "Trade policy"),
+    gap("An MNE policy under which host-country nationals manage local subsidiaries is _______.", "Polycentric staffing"),
+    gap("A rule requiring a stated fraction of a product to be produced domestically is a _______.", "Local content requirement"),
+    gap("The statistical record of a country's total trade, economic transactions and financial flows is the _______.", "Balance of payments", ["BOP", "Balance of payment"]),
+    gap("Government approaches to promoting and protecting rivalry in markets form _______.", "Competition policy"),
+    gap("Trade cooperation based on equal rights, obligations and non-discrimination among many countries is _______.", "Multilateralism"),
+    gap("An export quota imposed by the exporting country, usually at the importer's request, is a _______.", "Voluntary export restraint", ["VER", "Voluntary export restraint (VER)"]),
+    gap("The free cross-border movement of goods, services, capital and people is _______.", "Free trade"),
+    gap("An exchange-rate system in which supply and demand continuously adjust a currency's price is a _______.", "Floating exchange rate", ["Floating exchange-rate system"]),
+    gap("The international treaty that committed signatories to lower trade barriers and later led to the WTO was _______.", "General Agreement on Tariffs and Trade", ["GATT"])
+  ],
+  "unit-4": [
+    gap("Establishing or acquiring a direct business interest in another country is _______.", "Foreign direct investment", ["FDI"]),
+    gap("Purchasing foreign shares or bonds without seeking managerial control is _______.", "Foreign portfolio investment", ["FPI", "Portfolio investment"]),
+    gap("Cash grants, tax credits, accelerated depreciation and low-interest loans offered to attract FDI are _______.", "Investment incentives"),
+    gap("Payments made by a foreign manufacturer for the right to use licensed property are _______.", "Royalty payments", ["Royalties"]),
+    gap("An independent sales agent granted the sole contractual right to sell a foreign manufacturer's products is an _______.", "Exclusive distributor"),
+    gap("A separate subsidiary jointly owned by two or more independent companies is a _______.", "Joint venture", ["JV"]),
+    gap("A sales agent that represents more than one manufacturer is a _______.", "Multiple distributor"),
+    gap("A system giving foreign subsidiaries a significant voice in crucial decisions is _______.", "Decentralization", ["Decentralisation"]),
+    gap("A system in which the parent retains decision-making power and tight control over subsidiaries is _______.", "Centralization", ["Centralisation"]),
+    gap("When one company takes control of another and becomes its new owner, the purchase is an _______.", "Acquisition"),
+    gap("Building a new foreign subsidiary from the ground up is a _______.", "Greenfield investment", ["Greenfield project"]),
+    gap("When two firms combine and continue as one company, the transaction is a _______.", "Merger"),
+    gap("The purchase of enough shares to gain a controlling interest in a target firm is a _______.", "Buyout"),
+    gap("Buying as many of a target company's shares as possible on the stock market is a _______.", "Raid"),
+    gap("A public offer to shareholders to buy their shares at a stated price within a limited period is a _______.", "Takeover bid"),
+    gap("A combination between competitors making the same or similar products is a _______.", "Horizontal merger"),
+    gap("A combination between companies at connected stages of production or distribution is a _______.", "Vertical merger"),
+    gap("A corporation controlling production and marketing in several countries is a _______.", "Multinational corporation", ["MNC", "Multinational enterprise", "MNE"])
+  ],
+  "unit-9": [
+    gap("A contract in which an insurer compensates an insured for covered financial loss in return for a premium is _______.", "Insurance"),
+    gap("The standard-form contract stating which claims an insurer must legally pay is an _______.", "Insurance policy"),
+    gap("The party that undertakes to indemnify covered losses is the _______.", "Insurer", ["Underwriter", "Insurer or underwriter"]),
+    gap("The person or entity buying insurance and receiving indemnity is the _______.", "Insured", ["Policyholder", "Insured or policyholder"]),
+    gap("The person, group, property or legal interest for which a policy is issued is the _______.", "Subject-matter insured", ["Subject matter insured"]),
+    gap("The payment made to buy an insurance policy and keep it in force is the _______.", "Premium"),
+    gap("Spreading losses incurred by a few members across the whole insured group is _______.", "Pooling", ["Pooling of losses"]),
+    gap("An accidental, unforeseen and unexpected loss occurring by chance is a _______.", "Fortuitous loss"),
+    gap("Moving a pure risk from the insured to the insurer is called _______.", "Risk transfer"),
+    gap("Restoring an insured approximately to the financial position held before a covered loss is _______.", "Indemnification", ["Indemnity"]),
+    gap("The rule that an insured should receive no more than the actual loss is the principle of _______.", "Indemnity", ["Principle of indemnity"]),
+    gap("The requirement that the insured would suffer financially if the covered event occurred is _______.", "Insurable interest", ["Principle of insurable interest"]),
+    gap("The insurer's right, after paying a claim, to recover from a negligent third party is _______.", "Subrogation", ["Principle of subrogation"]),
+    gap("The unusually high standard of honesty imposed on both parties to an insurance contract is _______.", "Utmost good faith", ["Principle of utmost good faith"]),
+    gap("Statements made by an applicant for insurance are called _______.", "Representations", ["Representation"]),
+    gap("Intentional failure to reveal a material fact to an insurer is _______.", "Concealment", ["Nondisclosure", "Non-disclosure"]),
+    gap("A statement that forms part of an insurance contract and is guaranteed to be true is a _______.", "Warranty"),
+    gap("Cover for ships, cargo, terminals and related transport between origin and destination is _______.", "Marine insurance"),
+    gap("Cover for the hull and cargo of ocean-going vessels against insured marine perils is _______.", "Ocean marine insurance"),
+    gap("Damage or expense affecting only a particular interest, without a voluntary sacrifice for common safety, is _______.", "Particular average"),
+    gap("An extraordinary sacrifice or expense intentionally incurred for the common safety of ship and cargo is _______.", "General average"),
+    gap("A marine policy effective for a specified period, commonly 12 months, is a _______.", "Time policy"),
+    gap("A policy covering the subject matter from one port or place to another is a _______.", "Voyage policy"),
+    gap("A policy used for consignments shipped regularly and frequently to overseas markets is an _______.", "Open policy", ["Open cover"])
+  ]
+};
+
+window.ESP3_DATA.units.forEach(unit => {
+  const generated = unit.terms.map(([term, definition]) =>
+    gap(`_______: ${definition}`, term)
+  );
+  unit.gaps = ESP3_SOURCE_GAPS[unit.id] || generated;
+});
