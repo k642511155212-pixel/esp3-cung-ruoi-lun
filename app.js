@@ -7,6 +7,15 @@
   const allTerms = D.units.flatMap(unit => unit.terms.map((term, index) => ({ unit, index, term: term[0], definition: term[1], vi: term[2], key: `${unit.id}:${index}` })));
   const allShort = D.units.flatMap(unit => unit.shortAnswers.map((item, index) => ({ unit, index, ...item, key: `${unit.id}:${index}` })));
   const allEssays = D.units.flatMap(unit => unit.essays.map((item, index) => ({ unit, index, ...item, key: `${unit.id}:${index}` })));
+  const MASCOTS = Object.freeze({
+    neutral: "assets/fly-neutral.webp",
+    flower: "assets/fly-flower.webp",
+    heart: "assets/fly-heart.webp",
+    mustache: "assets/fly-mustache.webp",
+    sideeye: "assets/fly-sideeye.webp",
+    angry: "assets/fly-angry.webp"
+  });
+  const mascotCycle = [MASCOTS.flower, MASCOTS.neutral, MASCOTS.heart, MASCOTS.mustache, MASCOTS.sideeye];
 
   const defaults = {
     completedUnits: [],
@@ -59,11 +68,26 @@
     clearTimeout(showToast.handle);
     showToast.handle = setTimeout(() => toast.classList.remove("show"), 1800);
   }
+  function mascotFor(title = "") {
+    const value = normalize(title);
+    if (/essay/.test(value)) return MASCOTS.mustache;
+    if (/test|exam|midterm/.test(value)) return MASCOTS.sideeye;
+    if (/result|progress|tien do/.test(value)) return MASCOTS.heart;
+    if (/flash|term/.test(value)) return MASCOTS.neutral;
+    return MASCOTS.flower;
+  }
+  function mascotFloatLayer() {
+    return `<div class="mascot-float-layer" aria-hidden="true">
+      <img class="floating-fly fly-left-top" src="${MASCOTS.flower}" alt="">
+      <img class="floating-fly fly-right-mid" src="${MASCOTS.heart}" alt="">
+      <img class="floating-fly fly-left-bottom" src="${MASCOTS.sideeye}" alt="">
+    </div>`;
+  }
   function page({ eyebrow, title, lead = "", actions = "", body, className = "" }) {
-    return `<section class="page ${className}">
+    return `${mascotFloatLayer()}<section class="page ${className}">
       <header class="page-head">
         <div><span class="eyebrow">${esc(eyebrow)}</span><h1>${esc(title)}</h1>${lead ? `<p>${esc(lead)}</p>` : ""}</div>
-        ${actions ? `<div class="page-actions">${actions}</div>` : ""}
+        <div class="page-head-side"><img class="page-mascot" src="${mascotFor(title)}" alt="" aria-hidden="true">${actions ? `<div class="page-actions">${actions}</div>` : ""}</div>
       </header>
       ${body}
     </section>`;
@@ -89,8 +113,9 @@
       <section class="dashboard-intro">
         <div class="dashboard-copy">
           <span class="kicker">FULL COURSE · 10 UNITS</span>
-          <h2>Học đúng nội dung.<br><em>Trả lời đúng format.</em></h2>
-          <p>Lý thuyết tiếng Việt để hiểu sâu; thuật ngữ, định nghĩa và câu trả lời mẫu bằng tiếng Anh để dùng trực tiếp trong bài thi.</p>
+          <h2>Learn it clearly.<br><em>Answer it confidently.</em></h2>
+          <p>Theory is taught in English, with Vietnamese translations beside key terms and specialist vocabulary. Model answers are ready for the exact exam format.</p>
+          <img class="dashboard-mascot" src="${MASCOTS.flower}" alt="Cute fly holding a flower">
         </div>
         <div class="course-map" aria-label="Bản đồ khóa học">
           ${D.units.map(unit => `<button data-route="unit/${unit.id}/theory" class="map-node ${unit.midterm ? "core" : ""} ${state.completedUnits.includes(unit.id) ? "done" : ""}"><b>${String(unit.num).padStart(2,"0")}</b><span>${esc(unit.title)}</span>${unit.midterm ? "<small>MIDTERM</small>" : ""}</button>`).join("")}
@@ -106,15 +131,15 @@
 
       <section class="three-spaces">
         <article class="space-card yellow">
-          <span class="space-number">01</span><div><small>STUDY LIBRARY</small><h3>Học từng unit</h3><p>Lý thuyết tiếng Việt, định nghĩa tiếng Anh, short answers và dàn ý essay trong cùng một flow.</p></div>
+          <span class="space-number">01</span><img class="space-mascot" src="${MASCOTS.flower}" alt="" aria-hidden="true"><div><small>STUDY LIBRARY</small><h3>Học từng unit</h3><p>Theory in English, Vietnamese support for specialist terms, short answers and essay outlines in one flow.</p></div>
           <button data-route="learn">Mở thư viện bài học <span>→</span></button>
         </article>
         <article class="space-card blue">
-          <span class="space-number">02</span><div><small>ACTIVE RECALL</small><h3>Flashcards & luyện nói</h3><p>Lọc theo unit, lật thẻ, đánh dấu đã nhớ và luyện câu trả lời giới hạn 40 từ.</p></div>
+          <span class="space-number">02</span><img class="space-mascot" src="${MASCOTS.heart}" alt="" aria-hidden="true"><div><small>ACTIVE RECALL</small><h3>Flashcards & luyện nói</h3><p>Lọc theo unit, lật thẻ, đánh dấu đã nhớ và luyện câu trả lời giới hạn 40 từ.</p></div>
           <button data-route="flashcards">Bắt đầu flashcards <span>→</span></button>
         </article>
         <article class="space-card dark">
-          <span class="space-number">03</span><div><small>EXAM SIMULATION</small><h3>Midterm 60 phút</h3><p>10 terminology, 3 short answers và chọn 1 trong 2 essay — đúng cấu trúc 3 + 3 + 4 điểm.</p></div>
+          <span class="space-number">03</span><img class="space-mascot" src="${MASCOTS.sideeye}" alt="" aria-hidden="true"><div><small>EXAM SIMULATION</small><h3>Midterm 60 phút</h3><p>10 terminology, 3 short answers và chọn 1 trong 2 essay — đúng cấu trúc 3 + 3 + 4 điểm.</p></div>
           <button data-route="mock-test">Vào phòng thi <span>→</span></button>
         </article>
       </section>
@@ -130,19 +155,19 @@
     const body = `<div class="unit-grid">${D.units.map(unit => {
       const done = state.completedUnits.includes(unit.id);
       return `<article class="unit-card ${done ? "complete" : ""}">
-        <div class="unit-card-top"><span>UNIT ${String(unit.num).padStart(2,"0")}</span>${unit.midterm ? "<b>MIDTERM CORE</b>" : "<b>FULL COURSE</b>"}</div>
+        <div class="unit-card-top"><span>UNIT ${String(unit.num).padStart(2,"0")}</span>${unit.midterm ? "<b>MIDTERM CORE</b>" : "<b>FULL COURSE</b>"}</div><img class="unit-card-mascot" src="${mascotCycle[(unit.num - 1) % mascotCycle.length]}" alt="" aria-hidden="true">
         <h2>${esc(unit.title)}</h2><p>${esc(unit.summary)}</p>
-        <div class="unit-counts"><span>${unit.theories.length} phần lý thuyết</span><span>${unit.terms.length} key terms</span><span>${unit.shortAnswers.length} short answers</span><span>${unit.essays.length} essays</span></div>
+        <div class="unit-counts"><span>${unit.theories.length} theory sections</span><span>${unit.terms.length} key terms</span><span>${unit.shortAnswers.length} short answers</span><span>${unit.essays.length} essays</span></div>
         <button data-route="unit/${unit.id}/theory">${done ? "Ôn lại unit" : "Bắt đầu unit"} <span>→</span></button>
       </article>`;
     }).join("")}</div>`;
-    return page({ eyebrow: "STUDY LIBRARY", title: "Toàn bộ 10 unit", lead: "Mỗi unit đi theo thứ tự: hiểu lý thuyết → học thuật ngữ → luyện trả lời ngắn → chuẩn bị essay.", body });
+    return page({ eyebrow: "STUDY LIBRARY", title: "Toàn bộ 10 unit", lead: "Mỗi unit đi theo thứ tự: theory in English → key terms → short answers → essay preparation.", body });
   }
 
   function unitPage(unitId, tab = "theory") {
     const unit = unitById(unitId);
     const tabs = [
-      ["theory","Lý thuyết"],["terms","Thuật ngữ"],["short","Short answers"],["essay","Essay & dàn ý"]
+      ["theory","Theory in English"],["terms","Thuật ngữ"],["short","Short answers"],["essay","Essay & dàn ý"]
     ];
     let content = "";
     if (tab === "theory") content = theoryTab(unit);
@@ -151,6 +176,7 @@
     if (tab === "essay") content = essayTab(unit);
     const body = `<div class="unit-layout">
       <aside class="unit-sidebar">
+        <img class="sidebar-mascot" src="${mascotCycle[(unit.num - 1) % mascotCycle.length]}" alt="" aria-hidden="true">
         <label>Chuyển unit<select id="unitSwitcher">${unitOptions(unit.id, false)}</select></label>
         <div class="unit-mini-progress"><span>${state.completedUnits.includes(unit.id) ? "Đã hoàn thành" : "Đang học"}</span><i class="${state.completedUnits.includes(unit.id) ? "done" : ""}"></i></div>
         <p>${esc(unit.summary)}</p>
@@ -165,12 +191,13 @@
   }
 
   function theoryTab(unit) {
-    return `<div class="section-intro"><span>01</span><div><h2>Lý thuyết bằng tiếng Việt</h2><p>Thuật ngữ chuyên ngành được giữ bằng tiếng Anh để bạn liên kết trực tiếp với câu hỏi thi.</p></div></div>
+    return `<div class="section-intro theory-intro"><span>01</span><div><h2>Theory taught in English</h2><p>Key terms and specialist vocabulary include Vietnamese translations in parentheses.</p></div><img class="section-mascot" src="${MASCOTS.flower}" alt="" aria-hidden="true"></div>
+      <section class="lesson-roadmap"><div><span>THIS LESSON COVERS</span><h3>Unit ${unit.num} learning map</h3></div><ol>${unit.theories.map((item,index) => `<li><b>${String(index + 1).padStart(2,"0")}</b>${esc(item.title)}</li>`).join("")}</ol><img src="${MASCOTS.sideeye}" alt="" aria-hidden="true"></section>
       <div class="theory-stack">${unit.theories.map((item,index) => `<article class="theory-card">
         <div class="theory-index">${String(index + 1).padStart(2,"0")}</div>
-        <div><h3>${esc(item.title)}</h3><p>${esc(item.body)}</p><ul>${item.points.map(point => `<li>${esc(point)}</li>`).join("")}</ul></div>
+        <div lang="en"><h3>${esc(item.title)}</h3><p>${esc(item.body)}</p><ul>${item.points.map(point => `<li>${esc(point)}</li>`).join("")}</ul></div>
       </article>`).join("")}</div>
-      <div class="next-step"><span>Bước tiếp theo</span><strong>Kiểm tra xem bạn có nhận diện đúng thuật ngữ trong phần vừa học.</strong><button data-route="unit/${unit.id}/terms">Sang phần thuật ngữ →</button></div>`;
+      <div class="next-step"><img src="${MASCOTS.heart}" alt="" aria-hidden="true"><span>NEXT STEP</span><strong>Check whether you can recognize and define the key terms from this lesson.</strong><button data-route="unit/${unit.id}/terms">Open key terms →</button></div>`;
   }
 
   function termsTab(unit) {
@@ -186,7 +213,7 @@
         <h3>${esc(item.q)}</h3>
         <textarea rows="4" data-word-limit="40" placeholder="Write your answer in English…"></textarea>
         <div class="answer-controls"><span data-word-count>0 / 40 words</span><button class="outline-btn" data-reveal-answer>Reveal model answer</button></div>
-        <div class="model-answer" hidden><small>MODEL ANSWER · ${wordCount(item.a)} WORDS</small><p>${esc(item.a)}</p></div>
+        <div class="model-answer" hidden><img class="feedback-mascot" src="${MASCOTS.heart}" alt="" aria-hidden="true"><small>MODEL ANSWER · ${wordCount(item.a)} WORDS</small><p>${esc(item.a)}</p></div>
       </article>`).join("")}</div>`;
   }
 
@@ -195,7 +222,7 @@
       <div class="essay-list">${unit.essays.map((essay,index) => `<article class="essay-card">
         <div class="question-label"><span>ESSAY ${index + 1}</span><b>≥ 300 WORDS</b></div><h3>${esc(essay.prompt)}</h3>
         <button class="outline-btn" data-reveal-outline>Reveal thesis & outline</button>
-        <div class="essay-outline" hidden><div class="thesis"><small>SUGGESTED THESIS</small><p>${esc(essay.thesis)}</p></div><ol>${essay.outline.map(step => `<li>${esc(step)}</li>`).join("")}</ol></div>
+        <div class="essay-outline" hidden><img class="feedback-mascot" src="${MASCOTS.mustache}" alt="" aria-hidden="true"><div class="thesis"><small>SUGGESTED THESIS</small><p>${esc(essay.thesis)}</p></div><ol>${essay.outline.map(step => `<li>${esc(step)}</li>`).join("")}</ol></div>
       </article>`).join("")}</div>`;
   }
 
@@ -219,6 +246,7 @@
         <div class="flash-progress"><span>${mastered}/${pool.length} đã nhớ</span><i><b style="width:${pool.length ? mastered / pool.length * 100 : 0}%"></b></i></div>
         <button class="flash-card ${state.flashFlipped ? "flipped" : ""}" id="flashCard" aria-label="Lật flashcard">
           <span class="flash-unit">UNIT ${item.unit.num} · ${esc(item.unit.title)}</span>
+          <img class="flash-mascot" src="${state.flashFlipped ? MASCOTS.heart : MASCOTS.neutral}" alt="" aria-hidden="true">
           <span class="flash-side front"><small>KEY TERM</small><strong>${esc(item.term)}</strong><em>Nhấn để xem định nghĩa</em></span>
           <span class="flash-side back"><small>ENGLISH DEFINITION</small><strong>${esc(item.definition)}</strong><p>${esc(item.vi)}</p><em>Nhấn để xem thuật ngữ</em></span>
         </button>
@@ -246,7 +274,7 @@
       <h2>${esc(item.q)}</h2>
       <textarea rows="7" data-word-limit="40" placeholder="Write a complete answer in English. Define, explain, and answer the exact question."></textarea>
       <div class="answer-controls"><span data-word-count>0 / 40 words</span><button class="solid-btn" data-reveal-answer>Check with model answer</button></div>
-      <div class="model-answer large" hidden><small>MODEL ANSWER · ${wordCount(item.a)} WORDS</small><p>${esc(item.a)}</p><ul><li>Answers the exact question</li><li>Uses the correct technical term</li><li>Explains the mechanism or difference</li><li>Stays within 40 words</li></ul></div>
+      <div class="model-answer large" hidden><img class="feedback-mascot" src="${MASCOTS.heart}" alt="" aria-hidden="true"><small>MODEL ANSWER · ${wordCount(item.a)} WORDS</small><p>${esc(item.a)}</p><ul><li>Answers the exact question</li><li>Uses the correct technical term</li><li>Explains the mechanism or difference</li><li>Stays within 40 words</li></ul></div>
       <div class="stage-nav"><button class="outline-btn" id="prevShort">← Previous</button><button class="outline-btn" id="nextShort">Next →</button></div>
     </article>`;
     return page({eyebrow:"SHORT-ANSWER TRAINER",title:"Viết ngắn nhưng đủ ý",lead:"Mỗi đáp án mẫu đều đã được kiểm tra và không vượt quá 40 từ.",body});
@@ -257,7 +285,7 @@
       <div class="essay-library" id="essayLibrary">${allEssays.map((essay,index) => `<article class="essay-card" data-essay-unit="${essay.unit.id}">
         <div class="question-label"><span>UNIT ${essay.unit.num} · TOPIC ${(essay.index + 1)}</span><b>≥ 300 WORDS</b></div><h3>${esc(essay.prompt)}</h3>
         <button class="outline-btn" data-reveal-outline>Reveal thesis & outline</button>
-        <div class="essay-outline" hidden><div class="thesis"><small>SUGGESTED THESIS</small><p>${esc(essay.thesis)}</p></div><ol>${essay.outline.map(step => `<li>${esc(step)}</li>`).join("")}</ol></div>
+        <div class="essay-outline" hidden><img class="feedback-mascot" src="${MASCOTS.mustache}" alt="" aria-hidden="true"><div class="thesis"><small>SUGGESTED THESIS</small><p>${esc(essay.thesis)}</p></div><ol>${essay.outline.map(step => `<li>${esc(step)}</li>`).join("")}</ol></div>
       </article>`).join("")}</div>`;
     return page({eyebrow:"ESSAY BANK",title:"Đề essay và dàn ý toàn khóa",lead:"Dùng dàn ý để kiểm tra logic, không học thuộc nguyên bài mẫu.",body});
   }
@@ -266,7 +294,7 @@
     const last = state.examHistory[0];
     const body = `<div class="exam-setup">
       <section class="exam-brief">
-        <span>SIMULATED MIDTERM</span><strong>60</strong><h2>minutes</h2>
+        <img class="exam-mascot" src="${MASCOTS.sideeye}" alt="" aria-hidden="true"><span>SIMULATED MIDTERM</span><strong>60</strong><h2>minutes</h2>
         <div class="score-map"><div><b>3</b><span>Terminology<br>10 items</span></div><div><b>3</b><span>Short answers<br>3 questions</span></div><div><b>4</b><span>Essay<br>Choose 1 of 2</span></div></div>
       </section>
       <section class="exam-options">
@@ -353,7 +381,8 @@
   function examResult() {
     const exam = state.exam;
     const termPoints = (exam.termCorrect / 10 * 3).toFixed(1);
-    const body = `<section class="result-hero"><div><span>${exam.autoSubmitted ? "TIME EXPIRED · AUTO-SUBMITTED" : "TEST SUBMITTED"}</span><strong>${exam.termCorrect}/10</strong><p>Terminology correct · provisional ${termPoints}/3 points</p></div><button class="start-exam" id="newExam">New test →</button></section>
+    const resultMascot = exam.termCorrect >= 7 ? MASCOTS.heart : MASCOTS.angry;
+    const body = `<section class="result-hero"><img class="result-mascot" src="${resultMascot}" alt="" aria-hidden="true"><div><span>${exam.autoSubmitted ? "TIME EXPIRED · AUTO-SUBMITTED" : "TEST SUBMITTED"}</span><strong>${exam.termCorrect}/10</strong><p>Terminology correct · provisional ${termPoints}/3 points</p></div><button class="start-exam" id="newExam">New test →</button></section>
       <section class="result-note"><strong>Điểm hoàn chỉnh cần giáo viên hoặc bạn tự đối chiếu phần viết.</strong><p>Website chấm tự động Part 1. Với Part 2 và Part 3, hãy so sánh độ chính xác nội dung, giới hạn từ, logic và ngôn ngữ với model answer/dàn ý dưới đây.</p></section>
       <section class="review-section"><header><span>PART 1 REVIEW</span><h2>Terminology</h2></header><div class="review-terms">${exam.terms.map((item,index) => `<article class="${exam.correctness[index] ? "correct" : "wrong"}"><span>${exam.correctness[index] ? "✓" : "×"}</span><div><p>${esc(item.definition)}</p><small>Your answer: ${esc(exam.termAnswers[index] || "—")}</small><strong>${esc(item.term)}</strong></div></article>`).join("")}</div></section>
       <section class="review-section"><header><span>PART 2 REVIEW</span><h2>Short answers</h2></header><div class="short-review">${exam.shorts.map((item,index) => `<article><h3>${index + 1}. ${esc(item.q)}</h3><div><small>YOUR ANSWER · ${wordCount(exam.shortAnswers[index])} WORDS</small><p>${esc(exam.shortAnswers[index] || "No answer")}</p></div><div class="model"><small>MODEL ANSWER · ${wordCount(item.a)} WORDS</small><p>${esc(item.a)}</p></div></article>`).join("")}</div></section>

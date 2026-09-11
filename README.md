@@ -16,9 +16,10 @@ Website học và luyện thi ESP3 bao phủ toàn bộ 10 unit trong giáo trì
 ## Nội dung
 
 - 211 flashcards thuật ngữ và định nghĩa tiếng Anh, kèm nghĩa tiếng Việt.
-- 40 phần lý thuyết bằng tiếng Việt.
+- 44 phần lý thuyết được giảng bằng tiếng Anh; key terms và từ chuyên ngành có bản dịch tiếng Việt trong ngoặc.
 - 50 câu hỏi ngắn với model answers không quá 40 từ.
 - 20 đề essay kèm suggested thesis và outline.
+- Bộ mascot ruồi với nhiều biểu cảm xuất hiện ở dashboard, tiêu đề, unit cards, flashcards, đáp án và kết quả kiểm tra.
 - Midterm Simulation 60 phút:
   - Part 1: 10 terminology questions — 3 points.
   - Part 2: 3 open-ended questions, maximum 40 words each — 3 points.
@@ -46,6 +47,7 @@ Bạn cũng có thể chọn **Deploy from a branch → main → /(root)** vì �
 - `styles.css` — toàn bộ giao diện responsive.
 - `data.js` — nội dung 10 unit, flashcards, short answers và essays.
 - `app.js` — điều hướng, flashcards, bộ đếm từ, tìm kiếm, tiến độ và test simulation.
+- `assets/` — bộ ảnh mascot ruồi đã tối ưu cho web.
 - `.github/workflows/deploy-pages.yml` — triển khai GitHub Pages.
 
 ## Lưu ý dữ liệu

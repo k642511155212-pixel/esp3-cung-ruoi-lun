@@ -400,3 +400,229 @@ textarea:focus, input:focus, select:focus { border-color: var(--blue); box-shado
   .page, .exam-page { width: 100%; padding: 0; }
   .paper-section { break-inside: avoid; box-shadow: none; }
 }
+
+/* Friendly mascot layer inspired by the supplied Finance and Econometrics sites. */
+:root {
+  --ink: #251f1c;
+  --paper: #fff8f2;
+  --paper-2: #f3e8df;
+  --blue: #6f55d8;
+  --yellow: #ffd866;
+  --orange: #ef704f;
+  --mint: #c8f1d9;
+  --pink: #ffd8e7;
+  --muted: #71645d;
+  --line: #ddcec4;
+  --lavender: #e5ddff;
+  --peach: #ffd8c8;
+  --shadow: 0 18px 48px rgba(66, 43, 31, .10);
+}
+
+body {
+  background:
+    radial-gradient(circle at 8% 16%, rgba(255,216,200,.50), transparent 21rem),
+    radial-gradient(circle at 91% 72%, rgba(229,221,255,.55), transparent 24rem),
+    var(--paper);
+}
+.topbar { background: rgba(255,248,242,.94); }
+.brand-mark.brand-fly {
+  padding: 3px;
+  overflow: hidden;
+  border: 1px solid var(--ink);
+  background: linear-gradient(145deg, var(--peach), var(--lavender));
+}
+.brand-fly img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.progress-chip { background: var(--blue); }
+.page-head { align-items: center; }
+.page-head > div:first-child { min-width: 0; }
+.page-head-side {
+  flex: 0 0 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+.page-mascot {
+  display: block;
+  width: 112px;
+  height: 112px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 18px rgba(61,42,34,.15));
+  animation: mascot-breathe 4.8s ease-in-out infinite;
+}
+
+.mascot-float-layer { display: none; pointer-events: none; }
+.floating-fly {
+  position: fixed;
+  z-index: 4;
+  display: block;
+  width: 84px;
+  height: 84px;
+  object-fit: contain;
+  opacity: .78;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 12px 18px rgba(61,42,34,.14));
+  animation: mascot-float 5.6s ease-in-out infinite;
+}
+@media (min-width: 1540px) and (min-height: 720px) {
+  .mascot-float-layer { display: block; }
+  .fly-left-top { left: max(14px, calc((100vw - 1380px)/2 - 94px)); top: 24vh; transform: rotate(-7deg); }
+  .fly-right-mid { right: max(14px, calc((100vw - 1380px)/2 - 94px)); top: 44vh; animation-delay: -1.7s; transform: rotate(7deg); }
+  .fly-left-bottom { left: max(16px, calc((100vw - 1380px)/2 - 90px)); bottom: 7vh; animation-delay: -3.2s; transform: rotate(4deg); }
+}
+
+.dashboard-intro { position: relative; background: linear-gradient(145deg, #ffe386, #ffd2bf); box-shadow: var(--shadow); }
+.dashboard-copy { position: relative; }
+.dashboard-copy h2 em { color: var(--blue); }
+.dashboard-copy p { max-width: 560px; }
+.dashboard-mascot {
+  position: absolute;
+  top: 26px;
+  right: 28px;
+  width: 112px;
+  height: 112px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 18px rgba(61,42,34,.16));
+  transform: rotate(5deg);
+}
+.space-card { position: relative; overflow: hidden; box-shadow: var(--shadow); }
+.space-card.blue { background: var(--blue); }
+.space-card.yellow { background: #ffe58a; }
+.space-card.dark { background: #2b2522; }
+.space-number { position: relative; z-index: 2; }
+.space-mascot {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 16px rgba(0,0,0,.13));
+  transform: rotate(5deg);
+}
+
+.unit-card { position: relative; overflow: hidden; border-color: #cdbdb3; box-shadow: 0 9px 26px rgba(61,42,34,.06); }
+.unit-card h2 { padding-right: 82px; }
+.unit-card-mascot {
+  position: absolute;
+  top: 61px;
+  right: 20px;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  opacity: .95;
+  transform: rotate(4deg);
+}
+.unit-sidebar { background: #2b2522; }
+.sidebar-mascot {
+  display: block;
+  width: 92px;
+  height: 92px;
+  margin: -2px auto 14px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,.23));
+  animation: mascot-breathe 4.8s ease-in-out infinite;
+}
+.tabs { background: rgba(255,248,242,.96); }
+.section-intro { background: linear-gradient(120deg, #ffe58a, #ffd6c6); box-shadow: 0 8px 24px rgba(61,42,34,.07); }
+.section-mascot { width: 82px; height: 82px; object-fit: contain; margin: -14px 0; }
+
+.lesson-roadmap {
+  position: relative;
+  margin-bottom: 18px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 190px minmax(0,1fr) 105px;
+  align-items: center;
+  gap: 24px;
+  overflow: hidden;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, #2b2522 0 68%, var(--lavender) 68% 100%);
+  color: white;
+}
+.lesson-roadmap > div span { color: #ffdca0; font-size: .67rem; font-weight: 900; letter-spacing: .13em; }
+.lesson-roadmap h3 { margin: 7px 0 0; font-size: 1.45rem; line-height: 1.05; letter-spacing: -.035em; }
+.lesson-roadmap ol { margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px 18px; list-style: none; }
+.lesson-roadmap li { display: grid; grid-template-columns: 30px 1fr; gap: 7px; align-items: start; color: #eee7e1; font-size: .83rem; line-height: 1.35; }
+.lesson-roadmap li b { color: #ffdca0; font-size: .68rem; }
+.lesson-roadmap > img { width: 98px; height: 98px; object-fit: contain; filter: drop-shadow(0 8px 14px rgba(0,0,0,.18)); }
+.theory-card { border-color: #cdbdb3; box-shadow: 0 9px 26px rgba(61,42,34,.06); }
+.theory-card p { line-height: 1.72; }
+.theory-card li { background: #fff5ee; }
+.theory-index { background: var(--blue); }
+.next-step { grid-template-columns: 66px auto minmax(0,1fr) auto; background: #2b2522; }
+.next-step > img { width: 62px; height: 62px; object-fit: contain; }
+
+.model-answer, .essay-outline { position: relative; padding-right: 118px; }
+.feedback-mascot {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 12px rgba(61,42,34,.12));
+}
+.flash-card { overflow: hidden; background: linear-gradient(145deg, #ffe386, #ffd2bf); }
+.flash-card.flipped { background: linear-gradient(145deg, #7056d8, #4d3a9e); }
+.flash-mascot {
+  position: absolute;
+  right: 24px;
+  bottom: 18px;
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  opacity: .9;
+  filter: drop-shadow(0 8px 14px rgba(0,0,0,.14));
+}
+.exam-brief { position: relative; overflow: hidden; background: #2b2522; }
+.exam-mascot { position: absolute; top: 26px; right: 26px; width: 112px; height: 112px; object-fit: contain; }
+.result-hero { position: relative; padding-left: 138px; background: linear-gradient(135deg, #ffe486, #ffd7c8); }
+.result-mascot { position: absolute; left: 24px; width: 92px; height: 92px; object-fit: contain; }
+
+@keyframes mascot-float {
+  0%,100% { margin-top: 0; }
+  50% { margin-top: -11px; }
+}
+@keyframes mascot-breathe {
+  0%,100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-5px) rotate(2deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .floating-fly, .page-mascot, .sidebar-mascot { animation: none; }
+}
+@media (max-width: 900px) {
+  .dashboard-mascot { width: 84px; height: 84px; top: 18px; right: 18px; }
+  .lesson-roadmap { grid-template-columns: 160px 1fr; background: #2b2522; }
+  .lesson-roadmap > img { display: none; }
+  .page-head-side { flex-basis: 100px; }
+  .page-mascot { width: 88px; height: 88px; }
+}
+@media (max-width: 700px) {
+  .page-head { align-items: flex-start; }
+  .page-head-side { flex: 0 0 72px; }
+  .page-mascot { width: 70px; height: 70px; }
+  .dashboard-mascot { position: static; width: 90px; height: 90px; margin: 18px 0 -14px; }
+  .space-mascot { width: 76px; height: 76px; }
+  .unit-card-mascot { width: 62px; height: 62px; }
+  .section-mascot { width: 68px; height: 68px; margin: -8px 0; }
+  .lesson-roadmap { grid-template-columns: 1fr; }
+  .lesson-roadmap ol { grid-template-columns: 1fr; }
+  .next-step { grid-template-columns: 58px 1fr; }
+  .next-step strong, .next-step button { grid-column: 1 / -1; }
+  .next-step > img { width: 54px; height: 54px; }
+  .model-answer, .essay-outline { padding-right: 20px; }
+  .feedback-mascot { position: static; float: right; width: 62px; height: 62px; margin: 0 0 8px 12px; }
+  .flash-mascot { width: 70px; height: 70px; }
+  .exam-mascot { width: 86px; height: 86px; top: 20px; right: 18px; }
+  .result-hero { padding-left: 34px; }
+  .result-mascot { position: static; width: 78px; height: 78px; }
+}
+
+@media print {
+  .mascot-float-layer, .page-mascot, .dashboard-mascot, .space-mascot, .unit-card-mascot,
+  .sidebar-mascot, .section-mascot, .feedback-mascot, .flash-mascot, .exam-mascot, .result-mascot { display: none !important; }
+}
