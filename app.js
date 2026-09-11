@@ -114,6 +114,7 @@
       <section class="dashboard-intro">
         <div class="dashboard-copy">
           <span class="kicker">FULL COURSE · 10 UNITS</span>
+          <span class="gap-release">236 GAP-FILLING QUESTIONS · ALL 10 UNITS</span>
           <h2>Learn it clearly.<br><em>Answer it confidently.</em></h2>
           <p>Theory is taught in English, with Vietnamese translations beside key terms and specialist vocabulary. Model answers are ready for the exact exam format.</p>
           <img class="dashboard-mascot" src="${MASCOTS.flower}" alt="Cute fly holding a flower">

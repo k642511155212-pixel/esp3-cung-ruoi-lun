@@ -510,6 +510,18 @@ body {
 
 .dashboard-intro { position: relative; background: linear-gradient(145deg, #ffe386, #ffd2bf); box-shadow: var(--shadow); }
 .dashboard-copy { position: relative; }
+.gap-release {
+  width: fit-content;
+  margin-top: 10px;
+  padding: 6px 10px;
+  display: block;
+  border-radius: 99px;
+  background: var(--blue);
+  color: white;
+  font-size: .62rem;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
 .dashboard-copy h2 em { color: var(--blue); }
 .dashboard-copy p { max-width: 560px; }
 .dashboard-mascot {
