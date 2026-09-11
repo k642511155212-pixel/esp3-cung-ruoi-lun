@@ -61,6 +61,21 @@
     }
     return copy;
   }
+  function gapHintOptions(item, count = 15) {
+    const accepted = new Set([item.answer, ...(item.accept || [])].map(value => normalize(value)));
+    const seen = new Set();
+    const distractors = shuffle(allGaps.map(gap => gap.answer)).filter(term => {
+      const key = normalize(term);
+      if (!key || accepted.has(key) || seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    }).slice(0, Math.max(0, count - 1));
+    return shuffle([item.answer, ...distractors]);
+  }
+  function gapHintMarkup(item) {
+    return `<div class="answer-controls"><span></span><button class="outline-btn" type="button" data-gap-hint-toggle>Hint</button></div>
+      <div class="gap-feedback" data-gap-hint-box hidden aria-live="polite"><div><small>HINT · WORD BANK</small><strong>${gapHintOptions(item).map(esc).join(" · ")}</strong></div></div>`;
+  }
   function unitById(id) { return D.units.find(unit => unit.id === id) || D.units[0]; }
   function routeTo(route) { location.hash = route.startsWith("#") ? route : `#${route}`; }
   function currentRoute() { return location.hash.replace(/^#/, "") || "dashboard"; }
@@ -220,6 +235,7 @@
         <div class="question-label"><span>GAP ${String(index + 1).padStart(2,"0")}</span><b>UNIT ${unit.num}</b></div>
         <h3>${esc(item.prompt)}</h3>
         <div class="gap-entry"><input type="text" data-unit-gap-input="${index}" placeholder="Type the missing term…" autocomplete="off"><button class="solid-btn" data-unit-gap-check="${index}" data-gap-unit-id="${unit.id}">Check</button></div>
+        ${gapHintMarkup(item)}
         <div class="gap-feedback" data-unit-gap-feedback="${index}" hidden aria-live="polite"></div>
       </article>`).join("")}</div>`;
   }
@@ -297,6 +313,7 @@
       <div class="question-label"><span>UNIT ${item.unit.num} · GAP FILLING</span><b>NO WORD BANK · ${state.gapIndex + 1} / ${pool.length}</b></div>
       <h2>${esc(item.prompt)}</h2>
       <div class="gap-entry large"><input id="gapAnswer" type="text" value="${esc(state.gapAnswer)}" placeholder="Type the missing key term…" autocomplete="off" ${state.gapChecked ? "disabled" : ""}><button class="solid-btn" ${state.gapChecked ? "data-next-gap" : "data-check-gap"}>${state.gapChecked ? "Next question →" : "Check answer"}</button></div>
+      ${gapHintMarkup(item)}
       ${feedback}
       <div class="stage-nav"><button class="outline-btn" id="prevGap">← Previous</button><button class="outline-btn" id="nextGap">Skip / Next →</button></div>
     </article>`;
@@ -399,6 +416,7 @@
           <div class="question-label"><span>QUESTION ${String(number).padStart(2,"0")}</span><b>UNIT ${unit.num} · EXAM STYLE</b></div>
           <h3>${esc(item.prompt)}</h3>
           <div class="gap-entry"><input type="text" data-unit-gap-input="${index}" placeholder="Type the missing term…" autocomplete="off"><button class="solid-btn" data-unit-gap-check="${index}" data-gap-unit-id="${unit.id}">Check</button></div>
+          ${gapHintMarkup(item)}
           <div class="gap-feedback" data-unit-gap-feedback="${index}" hidden aria-live="polite"></div>
         </article>`;
       }).join("")}</div>
@@ -449,7 +467,7 @@
         <div class="donate-thank-you"><img src="${MASCOTS.heart}" alt="" aria-hidden="true"><div><small>SPECIAL THANKS</small><strong>Cảm ơn Phước Nguyên đã gợi ý</strong></div></div>
       </div>
       <figure class="donate-image-card">
-        <img src="assets/donate-phuoc-nguyen.png" alt="Ảnh donate kèm mã QR do người dùng cung cấp">
+        <img src="donate-phuoc-nguyen.png" alt="Ảnh donate kèm mã QR do người dùng cung cấp">
         <figcaption>Quét mã QR trong ảnh để donate</figcaption>
       </figure>
     </section>`;
@@ -514,7 +532,7 @@
     const withoutParen = normalize(target.replace(/\([^)]*\)/g,""));
     const acronym = (target.match(/\(([^)]+)\)/) || [])[1];
     const compact = value => normalize(value).replace(/\s+/g, "");
-    return a === t || a === withoutParen || (acronym && (a === normalize(acronym) || compact(a) === compact(acronym)));
+    return a === t || compact(a) === compact(t) || a === withoutParen || compact(a) === compact(withoutParen) || (acronym && (a === normalize(acronym) || compact(a) === compact(acronym)));
   }
   function acceptedGap(answer, item) {
     return [item.answer, ...(item.accept || [])].some(target => acceptedTerm(answer, target));
@@ -660,6 +678,16 @@
     if (event.target.closest("[data-next-gap]") || event.target.closest("#nextGap")) { moveGap(state.gapIndex + 1); return; }
     if (event.target.closest("#prevGap")) { moveGap(state.gapIndex - 1); return; }
     if (event.target.closest("#randomGap")) { const pool = currentGapPool(); moveGap(Math.floor(Math.random() * pool.length)); return; }
+    const gapHintToggle = event.target.closest("[data-gap-hint-toggle]");
+    if (gapHintToggle) {
+      const holder = gapHintToggle.closest("article");
+      const panel = holder?.querySelector("[data-gap-hint-box]");
+      if (panel) {
+        panel.hidden = !panel.hidden;
+        gapHintToggle.textContent = panel.hidden ? "Hint" : "Hide hint";
+      }
+      return;
+    }
     const revealAnswer = event.target.closest("[data-reveal-answer]");
     if (revealAnswer) { const panel = revealAnswer.closest("[data-short-card]").querySelector(".model-answer"); panel.hidden = !panel.hidden; revealAnswer.textContent = panel.hidden ? "Reveal model answer" : "Hide model answer"; return; }
     const revealOutline = event.target.closest("[data-reveal-outline]");
