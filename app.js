@@ -7,14 +7,7 @@
   const allTerms = D.units.flatMap(unit => unit.terms.map((term, index) => ({ unit, index, term: term[0], definition: term[1], vi: term[2], key: `${unit.id}:${index}` })));
   const allShort = D.units.flatMap(unit => unit.shortAnswers.map((item, index) => ({ unit, index, ...item, key: `${unit.id}:${index}` })));
   const allEssays = D.units.flatMap(unit => unit.essays.map((item, index) => ({ unit, index, ...item, key: `${unit.id}:${index}` })));
-  const MASCOTS = Object.freeze({
-    neutral: "assets/fly-neutral.webp",
-    flower: "assets/fly-flower.webp",
-    heart: "assets/fly-heart.webp",
-    mustache: "assets/fly-mustache.webp",
-    sideeye: "assets/fly-sideeye.webp",
-    angry: "assets/fly-angry.webp"
-  });
+  const MASCOTS = window.ESP3_MASCOTS;
   const mascotCycle = [MASCOTS.flower, MASCOTS.neutral, MASCOTS.heart, MASCOTS.mustache, MASCOTS.sideeye];
 
   const defaults = {

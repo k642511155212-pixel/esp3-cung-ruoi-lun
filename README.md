@@ -47,7 +47,7 @@ Bạn cũng có thể chọn **Deploy from a branch → main → /(root)** vì �
 - `styles.css` — toàn bộ giao diện responsive.
 - `data.js` — nội dung 10 unit, flashcards, short answers và essays.
 - `app.js` — điều hướng, flashcards, bộ đếm từ, tìm kiếm, tiến độ và test simulation.
-- `assets/` — bộ ảnh mascot ruồi đã tối ưu cho web.
+- `mascots.js` — bộ ảnh mascot ruồi được nhúng trực tiếp để không lỗi đường dẫn khi đưa lên GitHub Pages.
 - `.github/workflows/deploy-pages.yml` — triển khai GitHub Pages.
 
 ## Lưu ý dữ liệu
