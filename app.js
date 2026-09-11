@@ -277,8 +277,6 @@
     const pool = state.gapUnit === "all" ? allGaps : allGaps.filter(item => item.unit.id === state.gapUnit);
     state.gapIndex = Math.min(state.gapIndex, Math.max(0, pool.length - 1));
     const item = pool[state.gapIndex] || pool[0];
-    const distractors = shuffle([...new Set(item.unit.gaps.map(entry => entry.answer).filter(answer => normalize(answer) !== normalize(item.answer)))]);
-    const wordBank = shuffle([item.answer, ...distractors.slice(0,5)]);
     const accuracy = state.gapAttempted ? Math.round(state.gapCorrectTotal / state.gapAttempted * 100) : 0;
     const feedback = state.gapChecked ? `<div class="gap-result ${state.gapCorrect ? "correct" : "wrong"}">
       <img class="feedback-mascot" src="${state.gapCorrect ? MASCOTS.heart : MASCOTS.angry}" alt="" aria-hidden="true">
@@ -291,14 +289,13 @@
       <button class="outline-btn" id="randomGap">Câu ngẫu nhiên</button>
     </div>
     <article class="gap-stage">
-      <div class="question-label"><span>UNIT ${item.unit.num} · GAP FILLING</span><b>${state.gapIndex + 1} / ${pool.length}</b></div>
+      <div class="question-label"><span>UNIT ${item.unit.num} · GAP FILLING</span><b>NO WORD BANK · ${state.gapIndex + 1} / ${pool.length}</b></div>
       <h2>${esc(item.prompt)}</h2>
-      <div class="gap-word-bank"><small>WORD BANK</small><div>${wordBank.map(answer => `<button type="button" data-gap-word="${esc(answer)}" ${state.gapChecked ? "disabled" : ""}>${esc(answer)}</button>`).join("")}</div></div>
       <div class="gap-entry large"><input id="gapAnswer" type="text" value="${esc(state.gapAnswer)}" placeholder="Type the missing key term…" autocomplete="off" ${state.gapChecked ? "disabled" : ""}><button class="solid-btn" ${state.gapChecked ? "data-next-gap" : "data-check-gap"}>${state.gapChecked ? "Next question →" : "Check answer"}</button></div>
       ${feedback}
       <div class="stage-nav"><button class="outline-btn" id="prevGap">← Previous</button><button class="outline-btn" id="nextGap">Skip / Next →</button></div>
     </article>`;
-    return page({eyebrow:"GAP-FILLING TRAINER",title:"Nhìn định nghĩa, gọi đúng thuật ngữ",lead:`${allGaps.length} câu từ toàn bộ 10 unit; Unit 2, 3, 4 và 9 bám sát các tài liệu ôn tập bạn gửi.`,body});
+    return page({eyebrow:"GAP-FILLING TRAINER",title:"Nhìn định nghĩa, gọi đúng thuật ngữ",lead:`${allGaps.length} câu exam-style, không có word bank; Unit 2, 3, 4 và 9 bám sát các tài liệu ôn tập bạn gửi.`,body});
   }
 
   function currentGapPool() {
@@ -365,7 +362,13 @@
 
   function createExam(scope) {
     const units = scope === "midterm" ? D.units.filter(unit => unit.midterm) : D.units;
-    const terms = shuffle(units.flatMap(unit => unit.gaps.map((item,index) => ({unitId:unit.id,unitNum:unit.num,index,term:item.answer,definition:item.prompt,accept:item.accept || []})))).slice(0,10);
+    const seenAnswers = new Set();
+    const terms = shuffle(units.flatMap(unit => unit.gaps.map((item,index) => ({unitId:unit.id,unitNum:unit.num,index,term:item.answer,definition:item.prompt,accept:item.accept || []})))).filter(item => {
+      const answer = normalize(item.term);
+      if (seenAnswers.has(answer)) return false;
+      seenAnswers.add(answer);
+      return true;
+    }).slice(0,10);
     const shorts = shuffle(units.flatMap(unit => unit.shortAnswers.map((item,index) => ({unitId:unit.id,unitNum:unit.num,index,...item})))).slice(0,3);
     const essays = shuffle(units.flatMap(unit => unit.essays.map((item,index) => ({unitId:unit.id,unitNum:unit.num,index,...item})))).slice(0,2);
     state.exam = { active:true, scope, startedAt:Date.now(), duration:60*60, terms, shorts, essays, termAnswers:Array(10).fill(""), shortAnswers:Array(3).fill(""), essayChoice:0, essayAnswer:"" };
@@ -550,8 +553,6 @@
       feedback.innerHTML = `<img src="${correct ? MASCOTS.heart : MASCOTS.angry}" alt="" aria-hidden="true"><div><small>${correct ? "CORRECT" : "CORRECT ANSWER"}</small><strong>${esc(item.answer)}</strong>${item.accept?.length ? `<p>Also accepted: ${esc(item.accept.join(" · "))}</p>` : ""}</div>`;
       return;
     }
-    const gapWord = event.target.closest("[data-gap-word]");
-    if (gapWord) { const input = document.getElementById("gapAnswer"); state.gapAnswer = gapWord.dataset.gapWord; input.value = state.gapAnswer; input.focus(); return; }
     if (event.target.closest("[data-check-gap]")) {
       const pool = currentGapPool(), item = pool[state.gapIndex];
       state.gapCorrect = acceptedGap(state.gapAnswer, item);

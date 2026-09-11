@@ -561,9 +561,9 @@ const ESP3_ENGLISH_THEORY = [
 
 window.ESP3_DATA.units.forEach((unit, index) => Object.assign(unit, ESP3_ENGLISH_THEORY[index]));
 
-// Gap-filling bank. Units 2, 3, 4 and 9 follow the definition-led wording
-// found in the supplied ESP231 revision sheets; the remaining units are
-// generated from their complete key-term banks so every unit is covered.
+// Exam-style gap-filling bank. Units 2, 3, 4 and 9 follow the supplied
+// ESP231 revision sheets; the remaining units use individually written,
+// single-answer questions covering their complete key-term banks.
 const gap = (prompt, answer, accept = []) => ({ prompt, answer, accept });
 const ESP3_SOURCE_GAPS = {
   "unit-2": [
@@ -571,9 +571,9 @@ const ESP3_SOURCE_GAPS = {
     gap("The theory that encourages exports and restricts imports to accumulate wealth in precious metals is called _______.", "Mercantilism"),
     gap("When the value of a nation's exports is greater than the value of its imports, it has a _______.", "Trade surplus"),
     gap("When the value of a country's imports is greater than the value of its exports, it has a _______.", "Trade deficit"),
-    gap("Sending goods to another country for sale or trade is called _______.", "Exporting", ["Export"]),
+    gap("Sending goods to another country for sale or trade is called _______.", "Exporting"),
     gap("The theory that nations should specialize in goods they can produce more efficiently than anyone else is the _______.", "Theory of absolute advantage", ["Absolute advantage"]),
-    gap("Bringing goods in from another country for sale or trade is called _______.", "Importing", ["Import"]),
+    gap("Bringing goods in from another country for sale or trade is called _______.", "Importing"),
     gap("The theory that nations should produce goods for which they have the greatest relative advantage is the _______.", "Theory of comparative advantage", ["Comparative advantage"]),
     gap("The theory that countries export products using abundant production factors and import products requiring scarce factors is the _______.", "Factor endowment theory", ["Factor endowments theory"]),
     gap("Government financial assistance to domestic producers, such as cash payments, tax breaks or price support, is a _______.", "Subsidy"),
@@ -586,7 +586,7 @@ const ESP3_SOURCE_GAPS = {
     gap("The treaty designed to reduce tariff and non-tariff barriers before the WTO was the _______.", "General Agreement on Tariffs and Trade", ["GATT"]),
     gap("The trade theory linking specialization to the relative abundance and cost of labour and capital is the _______.", "Heckscher–Ohlin theory", ["Heckscher Ohlin theory"]),
     gap("The unexpected finding that US exports appeared more labour-intensive than its imports is the _______.", "Leontief paradox"),
-    gap("Visible trade in Britain, or merchandise trade in the United States, is trade in _______.", "Commodities", ["Goods"]),
+    gap("Visible trade in Britain, or merchandise trade in the United States, is trade in _______.", "Commodities"),
     gap("Foodstuffs, fuels and industrial raw materials are examples of _______ commodities.", "Primary"),
     gap("The ratio of the unit price of exports to the unit price of imports is called the _______.", "Terms of trade", ["TOT"]),
     gap("A government tax levied on a product as it enters or leaves a country is a _______.", "Tariff"),
@@ -595,7 +595,7 @@ const ESP3_SOURCE_GAPS = {
     gap("A tariff calculated as a percentage of an imported product's stated value is an _______ tariff.", "Ad valorem", ["Ad valorem tariff", "Ad valorem duty"]),
     gap("A tariff charged as a fixed fee for each physical unit of an imported product is a _______.", "Specific tariff", ["Specific duty"]),
     gap("A tariff combining a percentage of value with a fixed fee per unit is a _______.", "Compound tariff", ["Compound duty"]),
-    gap("The international body that administers agreements and settles disputes over trade rules is the _______.", "World Trade Organization", ["WTO"]),
+    gap("Trade in services and other items that cannot be physically seen or touched is called _______.", "Invisible trade"),
     gap("Selling a product abroad below its normal home-market price or cost is called _______.", "Dumping")
   ],
   "unit-3": [
@@ -631,7 +631,7 @@ const ESP3_SOURCE_GAPS = {
     gap("Government approaches to promoting and protecting rivalry in markets form _______.", "Competition policy"),
     gap("Trade cooperation based on equal rights, obligations and non-discrimination among many countries is _______.", "Multilateralism"),
     gap("An export quota imposed by the exporting country, usually at the importer's request, is a _______.", "Voluntary export restraint", ["VER", "Voluntary export restraint (VER)"]),
-    gap("The free cross-border movement of goods, services, capital and people is _______.", "Free trade"),
+    gap("Laws intended to preserve market rivalry and protect consumers and importers are _______.", "Competition laws"),
     gap("An exchange-rate system in which supply and demand continuously adjust a currency's price is a _______.", "Floating exchange rate", ["Floating exchange-rate system"]),
     gap("The international treaty that committed signatories to lower trade barriers and later led to the WTO was _______.", "General Agreement on Tariffs and Trade", ["GATT"])
   ],
@@ -653,7 +653,7 @@ const ESP3_SOURCE_GAPS = {
     gap("A public offer to shareholders to buy their shares at a stated price within a limited period is a _______.", "Takeover bid"),
     gap("A combination between competitors making the same or similar products is a _______.", "Horizontal merger"),
     gap("A combination between companies at connected stages of production or distribution is a _______.", "Vertical merger"),
-    gap("A corporation controlling production and marketing in several countries is a _______.", "Multinational corporation", ["MNC", "Multinational enterprise", "MNE"])
+    gap("A corporation controlling production and marketing in several countries is a _______.", "Multinational corporation", ["MNC"])
   ],
   "unit-9": [
     gap("A contract in which an insurer compensates an insured for covered financial loss in return for a premium is _______.", "Insurance"),
@@ -665,7 +665,7 @@ const ESP3_SOURCE_GAPS = {
     gap("Spreading losses incurred by a few members across the whole insured group is _______.", "Pooling", ["Pooling of losses"]),
     gap("An accidental, unforeseen and unexpected loss occurring by chance is a _______.", "Fortuitous loss"),
     gap("Moving a pure risk from the insured to the insurer is called _______.", "Risk transfer"),
-    gap("Restoring an insured approximately to the financial position held before a covered loss is _______.", "Indemnification", ["Indemnity"]),
+    gap("Restoring an insured approximately to the financial position held before a covered loss is _______.", "Indemnification"),
     gap("The rule that an insured should receive no more than the actual loss is the principle of _______.", "Indemnity", ["Principle of indemnity"]),
     gap("The requirement that the insured would suffer financially if the covered event occurred is _______.", "Insurable interest", ["Principle of insurable interest"]),
     gap("The insurer's right, after paying a claim, to recover from a negligent third party is _______.", "Subrogation", ["Principle of subrogation"]),
@@ -683,9 +683,165 @@ const ESP3_SOURCE_GAPS = {
   ]
 };
 
+const ESP3_EXAM_GAP_PROMPTS = {
+  "unit-1": [
+    "Business transactions conducted across national borders are known as _______.",
+    "A good or service produced in one country and sold to another is an _______.",
+    "A good or service purchased from another country is an _______.",
+    "The growing integration and mutual dependence of economies and economic actors is called _______.",
+    "Mutual reliance among individuals, firms, countries or regions is known as _______.",
+    "A firm that controls and coordinates value-adding activities in at least two countries is a _______.",
+    "A company in which another firm owns a significant but normally non-controlling interest is an _______.",
+    "A company controlled by a parent through majority ownership is a _______.",
+    "A subsidiary whose entire equity belongs to its parent company is a _______.",
+    "Long-term foreign investment intended to establish control or significant managerial influence is _______.",
+    "Formal cooperation among neighbouring countries to increase trade and investment is called _______.",
+    "Raw-material exploration, extraction and early production stages are classified as _______.",
+    "Processing, distribution and the sale of finished products are classified as _______.",
+    "The commercial application of a new or improved product, process or system is an _______.",
+    "A written and enforceable law, rule or regulation is a _______.",
+    "An unwritten custom, norm or accepted pattern of behaviour is an _______.",
+    "The cross-border sequence of activities used to create and deliver a product or service is a _______.",
+    "A company-owned resource or capability that supports competitive success is a _______.",
+    "A resource or condition that makes a particular country attractive for business is a _______.",
+    "The additional cost or disadvantage faced by a firm in an unfamiliar foreign market is called _______."
+  ],
+  "unit-5": [
+    "Money or currency belonging to another country is called _______.",
+    "The market in which currencies are traded and exchange rates are determined is the _______.",
+    "The rate at which one currency is converted into another is the _______.",
+    "The rate at which a foreign-exchange dealer buys the base currency is the _______.",
+    "The rate at which a foreign-exchange dealer sells the base currency is the _______.",
+    "The difference between a dealer's buying and selling rates is the _______.",
+    "An exchange rate applying to currency delivered within approximately two business days is the _______.",
+    "An exchange rate agreed today for a currency transaction on a specified future date is the _______.",
+    "Reducing exposure to an adverse exchange-rate movement is known as _______.",
+    "Buying and selling simultaneously in different markets to profit from a current price difference is _______.",
+    "Accepting currency risk in the expectation of profiting from a future price movement is _______.",
+    "A customized binding agreement to exchange currencies later at a rate fixed today is a _______.",
+    "The right, but not the obligation, to exchange currency at a specified rate is a _______.",
+    "A simultaneous purchase and sale of currencies for two different value dates is a _______.",
+    "A standardized exchange-traded agreement for the future delivery of currency is a _______.",
+    "A system in which monetary authorities maintain a currency near an agreed value is a _______.",
+    "A system in which currency value is mainly determined by market supply and demand is a _______.",
+    "Official purchases or sales of currency intended to influence its value are called _______."
+  ],
+  "unit-6": [
+    "The cross-border transfer of an accepted liquid asset in return for goods, services or assets is an _______.",
+    "A payment method under which the seller ships goods before the buyer's payment becomes due is _______.",
+    "Payment made in full or in part before the seller dispatches the goods is called _______.",
+    "A bank undertaking to pay an exporter against a complying presentation of specified documents is a _______.",
+    "A credit that may be cancelled or amended without the beneficiary's prior consent is a _______.",
+    "A credit that cannot be cancelled or amended without the required parties' agreement is an _______.",
+    "A credit carrying a second bank's independent undertaking to pay is a _______.",
+    "A credit authenticated and communicated to the beneficiary by an advising bank is an _______.",
+    "A credit allowing the first beneficiary to transfer available credit to another beneficiary is a _______.",
+    "A credit whose amount becomes available again under stated conditions is a _______.",
+    "A second credit issued with the first credit serving as supporting security is a _______.",
+    "A bank undertaking payable when the applicant fails to perform an underlying obligation is a _______.",
+    "A credit permitting an advance to the beneficiary before shipment is a _______.",
+    "A written order requiring a named party to pay a specified sum on demand or at a future date is a _______.",
+    "A draft that must be paid when presented to the drawee is a _______.",
+    "A draft payable after a stated period or on a specified future date is a _______.",
+    "A time draft accepted by a bank, making that bank primarily liable for payment, is a _______.",
+    "Drafts handled through banks for collection without any bank guarantee of payment are called _______.",
+    "The collection of a financial document without attached commercial documents is a _______.",
+    "A collection in which commercial or title documents accompany the draft is a _______.",
+    "Under the collection term ________, shipping documents are released only after the importer pays the draft.",
+    "Under the collection term ________, documents are released after the importer accepts a time draft.",
+    "The importer's bank that opens a documentary credit is the _______.",
+    "The bank that authenticates a documentary credit and communicates it to the beneficiary is the _______.",
+    "A bank that adds its own independent payment undertaking to a documentary credit is the _______.",
+    "A transport document serving as a receipt, evidence of carriage and sometimes a document of title is a _______."
+  ],
+  "unit-7": [
+    "The process of creating, offering and exchanging value in order to satisfy customer needs and wants is _______.",
+    "A physical environment in which buyers and sellers interact is a _______.",
+    "A digital environment in which buyers and sellers interact is a _______.",
+    "The collection and analysis of information for a specific marketing decision is called _______.",
+    "A basic human requirement, such as food, shelter or security, is a _______.",
+    "A basic need directed towards a particular object or solution becomes a _______.",
+    "A want for a specific product that is supported by willingness and ability to pay is called _______.",
+    "Dividing a market into groups with different needs, characteristics or behaviour is _______.",
+    "The customer segment that a company selects and intends to serve is its _______.",
+    "A name, sign, symbol or design that identifies a seller's offering is a _______.",
+    "A brand name, symbol or sign protected by law is a _______.",
+    "A customer's evaluation of perceived benefits relative to total costs is called _______.",
+    "A judgement formed by comparing a product's perceived performance with expectations is _______.",
+    "The coordinated use of product, price, place and promotion decisions is the _______.",
+    "A proposed product idea expressed in terms that are meaningful to target customers is a _______.",
+    "The organizations or individuals helping move an offering from producer to final user form a _______.",
+    "A medium used to send and receive messages from target buyers is a _______.",
+    "A bank, warehouse or insurer that facilitates a commercial transaction belongs to a _______.",
+    "A firm's sales expressed as a percentage of total sales in the market represent its _______.",
+    "Marketing that uses online channels and digital technology to create and communicate value is _______."
+  ],
+  "unit-8": [
+    "The coordinated movement and storage of goods from suppliers to customers is known as _______.",
+    "Planning and controlling forward and reverse flows and storage to meet customer requirements is _______.",
+    "Coordinating sourcing, conversion, logistics and relationships across multiple organizations is _______.",
+    "Managing transport, inventory, warehousing and information as one coordinated system is _______.",
+    "The network of parties that store, handle, transport and exchange information about goods is a _______.",
+    "The total elapsed time between placing an order and receiving it is called _______.",
+    "Electronic transmission of logistics information between connected systems is _______.",
+    "Automated communication between machines for monitoring, reporting and control uses a _______.",
+    "A facility located close to customers to replenish markets and shorten final delivery is a _______.",
+    "An intermediary that organizes international shipments between shippers and carriers is a _______.",
+    "Planning and controlling customer, production and purchasing order processes is _______.",
+    "A material-handling arrangement that automatically routes vehicles to programmed destinations is an _______.",
+    "A transport receipt and evidence of the contract of carriage that may also represent title is a _______.",
+    "A regulated transport provider offering its services to the public without special preference is a _______.",
+    "The ability to respond rapidly and cost-effectively to market change is called _______.",
+    "An order awaiting fulfilment because the requested product is temporarily unavailable is a _______.",
+    "A machine-readable printed pattern used to identify and track an item is a _______.",
+    "Planning resources so that available operating capability matches expected demand is _______.",
+    "The total greenhouse-gas emissions associated with an activity or organization are its _______.",
+    "A valuable and difficult-to-copy organizational capability supporting several products or markets is a _______.",
+    "The parties involved in moving an offering from its producer to the final user form a _______.",
+    "An intermediary that purchases products in bulk and resells them in smaller quantities is a _______.",
+    "International rules defining buyer and seller responsibilities, delivery costs and transfer of risk are _______.",
+    "The connected routes, ports and services used to move cargo form a _______.",
+    "The infrastructure, vehicles and organizations used to move goods collectively form a _______."
+  ],
+  "unit-10": [
+    "A tax imposed directly on an individual's earnings and other taxable income is _______.",
+    "A tax imposed on the profits earned by a company is _______.",
+    "A tax whose rate rises as the taxpayer's income or taxable amount increases is a _______.",
+    "A tax charged at one constant rate across the entire tax base is a _______.",
+    "A tax levied on transactions, goods or services rather than directly on income is an _______.",
+    "A tax that takes a larger proportion of income from lower-income taxpayers is a _______.",
+    "A tax collected on the value added at each stage of production and distribution is _______.",
+    "A tax charged on specified legal documents, property transfers or transactions is _______.",
+    "A tax on the profit made when an asset is sold is _______.",
+    "A tax on money, property or other assets transferred to another person is _______.",
+    "A tax charged on assets transferred after a person's death is _______.",
+    "A recurring tax imposed on an individual's net wealth or specified assets is a _______.",
+    "Using legal arrangements to reduce the amount of tax payable is called _______.",
+    "Illegally concealing income or providing false information to escape tax is _______.",
+    "When allowable expenses exceed taxable income, the resulting negative amount is a _______.",
+    "A jurisdiction offering exceptionally low taxes and favourable financial rules is a _______.",
+    "Disguising the illegal origin of funds through transactions or business entities is _______.",
+    "An unintended gap or exception in tax law that allows a taxpayer to reduce liability is a _______.",
+    "An amount or relief that reduces taxable income or tax payable is a _______.",
+    "Tax deducted by the payer before income is transferred to its recipient is _______."
+  ]
+};
+
+const ESP3_GAP_ACCEPTS = {
+  "Foreign exchange": ["FX", "Forex"],
+  "Foreign exchange market": ["FX market", "Forex market"],
+  "Documentary letter of credit": ["Letter of credit", "L/C", "LC"],
+  "Bill of lading": ["B/L", "BL"],
+  "International payment": ["Cross-border payment"],
+  "Value-added tax (VAT)": ["VAT", "Value added tax"],
+  "INCOTERMS": ["Incoterms"]
+};
+
 window.ESP3_DATA.units.forEach(unit => {
-  const generated = unit.terms.map(([term, definition]) =>
-    gap(`_______: ${definition}`, term)
-  );
-  unit.gaps = ESP3_SOURCE_GAPS[unit.id] || generated;
+  const prompts = ESP3_EXAM_GAP_PROMPTS[unit.id];
+  const examStyleGaps = prompts?.map((prompt, index) => {
+    const term = unit.terms[index][0];
+    return gap(prompt, term, ESP3_GAP_ACCEPTS[term] || []);
+  });
+  unit.gaps = ESP3_SOURCE_GAPS[unit.id] || examStyleGaps;
 });
