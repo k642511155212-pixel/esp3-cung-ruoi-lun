@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11100e">
+  <meta name="description" content="ESP3 Mastery — học và luyện thi International Business theo toàn bộ 10 unit của giáo trình.">
+  <title>ESP3 Mastery · International Business</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='17' fill='%2311100e'/%3E%3Cpath d='M13 17h38v9H24v7h23v8H24v7h28v9H13z' fill='%23ffdf43'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#dashboard" aria-label="ESP3 Mastery home">
+      <span class="brand-mark">E3</span>
+      <span><strong>ESP3 Mastery</strong><small>International Business</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Điều hướng chính">
+      <a href="#learn">Học lý thuyết</a>
+      <a href="#flashcards">Flashcards</a>
+      <a href="#practice">Short answers</a>
+      <a href="#essay">Essay</a>
+      <a href="#mock-test">Midterm test</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="searchButton" aria-label="Tìm kiếm" title="Tìm kiếm (Ctrl/⌘ K)">⌕</button>
+      <button class="progress-chip" data-route="progress"><span id="headerProgress">0%</span><small>đã học</small></button>
+      <button class="menu-btn" id="menuButton" aria-label="Mở menu">☰</button>
+    </div>
+  </header>
+
+  <main id="app" tabindex="-1"></main>
+
+  <dialog id="searchDialog" class="search-dialog">
+    <form method="dialog" class="search-head">
+      <div><small>TÌM TRONG TOÀN BỘ 10 UNIT</small><h2>Tìm thuật ngữ hoặc chủ đề</h2></div>
+      <button aria-label="Đóng">ESC</button>
+    </form>
+    <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Ví dụ: comparative advantage, bill of exchange…" autocomplete="off"></label>
+    <div id="searchResults" class="search-results"></div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
