@@ -148,6 +148,9 @@ select { min-height: 45px; padding: 8px 38px 8px 11px; border: 1px solid current
 .term-table h3 { margin: 0 0 5px; font-size: 1.08rem; }
 .term-table p { margin: 0; color: #47433d; }
 .term-table small { display: block; margin-top: 7px; color: var(--blue); font-weight: 750; }
+.term-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 7px; }
+.term-badges span { padding: 3px 7px; border-radius: 99px; background: var(--lavender); color: var(--blue); font-size: .55rem; font-weight: 900; letter-spacing: .08em; }
+.term-badges span + span { background: var(--paper-2); color: var(--muted); }
 .status-dot { width: 10px; height: 10px; margin-top: 7px; border: 1px solid #aaa69e; border-radius: 50%; }
 .status-dot.mastered { background: #0c9b55; border-color: #0c9b55; }
 .solid-btn, .outline-btn { min-height: 42px; padding: 9px 14px; border-radius: 9px; font-weight: 800; }
@@ -226,6 +229,7 @@ textarea:focus, input:focus, select:focus { border-color: var(--blue); box-shado
 .flash-side strong { max-width: 720px; margin: 18px 0; font-size: clamp(2rem,5vw,4.8rem); line-height: 1.02; letter-spacing: -.055em; }
 .flash-side p { margin: 0 0 18px; font-size: 1.05rem; font-weight: 750; }
 .flash-side em { margin-top: 20px; opacity: .62; font-size: .78rem; }
+.flash-source { margin-top: 4px; padding: 5px 9px; border: 1px solid currentColor; border-radius: 99px; opacity: .72; font-size: .61rem; font-weight: 850; letter-spacing: .08em; }
 .flash-card .back { display: none; }
 .flash-card.flipped .front { display: none; }
 .flash-card.flipped .back { display: flex; }

@@ -4,7 +4,7 @@
   const D = window.ESP3_DATA;
   const app = document.getElementById("app");
   const STORE = "esp3-mastery-state-v1";
-  const allTerms = D.units.flatMap(unit => unit.terms.map((term, index) => ({ unit, index, term: term[0], definition: term[1], vi: term[2], key: `${unit.id}:${index}` })));
+  const allTerms = D.units.flatMap(unit => unit.terms.map((term, index) => ({ unit, index, term: term[0], definition: term[1], vi: term[2], pos: term[3] || "NOUN / NOUN PHRASE", source: term[4] || "CORE TERM", key: `${unit.id}:${index}` })));
   const allGaps = D.units.flatMap(unit => unit.gaps.map((item, index) => ({ unit, index, ...item, key: `${unit.id}:${index}` })));
   const allShort = D.units.flatMap(unit => unit.shortAnswers.map((item, index) => ({ unit, index, ...item, key: `${unit.id}:${index}` })));
   const allEssays = D.units.flatMap(unit => unit.essays.map((item, index) => ({ unit, index, ...item, key: `${unit.id}:${index}` })));
@@ -141,7 +141,7 @@
       </section>
 
       <div class="stat-row">
-        <div><strong>${allTerms.length}</strong><span>key-term flashcards</span></div>
+        <div><strong>${allTerms.length}</strong><span>vocabulary flashcards</span></div>
         <div><strong>${allGaps.length}</strong><span>gap-filling questions</span></div>
         <div><strong>${allShort.length}</strong><span>short answers ≤40 từ</span></div>
         <div><strong>${allEssays.length}</strong><span>essay topics + outlines</span></div>
@@ -224,9 +224,9 @@
   }
 
   function termsTab(unit) {
-    return `<div class="section-intro"><span>02</span><div><h2>Thuật ngữ và định nghĩa bằng tiếng Anh</h2><p>Nhấn “Học bằng flashcard” để chuyển sang chế độ active recall của riêng Unit ${unit.num}.</p></div><button class="solid-btn" data-flash-unit="${unit.id}">Học bằng flashcard</button></div>
+    return `<div class="section-intro"><span>02</span><div><h2>Extended vocabulary bank</h2><p>Gồm core terms, từ trong readings/case studies và vocabulary exercises; có cả noun, verb, adjective, phrasal verb và collocation.</p></div><button class="solid-btn" data-flash-unit="${unit.id}">Học bằng flashcard</button></div>
       <label class="inline-search"><span>⌕</span><input id="termFilter" type="search" placeholder="Tìm trong Unit ${unit.num}…"></label>
-      <div class="term-table" id="termTable">${unit.terms.map((term,index) => `<article data-term-search="${esc(normalize(term.join(" ")))}"><span class="term-no">${String(index + 1).padStart(2,"0")}</span><div><h3>${esc(term[0])}</h3><p>${esc(term[1])}</p><small>${esc(term[2])}</small></div><span class="status-dot ${state.termStatus[`${unit.id}:${index}`] === "mastered" ? "mastered" : ""}" title="${state.termStatus[`${unit.id}:${index}`] === "mastered" ? "Đã nhớ" : "Chưa đánh dấu"}"></span></article>`).join("")}</div>`;
+      <div class="term-table" id="termTable">${unit.terms.map((term,index) => `<article data-term-search="${esc(normalize(term.join(" ")))}"><span class="term-no">${String(index + 1).padStart(2,"0")}</span><div><div class="term-badges"><span>${esc(term[3] || "NOUN / NOUN PHRASE")}</span><span>${esc(term[4] || "CORE TERM")}</span></div><h3>${esc(term[0])}</h3><p>${esc(term[1])}</p><small>${esc(term[2])}</small></div><span class="status-dot ${state.termStatus[`${unit.id}:${index}`] === "mastered" ? "mastered" : ""}" title="${state.termStatus[`${unit.id}:${index}`] === "mastered" ? "Đã nhớ" : "Chưa đánh dấu"}"></span></article>`).join("")}</div>`;
   }
 
   function gapTab(unit) {
@@ -281,8 +281,8 @@
         <button class="flash-card ${state.flashFlipped ? "flipped" : ""}" id="flashCard" aria-label="Lật flashcard">
           <span class="flash-unit">UNIT ${item.unit.num} · ${esc(item.unit.title)}</span>
           <img class="flash-mascot" src="${state.flashFlipped ? MASCOTS.heart : MASCOTS.neutral}" alt="" aria-hidden="true">
-          <span class="flash-side front"><small>KEY TERM</small><strong>${esc(item.term)}</strong><em>Nhấn để xem định nghĩa</em></span>
-          <span class="flash-side back"><small>ENGLISH DEFINITION</small><strong>${esc(item.definition)}</strong><p>${esc(item.vi)}</p><em>Nhấn để xem thuật ngữ</em></span>
+          <span class="flash-side front"><small>${esc(item.pos)} · ${esc(item.source)}</small><strong>${esc(item.term)}</strong><em>Nhấn để xem định nghĩa</em></span>
+          <span class="flash-side back"><small>ENGLISH DEFINITION · ${esc(item.pos)}</small><strong>${esc(item.definition)}</strong><p>${esc(item.vi)}</p><span class="flash-source">SOURCE · ${esc(item.source)}</span><em>Nhấn để xem từ/cụm từ</em></span>
         </button>
         <div class="flash-actions">
           <button class="review-btn ${status === "review" ? "selected" : ""}" data-flash-status="review">↻ Cần ôn lại</button>
@@ -291,7 +291,7 @@
           <button class="master-btn ${status === "mastered" ? "selected" : ""}" data-flash-status="mastered">✓ Đã nhớ</button>
         </div>
       </div>`;
-    return page({eyebrow:"ACTIVE RECALL",title:"Key-term flashcards",lead:`${allTerms.length} thuật ngữ từ toàn bộ 10 unit.`,body});
+    return page({eyebrow:"ACTIVE RECALL",title:"Vocabulary flashcards",lead:`${allTerms.length} từ và cụm từ từ core terms, readings, case studies và exercises của toàn bộ 10 unit.`,body});
   }
 
   function gapFilling() {
@@ -310,7 +310,7 @@
       <button class="outline-btn" id="randomGap">Câu ngẫu nhiên</button>
     </div>
     <article class="gap-stage">
-      <div class="question-label"><span>UNIT ${item.unit.num} · GAP FILLING</span><b>NO WORD BANK · ${state.gapIndex + 1} / ${pool.length}</b></div>
+      <div class="question-label"><span>UNIT ${item.unit.num} · GAP FILLING</span><b>HINT AVAILABLE · ${state.gapIndex + 1} / ${pool.length}</b></div>
       <h2>${esc(item.prompt)}</h2>
       <div class="gap-entry large"><input id="gapAnswer" type="text" value="${esc(state.gapAnswer)}" placeholder="Type the missing key term…" autocomplete="off" ${state.gapChecked ? "disabled" : ""}><button class="solid-btn" ${state.gapChecked ? "data-next-gap" : "data-check-gap"}>${state.gapChecked ? "Next question →" : "Check answer"}</button></div>
       ${gapHintMarkup(item)}
