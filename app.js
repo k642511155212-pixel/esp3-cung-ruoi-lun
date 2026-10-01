@@ -37,12 +37,13 @@
   let state = loadState();
   let timerHandle = null;
   let learningReturn = "";
+  let learningOrigin = "";
   const learningSnapshots = new Map();
   function rememberLearningRoute() {
     if (!render.lastRoute || state.exam && /test/.test(render.lastRoute)) return;
     learningSnapshots.set(render.lastRoute, {
       fields: Array.from(app.querySelectorAll("input,textarea,select")).map(e=>({value:e.value,checked:e.checked,className:e.className,invalid:e.getAttribute("aria-invalid")})),
-      panels: Array.from(app.querySelectorAll(".model-answer,.essay-outline,.gap-feedback,.final-gap-feedback")).map(e=>({hidden:e.hidden,html:e.innerHTML,className:e.className})),
+      panels: Array.from(app.querySelectorAll(".model-answer,.answer-explanation,.essay-outline,.gap-feedback,.final-gap-feedback")).map(e=>({hidden:e.hidden,html:e.innerHTML,className:e.className})),
       details: Array.from(app.querySelectorAll("details")).map(e=>e.open),
       scroll: window.scrollY || 0
     });
@@ -229,9 +230,9 @@
   function theoryTab(unit) {
     return `<div class="section-intro theory-intro"><span>01</span><div><h2>Theory taught in English</h2><p>Key terms and specialist vocabulary include Vietnamese translations in parentheses.</p></div><img class="section-mascot" src="${MASCOTS.flower}" alt="" aria-hidden="true"></div>
       <section class="lesson-roadmap"><div><span>THIS LESSON COVERS</span><h3>Unit ${unit.num} learning map</h3></div><ol>${unit.theories.map((item,index) => `<li><b>${String(index + 1).padStart(2,"0")}</b>${esc(item.title)}</li>`).join("")}</ol><img src="${MASCOTS.sideeye}" alt="" aria-hidden="true"></section>
-      <div class="theory-stack">${unit.theories.map((item,index) => `<article class="theory-card">
+      <div class="theory-stack">${unit.theories.map((item,index) => `<article id="${F.legacyTheory[unit.num][index]}" class="theory-card concept-section" tabindex="-1">
         <div class="theory-index">${String(index + 1).padStart(2,"0")}</div>
-        <div lang="en"><h3>${esc(item.title)}</h3><p>${esc(item.body)}</p><button class="theory-link" data-route="unit/${unit.id}/short">Apply this unit in practice →</button><ul>${item.points.map(point => `<li>${esc(point)}</li>`).join("")}</ul></div>
+        <div lang="en"><h3>${esc(item.title)}</h3><p>${esc(item.body)}</p>${unit.shortAnswers.map((q,qi)=>({q,support:legacySupport(unit,q)})).filter(x=>x.support.theoryId===F.legacyTheory[unit.num][index]).map(x=>`<a class="theory-link" href="#unit/${unit.id}/short/${x.support.id}">Practice this concept · ${x.support.id} →</a>`).join(' ')}<ul>${item.points.map(point => `<li>${esc(point)}</li>`).join("")}</ul></div>
       </article>`).join("")}</div>
       <div class="next-step"><img src="${MASCOTS.heart}" alt="" aria-hidden="true"><span>NEXT STEP</span><strong>Check whether you can recognize and define the key terms from this lesson.</strong><button data-route="unit/${unit.id}/terms">Open key terms →</button></div>`;
   }
@@ -254,14 +255,22 @@
       </article>`).join("")}</div>`;
   }
 
+  function legacySupport(unit, item) {
+    return F.legacyQuestions[`${unit.num}:${unit.shortAnswers.findIndex(q=>q.q===item.q)}`];
+  }
+  function legacyExplanation(unit, item) {
+    const support=legacySupport(unit,item);
+    if(!support?.explanation) return '';
+    return `<button class="outline-btn" data-show-explanation aria-expanded="false">Show explanation</button><div class="answer-explanation" hidden><h4>Explanation</h4><p>${esc(support.explanation)}</p>${finalSource(support.source)}<button class="theory-link" data-related-theory="unit/${unit.id}/theory/${support.theoryId}">Review related theory ↗</button></div>`;
+  }
   function shortTab(unit) {
     return `<div class="section-intro"><span>04</span><div><h2>Câu hỏi ngắn — tối đa 40 từ</h2><p>Hãy tự viết trước. Website đếm từ và chỉ hiển thị model answer khi bạn chủ động mở.</p></div></div>
-      <div class="short-list">${unit.shortAnswers.map((item,index) => `<article class="short-card" data-short-card>
+      <div class="short-list">${unit.shortAnswers.map((item,index) => `<article class="short-card" id="question-${legacySupport(unit,item).id}" data-short-card>
         <div class="question-label"><span>QUESTION ${index + 1}</span><b>≤ 40 WORDS</b></div>
-        <h3>${esc(item.q)}</h3>
-        <textarea rows="4" data-word-limit="40" placeholder="Write your answer in English…"></textarea>
-        <button class="theory-link" data-related-theory="unit/${unit.id}/theory">Review this unit’s theory ↗</button><div class="answer-controls"><span data-word-count>0 / 40 words</span><button class="outline-btn" data-reveal-answer>Reveal model answer</button></div>
-        <div class="model-answer" hidden><img class="feedback-mascot" src="${MASCOTS.heart}" alt="" aria-hidden="true"><small>MODEL ANSWER · ${wordCount(item.a)} WORDS</small><p>${esc(item.a)}</p></div>
+        <h3>${esc(item.q)}</h3><small class="question-ref">${legacySupport(unit,item).id}</small>
+        <textarea aria-label="Your answer to ${legacySupport(unit,item).id}" rows="4" data-word-limit="40" placeholder="Write your answer in English…"></textarea>
+        <button class="theory-link" data-related-theory="unit/${unit.id}/theory/${legacySupport(unit,item).theoryId}">Review this unit’s theory ↗</button><div class="answer-controls"><span data-word-count>0 / 40 words</span><button class="outline-btn" data-reveal-answer>Reveal model answer</button></div>
+        <div class="model-answer" hidden><img class="feedback-mascot" src="${MASCOTS.heart}" alt="" aria-hidden="true"><small>MODEL ANSWER · ${wordCount(item.a)} WORDS</small><p>${esc(item.a)}</p>${legacyExplanation(unit,item)}</div>
       </article>`).join("")}</div>`;
   }
 
@@ -357,13 +366,13 @@
       <span>${state.practiceIndex + 1} / ${pool.length}</span>
       <button class="outline-btn" id="randomShort">Câu ngẫu nhiên</button>
     </div>
-    <article class="practice-stage" data-short-card>
+    <article class="practice-stage" id="question-${legacySupport(item.unit,item).id}" data-short-card>
       <div class="question-label"><span>UNIT ${item.unit.num} · SHORT ANSWER</span><b>MAXIMUM 40 WORDS</b></div>
-      <h2>${esc(item.q)}</h2>
-      <button class="theory-link" data-related-theory="unit/${item.unit.id}/theory">Review this unit’s theory ↗</button>
-      <textarea rows="7" data-word-limit="40" placeholder="Write a complete answer in English. Define, explain, and answer the exact question."></textarea>
+      <h2>${esc(item.q)}</h2><small class="question-ref">${legacySupport(item.unit,item).id}</small>
+      <button class="theory-link" data-related-theory="unit/${item.unit.id}/theory/${legacySupport(item.unit,item).theoryId}">Review this unit’s theory ↗</button>
+      <textarea aria-label="Your answer to ${legacySupport(item.unit,item).id}" rows="7" data-word-limit="40" placeholder="Write a complete answer in English. Define, explain, and answer the exact question."></textarea>
       <div class="answer-controls"><span data-word-count>0 / 40 words</span><button class="solid-btn" data-reveal-answer>Check with model answer</button></div>
-      <div class="model-answer large" hidden><img class="feedback-mascot" src="${MASCOTS.heart}" alt="" aria-hidden="true"><small>MODEL ANSWER · ${wordCount(item.a)} WORDS</small><p>${esc(item.a)}</p><ul><li>Answers the exact question</li><li>Uses the correct technical term</li><li>Explains the mechanism or difference</li><li>Stays within 40 words</li></ul></div>
+      <div class="model-answer large" hidden><img class="feedback-mascot" src="${MASCOTS.heart}" alt="" aria-hidden="true"><small>MODEL ANSWER · ${wordCount(item.a)} WORDS</small><p>${esc(item.a)}</p>${legacyExplanation(item.unit,item)}<ul><li>Answers the exact question</li><li>Uses the correct technical term</li><li>Explains the mechanism or difference</li><li>Stays within 40 words</li></ul></div>
       <div class="stage-nav"><button class="outline-btn" id="prevShort">← Previous</button><button class="outline-btn" id="nextShort">Next →</button></div>
     </article>`;
     return page({eyebrow:"SHORT-ANSWER TRAINER",title:"Viết ngắn nhưng đủ ý",lead:"Mỗi đáp án mẫu đều đã được kiểm tra và không vượt quá 40 từ.",body});
@@ -447,13 +456,13 @@
       <p class="exam-direction">Answer each question in English in no more than 40 words.</p>
       <div class="short-list">${unit.shortAnswers.map(item => {
         number += 1;
-        return `<article class="short-card" data-short-card>
+        return `<article class="short-card" id="question-${legacySupport(unit,item).id}" data-short-card>
           <div class="question-label"><span>QUESTION ${String(number).padStart(2,"0")}</span><b>MAXIMUM 40 WORDS</b></div>
-          <h3>${esc(item.q)}</h3>
-          <button class="theory-link" data-related-theory="unit/${unit.id}/theory">Review this unit’s theory ↗</button>
-          <textarea rows="4" data-word-limit="40" placeholder="Write your answer in English…"></textarea>
+          <h3>${esc(item.q)}</h3><small class="question-ref">${legacySupport(unit,item).id}</small>
+          <button class="theory-link" data-related-theory="unit/${unit.id}/theory/${legacySupport(unit,item).theoryId}">Review this unit’s theory ↗</button>
+          <textarea aria-label="Your answer to ${legacySupport(unit,item).id}" rows="4" data-word-limit="40" placeholder="Write your answer in English…"></textarea>
           <div class="answer-controls"><span data-word-count>0 / 40 words</span><button class="outline-btn" data-reveal-answer>Reveal model answer</button></div>
-          <div class="model-answer" hidden><img class="feedback-mascot" src="${MASCOTS.heart}" alt="" aria-hidden="true"><small>MODEL ANSWER · ${wordCount(item.a)} WORDS</small><p>${esc(item.a)}</p></div>
+          <div class="model-answer" hidden><img class="feedback-mascot" src="${MASCOTS.heart}" alt="" aria-hidden="true"><small>MODEL ANSWER · ${wordCount(item.a)} WORDS</small><p>${esc(item.a)}</p>${legacyExplanation(unit,item)}</div>
         </article>`;
       }).join("")}</div>
     </section>`).join("");
@@ -608,16 +617,28 @@
   function finalDone(key) {
     return `<button class="outline-btn" data-final-done="${esc(key)}" aria-pressed="${!!finalState().done[key]}">${finalState().done[key] ? "✓ Reviewed · mark incomplete" : "Mark reviewed"}</button>`;
   }
+  function vocabularyId(unit, term) { return `vocab-u${unit}-${term.toLowerCase().replace(/[^a-z0-9]+/g,"-")}`; }
   function finalGap(activity, prefix = "") {
     const key = prefix + activity.id;
-    return `<section class="final-exercise" data-final-exercise="${activity.id}"><div class="exercise-main"><span class="eyebrow">ORIGINAL WORD-BOX PRACTICE</span><h3>${esc(activity.title)}</h3>${(activity.sources || [activity.source]).map(finalSource).join("")}<p>Use each word or phrase once. Keep the wording from the bank.</p><ol>${activity.items.map((item,i)=>`<li><label>${esc(item.prompt)}<input data-final-gap="${i}" aria-label="Blank ${i+1}" autocomplete="off"></label><p class="final-gap-feedback" hidden aria-live="polite"></p></li>`).join("")}</ol><button class="solid-btn" data-final-check>Check answers</button> ${finalDone(key)}${(activity.sources || [activity.source]).map(src=>`<button class="theory-link" data-related-theory="final/vocabulary/${src.unit}">Review Unit ${src.unit} vocabulary ↗</button>`).join(" · ")}</div><aside class="word-bank"><span class="eyebrow">WORD BANK</span><p>All the words you need</p><ul>${activity.bank.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></aside></section>`;
+    return `<section id="exercise-${esc(key)}" class="final-exercise" data-final-exercise="${activity.id}"><div class="exercise-main"><span class="eyebrow">ORIGINAL WORD-BOX PRACTICE</span><h3>${esc(activity.title)}</h3>${(activity.sources || [activity.source]).map(finalSource).join("")}<p>Choose from the bank; some words may be unused. Use each answer at most once and keep the bank wording.</p><ol>${activity.items.map((item,i)=>`<li><label>${esc(item.prompt)}<input data-final-gap="${i}" aria-label="Blank ${i+1}" autocomplete="off"></label><p class="final-gap-feedback" hidden aria-live="polite"></p></li>`).join("")}</ol><button class="solid-btn" data-final-check>Check answers</button> ${finalDone(key)}${(activity.sources || [activity.source]).map(src=>`<button class="theory-link" data-related-theory="final/vocabulary/${src.unit}">Review Unit ${src.unit} vocabulary ↗</button>`).join(" · ")}</div><aside class="word-bank"><span class="eyebrow">WORD BANK</span><p>All the words you need</p><ul>${activity.bank.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></aside></section>`;
   }
   function finalTheory(unit, returnRoute) {
-    return `<section class="final-surface theory-reading"><span class="eyebrow">UNIT ${unit.num} · CONCEPT REFERENCE</span><h2>${esc(unit.title)}</h2><p>Paraphrased study explanations grounded in the textbook. Examples and applications are original.</p>${unit.concepts.map((c,i)=>`<section id="concept-${i}" class="concept-section"><span class="eyebrow">CONCEPT ${i+1}</span><h3>${esc(c.title)}</h3><p>${esc(c.body)}</p>${finalSource(c.source)}</section>`).join("")}<h2>Distinguish before deciding</h2>${unit.distinctions.map(c=>`<section class="distinction"><h3>${esc(c.a)} <span>vs</span> ${esc(c.b)}</h3><p>${esc(c.difference)}</p><div><p><b>${esc(c.a)}</b><br>${esc(c.whenA)}</p><p><b>${esc(c.b)}</b><br>${esc(c.whenB)}</p></div>${finalSource(c.source)}</section>`).join("")}<h2>Common traps</h2><ul class="trap-list">${unit.traps.map(t=>`<li>${esc(t.body)}${finalSource(t.source)}</li>`).join("")}</ul><a class="solid-btn" href="#${returnRoute}">Return to the same question →</a></section>`;
+    return `<section class="final-surface theory-reading"><span class="eyebrow">UNIT ${unit.num} · CONCEPT REFERENCE</span><h2>${esc(unit.title)}</h2><p>Paraphrased textbook foundations. Applications below are original learning examples.</p>${unit.concepts.map(c=>{
+      const related=unit.situations.filter(q=>q.relatedTheory.includes(c.id));
+      return `<section id="${c.id}" class="concept-section" tabindex="-1"><h3>${esc(c.title)}</h3>${c.bigIdea?`<p class="big-idea"><b>Big idea</b> ${esc(c.bigIdea)}</p>`:''}<p>${esc(c.body)}</p>${c.steps?`<h4>How it works</h4><ol class="theory-process">${c.steps.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>`:''}${c.example?`<p class="theory-application"><b>Original application</b><br>${esc(c.example)}</p>`:''}${c.confusion?`<p><b>Common confusion</b><br>${esc(c.confusion)}</p>`:''}${finalSource(c.source)}${related.length?`<nav class="concept-practice" aria-label="Practice this concept">${related.map(q=>`<a class="theory-link" href="#final/concepts/${unit.num}/${q.id}">Practice this concept · ${esc(q.id)} →</a>`).join('')}</nav>`:''}</section>`;
+    }).join('')}<h2>Distinguish before deciding</h2>${unit.distinctions.map(c=>`<section class="distinction"><h3>${esc(c.a)} <span>vs</span> ${esc(c.b)}</h3><p>${esc(c.difference)}</p><div><p><b>${esc(c.a)}</b><br>${esc(c.whenA)}</p><p><b>${esc(c.b)}</b><br>${esc(c.whenB)}</p></div>${finalSource(c.source)}</section>`).join('')}<h2>Common traps</h2><ul class="trap-list">${unit.traps.map(t=>`<li>${esc(t.body)}${finalSource(t.source)}</li>`).join('')}</ul><a class="solid-btn" href="#${returnRoute}">Return to the same question →</a></section>`;
+  }
+  function examMaterial(q) {
+    const document=q.document?`<section class="exam-document"><h4>${esc(q.document.title)}</h4><dl>${q.document.fields.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl></section>`:'';
+    const table=q.table?`<div class="exam-table-scroll" tabindex="0" role="region" aria-label="${esc(q.table.caption)}"><table class="exam-table"><caption>${esc(q.table.caption)}</caption><thead><tr>${q.table.columns.map(h=>`<th scope="col">${esc(h)}</th>`).join('')}</tr></thead><tbody>${q.table.rows.map(row=>`<tr>${row.map((v,i)=>i?`<td>${esc(v)}</td>`:`<th scope="row">${esc(v)}</th>`).join('')}</tr>`).join('')}</tbody></table></div>`:'';
+    return document+table;
   }
   function finalSituation(q, unit, prefix = "") {
-    const key=prefix+q.id;
-    return `<article class="scenario-sheet" data-short-card><span class="eyebrow">ORIGINAL SITUATION · ${esc(q.id.toUpperCase())}</span><h3>${esc(q.title)}</h3><p class="scenario-question">${esc(q.question)}</p>${finalSource(q.source)}<div class="reasoning-steps"><span>01 Identify</span><span>02 Apply</span><span>03 Explain why</span><span>04 Compare</span></div>${finalDraft(key,'Your answer')}<div class="answer-controls"><button class="outline-btn" data-related-theory="final/theory/${unit.num}/${unit.situations.findIndex(x=>x.id===q.id)}">Review related theory ↗</button><button class="solid-btn" data-reveal-answer>Reveal model answer</button></div><div class="model-answer" hidden><small>ANSWER · SUGGESTED RESPONSE</small><p>${esc(q.answer)}</p><small>EXPLANATION</small><p>${esc(q.explanation)}</p><small>SELF-CHECK</small><p>Did you name the concept, use the decisive detail, explain the mechanism and distinguish a plausible alternative?</p></div><div class="review-action">${finalDone(key)}</div></article>`;
+    // Legacy storage IDs preserve existing drafts and reviewed flags.
+    const key=prefix+(q.legacyId || q.id);
+    const questions=q.subquestions || [q.question];
+    const theory=q.relatedTheory.map(id=>{const c=unit.concepts.find(c=>c.id===id);return `<button class="theory-link" data-related-theory="final/theory/${unit.num}/${id}">${esc(c.title)} ↗</button>`;}).join('');
+    return `<article id="question-${prefix}${q.id}" class="scenario-sheet exam-question" data-short-card><span class="eyebrow">EXAM-STYLE PRACTICE · ${esc(q.id)}</span><h3>${esc(q.title)}</h3>${q.subquestions?`<p class="scenario-question">${esc(q.question)}</p>`:''}${examMaterial(q)}<div class="case-questions">${questions.map((text,i)=>`<section><h4>${q.subquestions?String.fromCharCode(97+i)+'. ':''}${esc(text)}</h4>${finalDraft(key+(i?'-part-'+i:''),q.subquestions?'Your answer · '+String.fromCharCode(97+i):'Your answer',3)}</section>`).join('')}</div><div class="answer-controls"><button class="solid-btn" data-reveal-answer>Reveal model answer</button></div><div class="model-answer" hidden><small>MODEL ANSWER · SUGGESTED RESPONSE</small>${(q.answers || [q.answer]).map((answer,i)=>`<p>${q.answers?`<b>${String.fromCharCode(97+i)}.</b> `:''}${esc(answer)}</p>`).join('')}<button class="outline-btn" data-show-explanation aria-expanded="false">Show explanation</button><div class="answer-explanation" hidden><h4>Explanation</h4><p>${esc(q.explanation)}</p><div class="reasoning-steps"><span>Identify</span><span>Apply</span><span>Explain why</span><span>Distinguish</span></div><p>Review the decisive clue, apply the concept and check why another interpretation does not fit.</p>${finalSource(q.source)}<h4>Review related theory</h4>${theory}</div></div><div class="review-action">${finalDone(key)}</div></article>`;
   }
   function finalWriting(w,index,prefix="") {
     const list=items=>`<ul>${items.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`;
@@ -632,14 +653,15 @@
     const unitNav = (core=false) => `<nav class="unit-pills" aria-label="Choose unit">${F.units.filter(u=>!core||[2,4,5,6,7,8].includes(u.num)).map(u=>`<a class="${u.num===unit.num?'active':''}" href="#final/${mode}/${u.num}" title="${esc(u.title)}">Unit ${u.num}</a>`).join("")}</nav>`;
     if (mode === "vocabulary") {
       title = "Words for the world of business.";
-      content = `${unitNav()}<section class="final-surface"><span class="eyebrow">UNIT ${unit.num}</span><h2>${esc(unit.title)}</h2><p>Selected vocabulary from key-term sections and readings. Meanings are paraphrased; examples are original study material.</p><label class="inline-search"><span>Find a term</span><input type="search" id="finalTermFilter" placeholder="Search this unit"></label><div class="final-glossary">${unit.vocabulary.map(v=>`<article data-final-term="${esc(normalize(v.term+' '+v.meaning+' '+v.vi))}"><span class="eyebrow">${esc(v.origin)}</span><h3>${esc(v.term)}</h3><p>${esc(v.meaning)} <span class="translation">(${esc(v.vi)})</span></p><p class="original-example"><small>ORIGINAL EXAMPLE</small>${esc(v.example)}</p><small>Related phrase: ${esc(v.collocation)}</small>${finalSource(v.source)}</article>`).join("")}</div>${finalDone('vocabulary-'+unit.num)}</section>`;
+      content = `${unitNav()}<section class="final-surface"><span class="eyebrow">UNIT ${unit.num}</span><h2>${esc(unit.title)}</h2><p>Selected vocabulary from key-term sections and readings. Meanings are paraphrased; examples are original study material.</p><label class="inline-search"><span>Find a term</span><input type="search" id="finalTermFilter" placeholder="Search this unit"></label><div class="final-glossary">${unit.vocabulary.map(v=>`<article id="${vocabularyId(unit.num,v.term)}" class="vocabulary-entry" tabindex="-1" data-final-term="${esc(normalize(v.term+' '+v.meaning+' '+v.vi))}"><span class="eyebrow">${esc(v.origin)}</span><h3>${esc(v.term)}</h3><p>${esc(v.meaning)} <span class="translation">(${esc(v.vi)})</span></p><p class="original-example"><small>ORIGINAL EXAMPLE</small>${esc(v.example)}</p><small>Related phrase: ${esc(v.collocation)}</small>${finalSource(v.source)}${unit.gaps.find(g=>g.items.some(i=>i.answer===v.term))?`<a class="theory-link" href="#final/gaps/${unit.num}/${unit.gaps.find(g=>g.items.some(i=>i.answer===v.term)).id}">Practice this word →</a>`:""}</article>`).join("")}</div>${finalDone('vocabulary-'+unit.num)}</section>`;
     } else if (mode === "gaps") {
       title = "Read. Connect. Complete.";
       content = `${unitNav()}<h2>Unit ${unit.num} — ${esc(unit.title)}</h2>${unit.gaps.map(a=>finalGap(a)).join("")}`;
     } else if (mode === "concepts") {
       title = "From concept to decision.";
-      const index=Math.max(0,Math.min(Number(rawItem)||0,unit.situations.length-1)), q=unit.situations[index];
-      content = `${unitNav(true)}<h2>Unit ${unit.num} — ${esc(unit.title)}</h2><div class="situation-workspace"><aside class="concept-reference"><span class="eyebrow">REFERENCE AT HAND</span>${unit.concepts.map(c=>`<details><summary>${esc(c.title)}</summary><p>${esc(c.body)}</p>${finalSource(c.source)}</details>`).join("")}<a class="outline-btn" data-related-theory="final/theory/${unit.num}/${index}" href="#final/theory/${unit.num}/${index}">Concepts, distinctions & traps ↗</a><nav class="scenario-nav" aria-label="Situations">${unit.situations.map((x,i)=>`<a class="${i===index?'active':''}" href="#final/concepts/${unit.num}/${i}"><span>${String(i+1).padStart(2,'0')}</span>${esc(x.title)}</a>`).join("")}</nav></aside><div>${finalSituation(q,unit)}<div class="question-pagination">${index>0?`<a class="outline-btn" href="#final/concepts/${unit.num}/${index-1}">← Previous</a>`:'<span></span>'}<span>${index+1} / ${unit.situations.length} study situations</span>${index<unit.situations.length-1?`<a class="outline-btn" href="#final/concepts/${unit.num}/${index+1}">Next →</a>`:'<span></span>'}</div></div></div>`;
+      const found=unit.situations.findIndex(q=>q.id===rawItem || q.legacyId===rawItem);
+      const index=found>=0?found:Math.max(0,Math.min(Number(rawItem)||0,unit.situations.length-1)), q=unit.situations[index];
+      content = `${unitNav(true)}<h2>Unit ${unit.num} — ${esc(unit.title)}</h2><div class="situation-workspace"><aside class="concept-reference"><span class="eyebrow">QUESTION INDEX</span><p>Attempt the case first. The model answer opens a separate explanation and related theory.</p><nav class="scenario-nav" aria-label="Situations">${unit.situations.map((x,i)=>`<a class="${i===index?'active':''}" href="#final/concepts/${unit.num}/${x.id}"><span>${String(i+1).padStart(2,'0')}</span>${esc(x.id)}</a>`).join('')}</nav></aside><div>${finalSituation(q,unit)}<div class="question-pagination">${index>0?`<a class="outline-btn" href="#final/concepts/${unit.num}/${unit.situations[index-1].id}">← Previous</a>`:'<span></span>'}<span>${index+1} / ${unit.situations.length} cases</span>${index<unit.situations.length-1?`<a class="outline-btn" href="#final/concepts/${unit.num}/${unit.situations[index+1].id}">Next →</a>`:'<span></span>'}</div></div>`;
     } else if (mode === "theory") {
       title = "Understand the decision.";
       content = finalTheory(unit,learningReturn || `final/concepts/${unit.num}/${rawItem}`);
@@ -650,7 +672,7 @@
     } else if (mode === "sets") {
       title = "Bring it all together.";
       const set=F.sets[Math.max(0,Math.min(selected-1,F.sets.length-1))];
-      content = set ? `<nav class="unit-pills" aria-label="Practice sets">${F.sets.map((x,i)=>`<a class="${x===set?'active':''}" href="#final/sets/${i+1}">Set ${i+1}</a>`).join("")}</nav><section class="practice-heading"><span class="eyebrow">ORIGINAL PRACTICE · NOT AN OFFICIAL PAPER</span><h2>${esc(set.title)}</h2><p>${esc(F.editorialNote)}</p><nav><a href="#" data-practice-jump="set-part1">01 Word box ↓</a><a href="#" data-practice-jump="set-part2">02 Situations ↓</a><a href="#" data-practice-jump="set-part3">03 Writing ↓</a></nav></section><section id="set-part1"><h2>Part 1 · Word-box gap-fill</h2>${set.gaps.map(g=>finalGap(g,'set-')).join("")}</section><section id="set-part2"><h2>Part 2 · Apply core concepts</h2>${set.situations.map(x=>{const u=F.units.find(u=>u.num===x.unit);return finalSituation(u.situations[x.index],u,'set'+selected+'-');}).join("")}</section><section id="set-part3"><h2>Part 3 · Writing</h2>${set.alternativeWriting?`<p>Optional additional study prompt: <a class="theory-link" href="#final/writing/${set.alternativeWriting}">Topic ${set.alternativeWriting} · trade liberalization →</a>. This is an extra preparation option, not an official exam choice rule.</p>`:""}${finalWriting(F.writing[set.writing-1],set.writing,'set'+selected+'-')}</section>` : '';
+      content = set ? `<nav class="unit-pills" aria-label="Practice sets">${F.sets.map((x,i)=>`<a class="${x===set?'active':''}" href="#final/sets/${i+1}">Set ${i+1}</a>`).join("")}</nav><section class="practice-heading"><span class="eyebrow">ORIGINAL PRACTICE · NOT AN OFFICIAL PAPER</span><h2>${esc(set.title)}</h2><p>${esc(F.editorialNote)}</p><nav><a href="#" data-practice-jump="set-part1">01 Word box ↓</a><a href="#" data-practice-jump="set-part2">02 Situations ↓</a><a href="#" data-practice-jump="set-part3">03 Writing ↓</a></nav></section><section id="set-part1"><h2>Part 1 · Word-box gap-fill</h2>${set.gaps.map(g=>finalGap(g,'set-')).join("")}</section><section id="set-part2"><h2>Part 2 · Apply core concepts</h2>${set.situations.map(x=>{const u=F.units.find(u=>u.num===x.unit);return finalSituation(u.situations.find(q=>q.id===x.questionId),u,'set'+selected+'-');}).join("")}</section><section id="set-part3"><h2>Part 3 · Writing</h2>${set.alternativeWriting?`<p>Optional additional study prompt: <a class="theory-link" href="#final/writing/${set.alternativeWriting}">Topic ${set.alternativeWriting} · trade liberalization →</a>. This is an extra preparation option, not an official exam choice rule.</p>`:""}${finalWriting(F.writing[set.writing-1],set.writing,'set'+selected+'-')}</section>` : '';
     } else {
       content = `<section class="final-overview"><div><span class="eyebrow">YOUR FINAL REVIEW</span><h2>Knowledge becomes useful<br><em>when you can apply it.</em></h2><p>Move from vocabulary to decisions, then develop a reasoned argument. This review follows the lecturer's scope.</p><a class="solid-btn" href="#final/concepts/2">Start situation practice ↗</a></div><img src="${MASCOTS.flower}" alt="Ruồi Lùn, your study companion"></section><div class="final-scope"><article><span>01 / RECOGNISE</span><h3>Words in context</h3><p>All ten units. Vocabulary and reading-derived language, followed by original word-box activities.</p><a href="#final/vocabulary/1">Explore vocabulary →</a></article><article><span>02 / APPLY</span><h3>Explain a decision</h3><p>Only Units 2, 4, 5, 6, 7 and 8. Identify → apply → explain → distinguish alternatives.</p><a href="#final/concepts/2">Work through situations →</a></article><article><span>03 / ARGUE</span><h3>Build your position</h3><p>Four lecturer prompts. Interpretation, concepts, arguments, counterarguments and writing support.</p><a href="#final/writing/1">Open writing workspace →</a></article></div><section class="final-surface"><h2>Scope and source notes</h2><p>${esc(F.editorialNote)}</p><p>Units 1, 3, 9 and 10 are excluded from Part 2 only. They remain in Part 1 and may inform writing.</p><p>Final review progress: <strong>${Object.values(finalState().done).filter(Boolean).length}</strong> activities marked reviewed. This is separate from the original course progress.</p>${F.notes.map(n=>`<details><summary>${esc(n.title)}</summary><p>${esc(n.body)}</p>${finalSource(n.source)}</details>`).join("")}</section>`;
     }
@@ -678,7 +700,7 @@
     else html = dashboard();
     app.innerHTML = html;
     app.dataset.view = route;
-    if (learningReturn && (route.endsWith("/theory") || route.startsWith("final/theory/") || route.startsWith("final/vocabulary/"))) {
+    if (learningReturn && (route.includes("/theory") || route.startsWith("final/theory/") || route.startsWith("final/vocabulary/"))) {
       const banner=document.createElement("div"); banner.className="learning-return";
       banner.innerHTML=`<span>You opened this reference from a question.</span><button class="solid-btn" data-route="${esc(learningReturn)}">← Return to the same question</button>`;
       app.querySelector(".page")?.prepend(banner);
@@ -686,7 +708,8 @@
     const snapshot=!preserveScroll && learningSnapshots.get(route);
     if (snapshot) {
       app.querySelectorAll("input,textarea,select").forEach((e,i)=>{if(snapshot.fields[i]){e.value=snapshot.fields[i].value;e.checked=snapshot.fields[i].checked;e.className=snapshot.fields[i].className;if(snapshot.fields[i].invalid!==null)e.setAttribute("aria-invalid",snapshot.fields[i].invalid);}});
-      app.querySelectorAll(".model-answer,.essay-outline,.gap-feedback,.final-gap-feedback").forEach((e,i)=>{const saved=snapshot.panels[i];if(saved){e.hidden=saved.hidden;e.innerHTML=saved.html;e.className=saved.className;}});
+      app.querySelectorAll(".model-answer,.answer-explanation,.essay-outline,.gap-feedback,.final-gap-feedback").forEach((e,i)=>{const saved=snapshot.panels[i];if(saved){e.hidden=saved.hidden;e.innerHTML=saved.html;e.className=saved.className;}});
+      app.querySelectorAll("[data-show-explanation]").forEach(e=>{const open=!e.parentElement.querySelector(".answer-explanation").hidden;e.textContent=open?"Hide explanation":"Show explanation";e.setAttribute("aria-expanded",String(open));});
       app.querySelectorAll("details").forEach((e,i)=>e.open=!!snapshot.details[i]);
       app.querySelectorAll("[data-reveal-answer]").forEach(e=>{e.textContent=e.closest("[data-short-card]").querySelector(".model-answer").hidden?"Reveal model answer":"Hide model answer";});
     }
@@ -696,6 +719,13 @@
     updateHeaderProgress();
     app.focus({preventScroll:true});
     window.scrollTo({top:preserveScroll ? previousScroll : snapshot ? snapshot.scroll : 0,behavior:"auto"});
+    const targetId=route.startsWith("final/gaps/") && route.split("/")[3] ? "exercise-"+route.split("/")[3] : route.startsWith("final/vocabulary/") || route.startsWith("final/theory/") || /^unit\/[^/]+\/theory\//.test(route) ? route.split("/")[3] : /^unit\/[^/]+\/short\//.test(route) ? "question-"+route.split("/")[3] : "";
+    if (targetId && (targetId.startsWith("theory-") || targetId.startsWith("question-") || targetId.startsWith("vocab-") || targetId.startsWith("exercise-"))) {
+      const target=document.getElementById(targetId);
+      if (target) { target.classList.add("theory-target"); target.scrollIntoView({block:"start",behavior:"auto"}); target.focus({preventScroll:true}); }
+    } else if (route===learningReturn && learningOrigin) {
+      document.getElementById(learningOrigin)?.scrollIntoView({block:"start",behavior:"auto"});
+    }
     render.lastRoute = route;
   }
 
@@ -703,15 +733,16 @@
     const rows = [];
     D.units.forEach(unit => {
       rows.push({type:"Unit",title:`Unit ${unit.num} · ${unit.title}`,text:unit.summary,route:`unit/${unit.id}/theory`});
-      unit.theories.forEach(item => rows.push({type:`Unit ${unit.num} · Theory`,title:item.title,text:`${item.body} ${item.points.join(" ")}`,route:`unit/${unit.id}/theory`}));
+      unit.theories.forEach((item,i) => rows.push({type:"THEORY",title:`U${unit.num} · ${item.title}`,text:`${item.body} ${item.points.join(" ")}`,route:`unit/${unit.id}/theory/${F.legacyTheory[unit.num][i]}`}));
       unit.terms.forEach(term => rows.push({type:`Unit ${unit.num} · Key term`,title:term[0],text:`${term[1]} ${term[2]}`,route:`unit/${unit.id}/terms`}));
       unit.gaps.forEach(item => rows.push({type:`Unit ${unit.num} · Gap filling`,title:item.answer,text:item.prompt,route:`unit/${unit.id}/gaps`}));
-      unit.shortAnswers.forEach(item => rows.push({type:`Unit ${unit.num} · Short answer`,title:item.q,text:item.a,route:`unit/${unit.id}/short`}));
+      unit.shortAnswers.forEach(item => {const support=legacySupport(unit,item); rows.push({type:"QUESTION",title:`${support.id} · ${item.q}`,text:item.a,route:`unit/${unit.id}/short/${support.id}`});});
       unit.essays.forEach(item => rows.push({type:`Unit ${unit.num} · Essay`,title:item.prompt,text:`${item.thesis} ${item.outline.join(" ")}`,route:`unit/${unit.id}/essay`}));
     });
     F.units.forEach(u => {
-      u.vocabulary.forEach(v=>rows.push({type:`Final · Unit ${u.num}`,title:v.term,text:v.meaning,route:`final/vocabulary/${u.num}`}));
-      u.situations.forEach((q,i)=>rows.push({type:`Final situation · Unit ${u.num}`,title:q.title,text:q.question,route:`final/concepts/${u.num}/${i}`}));
+      u.vocabulary.forEach(v=>rows.push({type:`Final · Unit ${u.num}`,title:v.term,text:v.meaning,route:`final/vocabulary/${u.num}/${vocabularyId(u.num,v.term)}`}));
+      u.concepts.forEach(c=>rows.push({type:"THEORY",title:`U${u.num} · ${c.title}`,text:c.body,route:`final/theory/${u.num}/${c.id}`}));
+      u.situations.forEach(q=>rows.push({type:"QUESTION",title:`${q.id} · ${q.title}`,text:q.question+' '+(q.subquestions || []).join(' '),route:`final/concepts/${u.num}/${q.id}`}));
     });
     F.writing.forEach((w,i)=>rows.push({type:"Final writing",title:w.prompt,text:w.interpretation,route:`final/writing/${i+1}`}));
     return rows;
@@ -736,7 +767,7 @@
     const jump = event.target.closest("[data-practice-jump]");
     if (jump) { event.preventDefault(); document.getElementById(jump.dataset.practiceJump)?.scrollIntoView({behavior:"smooth"}); return; }
     const related = event.target.closest("[data-related-theory]");
-    if (related) { event.preventDefault(); learningReturn=currentRoute(); routeTo(related.dataset.relatedTheory); return; }
+    if (related) { event.preventDefault(); learningReturn=currentRoute(); learningOrigin=related.closest("[id^=question-],[id^=exercise-]")?.id || ""; routeTo(related.dataset.relatedTheory); return; }
     const finalMark = event.target.closest("[data-final-done]");
     if (finalMark) { const f=finalState(), key=finalMark.dataset.finalDone; f.done[key]=!f.done[key]; saveState(); finalMark.setAttribute("aria-pressed",String(f.done[key])); finalMark.textContent=f.done[key]?"✓ Reviewed · mark incomplete":"Mark reviewed"; return; }
     const finalCheck = event.target.closest("[data-final-check]");
@@ -746,7 +777,9 @@
       panel.querySelectorAll("[data-final-gap]").forEach(input=>{
         const item=activity.items[Number(input.dataset.finalGap)], ok=normalize(input.value)===normalize(item.answer);
         input.classList.toggle("correct",ok); input.classList.toggle("wrong",!ok); input.setAttribute("aria-invalid",String(!ok));
-        const feedback=input.closest("li").querySelector(".final-gap-feedback"); feedback.hidden=false; feedback.textContent=`${ok?'Correct':'Answer: '+item.answer} — ${item.explanation}`;
+        const feedback=input.closest("li").querySelector(".final-gap-feedback"); feedback.hidden=false; feedback.innerHTML=`${esc(ok?'Correct':'Answer: '+item.answer)} — ${esc(item.explanation)}`;
+        const vocabularyUnit=F.units.find(u=>(activity.sources || [activity.source]).some(src=>src.unit===u.num) && u.vocabulary.some(v=>normalize(v.term)===normalize(item.answer)));
+        if(vocabularyUnit) { const term=vocabularyUnit.vocabulary.find(v=>normalize(v.term)===normalize(item.answer)); feedback.innerHTML+=` <button class="theory-link" data-related-theory="final/vocabulary/${vocabularyUnit.num}/${vocabularyId(vocabularyUnit.num,term.term)}">Review ${esc(term.term)} ↗</button>`; }
       }); return;
     }
     const routeButton = event.target.closest("[data-route]");
@@ -809,6 +842,8 @@
       }
       return;
     }
+    const explanationButton=event.target.closest("[data-show-explanation]");
+    if(explanationButton) { const panel=explanationButton.parentElement.querySelector(".answer-explanation"); panel.hidden=!panel.hidden; explanationButton.textContent=panel.hidden?"Show explanation":"Hide explanation"; explanationButton.setAttribute("aria-expanded",String(!panel.hidden)); return; }
     const revealAnswer = event.target.closest("[data-reveal-answer]");
     if (revealAnswer) { const panel = revealAnswer.closest("[data-short-card]").querySelector(".model-answer"); panel.hidden = !panel.hidden; revealAnswer.textContent = panel.hidden ? "Reveal model answer" : "Hide model answer"; return; }
     const revealOutline = event.target.closest("[data-reveal-outline]");

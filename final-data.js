@@ -235,17 +235,19 @@ window.ESP3_FINAL = {
             ]
           },
           "bank": [
-            "offshoring",
             "global value chain",
             "interdependence",
+            "price-conscious",
             "international business",
+            "offshoring",
+            "disposable income",
             "outsourcing"
           ],
           "items": [
             {
-              "prompt": "The course examines ___ between firms in different countries.",
+              "prompt": "Identify the term: commercial activity across national borders Example: The course examines ___ between firms in different countries.",
               "answer": "international business",
-              "explanation": "commercial activity across national borders"
+              "explanation": "The definition and the business context both point to international business. commercial activity across national borders"
             },
             {
               "prompt": "The producer uses ___ to let a specialist handle payroll.",
@@ -285,11 +287,13 @@ window.ESP3_FINAL = {
             ]
           },
           "bank": [
-            "foothold",
-            "adapt",
-            "fragmented market",
             "price-conscious",
-            "disposable income"
+            "international business",
+            "adapt",
+            "disposable income",
+            "foothold",
+            "fragmented market",
+            "outsourcing"
           ],
           "items": [
             {
@@ -559,17 +563,19 @@ window.ESP3_FINAL = {
             ]
           },
           "bank": [
-            "tariff",
-            "quota",
-            "subsidy",
+            "absolute advantage",
             "comparative advantage",
-            "absolute advantage"
+            "tariff",
+            "subsidy",
+            "trade deficit",
+            "quota",
+            "terms of trade"
           ],
           "items": [
             {
-              "prompt": "Even a less productive country can export a good in which it has a ___.",
+              "prompt": "Identify the term: ability to produce at a lower opportunity cost Example: Even a less productive country can export a good in which it has a ___.",
               "answer": "comparative advantage",
-              "explanation": "ability to produce at a lower opportunity cost"
+              "explanation": "The definition and the business context both point to comparative advantage. ability to produce at a lower opportunity cost"
             },
             {
               "prompt": "Using fewer worker-hours per unit than a rival country indicates an ___.",
@@ -609,9 +615,11 @@ window.ESP3_FINAL = {
             ]
           },
           "bank": [
-            "primary commodities",
-            "economies of scale",
+            "absolute advantage",
+            "comparative advantage",
             "countertrade",
+            "economies of scale",
+            "primary commodities",
             "trade deficit",
             "terms of trade"
           ],
@@ -659,7 +667,15 @@ window.ESP3_FINAL = {
               32,
               46
             ]
-          }
+          },
+          "id": "theory-u2-comparative-advantage",
+          "bigIdea": "Compare sacrifices, not just output.",
+          "steps": [
+            "Calculate what one unit of each good costs in the other good.",
+            "Specialise where that opportunity cost is lower."
+          ],
+          "example": "A producer can be more productive in both goods and still benefit from trade.",
+          "confusion": "Absolute advantage answers who produces more; comparative advantage answers who gives up less."
         },
         {
           "title": "Trade policy instruments",
@@ -675,7 +691,8 @@ window.ESP3_FINAL = {
               32,
               46
             ]
-          }
+          },
+          "id": "theory-u2-trade-barriers"
         },
         {
           "title": "Trade balances and development",
@@ -691,7 +708,8 @@ window.ESP3_FINAL = {
               32,
               46
             ]
-          }
+          },
+          "id": "theory-u2-trade-development"
         },
         {
           "title": "Terms of trade and scale",
@@ -707,7 +725,8 @@ window.ESP3_FINAL = {
               32,
               46
             ]
-          }
+          },
+          "id": "theory-u2-terms-of-trade-scale"
         }
       ],
       "distinctions": [
@@ -752,11 +771,11 @@ window.ESP3_FINAL = {
       ],
       "situations": [
         {
-          "id": "u2-s1",
-          "title": "A more productive partner",
-          "question": "Country A can make 12 units of cloth or 6 machines with the same resources; B can make 4 cloth or 4 machines. Which should specialise in cloth, and why?",
-          "answer": "A has a comparative advantage in cloth; B has one in machines.",
-          "explanation": "One cloth costs A 0.5 machines but B 1 machine. One machine costs A 2 cloth but B 1 cloth. A is more productive in both goods, yet the opportunity-cost comparison still supports trade.",
+          "id": "U2-DATA-01",
+          "title": "Business information",
+          "question": "The following outputs use the same quantity of resources. Each country can produce either good, or combinations of the two. Assume constant opportunity costs.",
+          "answer": "a. A has an absolute advantage in both cloth and machines. b. A should specialise in cloth: one cloth costs 0.5 machine, compared with one machine in B. B should specialise in machines: one machine costs one cloth, compared with two cloth in A.",
+          "explanation": "Clue: the same resource input allows a productivity comparison. Concept: absolute advantage compares output; comparative advantage compares opportunity cost. A being more productive in both goods does not eliminate gains from specialisation. The sacrifice of the other good, rather than the largest output number, determines comparative advantage.",
           "source": {
             "kind": "Practice",
             "unit": 2,
@@ -768,14 +787,48 @@ window.ESP3_FINAL = {
               32,
               46
             ]
+          },
+          "legacyId": "u2-s1",
+          "relatedTheory": [
+            "theory-u2-comparative-advantage"
+          ],
+          "format": "table/data",
+          "audit": "REWRITE",
+          "subquestions": [
+            "Which country has an absolute advantage in each good?",
+            "Which good should each country specialise in? Support your answer with opportunity costs."
+          ],
+          "answers": [
+            "A has an absolute advantage in both cloth and machines.",
+            "A should specialise in cloth: one cloth costs 0.5 machine, compared with one machine in B. B should specialise in machines: one machine costs one cloth, compared with two cloth in A."
+          ],
+          "table": {
+            "caption": "Production possibilities · original practice data",
+            "columns": [
+              "Country",
+              "Cloth",
+              "Machines"
+            ],
+            "rows": [
+              [
+                "A",
+                "12",
+                "6"
+              ],
+              [
+                "B",
+                "4",
+                "4"
+              ]
+            ]
           }
         },
         {
-          "id": "u2-s2",
-          "title": "A border restriction",
-          "question": "Vietnamese footwear exporters face an importing country that permits only 50,000 pairs in a period. Is this a tariff or a quota? Explain the decisive detail.",
-          "answer": "It is an import quota.",
-          "explanation": "The instrument caps quantity rather than imposing a tax per pair or a percentage of value. The limited market access can constrain sales even if buyers are willing to pay.",
+          "id": "U2-CASE-02",
+          "title": "Case information",
+          "question": "An importing country introduces the measures below for footwear. Vietnamese firms sell into this market.",
+          "answer": "a. A is an ad valorem tariff; B is an import quota; C is a subsidy to domestic producers. b. B directly limits quantity. The government may seek to protect domestic production and employment, despite the benefit of cheaper imports to consumers.",
+          "explanation": "Clue: A changes the import tax, B caps volume and C supports domestic producers. Concept: tariff, quota and subsidy operate through different mechanisms. Cheaper imports benefit buyers, but governments may prioritise protection. Calling all three a tax would miss the quantity limit and domestic support.",
           "source": {
             "kind": "Practice",
             "unit": 2,
@@ -787,14 +840,45 @@ window.ESP3_FINAL = {
               32,
               46
             ]
+          },
+          "legacyId": "u2-s2",
+          "relatedTheory": [
+            "theory-u2-trade-barriers"
+          ],
+          "format": "multi-part",
+          "audit": "REWRITE",
+          "subquestions": [
+            "Identify the instrument in each measure.",
+            "Which measure restricts the number of pairs directly? Why may the government still use these measures when imports are cheaper?"
+          ],
+          "answers": [
+            "A is an ad valorem tariff; B is an import quota; C is a subsidy to domestic producers.",
+            "B directly limits quantity. The government may seek to protect domestic production and employment, despite the benefit of cheaper imports to consumers."
+          ],
+          "document": {
+            "title": "Policy notice · fictional educational summary",
+            "fields": [
+              [
+                "Measure A",
+                "A charge of 8% of the customs value of imported footwear."
+              ],
+              [
+                "Measure B",
+                "No more than 72,000 imported pairs may enter during the quarter."
+              ],
+              [
+                "Measure C",
+                "The government pays part of local footwear manufacturers’ production costs."
+              ]
+            ]
           }
         },
         {
-          "id": "u2-s3",
-          "title": "More tonnes, weaker purchasing power",
-          "question": "A commodity exporter sells more tonnes, but its export prices fall while imported machinery prices remain unchanged. Can it infer that its terms of trade improved?",
-          "answer": "No. Its terms of trade deteriorated.",
-          "explanation": "The price ratio has worsened: each unit of exports purchases less machinery. More volume might offset some revenue loss, but volume and the price ratio are different measures.",
+          "id": "U2-DATA-03",
+          "title": "Business information",
+          "question": "A commodity-exporting economy reports the following changes. Imported machinery prices are unchanged.",
+          "answer": "a. They have deteriorated because export prices fell relative to import prices. b. No. Export volume and relative prices are different. More tonnes may offset some revenue loss, but each tonne now buys less imported machinery.",
+          "explanation": "Clue: the export price index falls while the import price index stays constant. Concept: terms of trade concern the export/import price relationship. Volume does not determine this price ratio. Total receipts would require considering both price and quantity.",
           "source": {
             "kind": "Practice",
             "unit": 2,
@@ -806,11 +890,50 @@ window.ESP3_FINAL = {
               32,
               46
             ]
+          },
+          "legacyId": "u2-s3",
+          "relatedTheory": [
+            "theory-u2-terms-of-trade-scale"
+          ],
+          "format": "table/data",
+          "audit": "REWRITE",
+          "subquestions": [
+            "Have the terms of trade improved or deteriorated?",
+            "Does the increase in export volume contradict your answer? Explain."
+          ],
+          "answers": [
+            "They have deteriorated because export prices fell relative to import prices.",
+            "No. Export volume and relative prices are different. More tonnes may offset some revenue loss, but each tonne now buys less imported machinery."
+          ],
+          "table": {
+            "caption": "Export report · index base period = 100",
+            "columns": [
+              "Indicator",
+              "Base period",
+              "Current period"
+            ],
+            "rows": [
+              [
+                "Export price index",
+                "100",
+                "85"
+              ],
+              [
+                "Import price index",
+                "100",
+                "100"
+              ],
+              [
+                "Export volume index",
+                "100",
+                "120"
+              ]
+            ]
           }
         },
         {
-          "id": "u2-s4",
-          "title": "Serving a larger market",
+          "id": "U2-SIT-04",
+          "title": "Business situation 04",
           "question": "A Vietnamese appliance factory spreads the cost of specialised machinery over a larger export output. Which gain from trade is relevant, and what condition matters?",
           "answer": "Economies of scale can lower average cost if the larger market supports higher efficient output.",
           "explanation": "Fixed costs are shared across more units. This does not guarantee that every expansion is efficient; the case must show cost or productivity benefits rather than simply more sales.",
@@ -825,11 +948,17 @@ window.ESP3_FINAL = {
               32,
               46
             ]
-          }
+          },
+          "legacyId": "u2-s4",
+          "relatedTheory": [
+            "theory-u2-terms-of-trade-scale"
+          ],
+          "format": "short scenario",
+          "audit": "KEEP"
         },
         {
-          "id": "u2-s5",
-          "title": "Protected competitors",
+          "id": "U2-SIT-05",
+          "title": "Business situation 05",
           "question": "A foreign government pays part of its domestic producers’ costs. Vietnamese exporters lose price competitiveness. Identify the policy and distinguish it from a tariff.",
           "answer": "The policy is a subsidy to domestic producers.",
           "explanation": "It directly supports their costs or revenues. A tariff instead taxes imported products at the border. Both may disadvantage foreign sellers through different mechanisms.",
@@ -844,11 +973,17 @@ window.ESP3_FINAL = {
               32,
               46
             ]
-          }
+          },
+          "legacyId": "u2-s5",
+          "relatedTheory": [
+            "theory-u2-trade-barriers"
+          ],
+          "format": "short scenario",
+          "audit": "KEEP"
         },
         {
-          "id": "u2-s6",
-          "title": "Dependence on one export",
+          "id": "U2-SIT-06",
+          "title": "Business situation 06",
           "question": "A developing economy earns most export revenue from one raw crop. World prices suddenly fall. Explain the vulnerability and one defensible response.",
           "answer": "Primary-commodity dependence exposes export earnings to price instability. Diversifying production or moving into processing could reduce that dependence.",
           "explanation": "The reading connects commodity reliance with development difficulties. The proposed response is an application, not a guarantee: skills, investment and market access would determine whether upgrading succeeds.",
@@ -863,7 +998,13 @@ window.ESP3_FINAL = {
               32,
               46
             ]
-          }
+          },
+          "legacyId": "u2-s6",
+          "relatedTheory": [
+            "theory-u2-trade-development"
+          ],
+          "format": "short scenario",
+          "audit": "KEEP"
         }
       ],
       "traps": [
@@ -1151,14 +1292,16 @@ window.ESP3_FINAL = {
             "bilateral",
             "multilateral",
             "balance of payments",
+            "compliance costs",
+            "interoperability",
             "protectionism",
             "liberalization"
           ],
           "items": [
             {
-              "prompt": "High barriers designed to shelter local firms reflect ___.",
+              "prompt": "Identify the term: policies shielding domestic producers from foreign competition Example: High barriers designed to shelter local firms reflect ___.",
               "answer": "protectionism",
-              "explanation": "policies shielding domestic producers from foreign competition"
+              "explanation": "The definition and the business context both point to protectionism. policies shielding domestic producers from foreign competition"
             },
             {
               "prompt": "Removing import restrictions is a step towards trade ___.",
@@ -1199,10 +1342,12 @@ window.ESP3_FINAL = {
           },
           "bank": [
             "cross-border cooperation",
-            "source code",
-            "non-tariff barriers",
+            "compliance costs",
             "interoperability",
-            "compliance costs"
+            "non-tariff barriers",
+            "protectionism",
+            "liberalization",
+            "source code"
           ],
           "items": [
             {
@@ -1472,17 +1617,19 @@ window.ESP3_FINAL = {
             ]
           },
           "bank": [
-            "joint venture",
             "licensing",
-            "royalty",
+            "merger",
             "foreign direct investment",
+            "joint venture",
+            "royalty",
+            "acquisition",
             "portfolio investment"
           ],
           "items": [
             {
-              "prompt": "Buying a controlling interest in an overseas factory is ___.",
+              "prompt": "Identify the term: investment involving control over business operations abroad Example: Buying a controlling interest in an overseas factory is ___.",
               "answer": "foreign direct investment",
-              "explanation": "investment involving control over business operations abroad"
+              "explanation": "The definition and the business context both point to foreign direct investment. investment involving control over business operations abroad"
             },
             {
               "prompt": "Buying a small passive holding of foreign shares is ___.",
@@ -1522,11 +1669,13 @@ window.ESP3_FINAL = {
             ]
           },
           "bank": [
-            "incentives",
             "asset stripping",
-            "integration",
+            "merger",
+            "foreign direct investment",
+            "incentives",
             "acquisition",
-            "merger"
+            "integration",
+            "portfolio investment"
           ],
           "items": [
             {
@@ -1572,7 +1721,15 @@ window.ESP3_FINAL = {
               64,
               74
             ]
-          }
+          },
+          "id": "theory-u4-investment-control",
+          "bigIdea": "Foreign investment classification turns on control.",
+          "steps": [
+            "Identify whether the investor directs foreign operations.",
+            "Separate a passive financial holding from operational ownership/control."
+          ],
+          "example": "A passive foreign share purchase does not by itself establish FDI.",
+          "confusion": "A licensing contract is an entry arrangement; it is not automatically ownership of a foreign operation."
         },
         {
           "title": "Build, buy or share",
@@ -1588,7 +1745,8 @@ window.ESP3_FINAL = {
               64,
               74
             ]
-          }
+          },
+          "id": "theory-u4-entry-modes"
         },
         {
           "title": "Location and investment motives",
@@ -1604,7 +1762,8 @@ window.ESP3_FINAL = {
               64,
               74
             ]
-          }
+          },
+          "id": "theory-u4-investment-location"
         },
         {
           "title": "Mergers and integration",
@@ -1620,7 +1779,8 @@ window.ESP3_FINAL = {
               64,
               74
             ]
-          }
+          },
+          "id": "theory-u4-horizontal-vertical-integration"
         }
       ],
       "distinctions": [
@@ -1665,11 +1825,11 @@ window.ESP3_FINAL = {
       ],
       "situations": [
         {
-          "id": "u4-s1",
-          "title": "Shares without control",
-          "question": "A Vietnamese fund buys a small passive shareholding in a foreign manufacturer and does not influence operations. Is this FDI?",
-          "answer": "The facts describe portfolio investment rather than FDI.",
-          "explanation": "The distinguishing detail is lack of operational control. Buying foreign shares alone is not enough to classify the transaction as direct investment.",
+          "id": "U4-CASE-01",
+          "title": "Business decision",
+          "question": "A Vietnamese investment firm buys shares in two foreign companies. In Company R it has a passive holding and no management influence. In Company S it owns an operation and directs its production decisions.",
+          "answer": "a. R is portfolio investment; S is foreign direct investment. b. Operational control distinguishes direct investment from a passive portfolio holding. The foreign location and share purchase alone do not establish control.",
+          "explanation": "Clue: the cases differ in control, not simply location. Concept: FDI entails control of foreign operations, while portfolio investment is a financial holding without that operational role. No legal ownership-percentage threshold is assumed here.",
           "source": {
             "kind": "Practice",
             "unit": 4,
@@ -1681,11 +1841,25 @@ window.ESP3_FINAL = {
               64,
               74
             ]
-          }
+          },
+          "legacyId": "u4-s1",
+          "relatedTheory": [
+            "theory-u4-investment-control"
+          ],
+          "format": "comparison",
+          "audit": "REWRITE",
+          "subquestions": [
+            "Classify the two investments.",
+            "Why is buying foreign shares alone insufficient to identify FDI?"
+          ],
+          "answers": [
+            "R is portfolio investment; S is foreign direct investment.",
+            "Operational control distinguishes direct investment from a passive portfolio holding. The foreign location and share purchase alone do not establish control."
+          ]
         },
         {
-          "id": "u4-s2",
-          "title": "A brand with limited capital",
+          "id": "U4-SIT-02",
+          "title": "Business situation 02",
           "question": "A food business wants foreign expansion without owning restaurants abroad. A local operator will use its name and pay for the rights. Which entry approach fits, and what does the owner give up?",
           "answer": "Licensing fits the stated arrangement, with royalty income but less direct operating control.",
           "explanation": "The local operator uses contractual rights. A wholly owned foreign operation would offer stronger control but would require a different investment commitment.",
@@ -1700,11 +1874,17 @@ window.ESP3_FINAL = {
               64,
               74
             ]
-          }
+          },
+          "legacyId": "u4-s2",
+          "relatedTheory": [
+            "theory-u4-investment-control"
+          ],
+          "format": "short scenario",
+          "audit": "KEEP"
         },
         {
-          "id": "u4-s3",
-          "title": "Urgent access to distribution",
+          "id": "U4-SIT-03",
+          "title": "Business situation 03",
           "question": "A firm needs an established foreign distribution network quickly and considers buying a local distributor. Identify the approach and a risk it should evaluate.",
           "answer": "Acquisition offers access to the existing network; post-acquisition integration is a key risk.",
           "explanation": "Buying the business avoids building every relationship from scratch. Staff loss, incompatible procedures or poor system integration may reduce the expected benefit.",
@@ -1719,14 +1899,20 @@ window.ESP3_FINAL = {
               64,
               74
             ]
-          }
+          },
+          "legacyId": "u4-s3",
+          "relatedTheory": [
+            "theory-u4-entry-modes"
+          ],
+          "format": "short scenario",
+          "audit": "KEEP"
         },
         {
-          "id": "u4-s4",
-          "title": "Complementary partners",
-          "question": "A foreign producer has technology while a Vietnamese firm has local market knowledge. Both want an ownership stake. What arrangement fits and what must they manage?",
-          "answer": "A joint venture can combine their complementary resources. They must manage shared control and cooperation.",
-          "explanation": "Joint ownership matches the case. Licensing would transfer use rights without necessarily creating jointly owned operations; full ownership by one partner would not meet both ownership goals.",
+          "id": "U4-CASE-04",
+          "title": "Transaction record",
+          "question": "A Vietnamese manufacturer and an overseas technology firm plan a new factory. Each will own 50%. The Vietnamese partner provides distribution contacts; the overseas partner provides production technology. Both want to participate in management.",
+          "answer": "a. A joint venture. b. It combines local knowledge and technology while sharing resources and risk. Shared control may create disagreement over objectives or operating decisions.",
+          "explanation": "Clue: both partners have ownership and management roles. Concept: joint venture. Licensing alone grants use rights without necessarily creating joint ownership; a wholly owned operation would not satisfy both ownership goals. Combining complementary resources is an advantage, while cooperation is a real management requirement.",
           "source": {
             "kind": "Practice",
             "unit": 4,
@@ -1738,14 +1924,28 @@ window.ESP3_FINAL = {
               64,
               74
             ]
-          }
+          },
+          "legacyId": "u4-s4",
+          "relatedTheory": [
+            "theory-u4-entry-modes"
+          ],
+          "format": "transaction",
+          "audit": "REWRITE",
+          "subquestions": [
+            "Which entry arrangement matches the proposal?",
+            "Give one reason to choose it rather than a wholly owned operation, and one management difficulty."
+          ],
+          "answers": [
+            "A joint venture.",
+            "It combines local knowledge and technology while sharing resources and risk. Shared control may create disagreement over objectives or operating decisions."
+          ]
         },
         {
-          "id": "u4-s5",
-          "title": "Buying upstream",
-          "question": "A manufacturer acquires a foreign supplier of its main input. Is this horizontal or vertical integration?",
-          "answer": "It is vertical integration, specifically expansion into an upstream stage.",
-          "explanation": "The supplier operates at a different stage of the same production chain. Buying another manufacturer at the same stage would be a horizontal combination.",
+          "id": "U4-CASE-05",
+          "title": "Case information",
+          "question": "A food producer considers two foreign acquisitions: purchasing a packaging-material supplier, or purchasing another food producer making the same type of product.",
+          "answer": "a. The supplier acquisition is vertical integration; the other producer acquisition is horizontal integration. b. The supplier operates upstream in the production chain. The other producer operates at the same stage. The classification depends on the relationship between activities, not merely the fact that both targets are foreign.",
+          "explanation": "Clue: input supplier versus same-stage producer. Concept: vertical versus horizontal integration. Buying another company is an acquisition in both cases, but acquisition and integration describe different dimensions of the decision.",
           "source": {
             "kind": "Practice",
             "unit": 4,
@@ -1757,11 +1957,25 @@ window.ESP3_FINAL = {
               64,
               74
             ]
-          }
+          },
+          "legacyId": "u4-s5",
+          "relatedTheory": [
+            "theory-u4-horizontal-vertical-integration"
+          ],
+          "format": "multi-part",
+          "audit": "REWRITE",
+          "subquestions": [
+            "Classify the integration in each acquisition.",
+            "How does the supplier acquisition differ from expanding production at the same stage?"
+          ],
+          "answers": [
+            "The supplier acquisition is vertical integration; the other producer acquisition is horizontal integration.",
+            "The supplier operates upstream in the production chain. The other producer operates at the same stage. The classification depends on the relationship between activities, not merely the fact that both targets are foreign."
+          ]
         },
         {
-          "id": "u4-s6",
-          "title": "An attractive tax offer",
+          "id": "U4-SIT-06",
+          "title": "Business situation 06",
           "question": "Two locations offer similar markets. One gives a large incentive but has unreliable transport and scarce skilled workers. Should the incentive alone determine the FDI choice?",
           "answer": "No. The firm should assess total operating conditions against its investment motive.",
           "explanation": "An incentive may lower initial cost but cannot by itself solve skill or delivery problems. The textbook presents investment location as a combination of financial, labour, market and institutional considerations.",
@@ -1776,7 +1990,13 @@ window.ESP3_FINAL = {
               64,
               74
             ]
-          }
+          },
+          "legacyId": "u4-s6",
+          "relatedTheory": [
+            "theory-u4-investment-location"
+          ],
+          "format": "short scenario",
+          "audit": "KEEP"
         }
       ],
       "traps": [
@@ -2061,17 +2281,19 @@ window.ESP3_FINAL = {
             ]
           },
           "bank": [
-            "hedging",
-            "speculation",
             "arbitrage",
+            "ask",
+            "bid",
+            "forward contract",
+            "hedging",
             "spot transaction",
-            "forward contract"
+            "speculation"
           ],
           "items": [
             {
-              "prompt": "The importer needs currency for immediate settlement and arranges a ___.",
+              "prompt": "Identify the term: currency exchange for near-term settlement Example: The importer needs currency for immediate settlement and arranges a ___.",
               "answer": "spot transaction",
-              "explanation": "currency exchange for near-term settlement"
+              "explanation": "The definition and the business context both point to spot transaction. currency exchange for near-term settlement"
             },
             {
               "prompt": "The exporter fixes a future conversion rate with a ___.",
@@ -2112,10 +2334,12 @@ window.ESP3_FINAL = {
           },
           "bank": [
             "appreciation",
-            "devaluation",
-            "intervention",
+            "ask",
             "bid",
-            "ask"
+            "intervention",
+            "forward contract",
+            "spot transaction",
+            "devaluation"
           ],
           "items": [
             {
@@ -2161,7 +2385,16 @@ window.ESP3_FINAL = {
               75,
               89
             ]
-          }
+          },
+          "id": "theory-u5-bid-ask",
+          "bigIdea": "Always name whose buying and selling the quotation describes.",
+          "steps": [
+            "Read BASE/QUOTE: the quote states units of the second currency per unit of the first.",
+            "Bank buys base currency at bid; bank sells base currency at ask.",
+            "Customer sells base → bid; customer buys base → ask."
+          ],
+          "example": "For EUR/VND 27,180–27,460, a EUR buyer pays 27,460 VND per EUR.",
+          "confusion": "Do not read “customer buys” as “bank buys”. The textbook’s inconsistent ask sentence is flagged in the source notes; its worked example and spot-rate explanation support the sell-at-ask reading."
         },
         {
           "title": "Manage an existing exposure",
@@ -2177,10 +2410,19 @@ window.ESP3_FINAL = {
               75,
               89
             ]
-          }
+          },
+          "id": "theory-u5-hedging",
+          "bigIdea": "A hedge offsets an existing exposure; it does not promise the best price.",
+          "steps": [
+            "Identify a future payment or receipt and the currency.",
+            "A payment needs a currency purchase; a receipt can be covered by a currency sale.",
+            "Match the amount and transaction date."
+          ],
+          "example": "A USD liability can be hedged by buying USD forward; a EUR receipt can be hedged by selling EUR forward.",
+          "confusion": "A favourable later spot move can make the hedge look expensive, while the hedge still achieved certainty."
         },
         {
-          "title": "Choose the instrument",
+          "title": "Spot, forward and currency options",
           "body": "Spot transactions settle near-term. Forwards agree future exchange; futures are standardised traded contracts. An option gives its holder a right rather than an obligation, in return for a premium. A swap combines exchanges at different dates.",
           "source": {
             "kind": "Textbook",
@@ -2193,7 +2435,15 @@ window.ESP3_FINAL = {
               75,
               89
             ]
-          }
+          },
+          "id": "theory-u5-currency-instruments",
+          "bigIdea": "Timing and obligation are separate instrument choices.",
+          "steps": [
+            "Spot is exchange at the spot rate, normally settled within two business days.",
+            "A forward fixes agreed terms now for exchange at a specified future date.",
+            "An option gives the holder a right, not an obligation, with a premium."
+          ],
+          "confusion": "A future date does not by itself make an instrument an option; an option’s defining feature is the right without obligation."
         },
         {
           "title": "Separate purpose from outcome",
@@ -2209,7 +2459,16 @@ window.ESP3_FINAL = {
               75,
               89
             ]
-          }
+          },
+          "id": "theory-u5-speculation-arbitrage",
+          "bigIdea": "Separate the reason for a transaction from its eventual profit.",
+          "steps": [
+            "Hedging protects an existing exposure.",
+            "Speculation creates exposure in pursuit of a forecast gain.",
+            "Arbitrage exploits executable price differences."
+          ],
+          "example": "Buying at one dealer’s ask and immediately selling at another dealer’s higher bid is a price-difference transaction.",
+          "confusion": "A profitable transaction is not automatically arbitrage; a simultaneous executable difference is essential."
         }
       ],
       "distinctions": [
@@ -2273,11 +2532,11 @@ window.ESP3_FINAL = {
       ],
       "situations": [
         {
-          "id": "u5-s1",
-          "title": "A dollar invoice",
-          "question": "A Vietnamese importer must pay USD in three months and fears the dollar will rise against VND. What forward transaction would address this risk?",
-          "answer": "Buy the required USD forward for the payment date.",
-          "explanation": "The importer fixes the VND cost of its dollar liability. It is hedging an existing obligation, and must accept that a later dollar fall would have made an unhedged purchase cheaper.",
+          "id": "U5-CASE-01",
+          "title": "Transaction record",
+          "question": "A Vietnamese importer must pay USD 40,000 in three months. It can buy USD forward at VND 25,600 per USD. At the payment date, the spot rate might be VND 26,200 or VND 25,100. Ignore fees.",
+          "answer": "a. Buy USD 40,000 forward for the payment date. The cost is VND 1,024,000,000. b. At 26,200, an unhedged purchase costs VND 1,048,000,000; at 25,100 it costs VND 1,004,000,000. The forward fixes cost, but does not guarantee the cheapest outcome.",
+          "explanation": "Clue: a known foreign-currency liability exists. Concept: hedging with a forward purchase. The fixed rate removes uncertainty about the conversion cost; it also forgoes the benefit of a favourable spot move. This differs from buying currency solely to profit from a forecast.",
           "source": {
             "kind": "Practice",
             "unit": 5,
@@ -2289,11 +2548,26 @@ window.ESP3_FINAL = {
               75,
               89
             ]
-          }
+          },
+          "legacyId": "u5-s1",
+          "relatedTheory": [
+            "theory-u5-hedging",
+            "theory-u5-currency-instruments"
+          ],
+          "format": "transaction",
+          "audit": "REWRITE",
+          "subquestions": [
+            "What transaction fixes the VND cost, and what is that cost?",
+            "Compare the result with remaining unhedged under each possible spot rate. Does the fixed transaction guarantee the cheapest outcome?"
+          ],
+          "answers": [
+            "Buy USD 40,000 forward for the payment date. The cost is VND 1,024,000,000.",
+            "At 26,200, an unhedged purchase costs VND 1,048,000,000; at 25,100 it costs VND 1,004,000,000. The forward fixes cost, but does not guarantee the cheapest outcome."
+          ]
         },
         {
-          "id": "u5-s2",
-          "title": "An export receipt",
+          "id": "U5-SIT-02",
+          "title": "Business situation 02",
           "question": "A Vietnamese exporter will receive EUR in two months and worries that EUR will fall against VND. Should it buy or sell EUR forward?",
           "answer": "Sell the expected EUR receipt forward.",
           "explanation": "The firm is exposed to a fall in the domestic-currency value of the receipt. Selling EUR forward fixes conversion proceeds; buying more EUR would increase rather than offset that exposure.",
@@ -2308,14 +2582,21 @@ window.ESP3_FINAL = {
               75,
               89
             ]
-          }
+          },
+          "legacyId": "u5-s2",
+          "relatedTheory": [
+            "theory-u5-hedging",
+            "theory-u5-currency-instruments"
+          ],
+          "format": "short scenario",
+          "audit": "KEEP"
         },
         {
-          "id": "u5-s3",
-          "title": "Which side of the quote?",
-          "question": "A dealer quotes USD/VND 25,000–25,100, with USD as base currency. A customer wants to buy USD. Which rate applies?",
-          "answer": "The customer pays the ask of VND 25,100 per USD.",
-          "explanation": "The dealer sells the base currency at its ask. If the customer sold USD to the dealer, the bid of 25,000 would apply. These are invented practice rates, not live quotations.",
+          "id": "U5-DATA-03",
+          "title": "Quotation and transaction",
+          "question": "On 9 October, a fictional bank posts the quotations below. Bid and ask are from the bank’s perspective. Ignore fees.",
+          "answer": "a. VND is the quote currency; EUR and SGD are the respective base currencies. b. EUR bid: VND 27,180 per EUR. SGD ask: VND 19,240 per SGD. c. The EUR buyer pays the ask: 2,000 × 27,460 = VND 54,920,000. The SGD seller receives the bid: 3,000 × 19,020 = VND 57,060,000.",
+          "explanation": "Clue: the customer buys or sells the base currency. Concept: the bank buys at bid and sells at ask. A customer purchase therefore uses ask, and a customer sale uses bid. Reversing the perspective selects the wrong column. These are invented educational rates, not current quotations.",
           "source": {
             "kind": "Practice",
             "unit": 5,
@@ -2327,11 +2608,47 @@ window.ESP3_FINAL = {
               75,
               89
             ]
+          },
+          "legacyId": "u5-s3",
+          "relatedTheory": [
+            "theory-u5-bid-ask"
+          ],
+          "format": "table/data",
+          "audit": "REWRITE",
+          "subquestions": [
+            "What is the quote currency in both pairs, and the base currency in each?",
+            "State the bid for EUR and the ask for SGD.",
+            "A customer buys EUR 2,000; another sells SGD 3,000. Which rate applies to each, and how much VND is paid or received?"
+          ],
+          "answers": [
+            "VND is the quote currency; EUR and SGD are the respective base currencies.",
+            "EUR bid: VND 27,180 per EUR. SGD ask: VND 19,240 per SGD.",
+            "The EUR buyer pays the ask: 2,000 × 27,460 = VND 54,920,000. The SGD seller receives the bid: 3,000 × 19,020 = VND 57,060,000."
+          ],
+          "table": {
+            "caption": "Bank quotation · VND per one unit of base currency",
+            "columns": [
+              "Currency pair",
+              "Bid",
+              "Ask"
+            ],
+            "rows": [
+              [
+                "EUR/VND",
+                "27,180",
+                "27,460"
+              ],
+              [
+                "SGD/VND",
+                "19,020",
+                "19,240"
+              ]
+            ]
           }
         },
         {
-          "id": "u5-s4",
-          "title": "A right without commitment",
+          "id": "U5-SIT-04",
+          "title": "Business situation 04",
           "question": "A company wants protection against an adverse exchange-rate move but wants to benefit if rates move favourably. Which instrument fits, and what cost matters?",
           "answer": "A currency option may fit; the premium must be considered.",
           "explanation": "The holder has a right, not an obligation, to exchange on the agreed terms. A forward fixes an obligation and therefore does not provide the same flexibility.",
@@ -2346,11 +2663,17 @@ window.ESP3_FINAL = {
               75,
               89
             ]
-          }
+          },
+          "legacyId": "u5-s4",
+          "relatedTheory": [
+            "theory-u5-currency-instruments"
+          ],
+          "format": "short scenario",
+          "audit": "KEEP"
         },
         {
-          "id": "u5-s5",
-          "title": "A directional bet",
+          "id": "U5-SIT-05",
+          "title": "Business situation 05",
           "question": "A treasury team with no dollar invoice buys dollars because it expects the exchange rate to rise. Is this hedging or speculation?",
           "answer": "It is speculation on a currency movement.",
           "explanation": "There is no stated underlying payment or receipt being protected. The team creates exposure in pursuit of profit and could lose if the forecast is wrong.",
@@ -2365,14 +2688,20 @@ window.ESP3_FINAL = {
               75,
               89
             ]
-          }
+          },
+          "legacyId": "u5-s5",
+          "relatedTheory": [
+            "theory-u5-speculation-arbitrage"
+          ],
+          "format": "short scenario",
+          "audit": "KEEP"
         },
         {
-          "id": "u5-s6",
-          "title": "Two dealers, one opportunity",
-          "question": "A trader can simultaneously buy a currency from one dealer for less than another dealer will pay for it. What concept applies, and what must be checked?",
-          "answer": "Currency arbitrage applies if the linked transactions remain profitable after transaction costs.",
-          "explanation": "The profit comes from a simultaneous price difference rather than a prediction about future rates. Execution and costs matter; a quoted gap alone does not guarantee a usable net gain.",
+          "id": "U5-DATA-06",
+          "title": "Quotation and transaction",
+          "question": "A trader can trade USD simultaneously with two dealers at the quotations below. Assume both trades are executable immediately and there are no fees.",
+          "answer": "a. Buy USD from Dealer A at its ask of 25,420 and sell to Dealer B at its bid of 25,460. b. The gross gain is (25,460 − 25,420) × 10,000 = VND 400,000. This exploits a simultaneous price difference rather than predicting a later rate movement.",
+          "explanation": "Clue: B’s bid exceeds A’s ask at the same time. Concept: arbitrage. The spread between the correct executable sides provides the gain. Comparing both bids or both asks does not represent a purchase followed by a sale. Actual costs and execution constraints could remove the gain; the case explicitly excludes them.",
           "source": {
             "kind": "Practice",
             "unit": 5,
@@ -2384,14 +2713,86 @@ window.ESP3_FINAL = {
               75,
               89
             ]
+          },
+          "legacyId": "u5-s6",
+          "relatedTheory": [
+            "theory-u5-speculation-arbitrage"
+          ],
+          "format": "table/data",
+          "audit": "REWRITE",
+          "subquestions": [
+            "Is there a price-difference opportunity? Identify the purchase and sale rates.",
+            "Calculate the gross result for USD 10,000. How does this differ from waiting for USD to rise?"
+          ],
+          "answers": [
+            "Buy USD from Dealer A at its ask of 25,420 and sell to Dealer B at its bid of 25,460.",
+            "The gross gain is (25,460 − 25,420) × 10,000 = VND 400,000. This exploits a simultaneous price difference rather than predicting a later rate movement."
+          ],
+          "table": {
+            "caption": "Simultaneous dealer quotations · VND per USD",
+            "columns": [
+              "Dealer",
+              "Bid",
+              "Ask"
+            ],
+            "rows": [
+              [
+                "A",
+                "25,360",
+                "25,420"
+              ],
+              [
+                "B",
+                "25,460",
+                "25,520"
+              ]
+            ]
           }
         },
         {
-          "id": "u5-s7",
-          "title": "An official rate change",
-          "question": "A monetary authority lowers its currency’s official fixed value. A student calls this appreciation. Explain the error.",
-          "answer": "The change is devaluation.",
-          "explanation": "The direction is a reduction, and the mechanism is an official fixed-rate change. Appreciation describes a rise in value, while market-driven falls are normally described as depreciation.",
+          "id": "U5-CASE-07",
+          "title": "Case information",
+          "question": "In a floating market, USD/VND rises from 25,300 to 25,900. A Vietnamese importer owes USD 10,000 and an exporter expects to receive USD 10,000. Neither has fixed a conversion rate.",
+          "answer": "a. USD has appreciated against VND; VND has depreciated against USD. b. Both VND amounts rise by VND 6,000,000: the importer pays more VND, while the exporter’s receipt converts into more VND, assuming the stated rate applies and ignoring fees.",
+          "explanation": "Clue: more VND are required for one USD. Concept: appreciation/depreciation under a floating rate. A foreign-currency liability and receipt respond differently for the business. An official reduction of a fixed currency value would instead be devaluation.",
+          "source": {
+            "kind": "Practice",
+            "unit": 5,
+            "pages": [
+              74,
+              88
+            ],
+            "pdfPages": [
+              75,
+              89
+            ]
+          },
+          "legacyId": "u5-s7",
+          "relatedTheory": [
+            "theory-u5-speculation-arbitrage"
+          ],
+          "format": "multi-part",
+          "audit": "REPLACE",
+          "subquestions": [
+            "Which currency has appreciated, and which has depreciated?",
+            "What happens to the VND cost of the importer’s payment and the VND value of the exporter’s receipt?"
+          ],
+          "answers": [
+            "USD has appreciated against VND; VND has depreciated against USD.",
+            "Both VND amounts rise by VND 6,000,000: the importer pays more VND, while the exporter’s receipt converts into more VND, assuming the stated rate applies and ignoring fees."
+          ]
+        },
+        {
+          "id": "U5-CASE-08",
+          "title": "Business decision",
+          "question": "An importer needs currency for a near-term payment and can allow normal spot settlement. Another has a fixed foreign-currency payment in four months. Explain why the same transaction timing may not suit both.",
+          "answer": "The immediate payment calls for a spot transaction, subject to normal settlement arrangements. The future payment can be covered with a forward transaction for its specified date.",
+          "explanation": "Clue: payment dates differ. Concept: spot versus forward. A forward is agreed now for later exchange; spot normally settles within two business days, rather than meaning every transaction is physically instantaneous.",
+          "relatedTheory": [
+            "theory-u5-currency-instruments"
+          ],
+          "format": "comparison",
+          "audit": "NEW",
           "source": {
             "kind": "Practice",
             "unit": 5,
@@ -2688,17 +3089,19 @@ window.ESP3_FINAL = {
             ]
           },
           "bank": [
-            "payment in advance",
-            "documents against payment",
-            "documents against acceptance",
+            "confirming bank",
             "documentary credit",
-            "open account"
+            "open account",
+            "payment in advance",
+            "advising bank",
+            "documents against acceptance",
+            "documents against payment"
           ],
           "items": [
             {
-              "prompt": "The seller requests a ___ so payment depends on presentation of complying documents.",
+              "prompt": "Identify the term: a bank undertaking to pay against complying documents Example: The seller requests a ___ so payment depends on presentation of complying documents.",
               "answer": "documentary credit",
-              "explanation": "a bank undertaking to pay against complying documents"
+              "explanation": "The definition and the business context both point to documentary credit. a bank undertaking to pay against complying documents"
             },
             {
               "prompt": "A trusted buyer receives goods and pays later under ___.",
@@ -2738,11 +3141,13 @@ window.ESP3_FINAL = {
             ]
           },
           "bank": [
+            "confirming bank",
+            "documentary credit",
+            "open account",
+            "advising bank",
             "red clause",
             "revolving credit",
-            "standby credit",
-            "advising bank",
-            "confirming bank"
+            "standby credit"
           ],
           "items": [
             {
@@ -2788,7 +3193,8 @@ window.ESP3_FINAL = {
               90,
               103
             ]
-          }
+          },
+          "id": "theory-u6-payment-methods"
         },
         {
           "title": "Collection is not a bank guarantee",
@@ -2804,7 +3210,16 @@ window.ESP3_FINAL = {
               90,
               103
             ]
-          }
+          },
+          "id": "theory-u6-documentary-collection",
+          "bigIdea": "Document release and receipt of payment are different events.",
+          "steps": [
+            "Exporter draws the bill and sends the documents through collection banks.",
+            "D/P: release documents against payment.",
+            "D/A: release against acceptance of a time draft; payment follows later."
+          ],
+          "example": "A bill drawn by the exporter on the buyer orders payment. A sight draft calls for payment on presentation; a time (usance) draft specifies later payment. Under D/A, the accepted buyer draft can remain unpaid until maturity.",
+          "confusion": "A buyer’s acceptance does not automatically create a bank payment guarantee."
         },
         {
           "title": "Credit depends on documents",
@@ -2820,7 +3235,16 @@ window.ESP3_FINAL = {
               90,
               103
             ]
-          }
+          },
+          "id": "theory-u6-letter-of-credit",
+          "bigIdea": "Read the undertaking and the document condition together.",
+          "steps": [
+            "Identify applicant/buyer and beneficiary/exporter.",
+            "Identify the issuing bank and any added confirmation.",
+            "Compare the required documents with the presentation."
+          ],
+          "example": "Advice alone communicates the credit; confirmation adds an undertaking.",
+          "confusion": "Documentary compliance does not mean the bank has inspected the physical goods."
         },
         {
           "title": "Match the credit to the transaction",
@@ -2836,7 +3260,8 @@ window.ESP3_FINAL = {
               90,
               103
             ]
-          }
+          },
+          "id": "theory-u6-credit-variations"
         }
       ],
       "distinctions": [
@@ -2900,11 +3325,11 @@ window.ESP3_FINAL = {
       ],
       "situations": [
         {
-          "id": "u6-s1",
-          "title": "New customer, uncertain payment",
-          "question": "A Vietnamese exporter has a new overseas customer. It wants a bank undertaking if it submits the required complying documents. Which method fits?",
-          "answer": "Documentary credit fits the stated need.",
-          "explanation": "The undertaking depends on compliant documents. Open account leaves the exporter relying on the buyer’s later payment; documentary collection does not itself add the same bank undertaking.",
+          "id": "U6-CASE-01",
+          "title": "Business decision",
+          "question": "An exporter offers a buyer two arrangements: payment before dispatch, or shipment now with payment 60 days later without a bank undertaking. The buyer is new to the exporter.",
+          "answer": "a. Cash in advance and open account. b. Advance payment protects the exporter against non-payment of the prepaid amount; open account relies on the buyer’s later payment. The buyer may resist paying before receiving goods because it bears the prepayment risk.",
+          "explanation": "Clue: the payment timing reverses the allocation of commercial risk. Concept: advance payment versus open account. A bank undertaking is not present in the second proposal. The case asks for a risk comparison, not a universal recommendation.",
           "source": {
             "kind": "Practice",
             "unit": 6,
@@ -2916,14 +3341,28 @@ window.ESP3_FINAL = {
               90,
               103
             ]
-          }
+          },
+          "legacyId": "u6-s1",
+          "relatedTheory": [
+            "theory-u6-payment-methods"
+          ],
+          "format": "comparison",
+          "audit": "REWRITE",
+          "subquestions": [
+            "Name the two payment methods.",
+            "Compare the exporter’s non-payment exposure. Why may the buyer resist the first method?"
+          ],
+          "answers": [
+            "Cash in advance and open account.",
+            "Advance payment protects the exporter against non-payment of the prepaid amount; open account relies on the buyer’s later payment. The buyer may resist paying before receiving goods because it bears the prepayment risk."
+          ]
         },
         {
-          "id": "u6-s2",
-          "title": "Release only after cash",
-          "question": "An exporter instructs the collecting bank to release shipping documents only when the buyer pays. Which collection arrangement is this?",
-          "answer": "Documents against payment, or D/P.",
-          "explanation": "Document release follows payment. Under D/A, acceptance of a time draft can release the documents before payment is actually received.",
+          "id": "U6-DOC-02",
+          "title": "Payment document",
+          "question": "Read the collection instruction sent by the exporter through its bank.",
+          "answer": "a. Documents against payment (D/P). b. Only after payment of USD 18,600, according to the instruction. c. No. Collection-bank involvement alone is not a payment undertaking.",
+          "explanation": "Clue: document release is conditional on payment. Concept: D/P documentary collection. Acceptance alone would not satisfy this instruction; D/A would release documents against acceptance of a time draft. The exporter still faces refusal risk.",
           "source": {
             "kind": "Practice",
             "unit": 6,
@@ -2935,14 +3374,55 @@ window.ESP3_FINAL = {
               90,
               103
             ]
+          },
+          "legacyId": "u6-s2",
+          "relatedTheory": [
+            "theory-u6-documentary-collection"
+          ],
+          "format": "document",
+          "audit": "REWRITE",
+          "subquestions": [
+            "Which collection arrangement is specified?",
+            "When may the importer receive the shipping documents?",
+            "If the importer refuses to pay, has the bank promised to settle the amount itself?"
+          ],
+          "answers": [
+            "Documents against payment (D/P).",
+            "Only after payment of USD 18,600, according to the instruction.",
+            "No. Collection-bank involvement alone is not a payment undertaking."
+          ],
+          "document": {
+            "title": "Collection instruction · simplified original document",
+            "fields": [
+              [
+                "Exporter",
+                "Riverloom Textiles Ltd."
+              ],
+              [
+                "Importer",
+                "Northbridge Retail Ltd."
+              ],
+              [
+                "Invoice amount",
+                "USD 18,600"
+              ],
+              [
+                "Documents enclosed",
+                "Commercial invoice and shipping documents"
+              ],
+              [
+                "Release instruction",
+                "Release documents only against payment of the full amount."
+              ]
+            ]
           }
         },
         {
-          "id": "u6-s3",
-          "title": "Accepted, but unpaid",
-          "question": "A buyer accepts a time draft, receives documents, then fails to pay at maturity. The exporter thought the bank had guaranteed payment. What was misunderstood?",
-          "answer": "D/A collection provides release against acceptance, not an automatic bank guarantee of payment.",
-          "explanation": "Acceptance creates the buyer’s obligation but does not eliminate default risk. The exporter should not equate bank involvement in collection with a documentary-credit undertaking.",
+          "id": "U6-DOC-03",
+          "title": "Payment document",
+          "question": "Read the simplified bill of exchange below. No bank has accepted or guaranteed it.",
+          "answer": "a. It is a time (usance) draft: payment is required 45 days after sight. b. Drawer: Lotus Weave Ltd.; drawee: Harbour Home Ltd.; amount: USD 24,750. c. No. Under D/A, acceptance can release documents before payment. The buyer may dishonour the accepted draft at maturity.",
+          "explanation": "Clue: “45 days after sight” specifies deferred payment; the issuer signs the order addressed to the buyer. Concept: time draft and documents against acceptance. Acceptance is not the same event as cash payment, and a buyer’s accepted draft is not automatically a banker’s acceptance.",
           "source": {
             "kind": "Practice",
             "unit": 6,
@@ -2954,14 +3434,55 @@ window.ESP3_FINAL = {
               90,
               103
             ]
+          },
+          "legacyId": "u6-s3",
+          "relatedTheory": [
+            "theory-u6-documentary-collection"
+          ],
+          "format": "document",
+          "audit": "REWRITE",
+          "subquestions": [
+            "Is this a sight draft or a time draft?",
+            "Identify the drawer, the drawee and the amount.",
+            "Under collection, documents are released when the buyer accepts this draft. Has the exporter already received cash? What risk remains?"
+          ],
+          "answers": [
+            "It is a time (usance) draft: payment is required 45 days after sight.",
+            "Drawer: Lotus Weave Ltd.; drawee: Harbour Home Ltd.; amount: USD 24,750.",
+            "No. Under D/A, acceptance can release documents before payment. The buyer may dishonour the accepted draft at maturity."
+          ],
+          "document": {
+            "title": "Bill of exchange · educational representation",
+            "fields": [
+              [
+                "Draft reference",
+                "LW-204"
+              ],
+              [
+                "Issue date",
+                "12 September 2026"
+              ],
+              [
+                "Payment order",
+                "45 days after sight, pay USD 24,750 to Lotus Weave Ltd."
+              ],
+              [
+                "To",
+                "Harbour Home Ltd. (buyer)"
+              ],
+              [
+                "Issued and signed by",
+                "Lotus Weave Ltd. (exporter)"
+              ]
+            ]
           }
         },
         {
-          "id": "u6-s4",
-          "title": "An extra undertaking",
-          "question": "An exporter receives a credit through its local bank but wants that bank also to commit to payment under the credit. Is advice alone enough?",
-          "answer": "No. The exporter is seeking confirmation, not merely advice.",
-          "explanation": "The advising role involves authenticating and communicating the credit. A confirming bank adds its own undertaking, subject to the credit’s terms and complying presentation.",
+          "id": "U6-DOC-04",
+          "title": "Payment document",
+          "question": "An exporter receives the credit information below and asks its local bank to undertake payment too.",
+          "answer": "a. The issuing bank provides the stated undertaking, subject to complying documents. b. The exporter requests confirmation. Advice communicates/authenticates the credit; confirmation adds the confirming bank’s own payment undertaking.",
+          "explanation": "Clue: the local bank is described only as advising, while the undertaking belongs to the issuing bank. Concept: advised versus confirmed credit. The requested extra obligation cannot be inferred merely from receipt of an advice.",
           "source": {
             "kind": "Practice",
             "unit": 6,
@@ -2973,11 +3494,54 @@ window.ESP3_FINAL = {
               90,
               103
             ]
+          },
+          "legacyId": "u6-s4",
+          "relatedTheory": [
+            "theory-u6-letter-of-credit"
+          ],
+          "format": "document",
+          "audit": "REWRITE",
+          "subquestions": [
+            "Which bank currently provides the stated undertaking?",
+            "What additional arrangement is the exporter requesting? Why is advice alone insufficient?"
+          ],
+          "answers": [
+            "The issuing bank provides the stated undertaking, subject to complying documents.",
+            "The exporter requests confirmation. Advice communicates/authenticates the credit; confirmation adds the confirming bank’s own payment undertaking."
+          ],
+          "document": {
+            "title": "Credit information · fictional summary",
+            "fields": [
+              [
+                "Applicant",
+                "Overseas buyer"
+              ],
+              [
+                "Beneficiary",
+                "Vietnamese exporter"
+              ],
+              [
+                "Issuing bank",
+                "Eastgate Bank"
+              ],
+              [
+                "Local bank role",
+                "Advising bank only"
+              ],
+              [
+                "Payment condition",
+                "Presentation of the required complying documents"
+              ],
+              [
+                "Local bank confirmation",
+                "Not added"
+              ]
+            ]
           }
         },
         {
-          "id": "u6-s5",
-          "title": "Funds before production",
+          "id": "U6-SIT-05",
+          "title": "Business situation 05",
           "question": "A seller needs funds to purchase materials before shipment, and the buyer agrees to a credit provision allowing an advance. Which textbook credit feature fits?",
           "answer": "A red clause credit fits the pre-shipment advance requirement.",
           "explanation": "The relevant feature is an authorised advance before shipment. A revolving credit instead addresses repeated availability for drawings; it does not by that fact alone provide advance finance.",
@@ -2992,11 +3556,17 @@ window.ESP3_FINAL = {
               90,
               103
             ]
-          }
+          },
+          "legacyId": "u6-s5",
+          "relatedTheory": [
+            "theory-u6-credit-variations"
+          ],
+          "format": "short scenario",
+          "audit": "KEEP"
         },
         {
-          "id": "u6-s6",
-          "title": "Monthly deliveries",
+          "id": "U6-SIT-06",
+          "title": "Business situation 06",
           "question": "A buyer and seller arrange regular similar shipments over a period and want credit availability restored under agreed conditions. Which type may suit them?",
           "answer": "A revolving credit may suit repeated shipments.",
           "explanation": "Its recurring availability addresses the repeated transaction pattern. They still need to specify reinstatement and drawing conditions; the label alone does not settle every contractual detail.",
@@ -3011,11 +3581,17 @@ window.ESP3_FINAL = {
               90,
               103
             ]
-          }
+          },
+          "legacyId": "u6-s6",
+          "relatedTheory": [
+            "theory-u6-credit-variations"
+          ],
+          "format": "short scenario",
+          "audit": "KEEP"
         },
         {
-          "id": "u6-s7",
-          "title": "Documents versus goods",
+          "id": "U6-SIT-07",
+          "title": "Business situation 07",
           "question": "A buyer complains that goods are poor quality even though the required documents comply with the credit. Does documentary compliance prove the goods are satisfactory?",
           "answer": "No. Documentary compliance and physical performance are distinct.",
           "explanation": "The bank’s documentary role does not amount to inspecting or guaranteeing goods. The buyer’s commercial dispute must not be confused with the document-based payment mechanism.",
@@ -3030,7 +3606,13 @@ window.ESP3_FINAL = {
               90,
               103
             ]
-          }
+          },
+          "legacyId": "u6-s7",
+          "relatedTheory": [
+            "theory-u6-letter-of-credit"
+          ],
+          "format": "short scenario",
+          "audit": "KEEP"
         }
       ],
       "traps": [
@@ -3330,17 +3912,19 @@ window.ESP3_FINAL = {
             ]
           },
           "bank": [
-            "marketing mix",
             "market research",
-            "brand",
             "segmentation",
-            "target market"
+            "latent demand",
+            "marketing mix",
+            "target market",
+            "brand",
+            "demarketing"
           ],
           "items": [
             {
-              "prompt": "Grouping customers by needs before choosing a target is ___.",
+              "prompt": "Identify the term: dividing a market into groups with shared characteristics Example: Grouping customers by needs before choosing a target is ___.",
               "answer": "segmentation",
-              "explanation": "dividing a market into groups with shared characteristics"
+              "explanation": "The definition and the business context both point to segmentation. dividing a market into groups with shared characteristics"
             },
             {
               "prompt": "After comparing segments, the firm selects students as its ___.",
@@ -3380,11 +3964,13 @@ window.ESP3_FINAL = {
             ]
           },
           "bank": [
-            "synchromarketing",
-            "skimming",
-            "saturation",
+            "segmentation",
             "latent demand",
-            "demarketing"
+            "saturation",
+            "synchromarketing",
+            "target market",
+            "demarketing",
+            "skimming"
           ],
           "items": [
             {
@@ -3430,7 +4016,8 @@ window.ESP3_FINAL = {
               104,
               115
             ]
-          }
+          },
+          "id": "theory-u7-marketing-orientation"
         },
         {
           "title": "Select and serve a segment",
@@ -3446,7 +4033,16 @@ window.ESP3_FINAL = {
               104,
               115
             ]
-          }
+          },
+          "id": "theory-u7-segmentation-marketing-mix",
+          "bigIdea": "Choose whom to serve, then align how to serve them.",
+          "steps": [
+            "Segment the market into meaningful groups.",
+            "Select the target market.",
+            "Align product, price, place and promotion with that target."
+          ],
+          "example": "A business-traveller target may need workspace and corporate booking access.",
+          "confusion": "A list of segments is not yet a targeting decision."
         },
         {
           "title": "Diagnose demand before responding",
@@ -3462,7 +4058,16 @@ window.ESP3_FINAL = {
               104,
               115
             ]
-          }
+          },
+          "id": "theory-u7-demand-states",
+          "bigIdea": "Diagnose the demand pattern before choosing the marketing task.",
+          "steps": [
+            "Irregular timing → synchromarketing.",
+            "Overfull overall demand → demarketing.",
+            "Unmet latent demand → developmental marketing; declining existing demand → remarketing."
+          ],
+          "example": "Weekend queues plus weekday spare capacity call for shifting demand, rather than suppressing all visits.",
+          "confusion": "An off-peak discount is not a solution when every period is already over capacity."
         },
         {
           "title": "Adapt over the product life cycle",
@@ -3478,7 +4083,8 @@ window.ESP3_FINAL = {
               104,
               115
             ]
-          }
+          },
+          "id": "theory-u7-product-life-cycle"
         }
       ],
       "distinctions": [
@@ -3542,8 +4148,8 @@ window.ESP3_FINAL = {
       ],
       "situations": [
         {
-          "id": "u7-s1",
-          "title": "Design before persuasion",
+          "id": "U7-SIT-01",
+          "title": "Business situation 01",
           "question": "A producer keeps making a product customers find inconvenient and responds only with more sales calls. What change in orientation would address the problem?",
           "answer": "Adopt a marketing orientation: research needs and adapt the offering and mix.",
           "explanation": "More persuasion may not resolve a poor fit. Marketing begins with the customer problem, whereas the described response primarily tries to sell existing output.",
@@ -3558,14 +4164,20 @@ window.ESP3_FINAL = {
               104,
               115
             ]
-          }
+          },
+          "legacyId": "u7-s1",
+          "relatedTheory": [
+            "theory-u7-marketing-orientation"
+          ],
+          "format": "short scenario",
+          "audit": "KEEP"
         },
         {
-          "id": "u7-s2",
-          "title": "Different travellers",
-          "question": "A hotel identifies budget students and business travellers, then decides to serve business travellers. Distinguish the two decisions.",
-          "answer": "Identifying the groups is segmentation; choosing business travellers is targeting.",
-          "explanation": "The selected target should guide product features, price, distribution and promotion. Listing groups alone does not establish which group the firm will serve.",
+          "id": "U7-DATA-02",
+          "title": "Business information",
+          "question": "A hotel studies the two customer groups below and chooses business travellers as its main market.",
+          "answer": "a. Identifying groups is segmentation; choosing business travellers is targeting. b. For example, provide a reliable workspace and offer booking through corporate travel channels. These decisions respond to the stated needs of the chosen group.",
+          "explanation": "Clue: the business first groups customers, then selects whom to serve. Concept: segmentation, targeting and a coherent marketing mix. The suggested decisions are original applications; other well-justified decisions fitting the supplied needs may also be valid.",
           "source": {
             "kind": "Practice",
             "unit": 7,
@@ -3577,14 +4189,48 @@ window.ESP3_FINAL = {
               104,
               115
             ]
+          },
+          "legacyId": "u7-s2",
+          "relatedTheory": [
+            "theory-u7-segmentation-marketing-mix"
+          ],
+          "format": "table/data",
+          "audit": "REWRITE",
+          "subquestions": [
+            "Distinguish identifying the groups from choosing one to serve.",
+            "Suggest one product decision and one distribution decision consistent with the chosen market."
+          ],
+          "answers": [
+            "Identifying groups is segmentation; choosing business travellers is targeting.",
+            "For example, provide a reliable workspace and offer booking through corporate travel channels. These decisions respond to the stated needs of the chosen group."
+          ],
+          "table": {
+            "caption": "Customer research · original information",
+            "columns": [
+              "Group",
+              "Main requirements",
+              "Booking behaviour"
+            ],
+            "rows": [
+              [
+                "Budget students",
+                "Low price; basic rooms",
+                "Compare low-cost online offers"
+              ],
+              [
+                "Business travellers",
+                "Reliable internet; workspace; weekday stays",
+                "Corporate travel booking"
+              ]
+            ]
           }
         },
         {
-          "id": "u7-s3",
-          "title": "Weekend peaks",
-          "question": "A service business has queues at weekends but spare capacity on weekdays. Which demand task best fits?",
-          "answer": "Synchromarketing can shift some demand to quieter periods.",
-          "explanation": "The key problem is irregular timing, not necessarily excessive total demand. Off-peak offers are an original application; broadly discouraging all demand would miss that distinction.",
+          "id": "U7-CASE-03",
+          "title": "Business decision",
+          "question": "Service A has weekend queues but substantial unused weekday capacity. Service B is above its safe capacity every day, with no quieter period available.",
+          "answer": "a. A has irregular demand and needs synchromarketing. B has overfull demand and needs demarketing. b. A can shift some demand to quieter days. B needs less demand overall; there is no spare off-peak capacity to absorb it.",
+          "explanation": "Clue: the presence or absence of spare capacity in another period. Concept: irregular versus overfull demand. Shifting demand and reducing demand are different tasks. An indiscriminate discount could increase B’s capacity problem.",
           "source": {
             "kind": "Practice",
             "unit": 7,
@@ -3596,11 +4242,25 @@ window.ESP3_FINAL = {
               104,
               115
             ]
-          }
+          },
+          "legacyId": "u7-s3",
+          "relatedTheory": [
+            "theory-u7-demand-states"
+          ],
+          "format": "comparison",
+          "audit": "REWRITE",
+          "subquestions": [
+            "Identify the demand state and marketing task for each service.",
+            "Why would the same off-peak discount not solve both problems?"
+          ],
+          "answers": [
+            "A has irregular demand and needs synchromarketing. B has overfull demand and needs demarketing.",
+            "A can shift some demand to quieter days. B needs less demand overall; there is no spare off-peak capacity to absorb it."
+          ]
         },
         {
-          "id": "u7-s4",
-          "title": "Too many visitors",
+          "id": "U7-SIT-04",
+          "title": "Business situation 04",
           "question": "A site receives more visitors than it can responsibly serve throughout the season and wants fewer visits overall. Which task fits?",
           "answer": "Demarketing fits overfull demand.",
           "explanation": "The aim is to reduce demand to an acceptable level. Synchromarketing would fit uneven timing if spare capacity elsewhere could absorb the visits.",
@@ -3615,11 +4275,17 @@ window.ESP3_FINAL = {
               104,
               115
             ]
-          }
+          },
+          "legacyId": "u7-s4",
+          "relatedTheory": [
+            "theory-u7-demand-states"
+          ],
+          "format": "short scenario",
+          "audit": "KEEP"
         },
         {
-          "id": "u7-s5",
-          "title": "A solution that does not exist",
+          "id": "U7-SIT-05",
+          "title": "Business situation 05",
           "question": "Research reveals customers want a service that existing products cannot provide. Should the firm focus on developmental marketing or remarketing?",
           "answer": "Developmental marketing addresses this latent demand.",
           "explanation": "The task is to create an adequate offering for an unmet need. Remarketing addresses demand that has declined for an existing product.",
@@ -3634,14 +4300,58 @@ window.ESP3_FINAL = {
               104,
               115
             ]
-          }
+          },
+          "legacyId": "u7-s5",
+          "relatedTheory": [
+            "theory-u7-demand-states"
+          ],
+          "format": "short scenario",
+          "audit": "KEEP"
         },
         {
-          "id": "u7-s6",
-          "title": "A mismatched mix",
-          "question": "A firm targets price-sensitive students but launches premium packaging, high prices and only expensive boutiques. Why might its strategy fail?",
-          "answer": "Its marketing mix is poorly aligned with the chosen target market.",
-          "explanation": "Product, price, place and promotion should work together around customer needs. Strong promotion alone cannot necessarily overcome unaffordable pricing and inaccessible distribution.",
+          "id": "U7-CASE-06",
+          "title": "Case information",
+          "question": "A drinks company selects price-sensitive students as its target. It then chooses elaborate packaging, a high price and exclusive distribution through luxury boutiques.",
+          "answer": "a. Packaging is part of product; the high charge is price; exclusive boutique distribution is place. b. The offering, price and availability are poorly aligned with the target market. More promotion does not by itself make the product affordable or accessible.",
+          "explanation": "Clue: the decisions conflict with the stated customer group. Concept: coherent marketing mix. Promotion is only one element; increasing awareness cannot necessarily compensate for mismatched product, price and distribution.",
+          "source": {
+            "kind": "Practice",
+            "unit": 7,
+            "pages": [
+              103,
+              114
+            ],
+            "pdfPages": [
+              104,
+              115
+            ]
+          },
+          "legacyId": "u7-s6",
+          "relatedTheory": [
+            "theory-u7-segmentation-marketing-mix"
+          ],
+          "format": "multi-part",
+          "audit": "REWRITE",
+          "subquestions": [
+            "Identify the marketing-mix elements described.",
+            "Why might promotion alone fail to solve the problem?"
+          ],
+          "answers": [
+            "Packaging is part of product; the high charge is price; exclusive boutique distribution is place.",
+            "The offering, price and availability are poorly aligned with the target market. More promotion does not by itself make the product affordable or accessible."
+          ]
+        },
+        {
+          "id": "U7-CASE-07",
+          "title": "Business decision",
+          "question": "A product initially attracted early adopters at a high price. Sales are now flattening as competitors offer similar products. Why should the firm review its marketing decisions?",
+          "answer": "The product has moved beyond its initial introduction conditions. Competition and changing demand require reviewing the mix rather than assuming the original premium-price approach remains suitable.",
+          "explanation": "Clue: the initial customer group and competitive conditions have changed. Concept: product life cycle. The case supports a review of strategy, but does not establish one compulsory price or an exact life-cycle stage from sales flattening alone.",
+          "relatedTheory": [
+            "theory-u7-product-life-cycle"
+          ],
+          "format": "comparison",
+          "audit": "NEW",
           "source": {
             "kind": "Practice",
             "unit": 7,
@@ -3938,17 +4648,19 @@ window.ESP3_FINAL = {
             ]
           },
           "bank": [
-            "freight forwarder",
-            "bill of lading",
             "inventory",
+            "lead time",
             "logistics",
-            "lead time"
+            "empty runs",
+            "bill of lading",
+            "freight forwarder",
+            "modal shift"
           ],
           "items": [
             {
-              "prompt": "Coordinating transport, stock and storage is part of ___.",
+              "prompt": "Identify the term: planning and managing flows and storage to meet needs Example: Coordinating transport, stock and storage is part of ___.",
               "answer": "logistics",
-              "explanation": "planning and managing flows and storage to meet needs"
+              "explanation": "The definition and the business context both point to logistics. planning and managing flows and storage to meet needs"
             },
             {
               "prompt": "A supplier reduces the ___ from order placement to delivery.",
@@ -3988,11 +4700,13 @@ window.ESP3_FINAL = {
             ]
           },
           "bank": [
-            "carbon footprint",
             "backhauls",
+            "lead time",
+            "logistics",
+            "carbon footprint",
+            "empty runs",
             "capacity utilization",
-            "modal shift",
-            "empty runs"
+            "modal shift"
           ],
           "items": [
             {
@@ -4038,7 +4752,8 @@ window.ESP3_FINAL = {
               116,
               132
             ]
-          }
+          },
+          "id": "theory-u8-logistics-flow"
         },
         {
           "title": "Balance responsiveness and inventory",
@@ -4054,7 +4769,8 @@ window.ESP3_FINAL = {
               116,
               132
             ]
-          }
+          },
+          "id": "theory-u8-inventory-service"
         },
         {
           "title": "Reduce unnecessary movement",
@@ -4070,7 +4786,8 @@ window.ESP3_FINAL = {
               116,
               132
             ]
-          }
+          },
+          "id": "theory-u8-green-transport"
         },
         {
           "title": "Manage information and quality",
@@ -4086,7 +4803,16 @@ window.ESP3_FINAL = {
               116,
               132
             ]
-          }
+          },
+          "id": "theory-u8-logistics-information",
+          "bigIdea": "The logistics cycle needs current information to coordinate physical flows.",
+          "steps": [
+            "Collect consumption and inventory-level data.",
+            "Use the information for quantification and procurement.",
+            "Coordinate storage/distribution and monitor quality."
+          ],
+          "example": "Current stock balances can prevent ordering excess at one outlet while another runs short.",
+          "confusion": "Transport capacity cannot substitute for reliable ordering information."
         }
       ],
       "distinctions": [
@@ -4150,11 +4876,11 @@ window.ESP3_FINAL = {
       ],
       "situations": [
         {
-          "id": "u8-s1",
-          "title": "Stock closer to customers",
-          "question": "A distributor wants regional warehouses to shorten delivery time. What trade-off should it examine?",
-          "answer": "Compare service gains from local stock with additional inventory and operating costs.",
-          "explanation": "Shorter customer delivery lead times may improve responsiveness, but duplicated stock and facilities can raise costs. The textbook distribution model requires a network-level comparison.",
+          "id": "U8-DATA-01",
+          "title": "Business information",
+          "question": "A distributor promises delivery within two days. It compares the networks below. Treat the figures as comparable annual estimates.",
+          "answer": "a. The regional network meets the two-day promise; the central network’s four-day service does not. b. The regional network improves service but carries higher warehouse and inventory costs. The choice must compare the service requirement with the total network costs, not one cost item.",
+          "explanation": "Clue: the service promise is explicit. Concept: distribution-network and inventory/service trade-offs. The cheapest warehouse cost is not automatically the best feasible network. A company could reconsider the promise, but that would change the case requirement.",
           "source": {
             "kind": "Practice",
             "unit": 8,
@@ -4166,11 +4892,48 @@ window.ESP3_FINAL = {
               116,
               132
             ]
+          },
+          "legacyId": "u8-s1",
+          "relatedTheory": [
+            "theory-u8-inventory-service"
+          ],
+          "format": "table/data",
+          "audit": "REWRITE",
+          "subquestions": [
+            "Which network meets the stated delivery promise?",
+            "Why is warehouse cost alone insufficient for the decision?"
+          ],
+          "answers": [
+            "The regional network meets the two-day promise; the central network’s four-day service does not.",
+            "The regional network improves service but carries higher warehouse and inventory costs. The choice must compare the service requirement with the total network costs, not one cost item."
+          ],
+          "table": {
+            "caption": "Distribution proposals · original estimates",
+            "columns": [
+              "Network",
+              "Delivery lead time",
+              "Warehouse cost",
+              "Average inventory value"
+            ],
+            "rows": [
+              [
+                "Central",
+                "4 days",
+                "VND 1.2 billion",
+                "VND 3 billion"
+              ],
+              [
+                "Regional",
+                "1 day",
+                "VND 2 billion",
+                "VND 4.5 billion"
+              ]
+            ]
           }
         },
         {
-          "id": "u8-s2",
-          "title": "A cheaper but slower route",
+          "id": "U8-SIT-02",
+          "title": "Business situation 02",
           "question": "A supplier proposes a slower low-price service for inputs needed continuously in production. Should the buyer choose it on freight price alone?",
           "answer": "No. Evaluate reliability, lead time, inventory needs and production service alongside freight cost.",
           "explanation": "Lower freight charges may require more buffer stock or expose production to shortages. The relevant objective is the whole logistics outcome, not one price component.",
@@ -4185,14 +4948,20 @@ window.ESP3_FINAL = {
               116,
               132
             ]
-          }
+          },
+          "legacyId": "u8-s2",
+          "relatedTheory": [
+            "theory-u8-inventory-service"
+          ],
+          "format": "short scenario",
+          "audit": "KEEP"
         },
         {
-          "id": "u8-s3",
-          "title": "Empty return journeys",
-          "question": "A truck delivers goods then returns empty past a supplier that ships to the same depot. What improvement fits?",
-          "answer": "Coordinate a backhaul to carry the supplier’s freight on the return journey.",
-          "explanation": "This uses capacity that would otherwise be empty and can reduce unnecessary movements. Scheduling and cargo compatibility must still fit; it is not simply a change in transport mode.",
+          "id": "U8-CASE-03",
+          "title": "Transaction record",
+          "question": "A carrier delivers packaged goods from Depot P to Town Q. Its truck returns to P empty. A supplier in Q sends compatible packaged goods to P each afternoon. Both schedules can be coordinated without missing delivery commitments.",
+          "answer": "a. Collect the supplier’s goods on the return trip: arrange a backhaul. b. Using the otherwise empty return capacity can reduce separate journeys and related costs/emissions. Cargo compatibility and delivery schedules must still be satisfied.",
+          "explanation": "Clue: a compatible return load exists on the same route. Concept: backhaul and capacity utilisation. The improvement uses existing movements; it does not require calling every mode change green or assuming every shipment can be combined.",
           "source": {
             "kind": "Practice",
             "unit": 8,
@@ -4204,11 +4973,25 @@ window.ESP3_FINAL = {
               116,
               132
             ]
-          }
+          },
+          "legacyId": "u8-s3",
+          "relatedTheory": [
+            "theory-u8-green-transport"
+          ],
+          "format": "transaction",
+          "audit": "REWRITE",
+          "subquestions": [
+            "Propose one operational change.",
+            "Explain the potential cost and environmental benefit, and one condition that must remain satisfied."
+          ],
+          "answers": [
+            "Collect the supplier’s goods on the return trip: arrange a backhaul.",
+            "Using the otherwise empty return capacity can reduce separate journeys and related costs/emissions. Cargo compatibility and delivery schedules must still be satisfied."
+          ]
         },
         {
-          "id": "u8-s4",
-          "title": "An appropriate mode",
+          "id": "U8-SIT-04",
+          "title": "Business situation 04",
           "question": "A firm can move non-urgent bulk freight by rail instead of road while meeting delivery requirements. Which green-logistics measure is this?",
           "answer": "It is modal shift.",
           "explanation": "The change concerns the mode used for transport. Its suitability depends on the route, service and product requirements; it should not be described as an automatic best choice for all cargo.",
@@ -4223,11 +5006,17 @@ window.ESP3_FINAL = {
               116,
               132
             ]
-          }
+          },
+          "legacyId": "u8-s4",
+          "relatedTheory": [
+            "theory-u8-green-transport"
+          ],
+          "format": "short scenario",
+          "audit": "KEEP"
         },
         {
-          "id": "u8-s5",
-          "title": "Packaging outside the warehouse",
+          "id": "U8-SIT-05",
+          "title": "Business situation 05",
           "question": "A company reduces warehouse electricity use but ignores oversized supplier packaging and unnecessary supplier trips. What is missing?",
           "answer": "A wider supply-chain and life-cycle view of green logistics.",
           "explanation": "The reading extends environmental action beyond a single logistics site to packaging, suppliers and network decisions. A local saving does not establish that the whole chain has improved.",
@@ -4242,14 +5031,20 @@ window.ESP3_FINAL = {
               116,
               132
             ]
-          }
+          },
+          "legacyId": "u8-s5",
+          "relatedTheory": [
+            "theory-u8-green-transport"
+          ],
+          "format": "short scenario",
+          "audit": "KEEP"
         },
         {
-          "id": "u8-s6",
-          "title": "Poor demand information",
-          "question": "A distributor has both stockouts and excess stock because procurement uses outdated demand records. Which support function needs attention?",
-          "answer": "Improve logistics information and coordination between demand estimation, procurement and inventory management.",
-          "explanation": "The logistics cycle connects these decisions. More vehicles alone would not correct inaccurate ordering information or the resulting inventory imbalance.",
+          "id": "U8-CASE-06",
+          "title": "Case information",
+          "question": "A distributor’s ordering team uses last quarter’s demand figures. Some outlets are out of stock while others hold excess stock. Current consumption and stock balances are not shared with procurement.",
+          "answer": "a. Collect current consumption and inventory-level data. b. An LMIS supports decisions across the logistics cycle. More trucks may improve transport capacity, but do not correct inaccurate procurement quantities or stock allocation.",
+          "explanation": "Clue: ordering lacks current consumption and stock information. Concept: logistics management information system. Information connects quantification, procurement and inventory management; vehicle capacity is a different issue.",
           "source": {
             "kind": "Practice",
             "unit": 8,
@@ -4261,7 +5056,21 @@ window.ESP3_FINAL = {
               116,
               132
             ]
-          }
+          },
+          "legacyId": "u8-s6",
+          "relatedTheory": [
+            "theory-u8-logistics-information"
+          ],
+          "format": "multi-part",
+          "audit": "REWRITE",
+          "subquestions": [
+            "Which information should be collected to improve ordering?",
+            "Which system supports this coordination, and why would adding trucks alone be insufficient?"
+          ],
+          "answers": [
+            "Collect current consumption and inventory-level data.",
+            "An LMIS supports decisions across the logistics cycle. More trucks may improve transport capacity, but do not correct inaccurate procurement quantities or stock allocation."
+          ]
         }
       ],
       "traps": [
@@ -4546,17 +5355,19 @@ window.ESP3_FINAL = {
             ]
           },
           "bank": [
+            "general average",
+            "indemnification",
             "insurable interest",
-            "subrogation",
-            "utmost good faith",
+            "inherent vice",
             "premium",
-            "indemnification"
+            "subrogation",
+            "utmost good faith"
           ],
           "items": [
             {
-              "prompt": "The insured pays an annual ___ to maintain cover.",
+              "prompt": "Identify the term: the price paid for insurance coverage Example: The insured pays an annual ___ to maintain cover.",
               "answer": "premium",
-              "explanation": "the price paid for insurance coverage"
+              "explanation": "The definition and the business context both point to premium. the price paid for insurance coverage"
             },
             {
               "prompt": "Restoring the insured's covered financial loss is the purpose of ___.",
@@ -4596,11 +5407,13 @@ window.ESP3_FINAL = {
             ]
           },
           "bank": [
-            "claim",
             "excess",
-            "underwrite",
             "general average",
-            "inherent vice"
+            "indemnification",
+            "inherent vice",
+            "premium",
+            "underwrite",
+            "claim"
           ],
           "items": [
             {
@@ -4870,17 +5683,19 @@ window.ESP3_FINAL = {
             ]
           },
           "bank": [
-            "tax avoidance",
-            "tax evasion",
+            "deduction",
+            "progressive tax",
             "tax haven",
             "value added tax",
-            "progressive tax"
+            "tax avoidance",
+            "tax evasion",
+            "taxable income"
           ],
           "items": [
             {
-              "prompt": "The seller's invoice separately records ___ on the supply.",
+              "prompt": "Identify the term: tax on value added collected through stages of supply Example: The seller's invoice separately records ___ on the supply.",
               "answer": "value added tax",
-              "explanation": "tax on value added collected through stages of supply"
+              "explanation": "The definition and the business context both point to value added tax. tax on value added collected through stages of supply"
             },
             {
               "prompt": "Higher income bands face higher rates under a ___.",
@@ -4920,11 +5735,13 @@ window.ESP3_FINAL = {
             ]
           },
           "bank": [
+            "deduction",
+            "double taxation",
+            "progressive tax",
+            "value added tax",
             "tax return",
             "tax arrears",
-            "double taxation",
-            "taxable income",
-            "deduction"
+            "taxable income"
           ],
           "items": [
             {
@@ -5357,7 +6174,7 @@ window.ESP3_FINAL = {
   ],
   "sets": [
     {
-      "title": "FINAL PRACTICE SET 1",
+      "title": "FINAL PRACTICE SET 1 · Exam-style practice",
       "gaps": [
         {
           "id": "set1-mixed",
@@ -5457,33 +6274,33 @@ window.ESP3_FINAL = {
       "situations": [
         {
           "unit": 2,
-          "index": 0
+          "questionId": "U2-DATA-01"
         },
         {
           "unit": 4,
-          "index": 0
+          "questionId": "U4-CASE-04"
         },
         {
           "unit": 5,
-          "index": 0
+          "questionId": "U5-DATA-03"
         },
         {
           "unit": 6,
-          "index": 0
+          "questionId": "U6-DOC-03"
         },
         {
           "unit": 7,
-          "index": 0
+          "questionId": "U7-CASE-03"
         },
         {
           "unit": 8,
-          "index": 0
+          "questionId": "U8-DATA-01"
         }
       ],
       "writing": 1
     },
     {
-      "title": "FINAL PRACTICE SET 2",
+      "title": "FINAL PRACTICE SET 2 · Exam-style practice",
       "gaps": [
         {
           "id": "set2-mixed",
@@ -5565,33 +6382,33 @@ window.ESP3_FINAL = {
       "situations": [
         {
           "unit": 2,
-          "index": 1
+          "questionId": "U2-CASE-02"
         },
         {
           "unit": 4,
-          "index": 1
+          "questionId": "U4-CASE-05"
         },
         {
           "unit": 5,
-          "index": 1
+          "questionId": "U5-DATA-06"
         },
         {
           "unit": 6,
-          "index": 1
+          "questionId": "U6-DOC-02"
         },
         {
           "unit": 7,
-          "index": 1
+          "questionId": "U7-DATA-02"
         },
         {
           "unit": 8,
-          "index": 1
+          "questionId": "U8-CASE-03"
         }
       ],
       "writing": 2
     },
     {
-      "title": "FINAL PRACTICE SET 3",
+      "title": "FINAL PRACTICE SET 3 · Exam-style practice",
       "gaps": [
         {
           "id": "set3-mixed",
@@ -5691,27 +6508,27 @@ window.ESP3_FINAL = {
       "situations": [
         {
           "unit": 2,
-          "index": 2
+          "questionId": "U2-DATA-03"
         },
         {
           "unit": 4,
-          "index": 2
+          "questionId": "U4-SIT-06"
         },
         {
           "unit": 5,
-          "index": 2
+          "questionId": "U5-CASE-01"
         },
         {
           "unit": 6,
-          "index": 2
+          "questionId": "U6-DOC-04"
         },
         {
           "unit": 7,
-          "index": 2
+          "questionId": "U7-CASE-06"
         },
         {
           "unit": 8,
-          "index": 2
+          "questionId": "U8-CASE-06"
         }
       ],
       "writing": 4,
@@ -5768,5 +6585,469 @@ window.ESP3_FINAL = {
       }
     }
   ],
-  "editorialNote": "Original practice, not an official paper. Activity sizes are study-design choices. No official time, marks, question count or essay length has been supplied."
+  "editorialNote": "Original exam-style practice, not an official paper. Older/reference exams inform question style only. Final activity sizes are study-design choices; official Final time, marks, question count and essay length remain unspecified.",
+  "remediationAudit": {
+    "KEEP": 18,
+    "REWRITE": 19,
+    "REPLACE": 1,
+    "NEW": 2
+  },
+  "legacyTheory": {
+    "1": [
+      "theory-u1-legacy-international-and-domestic-business",
+      "theory-u1-legacy-globalization-internationalization-and-regional-integration",
+      "theory-u1-legacy-mnes-ownership-and-foreign-direct-investment",
+      "theory-u1-legacy-invention-innovation-technology-and-institutions",
+      "theory-u1-legacy-gatt-wto-and-liberalization",
+      "theory-u1-legacy-smes-global-value-chains-and-production-networks",
+      "theory-u1-legacy-outsourcing-offshoring-and-nearshoring",
+      "theory-u1-legacy-fsa-csa-and-lessons-from-international-cases"
+    ],
+    "2": [
+      "theory-u2-legacy-trade-and-the-balance-of-trade",
+      "theory-u2-legacy-absolute-and-comparative-advantage",
+      "theory-u2-legacy-factor-endowments-and-the-product-life-cycle",
+      "theory-u2-legacy-trade-promotion-and-trade-barriers"
+    ],
+    "3": [
+      "theory-u3-legacy-balance-of-payments",
+      "theory-u3-legacy-free-trade-and-protectionism",
+      "theory-u3-legacy-liberalization-and-core-trade-policy-rules",
+      "theory-u3-legacy-bilateral-and-multilateral-cooperation"
+    ],
+    "4": [
+      "theory-u4-legacy-fdi-and-portfolio-investment",
+      "theory-u4-legacy-the-investment-environment",
+      "theory-u4-legacy-entry-and-ownership-choices",
+      "theory-u4-legacy-mergers-acquisitions-and-buyouts"
+    ],
+    "5": [
+      "theory-u5-legacy-the-market-and-exchange-rate-quotations",
+      "theory-u5-legacy-spot-and-forward-transactions",
+      "theory-u5-legacy-hedging-arbitrage-and-speculation",
+      "theory-u5-legacy-derivatives-and-exchange-rate-systems"
+    ],
+    "6": [
+      "theory-u6-legacy-the-payment-risk-spectrum",
+      "theory-u6-legacy-documentary-collections",
+      "theory-u6-legacy-documentary-letters-of-credit",
+      "theory-u6-legacy-drafts-and-l-c-variations"
+    ],
+    "7": [
+      "theory-u7-legacy-selling-and-marketing-concepts",
+      "theory-u7-legacy-needs-value-and-satisfaction",
+      "theory-u7-legacy-research-segmentation-and-target-markets",
+      "theory-u7-legacy-the-marketing-mix-channels-and-brands"
+    ],
+    "8": [
+      "theory-u8-legacy-logistics-and-supply-chains",
+      "theory-u8-legacy-networks-lead-time-and-order-management",
+      "theory-u8-legacy-transport-documents-and-intermediaries",
+      "theory-u8-legacy-cost-resilience-and-green-logistics"
+    ],
+    "9": [
+      "theory-u9-legacy-how-insurance-works",
+      "theory-u9-legacy-indemnity-and-insurable-interest",
+      "theory-u9-legacy-subrogation-and-utmost-good-faith",
+      "theory-u9-legacy-marine-insurance-and-general-average"
+    ],
+    "10": [
+      "theory-u10-legacy-direct-and-indirect-taxes",
+      "theory-u10-legacy-progressive-flat-and-regressive-taxation",
+      "theory-u10-legacy-vat-and-transaction-taxes",
+      "theory-u10-legacy-tax-planning-avoidance-and-evasion"
+    ]
+  },
+  "legacyQuestions": {
+    "1:0": {
+      "id": "U1-QNA-01",
+      "theoryId": "theory-u1-legacy-international-and-domestic-business"
+    },
+    "1:1": {
+      "id": "U1-QNA-02",
+      "theoryId": "theory-u1-legacy-international-and-domestic-business"
+    },
+    "1:2": {
+      "id": "U1-QNA-03",
+      "theoryId": "theory-u1-legacy-globalization-internationalization-and-regional-integration"
+    },
+    "1:3": {
+      "id": "U1-QNA-04",
+      "theoryId": "theory-u1-legacy-mnes-ownership-and-foreign-direct-investment"
+    },
+    "1:4": {
+      "id": "U1-QNA-05",
+      "theoryId": "theory-u1-legacy-fsa-csa-and-lessons-from-international-cases"
+    },
+    "1:5": {
+      "id": "U1-QNA-06",
+      "theoryId": "theory-u1-legacy-outsourcing-offshoring-and-nearshoring",
+      "explanation": "The two decisions answer different questions: who performs the activity, and where it is performed. A firm can outsource domestically, or move its own operation offshore without outsourcing.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 1,
+        "pages": [
+          18,
+          20
+        ],
+        "pdfPages": [
+          19,
+          21
+        ]
+      }
+    },
+    "1:6": {
+      "id": "U1-QNA-07",
+      "theoryId": "theory-u1-legacy-mnes-ownership-and-foreign-direct-investment"
+    },
+    "1:7": {
+      "id": "U1-QNA-08",
+      "theoryId": "theory-u1-legacy-invention-innovation-technology-and-institutions"
+    },
+    "2:0": {
+      "id": "U2-QNA-01",
+      "theoryId": "theory-u2-legacy-absolute-and-comparative-advantage",
+      "explanation": "Lower opportunity cost determines comparative advantage. Even a country with lower productivity can specialise in the good for which its relative sacrifice is lower; absolute productivity alone does not decide the trade pattern.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 2,
+        "pages": [
+          31,
+          34
+        ],
+        "pdfPages": [
+          32,
+          35
+        ]
+      }
+    },
+    "2:1": {
+      "id": "U2-QNA-02",
+      "theoryId": "theory-u2-legacy-trade-promotion-and-trade-barriers",
+      "explanation": "A tariff changes the tax on imported goods; a quota sets a quantity limit. Both may restrict imports, but the mechanism differs. An answer that calls a quota an import tax misses the distinction.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 2,
+        "pages": [
+          35,
+          39
+        ],
+        "pdfPages": [
+          36,
+          40
+        ]
+      }
+    },
+    "2:2": {
+      "id": "U2-QNA-03",
+      "theoryId": "theory-u2-legacy-trade-promotion-and-trade-barriers"
+    },
+    "2:3": {
+      "id": "U2-QNA-04",
+      "theoryId": "theory-u2-legacy-factor-endowments-and-the-product-life-cycle"
+    },
+    "2:4": {
+      "id": "U2-QNA-05",
+      "theoryId": "theory-u2-legacy-trade-promotion-and-trade-barriers"
+    },
+    "2:5": {
+      "id": "U2-QNA-06",
+      "theoryId": "theory-u2-legacy-trade-promotion-and-trade-barriers"
+    },
+    "2:6": {
+      "id": "U2-QNA-07",
+      "theoryId": "theory-u2-legacy-trade-promotion-and-trade-barriers"
+    },
+    "2:7": {
+      "id": "U2-QNA-08",
+      "theoryId": "theory-u2-legacy-trade-and-the-balance-of-trade"
+    },
+    "3:0": {
+      "id": "U3-QNA-01",
+      "theoryId": "theory-u3-legacy-balance-of-payments"
+    },
+    "3:1": {
+      "id": "U3-QNA-02",
+      "theoryId": "theory-u3-legacy-balance-of-payments"
+    },
+    "3:2": {
+      "id": "U3-QNA-03",
+      "theoryId": "theory-u3-legacy-free-trade-and-protectionism"
+    },
+    "3:3": {
+      "id": "U3-QNA-04",
+      "theoryId": "theory-u3-legacy-bilateral-and-multilateral-cooperation"
+    },
+    "3:4": {
+      "id": "U3-QNA-05",
+      "theoryId": "theory-u3-legacy-liberalization-and-core-trade-policy-rules"
+    },
+    "3:5": {
+      "id": "U3-QNA-06",
+      "theoryId": "theory-u3-legacy-liberalization-and-core-trade-policy-rules"
+    },
+    "3:6": {
+      "id": "U3-QNA-07",
+      "theoryId": "theory-u3-legacy-balance-of-payments"
+    },
+    "3:7": {
+      "id": "U3-QNA-08",
+      "theoryId": "theory-u3-legacy-liberalization-and-core-trade-policy-rules"
+    },
+    "4:0": {
+      "id": "U4-QNA-01",
+      "theoryId": "theory-u4-legacy-fdi-and-portfolio-investment"
+    },
+    "4:1": {
+      "id": "U4-QNA-02",
+      "theoryId": "theory-u4-legacy-the-investment-environment"
+    },
+    "4:2": {
+      "id": "U4-QNA-03",
+      "theoryId": "theory-u4-legacy-entry-and-ownership-choices",
+      "explanation": "Joint ownership can combine local market knowledge with a partner’s resources and technology. Shared commitment is an advantage, while shared control creates coordination demands. Full ownership does not provide the same partner contribution.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 4,
+        "pages": [
+          65,
+          69
+        ],
+        "pdfPages": [
+          66,
+          70
+        ]
+      }
+    },
+    "4:3": {
+      "id": "U4-QNA-04",
+      "theoryId": "theory-u4-legacy-entry-and-ownership-choices"
+    },
+    "4:4": {
+      "id": "U4-QNA-05",
+      "theoryId": "theory-u4-legacy-mergers-acquisitions-and-buyouts"
+    },
+    "4:5": {
+      "id": "U4-QNA-06",
+      "theoryId": "theory-u4-legacy-entry-and-ownership-choices"
+    },
+    "4:6": {
+      "id": "U4-QNA-07",
+      "theoryId": "theory-u4-legacy-the-investment-environment"
+    },
+    "4:7": {
+      "id": "U4-QNA-08",
+      "theoryId": "theory-u4-legacy-mergers-acquisitions-and-buyouts"
+    },
+    "5:0": {
+      "id": "U5-QNA-01",
+      "theoryId": "theory-u5-legacy-the-market-and-exchange-rate-quotations"
+    },
+    "5:1": {
+      "id": "U5-QNA-02",
+      "theoryId": "theory-u5-legacy-spot-and-forward-transactions",
+      "explanation": "The distinguishing feature is timing: spot exchange uses the spot rate and normally settles within two business days; a forward is agreed now for exchange on a specified future date. A forward rate is not a guarantee of the future spot rate.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 5,
+        "pages": [
+          78,
+          81
+        ],
+        "pdfPages": [
+          79,
+          82
+        ]
+      }
+    },
+    "5:2": {
+      "id": "U5-QNA-03",
+      "theoryId": "theory-u5-legacy-hedging-arbitrage-and-speculation",
+      "explanation": "A foreign-currency receipt can lose domestic-currency value before conversion. Selling that currency forward can fix the conversion proceeds. Buying more of the same currency would increase, rather than offset, the exposure.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 5,
+        "pages": [
+          79,
+          81
+        ],
+        "pdfPages": [
+          80,
+          82
+        ]
+      }
+    },
+    "5:3": {
+      "id": "U5-QNA-04",
+      "theoryId": "theory-u5-legacy-hedging-arbitrage-and-speculation",
+      "explanation": "Arbitrage relies on an executable price difference across markets; speculation relies on a view about future price movement. Earning a profit does not, by itself, establish that the transaction was arbitrage.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 5,
+        "pages": [
+          74,
+          78
+        ],
+        "pdfPages": [
+          75,
+          79
+        ]
+      }
+    },
+    "5:4": {
+      "id": "U5-QNA-05",
+      "theoryId": "theory-u5-legacy-derivatives-and-exchange-rate-systems"
+    },
+    "6:0": {
+      "id": "U6-QNA-01",
+      "theoryId": "theory-u6-legacy-the-payment-risk-spectrum"
+    },
+    "6:1": {
+      "id": "U6-QNA-02",
+      "theoryId": "theory-u6-legacy-documentary-collections"
+    },
+    "6:2": {
+      "id": "U6-QNA-03",
+      "theoryId": "theory-u6-legacy-documentary-letters-of-credit"
+    },
+    "6:3": {
+      "id": "U6-QNA-04",
+      "theoryId": "theory-u6-legacy-documentary-collections",
+      "explanation": "D/P releases documents against payment; D/A releases them against acceptance of a time draft. Under D/A, the exporter may lose control of the goods before receiving cash and still face default at maturity.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 6,
+        "pages": [
+          92,
+          93
+        ],
+        "pdfPages": [
+          93,
+          94
+        ]
+      }
+    },
+    "6:4": {
+      "id": "U6-QNA-05",
+      "theoryId": "theory-u6-legacy-documentary-letters-of-credit"
+    },
+    "7:0": {
+      "id": "U7-QNA-01",
+      "theoryId": "theory-u7-legacy-selling-and-marketing-concepts"
+    },
+    "7:1": {
+      "id": "U7-QNA-02",
+      "theoryId": "theory-u7-legacy-needs-value-and-satisfaction"
+    },
+    "7:2": {
+      "id": "U7-QNA-03",
+      "theoryId": "theory-u7-legacy-research-segmentation-and-target-markets",
+      "explanation": "Customer groups can have different needs. Segmentation makes those differences visible so a firm can select a target and design a suitable marketing mix. Merely identifying groups does not yet choose which group to serve.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 7,
+        "pages": [
+          103,
+          110
+        ],
+        "pdfPages": [
+          104,
+          111
+        ]
+      }
+    },
+    "7:3": {
+      "id": "U7-QNA-04",
+      "theoryId": "theory-u7-legacy-the-marketing-mix-channels-and-brands"
+    },
+    "7:4": {
+      "id": "U7-QNA-05",
+      "theoryId": "theory-u7-legacy-needs-value-and-satisfaction"
+    },
+    "8:0": {
+      "id": "U8-QNA-01",
+      "theoryId": "theory-u8-legacy-logistics-and-supply-chains"
+    },
+    "8:1": {
+      "id": "U8-QNA-02",
+      "theoryId": "theory-u8-legacy-networks-lead-time-and-order-management"
+    },
+    "8:2": {
+      "id": "U8-QNA-03",
+      "theoryId": "theory-u8-legacy-transport-documents-and-intermediaries"
+    },
+    "8:3": {
+      "id": "U8-QNA-04",
+      "theoryId": "theory-u8-legacy-cost-resilience-and-green-logistics",
+      "explanation": "The readings discuss reducing unnecessary journeys, using vehicle capacity better and shifting suitable freight between modes. A proposed measure must still satisfy product and service requirements; no single mode is best for every shipment.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 8,
+        "pages": [
+          121,
+          125
+        ],
+        "pdfPages": [
+          122,
+          126
+        ]
+      }
+    },
+    "8:4": {
+      "id": "U8-QNA-05",
+      "theoryId": "theory-u8-legacy-networks-lead-time-and-order-management"
+    },
+    "9:0": {
+      "id": "U9-QNA-01",
+      "theoryId": "theory-u9-legacy-how-insurance-works"
+    },
+    "9:1": {
+      "id": "U9-QNA-02",
+      "theoryId": "theory-u9-legacy-indemnity-and-insurable-interest"
+    },
+    "9:2": {
+      "id": "U9-QNA-03",
+      "theoryId": "theory-u9-legacy-indemnity-and-insurable-interest"
+    },
+    "9:3": {
+      "id": "U9-QNA-04",
+      "theoryId": "theory-u9-legacy-subrogation-and-utmost-good-faith"
+    },
+    "9:4": {
+      "id": "U9-QNA-05",
+      "theoryId": "theory-u9-legacy-marine-insurance-and-general-average"
+    },
+    "9:5": {
+      "id": "U9-QNA-06",
+      "theoryId": "theory-u9-legacy-marine-insurance-and-general-average"
+    },
+    "9:6": {
+      "id": "U9-QNA-07",
+      "theoryId": "theory-u9-legacy-marine-insurance-and-general-average"
+    },
+    "9:7": {
+      "id": "U9-QNA-08",
+      "theoryId": "theory-u9-legacy-marine-insurance-and-general-average"
+    },
+    "10:0": {
+      "id": "U10-QNA-01",
+      "theoryId": "theory-u10-legacy-progressive-flat-and-regressive-taxation"
+    },
+    "10:1": {
+      "id": "U10-QNA-02",
+      "theoryId": "theory-u10-legacy-vat-and-transaction-taxes"
+    },
+    "10:2": {
+      "id": "U10-QNA-03",
+      "theoryId": "theory-u10-legacy-tax-planning-avoidance-and-evasion"
+    },
+    "10:3": {
+      "id": "U10-QNA-04",
+      "theoryId": "theory-u10-legacy-direct-and-indirect-taxes"
+    },
+    "10:4": {
+      "id": "U10-QNA-05",
+      "theoryId": "theory-u10-legacy-direct-and-indirect-taxes"
+    }
+  }
 };

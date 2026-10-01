@@ -1066,3 +1066,33 @@ body { background:var(--paper); }
 .next-step { background:var(--ink); }
 @media(max-width:520px){.tabs{top:84px;}}
 #app[data-view^="final/sets"] .mascot-float-layer { display:none; }
+
+/* Exam evidence remediation: document reading and exact theory targets. */
+.concept-section, .exam-question { scroll-margin-top: 12rem; }
+.theory-target { border-left: 3px solid var(--accent); padding-left: var(--space-4, 1.5rem); background: var(--surface); }
+.concept-practice { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; }
+.theory-process { padding-left: 1.5rem; line-height: 1.8; }
+.big-idea, .theory-application { border-left: 2px solid var(--line); padding-left: 1rem; }
+.exam-document { margin: 1.5rem 0; padding: 1.5rem; border: 1px solid var(--line); background: var(--surface); }
+.exam-document h4 { margin-top: 0; font-family: var(--font-reading); font-size: 1.25rem; }
+.exam-document dl { margin: 0; }
+.exam-document dl > div { display: grid; grid-template-columns: minmax(8rem, 1fr) 2fr; gap: 1rem; padding: .65rem 0; border-top: 1px solid var(--line); }
+.exam-document dt { font-size: .85rem; color: var(--muted); }
+.exam-document dd { margin: 0; overflow-wrap: anywhere; }
+.exam-table-scroll { max-width: 100%; overflow-x: auto; margin: 1.5rem 0; }
+.exam-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: .95rem; }
+.exam-table caption { text-align: left; padding-bottom: .75rem; color: var(--muted); font-size: .85rem; }
+.exam-table th, .exam-table td { text-align: left; padding: .8rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+.exam-table thead { background: var(--surface); }
+.case-questions > section { padding: 1rem 0; border-bottom: 1px solid var(--line); }
+.case-questions h4 { font-size: 1.05rem; line-height: 1.6; font-weight: 500; }
+.answer-explanation { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.answer-explanation .theory-link { display: block; margin: .5rem 0; text-align: left; }
+.final-concepts .mascot-layer, .final-sets .mascot-layer { display: none; }
+@media(max-width: 600px) { .exam-document { padding: 1rem; } .exam-document dl > div { grid-template-columns: 1fr; gap: .25rem; } .exam-table th, .exam-table td { padding: .6rem .45rem; } .concept-section, .exam-question { scroll-margin-top: 10rem; } }
+
+.exam-question, .situation-workspace > div, .case-questions { min-width: 0; }
+.exam-table-scroll { width: 100%; }
+
+.vocabulary-entry, .final-exercise { scroll-margin-top: 12rem; }
+.vocabulary-entry.theory-target { padding: 1rem; }
