@@ -43,6 +43,7 @@
   let learningOrigin = "";
   let learningReference = "";
   let flashSession = null;
+  let requestedFlashKey = "";
   const learningSnapshots = new Map();
   function rememberLearningRoute() {
     if (!render.lastRoute || state.exam && /test/.test(render.lastRoute)) return;
@@ -237,7 +238,7 @@
   function termsTab(unit) {
     return `<div class="section-intro"><span>02</span><div><h2>Extended vocabulary bank</h2><p>Gồm core terms, từ trong readings/case studies và vocabulary exercises; có cả noun, verb, adjective, phrasal verb và collocation.</p></div><button class="solid-btn" data-flash-unit="${unit.id}">Học bằng flashcard</button></div>
       <label class="inline-search"><span>⌕</span><input id="termFilter" type="search" placeholder="Tìm trong Unit ${unit.num}…"></label>
-      <div class="term-table" id="termTable">${unit.terms.map((term,index) => `<article data-term-search="${esc(normalize(term.join(" ")))}"><span class="term-no">${String(index + 1).padStart(2,"0")}</span><div><div class="term-badges"><span>${esc(term[3] || "NOUN / NOUN PHRASE")}</span><span>${esc(term[4] || "CORE TERM")}</span></div><h3>${esc(term[0])}</h3><p>${esc(term[1])}</p><small>${esc(term[2])}</small></div><span class="status-dot ${state.termStatus[`${unit.id}:${index}`] === "mastered" ? "mastered" : ""}" title="${state.termStatus[`${unit.id}:${index}`] === "mastered" ? "Đã nhớ" : "Chưa đánh dấu"}"></span></article>`).join("")}</div>`;
+      <div class="term-table" id="termTable">${unit.terms.map((term,index) => `<article id="${vocabularyId(unit.num,term[0])}" tabindex="-1" data-term-search="${esc(normalize(term.join(" ")))}"><span class="term-no">${String(index + 1).padStart(2,"0")}</span><div><div class="term-badges"><span>${esc(term[3] || "NOUN / NOUN PHRASE")}</span><span>${esc(term[4] || "CORE TERM")}</span></div><h3>${esc(term[0])}</h3><p>${esc(term[1])}</p><small>${esc(term[2])}</small></div><span class="status-dot ${state.termStatus[`${unit.id}:${index}`] === "mastered" ? "mastered" : ""}" title="${state.termStatus[`${unit.id}:${index}`] === "mastered" ? "Đã nhớ" : "Chưa đánh dấu"}"></span></article>`).join("")}</div>`;
   }
 
   function gapTab(unit) {
@@ -298,7 +299,8 @@
       state.flashStudyMode="unfinished";
       const queue=flashQueue(), saved=state.flashcardResumeByUnit?.[state.flashUnit];
       const legacy=state.flashOrder?.[state.flashIndex];
-      const current=queue.includes(saved)?saved:!saved && queue.includes(legacy)?legacy:queue[0] || "";
+      const requested=requestedFlashKey;requestedFlashKey="";
+      const current=requested && flashPool().some(t=>t.key===requested)?requested:queue.includes(saved)?saved:!saved && queue.includes(legacy)?legacy:queue[0] || "";
       flashSession={unit:state.flashUnit,queue,current,history:[]};state.flashFlipped=false;
       rememberFlash(current);
     }
@@ -603,10 +605,9 @@
   function finalProgressSummary() {
     const done=finalState().done;
     const groups=[
-      {label:"Vocabulary & word boxes",route:"final/vocabulary/1",items:F.units.flatMap(u=>[[`vocabulary-${u.num}`],...u.gaps.map(g=>[g.id])])},
+      {label:"Vocabulary review",route:"final/vocabulary/1",items:F.units.flatMap(u=>[[`vocabulary-${u.num}`]])},
       {label:"Applied situations",route:"final/concepts/2",items:F.units.flatMap(u=>u.situations.map(q=>{const key=q.legacyId||q.id;return [key,...F.sets.map((_,i)=>`set${i+1}-${key}`)];}))},
       {label:"Writing preparation",route:"final/writing/1",items:F.writing.map((_,i)=>[`writing-${i+1}`,...F.sets.map((_,s)=>`set${s+1}-writing-${i+1}`)])},
-      {label:"Mixed word-box sets",route:"final/sets/1",items:F.sets.flatMap(set=>set.gaps.map(g=>[`set-${g.id}`]))}
     ];
     groups.forEach(g=>{g.total=g.items.length;g.done=g.items.filter(keys=>keys.some(k=>done[k])).length;});
     const total=groups.reduce((n,g)=>n+g.total,0),completed=groups.reduce((n,g)=>n+g.done,0);
@@ -617,7 +618,7 @@
     const review = Object.values(state.termStatus).filter(value => value === "review").length;
     const body = `<div class="progress-hero"><div><span>OVERALL</span><strong>${progressPercent()}%</strong><p>Tiến độ dựa trên unit hoàn thành và flashcards đã nhớ.</p></div><div><span>UNITS</span><strong>${state.completedUnits.length}/10</strong><p>Đã đánh dấu hoàn thành.</p></div><div><span>KEY TERMS</span><strong>${mastered}</strong><p>Đã nhớ · ${review} cần ôn lại.</p></div></div>
       <div class="progress-units">${D.units.map(unit => {const total=unit.terms.length,done=unit.terms.filter((_,i)=>state.termStatus[`${unit.id}:${i}`]==="mastered").length;return `<article><span>${String(unit.num).padStart(2,"0")}</span><div><h3>${esc(unit.title)}</h3><i><b style="width:${total ? done/total*100 : 0}%"></b></i><small>${done}/${total} terms mastered</small></div><strong>${state.completedUnits.includes(unit.id) ? "Complete" : "In progress"}</strong></article>`;}).join("")}</div>
-      ${finalProgressSummary()}<div class="reset-row"><p>Dữ liệu chỉ được lưu trong trình duyệt hiện tại.</p><button class="danger-btn" id="resetProgress">Xóa toàn bộ tiến độ</button></div>`;
+      ${finalProgressSummary()}${wbProgress()}<div class="reset-row"><p>Dữ liệu chỉ được lưu trong trình duyệt hiện tại.</p><button class="danger-btn" id="resetProgress">Xóa toàn bộ tiến độ</button></div>`;
     return page({eyebrow:"PROGRESS",title:"Theo dõi phần đã thật sự học",lead:"Không cộng điểm cho việc chỉ mở trang; bạn chủ động đánh dấu hoàn thành và mức nhớ thuật ngữ.",body});
   }
 
@@ -638,9 +639,59 @@
     return `<button class="outline-btn" data-final-done="${esc(key)}" aria-pressed="${!!finalState().done[key]}">${finalState().done[key] ? "✓ Reviewed · mark incomplete" : "Mark reviewed"}</button>`;
   }
   function vocabularyId(unit, term) { return `vocab-u${unit}-${term.toLowerCase().replace(/[^a-z0-9]+/g,"-")}`; }
-  function finalGap(activity, prefix = "") {
-    const key = prefix + activity.id;
-    return `<section id="exercise-${esc(key)}" class="final-exercise" data-final-exercise="${activity.id}"><div class="exercise-main"><span class="eyebrow">ORIGINAL WORD-BOX PRACTICE</span><h3>${esc(activity.title)}</h3>${(activity.sources || [activity.source]).map(finalSource).join("")}<p>Choose from the bank; some words may be unused. Use each answer at most once and keep the bank wording.</p><ol>${activity.items.map((item,i)=>`<li><label>${esc(item.prompt)}<input data-final-gap="${i}" aria-label="Blank ${i+1}" autocomplete="off"></label><p class="final-gap-feedback" hidden aria-live="polite"></p></li>`).join("")}</ol><button class="solid-btn" data-final-check>Check answers</button> ${finalDone(key)}${(activity.sources || [activity.source]).map(src=>`<button class="theory-link" data-related-theory="final/vocabulary/${src.unit}">Review Unit ${src.unit} vocabulary ↗</button>`).join(" · ")}</div><aside class="word-bank"><span class="eyebrow">WORD BANK</span><p>All the words you need</p><ul>${activity.bank.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></aside></section>`;
+  function wbState() {
+    const f=finalState();f.wordBox ||= {mode:"study",level:"All",passages:{},mistakes:{}};
+    f.wordBox.passages ||= {};f.wordBox.mistakes ||= {};return f.wordBox;
+  }
+  function wbAttempt(p, scope="bank") {
+    const w=wbState(),key=scope+":"+p.id;
+    w.passages[key] ||= {answers:{},bankOrder:shuffle([...p.bank]),submitted:false,attempts:[],bestScore:0};
+    return w.passages[key];
+  }
+  function wbCorrect(b,value) {return normalize(value||"")===normalize(b.answer);}
+  function wbStatus(p) {
+    const a=wbState().passages['bank:'+p.id];
+    return !a?'○ Not started':a.bestScore===p.blanks.length?'✓ Mastered':a.attempts.length?'△ Attempted':Object.values(a.answers).some(Boolean)?'◐ In progress':'○ Not started';
+  }
+  function wbWeak(p) {return new Set(p.blanks.filter(b=>wbState().mistakes[b.vocabId]?.unresolved).map(b=>b.vocabId)).size;}
+  function wbSummary() {
+    const rows=F.wordBox.map(p=>({p,a:wbState().passages['bank:'+p.id]}));
+    const attempted=rows.filter(x=>x.a?.attempts.length),mastered=rows.filter(x=>x.a?.bestScore===x.p.blanks.length);
+    const weak=Object.values(wbState().mistakes).filter(m=>m.unresolved);
+    return {attempted:attempted.length,mastered:mastered.length,weak:weak.length,average:attempted.length?Math.round(attempted.reduce((n,x)=>n+x.a.bestScore/x.p.blanks.length,0)/attempted.length*100):0};
+  }
+  function wbProgress() {const s=wbSummary();return `<section class="wb-progress"><span class="eyebrow">WORDS IN CONTEXT · WORD-BOX PRACTICE</span><h2>${s.attempted} <small>/ 16 attempted</small></h2><p>${s.mastered} mastered · best average ${s.average}% · ${s.weak} words to revisit</p><a class="theory-link" href="#final/gaps">Open the Practice Bank →</a></section>`;}
+  function wbLanding() {
+    const w=wbState(),s=wbSummary();let passages=F.wordBox.filter(p=>w.level==='All'||w.level==='Weak words'&&wbWeak(p)>0||p.level===w.level);
+    if(w.level==='Weak words')passages.sort((a,b)=>wbWeak(b)-wbWeak(a)||a.id.localeCompare(b.id));
+    return `<section class="wb-bank-head"><span class="eyebrow">WORDS IN CONTEXT</span><h2>Read the whole passage.<br><em>Let context do the work.</em></h2><p>Original textbook-grounded exercises matching the lecturer’s stated word-box format.</p><p>${s.attempted} / 16 attempted · ${s.mastered} mastered · ${s.weak} words to revisit</p></section><nav class="wb-filters" aria-label="Passage difficulty">${['All','Foundation','Standard','Exam-like','Challenge',...(s.weak?['Weak words']:[])].map(l=>`<button class="outline-btn ${w.level===l?'active':''}" data-wb-level="${l}" aria-pressed="${w.level===l}">${l==='Weak words'?'Practice my weak words':l}</button>`).join('')}</nav><div class="wb-index">${passages.map(p=>{const a=w.passages['bank:'+p.id];return `<a href="#final/gaps/${p.id}"><small>${p.id}</small><h3>${esc(p.title)}</h3><p>${p.level} · ${p.blanks.length} blanks${w.level==='Weak words'?' · covers '+wbWeak(p)+' missed words':''}</p><span>${wbStatus(p)}${a?.attempts.length?' · Best '+a.bestScore+'/'+p.blanks.length:''}</span><b>${a?'Continue':'Begin'} →</b></a>`;}).join('')}</div>${s.weak?`<section class="wb-mistakes"><h2>Words to revisit</h2>${Object.entries(w.mistakes).filter(([,m])=>m.unresolved).map(([id,m])=>{const p=F.wordBox.find(p=>p.blanks.some(b=>b.vocabId===id)),b=p.blanks.find(b=>b.vocabId===id);return `<div><strong>△ ${esc(b.answer)}</strong><span>Missed ${m.wrongCount} time${m.wrongCount===1?'':'s'} · Unit ${b.unit}</span>${b.termKey?`<button class="theory-link" data-wb-flash="${b.termKey}">Review flashcard ↗</button>`:''}<a class="theory-link" href="#final/gaps/${p.id}">Practice in context →</a></div>`;}).join('')}</section>`:''}`;
+  }
+  function wbLinks(b) {
+    const term=b.termKey?allTerms.find(t=>t.key===b.termKey):null;
+    return `${term?`<button class="theory-link" data-related-theory="unit/${term.unit.id}/terms/${b.vocabId}">Review vocabulary ↗</button><button class="theory-link" data-wb-flash="${term.key}">Review flashcard ↗</button>`:''}${b.theoryId?`<button class="theory-link" data-related-theory="final/theory/${b.unit}/${b.theoryId}">Related theory ↗</button>`:''}`;
+  }
+  function finalGap(p,scope="bank") {
+    const a=wbAttempt(p,scope),w=wbState(),filled=p.blanks.filter(b=>a.answers[b.id]?.trim()).length;
+    saveState();
+    return `<section id="exercise-${scope}-${p.id}" class="wb-exercise" data-wb-id="${p.id}" data-wb-scope="${scope}"><header class="wb-heading"><div><span class="eyebrow">ORIGINAL WORD-BOX PRACTICE · ${p.id}</span><h2>${esc(p.title)}</h2></div><nav aria-label="Practice mode">${['study','exam'].map(m=>`<button class="outline-btn ${w.mode===m?'active':''}" data-wb-mode="${m}" aria-pressed="${w.mode===m}">${m==='study'?'Study':'Exam practice'}</button>`).join('')}</nav></header><div class="wb-workspace"><aside class="wb-word-bank"><details open><summary>Word Bank · <span data-wb-available>${a.bankOrder.filter(t=>!Object.values(a.answers).some(v=>normalize(v)===normalize(t))).length}</span> available</summary><p>Choose a blank, then tap a word. Each term is single-use; some are unused.</p><div>${a.bankOrder.map(t=>`<button data-wb-word="${esc(t)}" class="${Object.values(a.answers).some(v=>normalize(v)===normalize(t))?'used':''}" ${a.submitted?'disabled':''}>${esc(t)}</button>`).join('')}</div></details></aside><div class="wb-reading"><div class="wb-prose">${p.segments.map(s=>typeof s==='string'?s.split('\n\n').map(esc).join('<br><br>'):(()=>{const b=p.blanks.find(b=>b.id===s.blank),ok=wbCorrect(b,a.answers[b.id]);return `<span class="wb-inline ${a.submitted?(ok?'correct':'wrong'):''}"><label><span class="wb-number">${p.blanks.indexOf(b)+1}</span><input data-wb-blank="${b.id}" value="${esc(a.answers[b.id]||'')}" aria-label="Blank ${p.blanks.indexOf(b)+1} of ${p.blanks.length}" style="--blank-width:${Math.min(28,Math.max(12,b.answer.length+2))}ch" autocomplete="off" ${a.submitted?'readonly':''}></label>${a.submitted?`<small>${ok?'✓ Correct':'× Correct: '+esc(b.answer)}</small>`:''}</span>`;})()).join('')}</div><footer class="wb-submit"><span data-wb-count>${filled} / ${p.blanks.length} filled</span>${!a.submitted?`<button class="solid-btn" data-wb-submit>Check the whole passage</button><p class="wb-empty-notice" role="status" hidden></p><button class="outline-btn" data-wb-submit-anyway hidden>Submit anyway</button>`:`<div class="wb-result" role="status" aria-live="polite"><strong>${a.lastScore} / ${p.blanks.length} correct</strong><p>${Math.round(a.lastScore/p.blanks.length*100)}% · Attempt ${a.attempts.length} · Best ${a.bestScore}/${p.blanks.length}</p></div><button class="outline-btn" data-wb-retry>Retry the full passage</button>`}</footer></div></div>${a.submitted?`<section class="wb-review"><h2>Review your answers</h2>${p.blanks.map((b,i)=>{const ok=wbCorrect(b,a.answers[b.id]);return `<details ${ok?'':'open'}><summary>${i+1}. ${ok?'✓ Correct':'× Incorrect'} · ${esc(b.answer)}</summary><p>Your answer: ${esc(a.answers[b.id]||'— Empty')}<br>Correct: <b>${esc(b.answer)}</b></p><h4>Why it fits</h4><p>${esc(b.explanation)}</p><h4>Why not ${esc(b.closestDistractor)}?</h4><p>${esc(b.whyNot)}</p><small class="source-tag">[Textbook foundation · Unit ${b.unit} · ${esc(F.units.find(u=>u.num===b.unit).title)} · ${esc(b.sourceClass)}]</small><div>${wbLinks(b)}</div></details>`;}).join('')}</section>`:''}${scope==='bank'?`<nav class="question-pagination"><a class="outline-btn" href="#final/gaps/${F.wordBox[(F.wordBox.indexOf(p)+15)%16].id}">← Previous</a><a href="#final/gaps">${F.wordBox.indexOf(p)+1} / 16 · Bank</a><a class="outline-btn" href="#final/gaps/${F.wordBox[(F.wordBox.indexOf(p)+1)%16].id}">Next →</a></nav>`:''}</section>`;
+  }
+  function wbAssign(panel,id,value) {
+    const p=F.wordBox.find(p=>p.id===panel.dataset.wbId),a=wbAttempt(p,panel.dataset.wbScope);if(a.submitted)return;
+    if(value.trim()) Object.keys(a.answers).forEach(k=>{if(k!==id&&normalize(a.answers[k])===normalize(value)){a.answers[k]='';const input=panel.querySelector(`[data-wb-blank="${k}"]`);if(input)input.value='';}});
+    a.answers[id]=value;a.active=id;
+    const input=panel.querySelector(`[data-wb-blank="${id}"]`);if(input)input.value=value;
+    panel.querySelectorAll('[data-wb-word]').forEach(e=>e.classList.toggle('used',Object.values(a.answers).some(v=>normalize(v)===normalize(e.dataset.wbWord))));
+    panel.querySelector('[data-wb-available]').textContent=a.bankOrder.filter(t=>!Object.values(a.answers).some(v=>normalize(v)===normalize(t))).length;
+    panel.querySelector('[data-wb-count]').textContent=p.blanks.filter(b=>a.answers[b.id]?.trim()).length+' / '+p.blanks.length+' filled';saveState();
+  }
+  function wbSubmit(panel,anyway=false) {
+    const p=F.wordBox.find(p=>p.id===panel.dataset.wbId),a=wbAttempt(p,panel.dataset.wbScope);if(a.submitted)return;
+    const empty=p.blanks.filter(b=>!a.answers[b.id]?.trim()).length;
+    if(empty&&!anyway){const n=panel.querySelector('.wb-empty-notice');n.hidden=false;n.textContent=`You still have ${empty} blanks empty.`;panel.querySelector('[data-wb-submit-anyway]').hidden=false;return;}
+    const now=Date.now(),w=wbState();let score=0;
+    for(const b of p.blanks){const ok=wbCorrect(b,a.answers[b.id]);if(ok)score++;
+      if(!ok){const m=w.mistakes[b.vocabId]||{wrongCount:0,passages:[]};m.wrongCount++;m.lastWrongAt=now;m.unresolved=true;if(!m.passages.includes(p.id))m.passages.push(p.id);w.mistakes[b.vocabId]=m;}else if(w.mistakes[b.vocabId]){w.mistakes[b.vocabId].unresolved=false;w.mistakes[b.vocabId].lastCorrectAt=now;}}
+    a.submitted=true;a.lastScore=score;a.bestScore=Math.max(a.bestScore,score);a.attempts.push({submittedAt:now,score,answers:{...a.answers}});saveState();render();
   }
   function finalTheory(unit, returnRoute) {
     return `<section class="final-surface theory-reading"><span class="eyebrow">UNIT ${unit.num} · CONCEPT REFERENCE</span><h2>${esc(unit.title)}</h2><p>Paraphrased textbook foundations. Applications below are original learning examples.</p>${unit.concepts.map(c=>{
@@ -671,17 +722,18 @@
   }
   function finalPage() {
     const [,mode = "overview",rawId = "1",rawItem = "0"] = currentRoute().split("/");
-    const links = [["final", "Overview"], ["final/vocabulary/1", "01 · Vocabulary"], ["final/gaps/1", "Word-box practice"], ["final/concepts/2", "02 · Situations"], ["final/writing/1", "03 · Writing"], ["final/sets/1", "Practice sets"]];
+    const links = [["final", "Overview"], ["final/vocabulary/1", "01 · Vocabulary"], ["final/gaps", "Words in context"], ["final/concepts/2", "02 · Situations"], ["final/writing/1", "03 · Writing"], ["final/sets/1", "Practice sets"]];
     let content = "", title = "Prepare with purpose.";
     const selected = Number(rawId);
     const unit = F.units.find(u=>u.num===selected && (!["concepts","theory"].includes(mode)||[2,4,5,6,7,8].includes(u.num))) || F.units[mode === "concepts" || mode === "theory" ? 1 : 0];
     const unitNav = (core=false) => `<nav class="unit-pills" aria-label="Choose unit">${F.units.filter(u=>!core||[2,4,5,6,7,8].includes(u.num)).map(u=>`<a class="${u.num===unit.num?'active':''}" href="#final/${mode}/${u.num}" title="${esc(u.title)}">Unit ${u.num}</a>`).join("")}</nav>`;
     if (mode === "vocabulary") {
       title = "Words for the world of business.";
-      content = `${unitNav()}<section class="final-surface"><span class="eyebrow">UNIT ${unit.num}</span><h2>${esc(unit.title)}</h2><p>Selected vocabulary from key-term sections and readings. Meanings are paraphrased; examples are original study material.</p><label class="inline-search"><span>Find a term</span><input type="search" id="finalTermFilter" placeholder="Search this unit"></label><div class="final-glossary">${unit.vocabulary.map(v=>`<article id="${vocabularyId(unit.num,v.term)}" class="vocabulary-entry" tabindex="-1" data-final-term="${esc(normalize(v.term+' '+v.meaning+' '+v.vi))}"><span class="eyebrow">${esc(v.origin)}</span><h3>${esc(v.term)}</h3><p>${esc(v.meaning)} <span class="translation">(${esc(v.vi)})</span></p><p class="original-example"><small>ORIGINAL EXAMPLE</small>${esc(v.example)}</p><small>Related phrase: ${esc(v.collocation)}</small>${finalSource(v.source)}${unit.gaps.find(g=>g.items.some(i=>i.answer===v.term))?`<a class="theory-link" href="#final/gaps/${unit.num}/${unit.gaps.find(g=>g.items.some(i=>i.answer===v.term)).id}">Practice this word →</a>`:""}</article>`).join("")}</div>${finalDone('vocabulary-'+unit.num)}</section>`;
+      content = `${unitNav()}<section class="final-surface"><span class="eyebrow">UNIT ${unit.num}</span><h2>${esc(unit.title)}</h2><p>Selected vocabulary from key-term sections and readings. Meanings are paraphrased; examples are original study material.</p><label class="inline-search"><span>Find a term</span><input type="search" id="finalTermFilter" placeholder="Search this unit"></label><div class="final-glossary">${unit.vocabulary.map(v=>`<article id="${vocabularyId(unit.num,v.term)}" class="vocabulary-entry" tabindex="-1" data-final-term="${esc(normalize(v.term+' '+v.meaning+' '+v.vi))}"><span class="eyebrow">${esc(v.origin)}</span><h3>${esc(v.term)}</h3><p>${esc(v.meaning)} <span class="translation">(${esc(v.vi)})</span></p><p class="original-example"><small>ORIGINAL EXAMPLE</small>${esc(v.example)}</p><small>Related phrase: ${esc(v.collocation)}</small>${finalSource(v.source)}${F.wordBox.find(p=>p.blanks.some(b=>b.unit===unit.num && normalize(b.answer)===normalize(v.term)))?`<a class="theory-link" href="#final/gaps/${F.wordBox.find(p=>p.blanks.some(b=>b.unit===unit.num && normalize(b.answer)===normalize(v.term))).id}">Practice this word →</a>`:""}</article>`).join("")}</div>${finalDone('vocabulary-'+unit.num)}</section>`;
     } else if (mode === "gaps") {
-      title = "Read. Connect. Complete.";
-      content = `${unitNav()}<h2>Unit ${unit.num} — ${esc(unit.title)}</h2>${unit.gaps.map(a=>finalGap(a)).join("")}`;
+      title = "Words in context.";
+      const passage=F.wordBox.find(p=>p.id===rawId);
+      content=passage?finalGap(passage):wbLanding();
     } else if (mode === "concepts") {
       title = "From concept to decision.";
       const found=unit.situations.findIndex(q=>q.id===rawItem || q.legacyId===rawItem);
@@ -697,9 +749,9 @@
     } else if (mode === "sets") {
       title = "Bring it all together.";
       const set=F.sets[Math.max(0,Math.min(selected-1,F.sets.length-1))];
-      content = set ? `<nav class="unit-pills" aria-label="Practice sets">${F.sets.map((x,i)=>`<a class="${x===set?'active':''}" href="#final/sets/${i+1}">Set ${i+1}</a>`).join("")}</nav><section class="practice-heading"><span class="eyebrow">ORIGINAL PRACTICE · NOT AN OFFICIAL PAPER</span><h2>${esc(set.title)}</h2><p>${esc(F.editorialNote)}</p><nav><a href="#" data-practice-jump="set-part1">01 Word box ↓</a><a href="#" data-practice-jump="set-part2">02 Situations ↓</a><a href="#" data-practice-jump="set-part3">03 Writing ↓</a></nav></section><section id="set-part1"><h2>Part 1 · Word-box gap-fill</h2>${set.gaps.map(g=>finalGap(g,'set-')).join("")}</section><section id="set-part2"><h2>Part 2 · Apply core concepts</h2>${set.situations.map(x=>{const u=F.units.find(u=>u.num===x.unit);return finalSituation(u.situations.find(q=>q.id===x.questionId),u,'set'+selected+'-');}).join("")}</section><section id="set-part3"><h2>Part 3 · Writing</h2>${set.alternativeWriting?`<p>Optional additional study prompt: <a class="theory-link" href="#final/writing/${set.alternativeWriting}">Topic ${set.alternativeWriting} · trade liberalization →</a>. This is an extra preparation option, not an official exam choice rule.</p>`:""}${finalWriting(F.writing[set.writing-1],set.writing,'set'+selected+'-')}</section>` : '';
+      content = set ? `<nav class="unit-pills" aria-label="Practice sets">${F.sets.map((x,i)=>`<a class="${x===set?'active':''}" href="#final/sets/${i+1}">Set ${i+1}</a>`).join("")}</nav><section class="practice-heading"><span class="eyebrow">ORIGINAL PRACTICE · NOT AN OFFICIAL PAPER</span><h2>${esc(set.title)}</h2><p>${esc(F.editorialNote)}</p><nav><a href="#" data-practice-jump="set-part1">01 Word box ↓</a><a href="#" data-practice-jump="set-part2">02 Situations ↓</a><a href="#" data-practice-jump="set-part3">03 Writing ↓</a></nav></section><section id="set-part1"><h2>Part 1 · Word-box gap-fill</h2>${set.passageIds.map(id=>finalGap(F.wordBox.find(p=>p.id===id),'set'+selected)).join("")}</section><section id="set-part2"><h2>Part 2 · Apply core concepts</h2>${set.situations.map(x=>{const u=F.units.find(u=>u.num===x.unit);return finalSituation(u.situations.find(q=>q.id===x.questionId),u,'set'+selected+'-');}).join("")}</section><section id="set-part3"><h2>Part 3 · Writing</h2>${set.alternativeWriting?`<p>Optional additional study prompt: <a class="theory-link" href="#final/writing/${set.alternativeWriting}">Topic ${set.alternativeWriting} · trade liberalization →</a>. This is an extra preparation option, not an official exam choice rule.</p>`:""}${finalWriting(F.writing[set.writing-1],set.writing,'set'+selected+'-')}</section>` : '';
     } else {
-      content = `<section class="final-overview"><div><span class="eyebrow">YOUR FINAL REVIEW</span><h2>Knowledge becomes useful<br><em>when you can apply it.</em></h2><p>Move from vocabulary to decisions, then develop a reasoned argument. This review follows the lecturer's scope.</p><a class="solid-btn" href="#final/concepts/2">Start situation practice ↗</a></div><img src="${MASCOTS.flower}" alt="Ruồi Lùn, your study companion"></section><div class="final-scope"><article><span>01 / RECOGNISE</span><h3>Words in context</h3><p>All ten units. Vocabulary and reading-derived language, followed by original word-box activities.</p><a href="#final/vocabulary/1">Explore vocabulary →</a></article><article><span>02 / APPLY</span><h3>Explain a decision</h3><p>Only Units 2, 4, 5, 6, 7 and 8. Identify → apply → explain → distinguish alternatives.</p><a href="#final/concepts/2">Work through situations →</a></article><article><span>03 / ARGUE</span><h3>Build your position</h3><p>Four lecturer prompts. Interpretation, concepts, arguments, counterarguments and writing support.</p><a href="#final/writing/1">Open writing workspace →</a></article></div><section class="final-surface"><h2>Scope and source notes</h2><p>${esc(F.editorialNote)}</p><p>Units 1, 3, 9 and 10 are excluded from Part 2 only. They remain in Part 1 and may inform writing.</p><p>Final review progress: <strong>${Object.values(finalState().done).filter(Boolean).length}</strong> activities marked reviewed. This is separate from the original course progress.</p>${F.notes.map(n=>`<details><summary>${esc(n.title)}</summary><p>${esc(n.body)}</p>${finalSource(n.source)}</details>`).join("")}</section>`;
+      content = `<section class="final-overview"><div><span class="eyebrow">YOUR FINAL REVIEW</span><h2>Knowledge becomes useful<br><em>when you can apply it.</em></h2><p>Move from vocabulary to decisions, then develop a reasoned argument. This review follows the lecturer's scope.</p><a class="solid-btn" href="#final/concepts/2">Start situation practice ↗</a></div><img src="${MASCOTS.flower}" alt="Ruồi Lùn, your study companion"></section><div class="final-scope"><article><span>01 / RECOGNISE</span><h3>Words in context</h3><p>All ten units. Vocabulary and reading-derived language, followed by 16 continuous Word-box passages with 134 inline blanks.</p><a href="#final/gaps">Open Words in Context →</a></article><article><span>02 / APPLY</span><h3>Explain a decision</h3><p>Only Units 2, 4, 5, 6, 7 and 8. Identify → apply → explain → distinguish alternatives.</p><a href="#final/concepts/2">Work through situations →</a></article><article><span>03 / ARGUE</span><h3>Build your position</h3><p>Four lecturer prompts. Interpretation, concepts, arguments, counterarguments and writing support.</p><a href="#final/writing/1">Open writing workspace →</a></article></div><section class="final-surface"><h2>Scope and source notes</h2><p>${esc(F.editorialNote)}</p><p>Units 1, 3, 9 and 10 are excluded from Part 2 only. They remain in Part 1 and may inform writing.</p><p>Final review progress: <strong>${Object.values(finalState().done).filter(Boolean).length}</strong> activities marked reviewed. This is separate from the original course progress.</p>${F.notes.map(n=>`<details><summary>${esc(n.title)}</summary><p>${esc(n.body)}</p>${finalSource(n.source)}</details>`).join("")}</section>`;
     }
     return page({eyebrow:"FINAL EXAM REVIEW",title,lead:"Textbook foundations · original practice · thoughtful writing",className:`final-page final-${mode === "overview" ? "home" : mode}`,body:`<nav class="final-nav" aria-label="Final review">${links.map(([r,t])=>`<a class="${(mode==='overview'&&r==='final')||r.split('/')[1]===mode?'active':''}" href="#${r}">${t}</a>`).join("")}</nav>${content}`});
   }
@@ -735,10 +787,10 @@
     }
     const snapshot=!preserveScroll && route!=="flashcards" && learningSnapshots.get(route);
     if (snapshot) {
-      app.querySelectorAll("input,textarea,select").forEach((e,i)=>{if(snapshot.fields[i]){e.value=snapshot.fields[i].value;e.checked=snapshot.fields[i].checked;e.className=snapshot.fields[i].className;if(snapshot.fields[i].invalid!==null)e.setAttribute("aria-invalid",snapshot.fields[i].invalid);}});
+      app.querySelectorAll("input,textarea,select").forEach((e,i)=>{if(!e.matches("[data-wb-blank]") && snapshot.fields[i]){e.value=snapshot.fields[i].value;e.checked=snapshot.fields[i].checked;e.className=snapshot.fields[i].className;if(snapshot.fields[i].invalid!==null)e.setAttribute("aria-invalid",snapshot.fields[i].invalid);}});
       app.querySelectorAll(".model-answer,.answer-explanation,.essay-outline,.gap-feedback,.final-gap-feedback").forEach((e,i)=>{const saved=snapshot.panels[i];if(saved){e.hidden=saved.hidden;e.innerHTML=saved.html;e.className=saved.className;}});
       app.querySelectorAll("[data-show-explanation]").forEach(e=>{const open=!e.parentElement.querySelector(".answer-explanation").hidden;e.textContent=open?"Hide explanation":"Show explanation";e.setAttribute("aria-expanded",String(open));});
-      app.querySelectorAll("details").forEach((e,i)=>e.open=!!snapshot.details[i]);
+      app.querySelectorAll("details").forEach((e,i)=>{if(!e.closest("[data-wb-id]"))e.open=!!snapshot.details[i];});
       app.querySelectorAll("[data-reveal-answer]").forEach(e=>{e.textContent=e.closest("[data-short-card]").querySelector(".model-answer").hidden?"Reveal model answer":"Hide model answer";});
     }
     document.querySelectorAll(".desktop-nav a").forEach(a => { const active = route.split("/")[0] === a.hash.slice(1); a.classList.toggle("active", active); if (active) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
@@ -747,7 +799,7 @@
     updateHeaderProgress();
     app.focus({preventScroll:true});
     window.scrollTo({top:preserveScroll ? previousScroll : snapshot ? snapshot.scroll : 0,behavior:"auto"});
-    const targetId=route.startsWith("final/gaps/") && route.split("/")[3] ? "exercise-"+route.split("/")[3] : route.startsWith("final/vocabulary/") || route.startsWith("final/theory/") || /^unit\/[^/]+\/theory\//.test(route) ? route.split("/")[3] : /^unit\/[^/]+\/short\//.test(route) ? "question-"+route.split("/")[3] : "";
+    const targetId=route.startsWith("final/gaps/") && route.split("/")[3] ? "exercise-"+route.split("/")[3] : route.startsWith("final/vocabulary/") || route.startsWith("final/theory/") || /^unit\/[^/]+\/(theory|terms)\//.test(route) ? route.split("/")[3] : /^unit\/[^/]+\/short\//.test(route) ? "question-"+route.split("/")[3] : "";
     if (targetId && (targetId.startsWith("theory-") || targetId.startsWith("question-") || targetId.startsWith("vocab-") || targetId.startsWith("exercise-"))) {
       const target=document.getElementById(targetId);
       if (target) { target.classList.add("theory-target"); target.scrollIntoView({block:"start",behavior:"auto"}); target.focus({preventScroll:true}); }
@@ -772,6 +824,8 @@
       u.concepts.forEach(c=>rows.push({type:"THEORY",title:`U${u.num} · ${c.title}`,text:c.body,route:`final/theory/${u.num}/${c.id}`}));
       u.situations.forEach(q=>rows.push({type:"QUESTION",title:`${q.id} · ${q.title}`,text:q.question+' '+(q.subquestions || []).join(' '),route:`final/concepts/${u.num}/${q.id}`}));
     });
+    F.wordBox.forEach(p=>rows.push({type:"WORD BOX",title:p.id+" · "+p.title,text:p.level+" · "+p.blanks.length+" blanks · Original contextual practice",keywords:p.blanks.map(b=>b.answer).join(' '),route:'final/gaps/'+p.id}));
+    allTerms.forEach(t=>rows.push({type:"FLASHCARD",title:t.term,text:'Unit '+t.unit.num+' · Active recall',route:'flashcards',termKey:t.key}));
     F.writing.forEach((w,i)=>rows.push({type:"Final writing",title:w.prompt,text:w.interpretation,route:`final/writing/${i+1}`}));
     return rows;
   }
@@ -780,8 +834,8 @@
     const target = document.getElementById("searchResults");
     const q = normalize(query);
     if (!q) { target.innerHTML = `<div class="search-empty">Nhập thuật ngữ, khái niệm hoặc câu hỏi cần tìm.</div>`; return; }
-    const hits = searchRows.filter(row => normalize(`${row.title} ${row.text}`).includes(q)).slice(0,30);
-    target.innerHTML = hits.length ? hits.map(row => `<button data-search-route="${row.route}"><span>${esc(row.type)}</span><strong>${esc(row.title)}</strong><p>${esc(row.text.slice(0,150))}${row.text.length > 150 ? "…" : ""}</p></button>`).join("") : `<div class="search-empty">Không tìm thấy nội dung phù hợp.</div>`;
+    const hits = searchRows.filter(row => normalize(`${row.title} ${row.text} ${row.keywords||""}`).includes(q)).slice(0,30);
+    target.innerHTML = hits.length ? hits.map(row => `<button data-search-route="${row.route}" ${row.termKey?`data-wb-flash="${row.termKey}"`:""}><span>${esc(row.type)}</span><strong>${esc(row.title)}</strong><p>${esc(row.text.slice(0,150))}${row.text.length > 150 ? "…" : ""}</p></button>`).join("") : `<div class="search-empty">Không tìm thấy nội dung phù hợp.</div>`;
   }
 
   document.addEventListener("click", event => {
@@ -794,22 +848,19 @@
     if (event.target.closest("#menuButton")) { const open=document.body.classList.toggle("menu-open"); document.getElementById("menuButton").setAttribute("aria-expanded",String(open)); return; }
     const jump = event.target.closest("[data-practice-jump]");
     if (jump) { event.preventDefault(); document.getElementById(jump.dataset.practiceJump)?.scrollIntoView({behavior:"smooth"}); return; }
+    const wbPanel=event.target.closest('[data-wb-id]');
+    const level=event.target.closest('[data-wb-level]');if(level){wbState().level=level.dataset.wbLevel;saveState();render();return;}
+    const mode=event.target.closest('[data-wb-mode]');if(mode){wbState().mode=mode.dataset.wbMode;saveState();render();return;}
+    const flash=event.target.closest('[data-wb-flash]');if(flash){document.getElementById("searchDialog").close();const t=allTerms.find(t=>t.key===flash.dataset.wbFlash);if(t){requestedFlashKey=t.key;openFlashScope(t.unit.id);}return;}
+    if(wbPanel){const p=F.wordBox.find(p=>p.id===wbPanel.dataset.wbId),a=wbAttempt(p,wbPanel.dataset.wbScope);
+      const word=event.target.closest('[data-wb-word]');if(word){const id=a.active||p.blanks.find(b=>!a.answers[b.id])?.id||p.blanks[0].id;wbAssign(wbPanel,id,word.dataset.wbWord);wbPanel.querySelector(`[data-wb-blank="${id}"]`).focus({preventScroll:true});if(innerWidth<=850)wbPanel.querySelector(".wb-word-bank details").open=false;return;}
+      if(event.target.closest('[data-wb-submit],[data-wb-submit-anyway]')){wbSubmit(wbPanel,!!event.target.closest('[data-wb-submit-anyway]'));return;}
+      if(event.target.closest('[data-wb-retry]')){a.answers={};a.submitted=false;a.active='';const previous=a.bankOrder.join('|');a.bankOrder=shuffle([...p.bank]);if(a.bankOrder.join('|')===previous)a.bankOrder.push(a.bankOrder.shift());saveState();render();return;}
+    }
     const related = event.target.closest("[data-related-theory]");
     if (related) { event.preventDefault(); learningReturn=currentRoute(); learningReference=related.dataset.relatedTheory; learningOrigin=related.closest("[id^=question-],[id^=exercise-]")?.id || ""; routeTo(related.dataset.relatedTheory); return; }
     const finalMark = event.target.closest("[data-final-done]");
     if (finalMark) { const f=finalState(), key=finalMark.dataset.finalDone; f.done[key]=!f.done[key]; saveState(); finalMark.setAttribute("aria-pressed",String(f.done[key])); finalMark.textContent=f.done[key]?"✓ Reviewed · mark incomplete":"Mark reviewed"; return; }
-    const finalCheck = event.target.closest("[data-final-check]");
-    if (finalCheck) {
-      const panel=finalCheck.closest("[data-final-exercise]");
-      const activity=[...F.units.flatMap(u=>u.gaps),...F.sets.flatMap(s=>s.gaps)].find(g=>g.id===panel.dataset.finalExercise);
-      panel.querySelectorAll("[data-final-gap]").forEach(input=>{
-        const item=activity.items[Number(input.dataset.finalGap)], ok=normalize(input.value)===normalize(item.answer);
-        input.classList.toggle("correct",ok); input.classList.toggle("wrong",!ok); input.setAttribute("aria-invalid",String(!ok));
-        const feedback=input.closest("li").querySelector(".final-gap-feedback"); feedback.hidden=false; feedback.innerHTML=`${esc(ok?'Correct':'Answer: '+item.answer)} — ${esc(item.explanation)}`;
-        const vocabularyUnit=F.units.find(u=>(activity.sources || [activity.source]).some(src=>src.unit===u.num) && u.vocabulary.some(v=>normalize(v.term)===normalize(item.answer)));
-        if(vocabularyUnit) { const term=vocabularyUnit.vocabulary.find(v=>normalize(v.term)===normalize(item.answer)); feedback.innerHTML+=` <button class="theory-link" data-related-theory="final/vocabulary/${vocabularyUnit.num}/${vocabularyId(vocabularyUnit.num,term.term)}">Review ${esc(term.term)} ↗</button>`; }
-      }); return;
-    }
     const routeButton = event.target.closest("[data-route]");
     if (routeButton) { routeTo(routeButton.dataset.route); return; }
     const complete = event.target.closest("[data-complete-unit]");
@@ -908,7 +959,9 @@
     if (event.target.matches("[data-exam-essay-choice]")) { state.exam.essayChoice = Number(event.target.dataset.examEssayChoice); saveState(); document.querySelectorAll(".essay-choices label").forEach((label,index)=>label.classList.toggle("selected",index===state.exam.essayChoice)); }
   });
 
+  document.addEventListener("focusin",event=>{if(event.target.matches('[data-wb-blank]')){const panel=event.target.closest('[data-wb-id]');wbAttempt(F.wordBox.find(p=>p.id===panel.dataset.wbId),panel.dataset.wbScope).active=event.target.dataset.wbBlank;panel.querySelectorAll('.wb-inline').forEach(e=>e.classList.toggle('active',e.contains(event.target)));}});
   document.addEventListener("input", event => {
+    if(event.target.matches('[data-wb-blank]')) {wbAssign(event.target.closest('[data-wb-id]'),event.target.dataset.wbBlank,event.target.value);return;}
     if (event.target.matches("[data-final-draft]")) { finalState().drafts[event.target.dataset.finalDraft]=event.target.value; saveState(); }
     if (event.target.id === "finalTermFilter") { const q=normalize(event.target.value); document.querySelectorAll("[data-final-term]").forEach(row=>row.hidden=!row.dataset.finalTerm.includes(q)); }
     if (event.target.id === "searchInput") renderSearch(event.target.value);

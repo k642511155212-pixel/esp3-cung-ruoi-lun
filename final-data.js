@@ -218,112 +218,7 @@ window.ESP3_FINAL = {
           }
         }
       ],
-      "gaps": [
-        {
-          "id": "u1-g1",
-          "title": "Vocabulary in context",
-          "source": {
-            "kind": "Practice",
-            "unit": 1,
-            "pages": [
-              10,
-              17
-            ],
-            "pdfPages": [
-              11,
-              18
-            ]
-          },
-          "bank": [
-            "global value chain",
-            "interdependence",
-            "price-conscious",
-            "international business",
-            "offshoring",
-            "disposable income",
-            "outsourcing"
-          ],
-          "items": [
-            {
-              "prompt": "Identify the term: commercial activity across national borders Example: The course examines ___ between firms in different countries.",
-              "answer": "international business",
-              "explanation": "The definition and the business context both point to international business. commercial activity across national borders"
-            },
-            {
-              "prompt": "The producer uses ___ to let a specialist handle payroll.",
-              "answer": "outsourcing",
-              "explanation": "paying another organisation to perform an activity"
-            },
-            {
-              "prompt": "Relocating the firm's own production abroad is an example of ___.",
-              "answer": "offshoring",
-              "explanation": "moving an activity to another country"
-            },
-            {
-              "prompt": "Design in one country and assembly in another can form part of a ___.",
-              "answer": "global value chain",
-              "explanation": "linked value-creating activities across countries"
-            },
-            {
-              "prompt": "A disruption affecting both the component supplier and the assembler reveals their ___.",
-              "answer": "interdependence",
-              "explanation": "mutual reliance between economies or organisations"
-            }
-          ]
-        },
-        {
-          "id": "u1-g2",
-          "title": "Reading vocabulary in context",
-          "source": {
-            "kind": "Practice",
-            "unit": 1,
-            "pages": [
-              17,
-              29
-            ],
-            "pdfPages": [
-              18,
-              30
-            ]
-          },
-          "bank": [
-            "price-conscious",
-            "international business",
-            "adapt",
-            "disposable income",
-            "foothold",
-            "fragmented market",
-            "outsourcing"
-          ],
-          "items": [
-            {
-              "prompt": "The retailer offers small low-cost packs to ___ customers.",
-              "answer": "price-conscious",
-              "explanation": "strongly concerned about the price of purchases"
-            },
-            {
-              "prompt": "After paying personal taxes, households decide how much of their ___ to save.",
-              "answer": "disposable income",
-              "explanation": "income available after personal taxes"
-            },
-            {
-              "prompt": "One small outlet gave the foreign retailer a ___ in the market.",
-              "answer": "foothold",
-              "explanation": "an initial position from which to expand"
-            },
-            {
-              "prompt": "The restaurant must ___ its menu to local preferences.",
-              "answer": "adapt",
-              "explanation": "change to suit different conditions"
-            },
-            {
-              "prompt": "With numerous small sellers and no dominant chain, this is a ___.",
-              "answer": "fragmented market",
-              "explanation": "a market divided among many small participants"
-            }
-          ]
-        }
-      ],
+      "gaps": [],
       "concepts": [],
       "distinctions": [],
       "situations": [],
@@ -546,112 +441,7 @@ window.ESP3_FINAL = {
           }
         }
       ],
-      "gaps": [
-        {
-          "id": "u2-g1",
-          "title": "Vocabulary in context",
-          "source": {
-            "kind": "Practice",
-            "unit": 2,
-            "pages": [
-              31,
-              38
-            ],
-            "pdfPages": [
-              32,
-              39
-            ]
-          },
-          "bank": [
-            "absolute advantage",
-            "comparative advantage",
-            "tariff",
-            "subsidy",
-            "trade deficit",
-            "quota",
-            "terms of trade"
-          ],
-          "items": [
-            {
-              "prompt": "Identify the term: ability to produce at a lower opportunity cost Example: Even a less productive country can export a good in which it has a ___.",
-              "answer": "comparative advantage",
-              "explanation": "The definition and the business context both point to comparative advantage. ability to produce at a lower opportunity cost"
-            },
-            {
-              "prompt": "Using fewer worker-hours per unit than a rival country indicates an ___.",
-              "answer": "absolute advantage",
-              "explanation": "ability to produce with fewer resources"
-            },
-            {
-              "prompt": "The customs authority adds a ___ to the imported goods' price.",
-              "answer": "tariff",
-              "explanation": "a tax charged on traded goods, especially imports"
-            },
-            {
-              "prompt": "Only a specified number of imported cars may enter under this ___.",
-              "answer": "quota",
-              "explanation": "a limit on the quantity allowed to enter a market"
-            },
-            {
-              "prompt": "A government ___ helps domestic producers cover part of their costs.",
-              "answer": "subsidy",
-              "explanation": "government financial support for an activity"
-            }
-          ]
-        },
-        {
-          "id": "u2-g2",
-          "title": "Reading vocabulary in context",
-          "source": {
-            "kind": "Practice",
-            "unit": 2,
-            "pages": [
-              32,
-              45
-            ],
-            "pdfPages": [
-              33,
-              46
-            ]
-          },
-          "bank": [
-            "absolute advantage",
-            "comparative advantage",
-            "countertrade",
-            "economies of scale",
-            "primary commodities",
-            "trade deficit",
-            "terms of trade"
-          ],
-          "items": [
-            {
-              "prompt": "The economy records a ___ when its imports are worth more than its exports.",
-              "answer": "trade deficit",
-              "explanation": "imports exceed exports in value over a period"
-            },
-            {
-              "prompt": "When export prices fall relative to import prices, the country's ___ deteriorate.",
-              "answer": "terms of trade",
-              "explanation": "export prices relative to import prices"
-            },
-            {
-              "prompt": "An exporter dependent on raw coffee and minerals relies on ___.",
-              "answer": "primary commodities",
-              "explanation": "largely unprocessed agricultural or mineral goods"
-            },
-            {
-              "prompt": "By producing for a larger export market, the factory hopes to gain ___.",
-              "answer": "economies of scale",
-              "explanation": "lower average costs associated with larger output"
-            },
-            {
-              "prompt": "A machinery seller accepts agricultural goods as part of payment in a ___ arrangement.",
-              "answer": "countertrade",
-              "explanation": "trade involving goods or services as part of payment"
-            }
-          ]
-        }
-      ],
+      "gaps": [],
       "concepts": [
         {
           "title": "Specialisation and opportunity cost",
@@ -1295,112 +1085,7 @@ window.ESP3_FINAL = {
           }
         }
       ],
-      "gaps": [
-        {
-          "id": "u3-g1",
-          "title": "Vocabulary in context",
-          "source": {
-            "kind": "Practice",
-            "unit": 3,
-            "pages": [
-              46,
-              52
-            ],
-            "pdfPages": [
-              47,
-              53
-            ]
-          },
-          "bank": [
-            "bilateral",
-            "multilateral",
-            "balance of payments",
-            "compliance costs",
-            "interoperability",
-            "protectionism",
-            "liberalization"
-          ],
-          "items": [
-            {
-              "prompt": "Identify the term: policies shielding domestic producers from foreign competition Example: High barriers designed to shelter local firms reflect ___.",
-              "answer": "protectionism",
-              "explanation": "The definition and the business context both point to protectionism. policies shielding domestic producers from foreign competition"
-            },
-            {
-              "prompt": "Removing import restrictions is a step towards trade ___.",
-              "answer": "liberalization",
-              "explanation": "reducing restrictions on economic activity or trade"
-            },
-            {
-              "prompt": "An agreement negotiated between just two governments is ___.",
-              "answer": "bilateral",
-              "explanation": "involving two parties or countries"
-            },
-            {
-              "prompt": "Rules negotiated among many trading countries are ___.",
-              "answer": "multilateral",
-              "explanation": "involving several countries or parties"
-            },
-            {
-              "prompt": "The ___ records a country's transactions with foreign residents.",
-              "answer": "balance of payments",
-              "explanation": "record of economic transactions with the rest of the world"
-            }
-          ]
-        },
-        {
-          "id": "u3-g2",
-          "title": "Reading vocabulary in context",
-          "source": {
-            "kind": "Practice",
-            "unit": 3,
-            "pages": [
-              54,
-              56
-            ],
-            "pdfPages": [
-              55,
-              57
-            ]
-          },
-          "bank": [
-            "cross-border cooperation",
-            "compliance costs",
-            "interoperability",
-            "non-tariff barriers",
-            "protectionism",
-            "liberalization",
-            "source code"
-          ],
-          "items": [
-            {
-              "prompt": "Compatible technical standards improve ___ between digital systems.",
-              "answer": "interoperability",
-              "explanation": "ability of systems to work together"
-            },
-            {
-              "prompt": "Duplicated reporting requirements increase firms' ___.",
-              "answer": "compliance costs",
-              "explanation": "resources spent meeting rules or requirements"
-            },
-            {
-              "prompt": "Regulators exchange information through ___ rather than acting alone.",
-              "answer": "cross-border cooperation",
-              "explanation": "joint action across national boundaries"
-            },
-            {
-              "prompt": "A software developer may object to a requirement to disclose its ___.",
-              "answer": "source code",
-              "explanation": "human-readable instructions underlying software"
-            },
-            {
-              "prompt": "Costly technical requirements can operate as ___ even without an import tax.",
-              "answer": "non-tariff barriers",
-              "explanation": "trade restrictions other than tariffs"
-            }
-          ]
-        }
-      ],
+      "gaps": [],
       "concepts": [],
       "distinctions": [],
       "situations": [],
@@ -1623,112 +1308,7 @@ window.ESP3_FINAL = {
           }
         }
       ],
-      "gaps": [
-        {
-          "id": "u4-g1",
-          "title": "Vocabulary in context",
-          "source": {
-            "kind": "Practice",
-            "unit": 4,
-            "pages": [
-              63,
-              65
-            ],
-            "pdfPages": [
-              64,
-              66
-            ]
-          },
-          "bank": [
-            "licensing",
-            "merger",
-            "foreign direct investment",
-            "joint venture",
-            "royalty",
-            "acquisition",
-            "portfolio investment"
-          ],
-          "items": [
-            {
-              "prompt": "Identify the term: investment involving control over business operations abroad Example: Buying a controlling interest in an overseas factory is ___.",
-              "answer": "foreign direct investment",
-              "explanation": "The definition and the business context both point to foreign direct investment. investment involving control over business operations abroad"
-            },
-            {
-              "prompt": "Buying a small passive holding of foreign shares is ___.",
-              "answer": "portfolio investment",
-              "explanation": "investment in financial assets without operational control"
-            },
-            {
-              "prompt": "The foreign manufacturer and local partner establish a jointly owned ___.",
-              "answer": "joint venture",
-              "explanation": "a business owned jointly by participating firms"
-            },
-            {
-              "prompt": "The owner permits a foreign firm to use its trademark through ___.",
-              "answer": "licensing",
-              "explanation": "allowing another firm to use specified rights for payment"
-            },
-            {
-              "prompt": "The licensee pays a ___ for each unit sold under the agreement.",
-              "answer": "royalty",
-              "explanation": "payment for using intellectual property or licensed rights"
-            }
-          ]
-        },
-        {
-          "id": "u4-g2",
-          "title": "Reading vocabulary in context",
-          "source": {
-            "kind": "Practice",
-            "unit": 4,
-            "pages": [
-              64,
-              72
-            ],
-            "pdfPages": [
-              65,
-              73
-            ]
-          },
-          "bank": [
-            "asset stripping",
-            "merger",
-            "foreign direct investment",
-            "incentives",
-            "acquisition",
-            "integration",
-            "portfolio investment"
-          ],
-          "items": [
-            {
-              "prompt": "Buying an established foreign distributor is an ___.",
-              "answer": "acquisition",
-              "explanation": "purchase of an existing business"
-            },
-            {
-              "prompt": "The two producers combine their businesses in a ___.",
-              "answer": "merger",
-              "explanation": "combination of businesses into one organisation"
-            },
-            {
-              "prompt": "The host region offers investment ___ to attract manufacturers.",
-              "answer": "incentives",
-              "explanation": "benefits intended to encourage an action or investment"
-            },
-            {
-              "prompt": "The buyer closes operations and sells valuable assets in a strategy of ___.",
-              "answer": "asset stripping",
-              "explanation": "buying a business to sell its assets for gain"
-            },
-            {
-              "prompt": "After the acquisition, incompatible systems make ___ difficult.",
-              "answer": "integration",
-              "explanation": "bringing separate operations together"
-            }
-          ]
-        }
-      ],
+      "gaps": [],
       "concepts": [
         {
           "title": "Control and entry modes",
@@ -2311,112 +1891,7 @@ window.ESP3_FINAL = {
           }
         }
       ],
-      "gaps": [
-        {
-          "id": "u5-g1",
-          "title": "Vocabulary in context",
-          "source": {
-            "kind": "Practice",
-            "unit": 5,
-            "pages": [
-              74,
-              81
-            ],
-            "pdfPages": [
-              75,
-              82
-            ]
-          },
-          "bank": [
-            "arbitrage",
-            "ask",
-            "bid",
-            "forward contract",
-            "hedging",
-            "spot transaction",
-            "speculation"
-          ],
-          "items": [
-            {
-              "prompt": "Identify the term: currency exchange for near-term settlement Example: The importer needs currency for immediate settlement and arranges a ___.",
-              "answer": "spot transaction",
-              "explanation": "The definition and the business context both point to spot transaction. currency exchange for near-term settlement"
-            },
-            {
-              "prompt": "The exporter fixes a future conversion rate with a ___.",
-              "answer": "forward contract",
-              "explanation": "agreement now to exchange currency at a future date and agreed rate"
-            },
-            {
-              "prompt": "Locking in the rate on a known foreign-currency bill is ___.",
-              "answer": "hedging",
-              "explanation": "reducing exposure to an existing financial risk"
-            },
-            {
-              "prompt": "Buying currency only because its value may rise is ___.",
-              "answer": "speculation",
-              "explanation": "taking a position to profit from an expected price movement"
-            },
-            {
-              "prompt": "Simultaneously buying currency cheaply and selling it at a higher price is ___.",
-              "answer": "arbitrage",
-              "explanation": "exploiting price differences through linked transactions"
-            }
-          ]
-        },
-        {
-          "id": "u5-g2",
-          "title": "Reading vocabulary in context",
-          "source": {
-            "kind": "Practice",
-            "unit": 5,
-            "pages": [
-              76,
-              84
-            ],
-            "pdfPages": [
-              77,
-              85
-            ]
-          },
-          "bank": [
-            "appreciation",
-            "ask",
-            "bid",
-            "intervention",
-            "forward contract",
-            "spot transaction",
-            "devaluation"
-          ],
-          "items": [
-            {
-              "prompt": "When selling the base currency to a dealer, the customer receives the dealer's ___.",
-              "answer": "bid",
-              "explanation": "the dealer's price for buying the base currency"
-            },
-            {
-              "prompt": "A customer buying the base currency pays the dealer's ___.",
-              "answer": "ask",
-              "explanation": "the dealer's price for selling the base currency"
-            },
-            {
-              "prompt": "A market-driven rise in the currency's value is ___.",
-              "answer": "appreciation",
-              "explanation": "a rise in a currency's value under market forces"
-            },
-            {
-              "prompt": "The authority lowers its official fixed currency value through ___.",
-              "answer": "devaluation",
-              "explanation": "an official reduction in a fixed or managed currency value"
-            },
-            {
-              "prompt": "The central bank buys foreign currency as a form of market ___.",
-              "answer": "intervention",
-              "explanation": "official action in the currency market to influence its value"
-            }
-          ]
-        }
-      ],
+      "gaps": [],
       "concepts": [
         {
           "title": "Read a quote from the dealer’s side",
@@ -3113,112 +2588,7 @@ window.ESP3_FINAL = {
           }
         }
       ],
-      "gaps": [
-        {
-          "id": "u6-g1",
-          "title": "Vocabulary in context",
-          "source": {
-            "kind": "Practice",
-            "unit": 6,
-            "pages": [
-              89,
-              94
-            ],
-            "pdfPages": [
-              90,
-              95
-            ]
-          },
-          "bank": [
-            "confirming bank",
-            "documentary credit",
-            "open account",
-            "payment in advance",
-            "advising bank",
-            "documents against acceptance",
-            "documents against payment"
-          ],
-          "items": [
-            {
-              "prompt": "Identify the term: a bank undertaking to pay against complying documents Example: The seller requests a ___ so payment depends on presentation of complying documents.",
-              "answer": "documentary credit",
-              "explanation": "The definition and the business context both point to documentary credit. a bank undertaking to pay against complying documents"
-            },
-            {
-              "prompt": "A trusted buyer receives goods and pays later under ___.",
-              "answer": "open account",
-              "explanation": "shipment before payment becomes due"
-            },
-            {
-              "prompt": "The new seller requires ___ before dispatching the order.",
-              "answer": "payment in advance",
-              "explanation": "payment before the seller ships the goods"
-            },
-            {
-              "prompt": "The bank releases shipping documents only after payment under ___.",
-              "answer": "documents against payment",
-              "explanation": "collection arrangement releasing documents upon payment"
-            },
-            {
-              "prompt": "The buyer accepts a time draft to obtain documents under ___.",
-              "answer": "documents against acceptance",
-              "explanation": "collection releasing documents when a time draft is accepted"
-            }
-          ]
-        },
-        {
-          "id": "u6-g2",
-          "title": "Reading vocabulary in context",
-          "source": {
-            "kind": "Practice",
-            "unit": 6,
-            "pages": [
-              95,
-              101
-            ],
-            "pdfPages": [
-              96,
-              102
-            ]
-          },
-          "bank": [
-            "confirming bank",
-            "documentary credit",
-            "open account",
-            "advising bank",
-            "red clause",
-            "revolving credit",
-            "standby credit"
-          ],
-          "items": [
-            {
-              "prompt": "The ___ checks apparent authenticity and informs the beneficiary of the credit.",
-              "answer": "advising bank",
-              "explanation": "bank authenticating and passing on a credit"
-            },
-            {
-              "prompt": "The exporter seeks the additional undertaking of a ___.",
-              "answer": "confirming bank",
-              "explanation": "bank adding its own payment undertaking to a credit"
-            },
-            {
-              "prompt": "A ___ in the credit allows an advance before shipment.",
-              "answer": "red clause",
-              "explanation": "credit provision permitting a pre-shipment advance"
-            },
-            {
-              "prompt": "Regular repeated shipments may be supported by a ___.",
-              "answer": "revolving credit",
-              "explanation": "credit restored for repeated drawings under agreed terms"
-            },
-            {
-              "prompt": "The beneficiary can draw under the ___ if the specified obligation is not met.",
-              "answer": "standby credit",
-              "explanation": "credit available if an agreed obligation is not performed"
-            }
-          ]
-        }
-      ],
+      "gaps": [],
       "concepts": [
         {
           "title": "Allocate commercial payment risk",
@@ -3929,112 +3299,7 @@ window.ESP3_FINAL = {
           }
         }
       ],
-      "gaps": [
-        {
-          "id": "u7-g1",
-          "title": "Vocabulary in context",
-          "source": {
-            "kind": "Practice",
-            "unit": 7,
-            "pages": [
-              103,
-              109
-            ],
-            "pdfPages": [
-              104,
-              110
-            ]
-          },
-          "bank": [
-            "market research",
-            "segmentation",
-            "latent demand",
-            "marketing mix",
-            "target market",
-            "brand",
-            "demarketing"
-          ],
-          "items": [
-            {
-              "prompt": "Identify the term: dividing a market into groups with shared characteristics Example: Grouping customers by needs before choosing a target is ___.",
-              "answer": "segmentation",
-              "explanation": "The definition and the business context both point to segmentation. dividing a market into groups with shared characteristics"
-            },
-            {
-              "prompt": "After comparing segments, the firm selects students as its ___.",
-              "answer": "target market",
-              "explanation": "the customer group a firm chooses to serve"
-            },
-            {
-              "prompt": "Changing price, distribution and promotion together adjusts the ___.",
-              "answer": "marketing mix",
-              "explanation": "the coordinated product, price, place and promotion decisions"
-            },
-            {
-              "prompt": "Interviews with potential customers are part of the company's ___.",
-              "answer": "market research",
-              "explanation": "systematic collection and study of market information"
-            },
-            {
-              "prompt": "Customers recognise the product through its distinctive ___.",
-              "answer": "brand",
-              "explanation": "an identifying name or symbol associated with an offering"
-            }
-          ]
-        },
-        {
-          "id": "u7-g2",
-          "title": "Reading vocabulary in context",
-          "source": {
-            "kind": "Practice",
-            "unit": 7,
-            "pages": [
-              109,
-              112
-            ],
-            "pdfPages": [
-              110,
-              113
-            ]
-          },
-          "bank": [
-            "segmentation",
-            "latent demand",
-            "saturation",
-            "synchromarketing",
-            "target market",
-            "demarketing",
-            "skimming"
-          ],
-          "items": [
-            {
-              "prompt": "Customers want a solution that is not yet available, creating ___.",
-              "answer": "latent demand",
-              "explanation": "an unmet need that existing products do not satisfy"
-            },
-            {
-              "prompt": "The overcrowded attraction discourages some visits through ___.",
-              "answer": "demarketing",
-              "explanation": "reducing demand when it exceeds desired capacity"
-            },
-            {
-              "prompt": "Off-peak offers redistribute visits across the week through ___.",
-              "answer": "synchromarketing",
-              "explanation": "adjusting demand to match time-varying supply or capacity"
-            },
-            {
-              "prompt": "The innovative product launches at a high price using ___.",
-              "answer": "skimming",
-              "explanation": "setting a high initial price to capture early willingness to pay"
-            },
-            {
-              "prompt": "Most potential customers already own the product, indicating market ___.",
-              "answer": "saturation",
-              "explanation": "a stage where further market expansion becomes difficult"
-            }
-          ]
-        }
-      ],
+      "gaps": [],
       "concepts": [
         {
           "title": "Start with customer needs",
@@ -4680,112 +3945,7 @@ window.ESP3_FINAL = {
           }
         }
       ],
-      "gaps": [
-        {
-          "id": "u8-g1",
-          "title": "Vocabulary in context",
-          "source": {
-            "kind": "Practice",
-            "unit": 8,
-            "pages": [
-              115,
-              120
-            ],
-            "pdfPages": [
-              116,
-              121
-            ]
-          },
-          "bank": [
-            "inventory",
-            "lead time",
-            "logistics",
-            "empty runs",
-            "bill of lading",
-            "freight forwarder",
-            "modal shift"
-          ],
-          "items": [
-            {
-              "prompt": "Identify the term: planning and managing flows and storage to meet needs Example: Coordinating transport, stock and storage is part of ___.",
-              "answer": "logistics",
-              "explanation": "The definition and the business context both point to logistics. planning and managing flows and storage to meet needs"
-            },
-            {
-              "prompt": "A supplier reduces the ___ from order placement to delivery.",
-              "answer": "lead time",
-              "explanation": "time between initiating an order and receiving its result"
-            },
-            {
-              "prompt": "The exporter hires a ___ to arrange transport and shipping documents.",
-              "answer": "freight forwarder",
-              "explanation": "specialist arranging cargo movements and related services"
-            },
-            {
-              "prompt": "The carrier issues a ___ after receiving the cargo.",
-              "answer": "bill of lading",
-              "explanation": "transport document evidencing receipt and a carriage contract"
-            },
-            {
-              "prompt": "Keeping extra ___ can protect against delivery disruptions.",
-              "answer": "inventory",
-              "explanation": "goods or materials held for use or sale"
-            }
-          ]
-        },
-        {
-          "id": "u8-g2",
-          "title": "Reading vocabulary in context",
-          "source": {
-            "kind": "Practice",
-            "unit": 8,
-            "pages": [
-              121,
-              130
-            ],
-            "pdfPages": [
-              122,
-              131
-            ]
-          },
-          "bank": [
-            "backhauls",
-            "lead time",
-            "logistics",
-            "carbon footprint",
-            "empty runs",
-            "capacity utilization",
-            "modal shift"
-          ],
-          "items": [
-            {
-              "prompt": "Replacing some road movements with rail is a ___.",
-              "answer": "modal shift",
-              "explanation": "changing the transport mode used for freight"
-            },
-            {
-              "prompt": "Finding return cargo helps the haulier reduce ___.",
-              "answer": "empty runs",
-              "explanation": "vehicle journeys without a revenue-carrying load"
-            },
-            {
-              "prompt": "The firm measures the ___ of its delivery operations.",
-              "answer": "carbon footprint",
-              "explanation": "greenhouse-gas emissions associated with an activity"
-            },
-            {
-              "prompt": "Carrying suppliers' goods on return trips creates useful ___.",
-              "answer": "backhauls",
-              "explanation": "return-leg freight movements"
-            },
-            {
-              "prompt": "Combining small loads improves vehicle ___.",
-              "answer": "capacity utilization",
-              "explanation": "the share of available capacity actually used"
-            }
-          ]
-        }
-      ],
+      "gaps": [],
       "concepts": [
         {
           "title": "Coordinate the whole flow",
@@ -5411,112 +4571,7 @@ window.ESP3_FINAL = {
           }
         }
       ],
-      "gaps": [
-        {
-          "id": "u9-g1",
-          "title": "Vocabulary in context",
-          "source": {
-            "kind": "Practice",
-            "unit": 9,
-            "pages": [
-              132,
-              139
-            ],
-            "pdfPages": [
-              133,
-              140
-            ]
-          },
-          "bank": [
-            "general average",
-            "indemnification",
-            "insurable interest",
-            "inherent vice",
-            "premium",
-            "subrogation",
-            "utmost good faith"
-          ],
-          "items": [
-            {
-              "prompt": "Identify the term: the price paid for insurance coverage Example: The insured pays an annual ___ to maintain cover.",
-              "answer": "premium",
-              "explanation": "The definition and the business context both point to premium. the price paid for insurance coverage"
-            },
-            {
-              "prompt": "Restoring the insured's covered financial loss is the purpose of ___.",
-              "answer": "indemnification",
-              "explanation": "compensating a covered loss according to the contract"
-            },
-            {
-              "prompt": "An owner facing loss if a warehouse burns has an ___.",
-              "answer": "insurable interest",
-              "explanation": "a legally relevant financial stake in the insured subject"
-            },
-            {
-              "prompt": "After compensation, the insurer pursues the liable carrier through ___.",
-              "answer": "subrogation",
-              "explanation": "insurer's right to pursue recovery after paying a covered loss"
-            },
-            {
-              "prompt": "Disclosing significant risk facts reflects ___.",
-              "answer": "utmost good faith",
-              "explanation": "duty to disclose material information honestly"
-            }
-          ]
-        },
-        {
-          "id": "u9-g2",
-          "title": "Reading vocabulary in context",
-          "source": {
-            "kind": "Practice",
-            "unit": 9,
-            "pages": [
-              140,
-              150
-            ],
-            "pdfPages": [
-              141,
-              151
-            ]
-          },
-          "bank": [
-            "excess",
-            "general average",
-            "indemnification",
-            "inherent vice",
-            "premium",
-            "underwrite",
-            "claim"
-          ],
-          "items": [
-            {
-              "prompt": "Cargo deliberately sacrificed to save the common voyage may give rise to ___.",
-              "answer": "general average",
-              "explanation": "shared maritime loss from an intentional sacrifice for common safety"
-            },
-            {
-              "prompt": "Deterioration caused by a product's own properties may involve ___.",
-              "answer": "inherent vice",
-              "explanation": "damage arising from the nature of the goods themselves"
-            },
-            {
-              "prompt": "The exporter submits a ___ with evidence of the insured damage.",
-              "answer": "claim",
-              "explanation": "a request for payment under an insurance policy"
-            },
-            {
-              "prompt": "The policy requires the customer to bear an agreed ___ on the loss.",
-              "answer": "excess",
-              "explanation": "portion of a loss borne by the insured under the policy"
-            },
-            {
-              "prompt": "The insurer reviews the cargo before deciding whether to ___ the risk.",
-              "answer": "underwrite",
-              "explanation": "assess and accept an insurance risk"
-            }
-          ]
-        }
-      ],
+      "gaps": [],
       "concepts": [],
       "distinctions": [],
       "situations": [],
@@ -5739,112 +4794,7 @@ window.ESP3_FINAL = {
           }
         }
       ],
-      "gaps": [
-        {
-          "id": "u10-g1",
-          "title": "Vocabulary in context",
-          "source": {
-            "kind": "Practice",
-            "unit": 10,
-            "pages": [
-              152,
-              154
-            ],
-            "pdfPages": [
-              153,
-              155
-            ]
-          },
-          "bank": [
-            "deduction",
-            "progressive tax",
-            "tax haven",
-            "value added tax",
-            "tax avoidance",
-            "tax evasion",
-            "taxable income"
-          ],
-          "items": [
-            {
-              "prompt": "Identify the term: tax on value added collected through stages of supply Example: The seller's invoice separately records ___ on the supply.",
-              "answer": "value added tax",
-              "explanation": "The definition and the business context both point to value added tax. tax on value added collected through stages of supply"
-            },
-            {
-              "prompt": "Higher income bands face higher rates under a ___.",
-              "answer": "progressive tax",
-              "explanation": "tax whose rate rises with the taxable base"
-            },
-            {
-              "prompt": "Using a lawful deduction to reduce liability is ___.",
-              "answer": "tax avoidance",
-              "explanation": "reducing tax through arrangements within the law"
-            },
-            {
-              "prompt": "Hiding taxable sales from the authorities is ___.",
-              "answer": "tax evasion",
-              "explanation": "illegally escaping a tax obligation"
-            },
-            {
-              "prompt": "A firm may seek a low-tax jurisdiction described as a ___.",
-              "answer": "tax haven",
-              "explanation": "jurisdiction offering low tax or related tax advantages"
-            }
-          ]
-        },
-        {
-          "id": "u10-g2",
-          "title": "Reading vocabulary in context",
-          "source": {
-            "kind": "Practice",
-            "unit": 10,
-            "pages": [
-              156,
-              160
-            ],
-            "pdfPages": [
-              157,
-              161
-            ]
-          },
-          "bank": [
-            "deduction",
-            "double taxation",
-            "progressive tax",
-            "value added tax",
-            "tax return",
-            "tax arrears",
-            "taxable income"
-          ],
-          "items": [
-            {
-              "prompt": "After allowable adjustments, the accountant calculates ___.",
-              "answer": "taxable income",
-              "explanation": "income included in the tax calculation after applicable adjustments"
-            },
-            {
-              "prompt": "An allowable expense creates a ___ from the relevant tax base.",
-              "answer": "deduction",
-              "explanation": "an allowed amount subtracted in computing a tax base"
-            },
-            {
-              "prompt": "The business submits its annual ___ with income and expense information.",
-              "answer": "tax return",
-              "explanation": "form reporting tax information to the authorities"
-            },
-            {
-              "prompt": "Missed tax payments accumulate as ___.",
-              "answer": "tax arrears",
-              "explanation": "tax amounts unpaid after they became due"
-            },
-            {
-              "prompt": "The same income being taxed twice raises concerns about ___.",
-              "answer": "double taxation",
-              "explanation": "taxation of the same income in two relevant layers or jurisdictions"
-            }
-          ]
-        }
-      ],
+      "gaps": [],
       "concepts": [],
       "distinctions": [],
       "situations": [],
@@ -6248,102 +5198,7 @@ window.ESP3_FINAL = {
   "sets": [
     {
       "title": "FINAL PRACTICE SET 1 · Exam-style practice",
-      "gaps": [
-        {
-          "id": "set1-mixed",
-          "title": "Business decisions across units",
-          "source": {
-            "kind": "Practice",
-            "unit": 1,
-            "pages": [
-              10,
-              17
-            ],
-            "pdfPages": [
-              11,
-              18
-            ]
-          },
-          "sources": [
-            {
-              "kind": "Practice",
-              "unit": 1,
-              "pages": [
-                10,
-                17
-              ],
-              "pdfPages": [
-                11,
-                18
-              ]
-            },
-            {
-              "kind": "Practice",
-              "unit": 2,
-              "pages": [
-                31,
-                38
-              ],
-              "pdfPages": [
-                32,
-                39
-              ]
-            },
-            {
-              "kind": "Practice",
-              "unit": 3,
-              "pages": [
-                54,
-                56
-              ],
-              "pdfPages": [
-                55,
-                57
-              ]
-            },
-            {
-              "kind": "Practice",
-              "unit": 4,
-              "pages": [
-                63,
-                65
-              ],
-              "pdfPages": [
-                64,
-                66
-              ]
-            }
-          ],
-          "bank": [
-            "joint venture",
-            "compliance costs",
-            "quota",
-            "outsourcing"
-          ],
-          "items": [
-            {
-              "prompt": "A retailer contracts a specialist to run its help desk through ___.",
-              "answer": "outsourcing",
-              "explanation": "The specialist performs an activity on behalf of the retailer."
-            },
-            {
-              "prompt": "The importing market limits annual deliveries to a fixed quantity under a ___.",
-              "answer": "quota",
-              "explanation": "The decisive feature is a quantity ceiling."
-            },
-            {
-              "prompt": "Separate documentation systems in each market raise the exporter’s ___.",
-              "answer": "compliance costs",
-              "explanation": "These are resources needed to meet regulatory requirements."
-            },
-            {
-              "prompt": "Two firms contribute resources and share ownership in a ___.",
-              "answer": "joint venture",
-              "explanation": "Joint ownership and participation distinguish the arrangement."
-            }
-          ]
-        }
-      ],
+      "gaps": [],
       "situations": [
         {
           "unit": 2,
@@ -6370,88 +5225,14 @@ window.ESP3_FINAL = {
           "questionId": "U8-DATA-01"
         }
       ],
-      "writing": 1
+      "writing": 1,
+      "passageIds": [
+        "WB-05"
+      ]
     },
     {
       "title": "FINAL PRACTICE SET 2 · Exam-style practice",
-      "gaps": [
-        {
-          "id": "set2-mixed",
-          "title": "Business decisions across units",
-          "source": {
-            "kind": "Practice",
-            "unit": 5,
-            "pages": [
-              74,
-              81
-            ],
-            "pdfPages": [
-              75,
-              82
-            ]
-          },
-          "sources": [
-            {
-              "kind": "Practice",
-              "unit": 5,
-              "pages": [
-                74,
-                81
-              ],
-              "pdfPages": [
-                75,
-                82
-              ]
-            },
-            {
-              "kind": "Practice",
-              "unit": 6,
-              "pages": [
-                89,
-                94
-              ],
-              "pdfPages": [
-                90,
-                95
-              ]
-            },
-            {
-              "kind": "Practice",
-              "unit": 7,
-              "pages": [
-                109,
-                112
-              ],
-              "pdfPages": [
-                110,
-                113
-              ]
-            }
-          ],
-          "bank": [
-            "synchromarketing",
-            "documents against acceptance",
-            "hedging"
-          ],
-          "items": [
-            {
-              "prompt": "A manufacturer fixes the rate on its known foreign-currency liability as a form of ___.",
-              "answer": "hedging",
-              "explanation": "The transaction reduces an existing currency exposure."
-            },
-            {
-              "prompt": "The bank releases documents after the buyer accepts a time draft under ___.",
-              "answer": "documents against acceptance",
-              "explanation": "Acceptance precedes later payment; it is not immediate cash receipt."
-            },
-            {
-              "prompt": "A provider encourages customers to switch from busy evenings to quiet afternoons through ___.",
-              "answer": "synchromarketing",
-              "explanation": "The aim is to balance irregular demand across time."
-            }
-          ]
-        }
-      ],
+      "gaps": [],
       "situations": [
         {
           "unit": 2,
@@ -6478,106 +5259,14 @@ window.ESP3_FINAL = {
           "questionId": "U8-CASE-03"
         }
       ],
-      "writing": 2
+      "writing": 2,
+      "passageIds": [
+        "WB-14"
+      ]
     },
     {
       "title": "FINAL PRACTICE SET 3 · Exam-style practice",
-      "gaps": [
-        {
-          "id": "set3-mixed",
-          "title": "Business decisions across units",
-          "source": {
-            "kind": "Practice",
-            "unit": 8,
-            "pages": [
-              121,
-              130
-            ],
-            "pdfPages": [
-              122,
-              131
-            ]
-          },
-          "sources": [
-            {
-              "kind": "Practice",
-              "unit": 8,
-              "pages": [
-                121,
-                130
-              ],
-              "pdfPages": [
-                122,
-                131
-              ]
-            },
-            {
-              "kind": "Practice",
-              "unit": 9,
-              "pages": [
-                132,
-                139
-              ],
-              "pdfPages": [
-                133,
-                140
-              ]
-            },
-            {
-              "kind": "Practice",
-              "unit": 10,
-              "pages": [
-                152,
-                154
-              ],
-              "pdfPages": [
-                153,
-                155
-              ]
-            },
-            {
-              "kind": "Practice",
-              "unit": 2,
-              "pages": [
-                32,
-                45
-              ],
-              "pdfPages": [
-                33,
-                46
-              ]
-            }
-          ],
-          "bank": [
-            "terms of trade",
-            "tax evasion",
-            "insurable interest",
-            "backhauls"
-          ],
-          "items": [
-            {
-              "prompt": "A delivery fleet arranges useful return loads, creating ___.",
-              "answer": "backhauls",
-              "explanation": "The return movements carry freight instead of travelling empty."
-            },
-            {
-              "prompt": "A business would suffer financially if its stock were destroyed, giving it an ___.",
-              "answer": "insurable interest",
-              "explanation": "It has a financial stake in the insured property."
-            },
-            {
-              "prompt": "A trader deliberately hides taxable revenue, committing ___.",
-              "answer": "tax evasion",
-              "explanation": "Concealment to escape a tax obligation is illegal, unlike lawful avoidance."
-            },
-            {
-              "prompt": "Export prices rise relative to import prices, improving the country’s ___.",
-              "answer": "terms of trade",
-              "explanation": "The concept compares export prices with import prices."
-            }
-          ]
-        }
-      ],
+      "gaps": [],
       "situations": [
         {
           "unit": 2,
@@ -6605,7 +5294,10 @@ window.ESP3_FINAL = {
         }
       ],
       "writing": 4,
-      "alternativeWriting": 3
+      "alternativeWriting": 3,
+      "passageIds": [
+        "WB-16"
+      ]
     }
   ],
   "notes": [
@@ -7867,5 +6559,2797 @@ window.ESP3_FINAL = {
       "theory-u8-inventory-service",
       "theory-u8-green-transport"
     ]
+  },
+  "wordBox": [
+    {
+      "id": "WB-01",
+      "title": "Entering a New Consumer Market",
+      "level": "Foundation",
+      "units": [
+        1,
+        7
+      ],
+      "sourceFocus": "U1 internationalization/market-entry reading language + U7 marketing vocabulary and exercises.",
+      "bank": [
+        "price-conscious",
+        "tailor a product",
+        "differentiate a product",
+        "market research",
+        "market segmentation",
+        "target market",
+        "fragmented market",
+        "distribution channel",
+        "retain a competitive advantage",
+        "maintain a foothold",
+        "undercut a competitor"
+      ],
+      "segments": [
+        "A Vietnamese beverage company is preparing to expand into a neighboring country. Its managers know that many consumers there are highly ",
+        {
+          "blank": "WB-01-b1"
+        },
+        ", so simply charging the same price as in Vietnam may not be effective.",
+        "\n\n",
+        "Before making major decisions, the company conducts ",
+        {
+          "blank": "WB-01-b2"
+        },
+        " to collect information about local buying habits, competitors and customer preferences. Using these findings, it identifies young urban consumers as its main ",
+        {
+          "blank": "WB-01-b3"
+        },
+        ".",
+        "\n\n",
+        "Instead of selling exactly the same product everywhere, management decides to ",
+        {
+          "blank": "WB-01-b4"
+        },
+        " by reducing the package size and adjusting the flavor to local preferences. Supermarkets, convenience stores and online retailers are then selected as part of the company's ",
+        {
+          "blank": "WB-01-b5"
+        },
+        ".",
+        "\n\n",
+        "Management believes that adapting intelligently while protecting the brand's distinctive strengths will help it ",
+        {
+          "blank": "WB-01-b6"
+        },
+        ". Even if initial sales are modest, the company is willing to invest for several years in order to ",
+        {
+          "blank": "WB-01-b7"
+        },
+        " in the new market."
+      ],
+      "blanks": [
+        {
+          "id": "WB-01-b1",
+          "answer": "price-conscious",
+          "unit": 1,
+          "vocabId": "vocab-u1-price-conscious",
+          "explanation": "The clue says consumers are strongly influenced by price, so the adjective describes buyers who pay close attention to prices.",
+          "closestDistractor": "fragmented market",
+          "whyNot": "A fragmented market describes the structure of a market, not consumers' sensitivity to price.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "ADJECTIVE",
+          "termKey": "unit-1:45"
+        },
+        {
+          "id": "WB-01-b2",
+          "answer": "market research",
+          "unit": 7,
+          "vocabId": "vocab-u7-market-research",
+          "explanation": "The company is collecting information about buyers, competitors and preferences before making marketing decisions.",
+          "closestDistractor": "market segmentation",
+          "whyNot": "Segmentation uses information to divide a market into groups; it is not the information-gathering activity itself.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-7:3"
+        },
+        {
+          "id": "WB-01-b3",
+          "answer": "target market",
+          "unit": 7,
+          "vocabId": "vocab-u7-target-market",
+          "explanation": "Young urban consumers are the specific customer group the company has selected to serve.",
+          "closestDistractor": "market segmentation",
+          "whyNot": "Segmentation is the process of dividing customers into groups; the selected group is the target market.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-7:8",
+          "theoryId": "theory-u7-segmentation-marketing-mix"
+        },
+        {
+          "id": "WB-01-b4",
+          "answer": "tailor a product",
+          "unit": 1,
+          "vocabId": "vocab-u1-tailor-a-product",
+          "explanation": "The product itself is being modified---package size and flavor---to suit local preferences.",
+          "closestDistractor": "differentiate a product",
+          "whyNot": "Differentiation makes an offer distinct from competitors; here the clue is adaptation to local needs.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "COLLOCATION",
+          "termKey": "unit-1:43"
+        },
+        {
+          "id": "WB-01-b5",
+          "answer": "distribution channel",
+          "unit": 7,
+          "vocabId": "vocab-u7-distribution-channel",
+          "explanation": "Supermarkets, convenience stores and online retailers are routes through which the product reaches customers.",
+          "closestDistractor": "target market",
+          "whyNot": "A target market is the customer group served, not the route used to reach that group.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-7:15"
+        },
+        {
+          "id": "WB-01-b6",
+          "answer": "retain a competitive advantage",
+          "unit": 1,
+          "vocabId": "vocab-u1-retain-a-competitive-advantage",
+          "explanation": "Management wants to preserve the brand's distinctive strengths while adapting locally.",
+          "closestDistractor": "differentiate a product",
+          "whyNot": "Differentiation can create distinctiveness, but the sentence emphasizes keeping an advantage the firm already possesses.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "COLLOCATION",
+          "termKey": "unit-1:39"
+        },
+        {
+          "id": "WB-01-b7",
+          "answer": "maintain a foothold",
+          "unit": 1,
+          "vocabId": "vocab-u1-maintain-a-foothold",
+          "explanation": "The company accepts modest initial sales in order to preserve an initial position from which it can grow later.",
+          "closestDistractor": "market share",
+          "whyNot": "Market share measures a proportion of sales; the sentence emphasizes keeping an initial strategic presence.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "COLLOCATION",
+          "termKey": "unit-1:48"
+        }
+      ]
+    },
+    {
+      "id": "WB-02",
+      "title": "Opening an Economy to Trade",
+      "level": "Foundation",
+      "units": [
+        2,
+        3
+      ],
+      "sourceFocus": "U2 trade barriers/support measures + U3 trade-policy vocabulary, readings and exercises.",
+      "bank": [
+        "liberalize trade",
+        "protect domestic producers",
+        "stifle imports",
+        "tariff",
+        "quota",
+        "embargo",
+        "non-discriminatory",
+        "predictable",
+        "adhere to",
+        "accede to an agreement",
+        "local content requirement",
+        "countervailing duty"
+      ],
+      "segments": [
+        "A developing economy has traditionally used strict trade controls but now wants to ",
+        {
+          "blank": "WB-02-b1"
+        },
+        " gradually. One existing measure is a ",
+        {
+          "blank": "WB-02-b2"
+        },
+        " that adds a tax to imported goods, while another is a ",
+        {
+          "blank": "WB-02-b3"
+        },
+        " that limits the physical quantity that can enter the country each year.",
+        "\n\n",
+        "Supporters of these restrictions argue that they ",
+        {
+          "blank": "WB-02-b4"
+        },
+        " against intense foreign competition. However, exporters complain that frequent policy changes make international business difficult to plan.",
+        "\n\n",
+        "As part of its reform program, the government promises that future trade rules will be more ",
+        {
+          "blank": "WB-02-b5"
+        },
+        ", so firms can anticipate how they will be applied. It also agrees that imported and domestic products should be treated on a more ",
+        {
+          "blank": "WB-02-b6"
+        },
+        " basis.",
+        "\n\n",
+        "Businesses will still have to ",
+        {
+          "blank": "WB-02-b7"
+        },
+        " customs and product regulations. Meanwhile, the country begins negotiations to ",
+        {
+          "blank": "WB-02-b8"
+        },
+        " that would give its exporters better access to partner markets."
+      ],
+      "blanks": [
+        {
+          "id": "WB-02-b1",
+          "answer": "liberalize trade",
+          "unit": 3,
+          "vocabId": "vocab-u3-liberalize-trade",
+          "explanation": "The country is moving away from strict trade controls, so it is reducing restrictions on international trade.",
+          "closestDistractor": "protect domestic producers",
+          "whyNot": "Protecting domestic producers normally implies maintaining or adding restrictions rather than opening trade.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "COLLOCATION",
+          "termKey": "unit-3:52"
+        },
+        {
+          "id": "WB-02-b2",
+          "answer": "tariff",
+          "unit": 2,
+          "vocabId": "vocab-u2-tariff",
+          "explanation": "The defining clue is a tax added to imported goods.",
+          "closestDistractor": "quota",
+          "whyNot": "A quota restricts quantity; it is not an import tax.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-2:14",
+          "theoryId": "theory-u2-trade-barriers"
+        },
+        {
+          "id": "WB-02-b3",
+          "answer": "quota",
+          "unit": 2,
+          "vocabId": "vocab-u2-quota",
+          "explanation": "The clue explicitly limits the physical quantity that may enter each year.",
+          "closestDistractor": "tariff",
+          "whyNot": "A tariff raises the cost of imports through a tax rather than setting a quantity ceiling.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-2:15",
+          "theoryId": "theory-u2-trade-barriers"
+        },
+        {
+          "id": "WB-02-b4",
+          "answer": "protect domestic producers",
+          "unit": 3,
+          "vocabId": "vocab-u3-protect-domestic-producers",
+          "explanation": "Supporters argue that restrictions shield local firms from intense foreign competition.",
+          "closestDistractor": "stifle imports",
+          "whyNot": "Stifling imports describes restricting import flows; the stated purpose here is protection of local producers.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "COLLOCATION",
+          "termKey": "unit-3:53"
+        },
+        {
+          "id": "WB-02-b5",
+          "answer": "predictable",
+          "unit": 3,
+          "vocabId": "vocab-u3-predictable",
+          "explanation": "Firms want to anticipate how rules will be applied, which requires stability and predictability.",
+          "closestDistractor": "non-discriminatory",
+          "whyNot": "Non-discriminatory concerns equal treatment, not whether future application can be anticipated.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "ADJECTIVE",
+          "termKey": "unit-3:55"
+        },
+        {
+          "id": "WB-02-b6",
+          "answer": "non-discriminatory",
+          "unit": 3,
+          "vocabId": "vocab-u3-non-discriminatory",
+          "explanation": "The clue is equal treatment of imported and domestic products.",
+          "closestDistractor": "predictable",
+          "whyNot": "Predictability concerns consistency over time, not equal treatment between products.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "ADJECTIVE",
+          "termKey": "unit-3:54"
+        },
+        {
+          "id": "WB-02-b7",
+          "answer": "adhere to",
+          "unit": 3,
+          "vocabId": "vocab-u3-adhere-to",
+          "explanation": "Businesses must comply with customs and product regulations.",
+          "closestDistractor": "accede to an agreement",
+          "whyNot": "Acceding means formally joining an agreement; firms here are following existing rules.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "PHRASAL VERB",
+          "termKey": "unit-3:50"
+        },
+        {
+          "id": "WB-02-b8",
+          "answer": "accede to an agreement",
+          "unit": 3,
+          "vocabId": "vocab-u3-accede-to-an-agreement",
+          "explanation": "The country is negotiating to formally join an agreement that improves market access.",
+          "closestDistractor": "adhere to",
+          "whyNot": "Adhere to means comply with rules or commitments already applicable; the clue is becoming a party to an agreement.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-3:51"
+        }
+      ]
+    },
+    {
+      "id": "WB-03",
+      "title": "Shipping and Insuring an Export Order",
+      "level": "Foundation",
+      "units": [
+        8,
+        9
+      ],
+      "sourceFocus": "U8 transport/document vocabulary + U9 marine-insurance concepts, readings and exercises.",
+      "bank": [
+        "freight forwarder",
+        "common carrier",
+        "bill of lading",
+        "deliver goods",
+        "underwrite a risk",
+        "reinsurance",
+        "premium",
+        "insurable interest",
+        "utmost good faith",
+        "submit a claim",
+        "general average"
+      ],
+      "segments": [
+        "A furniture exporter has received its first large overseas order. Because its staff have limited experience arranging international transport, the company hires a ",
+        {
+          "blank": "WB-03-b1"
+        },
+        " to coordinate the shipment with different transport providers.",
+        "\n\n",
+        "Once the cargo has been loaded, the exporter receives a ",
+        {
+          "blank": "WB-03-b2"
+        },
+        ", an important transport document connected with the carriage of the goods. The carrier is expected to ",
+        {
+          "blank": "WB-03-b3"
+        },
+        " according to the agreed transport arrangements.",
+        "\n\n",
+        "The exporter also purchases marine insurance. Before agreeing to provide cover, the insurer must decide whether it is willing to ",
+        {
+          "blank": "WB-03-b4"
+        },
+        ". In return for the protection, the exporter pays a ",
+        {
+          "blank": "WB-03-b5"
+        },
+        ".",
+        "\n\n",
+        "The insurance relationship requires ",
+        {
+          "blank": "WB-03-b6"
+        },
+        ", so material information affecting the risk should not be concealed. When several packages are later damaged by an insured peril, the exporter must ",
+        {
+          "blank": "WB-03-b7"
+        },
+        " and provide the required evidence to the insurer."
+      ],
+      "blanks": [
+        {
+          "id": "WB-03-b1",
+          "answer": "freight forwarder",
+          "unit": 8,
+          "vocabId": "vocab-u8-freight-forwarder",
+          "explanation": "The exporter hires a specialist to coordinate transport arrangements with multiple providers.",
+          "closestDistractor": "common carrier",
+          "whyNot": "A common carrier transports goods; a freight forwarder primarily arranges and coordinates shipment services.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-8:9"
+        },
+        {
+          "id": "WB-03-b2",
+          "answer": "bill of lading",
+          "unit": 8,
+          "vocabId": "vocab-u8-bill-of-lading",
+          "explanation": "The clue identifies an important transport document issued in connection with carriage of the cargo.",
+          "closestDistractor": "freight forwarder",
+          "whyNot": "A freight forwarder is an intermediary/service provider, not the transport document itself.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-8:12"
+        },
+        {
+          "id": "WB-03-b3",
+          "answer": "deliver goods",
+          "unit": 8,
+          "vocabId": "vocab-u8-deliver-goods",
+          "explanation": "The carrier's operational obligation in the sentence is to move and deliver the goods under the agreed arrangements.",
+          "closestDistractor": "bill of lading",
+          "whyNot": "A bill of lading is a document; it is not an action the carrier performs.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-8:32"
+        },
+        {
+          "id": "WB-03-b4",
+          "answer": "underwrite a risk",
+          "unit": 9,
+          "vocabId": "vocab-u9-underwrite-a-risk",
+          "explanation": "The insurer is deciding whether to accept the risk and provide insurance cover.",
+          "closestDistractor": "reinsurance",
+          "whyNot": "Reinsurance transfers part of an insurer's accepted risk to another insurer; it is not the initial decision to accept the exporter's risk.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "COLLOCATION",
+          "termKey": "unit-9:53"
+        },
+        {
+          "id": "WB-03-b5",
+          "answer": "premium",
+          "unit": 9,
+          "vocabId": "vocab-u9-premium",
+          "explanation": "The exporter pays this amount in return for insurance protection.",
+          "closestDistractor": "reinsurance",
+          "whyNot": "Reinsurance is an insurer-to-insurer risk arrangement, not the price paid by the insured for cover.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-9:6"
+        },
+        {
+          "id": "WB-03-b6",
+          "answer": "utmost good faith",
+          "unit": 9,
+          "vocabId": "vocab-u9-utmost-good-faith",
+          "explanation": "The sentence focuses on the duty to disclose material information and not conceal facts affecting the risk.",
+          "closestDistractor": "insurable interest",
+          "whyNot": "Insurable interest concerns having a financial stake in the insured property, not the disclosure duty.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-9:14"
+        },
+        {
+          "id": "WB-03-b7",
+          "answer": "submit a claim",
+          "unit": 9,
+          "vocabId": "vocab-u9-submit-a-claim",
+          "explanation": "After insured damage, the exporter must formally request compensation and provide evidence.",
+          "closestDistractor": "general average",
+          "whyNot": "General average is a marine-loss principle involving deliberate sacrifice for common safety; ordinary damaged packages do not automatically make this a general-average event.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-9:45"
+        }
+      ]
+    },
+    {
+      "id": "WB-04",
+      "title": "Building a Presence Abroad",
+      "level": "Standard",
+      "units": [
+        4,
+        7
+      ],
+      "sourceFocus": "U4 FDI/entry-mode vocabulary and exercises + U7 marketing research/product/distribution language.",
+      "bank": [
+        "set up a subsidiary",
+        "joint venture",
+        "licensing",
+        "investment incentives",
+        "employ local workers",
+        "market research",
+        "differentiate a product",
+        "distribution channel",
+        "gain control",
+        "acquisition",
+        "exclusive distributor",
+        "market share"
+      ],
+      "segments": [
+        "A home-appliance producer wants a permanent presence in another Asian economy. Rather than rely only on exports, management decides to ",
+        {
+          "blank": "WB-04-b1"
+        },
+        " that it can manage directly.",
+        "\n\n",
+        "The host government offers several ",
+        {
+          "blank": "WB-04-b2"
+        },
+        ", including tax reductions and support for industrial facilities. The company also promises to ",
+        {
+          "blank": "WB-04-b3"
+        },
+        ", which helps it develop local knowledge while creating jobs.",
+        "\n\n",
+        "Before launching its appliances, the marketing team carries out ",
+        {
+          "blank": "WB-04-b4"
+        },
+        ". It discovers that energy efficiency matters strongly to consumers, so the company decides to ",
+        {
+          "blank": "WB-04-b5"
+        },
+        " by emphasizing lower electricity consumption.",
+        "\n\n",
+        "Retail chains and online platforms become the principal ",
+        {
+          "blank": "WB-04-b6"
+        },
+        " for reaching customers.",
+        "\n\n",
+        "Several years later, the company considers an ",
+        {
+          "blank": "WB-04-b7"
+        },
+        " of a local manufacturer. Buying a sufficiently large ownership stake would allow it to ",
+        {
+          "blank": "WB-04-b8"
+        },
+        " over the business more quickly than building another operation from scratch."
+      ],
+      "blanks": [
+        {
+          "id": "WB-04-b1",
+          "answer": "set up a subsidiary",
+          "unit": 4,
+          "vocabId": "vocab-u4-set-up-a-subsidiary",
+          "explanation": "The firm wants a permanent foreign operation that it can manage directly rather than relying only on exports.",
+          "closestDistractor": "joint venture",
+          "whyNot": "A joint venture shares ownership/control with a partner; the sentence emphasizes an operation the producer can manage directly.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-4:37"
+        },
+        {
+          "id": "WB-04-b2",
+          "answer": "investment incentives",
+          "unit": 4,
+          "vocabId": "vocab-u4-investment-incentives",
+          "explanation": "Tax reductions and support for facilities are benefits offered to attract foreign investment.",
+          "closestDistractor": "market share",
+          "whyNot": "Market share is a sales measure, not a host-government benefit offered to investors.",
+          "sourceClass": "CORE / GAP FILLING",
+          "pos": "PLURAL NOUN",
+          "termKey": "unit-4:20",
+          "theoryId": "theory-u4-investment-location"
+        },
+        {
+          "id": "WB-04-b3",
+          "answer": "employ local workers",
+          "unit": 4,
+          "vocabId": "vocab-u4-employ-local-workers",
+          "explanation": "The clue explicitly links the action to creating jobs and developing local knowledge.",
+          "closestDistractor": "set up a subsidiary",
+          "whyNot": "A subsidiary is an organizational form; the sentence specifically describes hiring people in the host economy.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-4:40"
+        },
+        {
+          "id": "WB-04-b4",
+          "answer": "market research",
+          "unit": 7,
+          "vocabId": "vocab-u7-market-research",
+          "explanation": "The team is gathering information before launch to understand what matters to consumers.",
+          "closestDistractor": "market share",
+          "whyNot": "Market share measures sales performance after competing in a market; it is not the research activity.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-7:3"
+        },
+        {
+          "id": "WB-04-b5",
+          "answer": "differentiate a product",
+          "unit": 7,
+          "vocabId": "vocab-u7-differentiate-a-product",
+          "explanation": "The company emphasizes energy efficiency to make its appliances distinct from competing offers.",
+          "closestDistractor": "market research",
+          "whyNot": "Research identifies preferences; differentiation is the strategic action taken after learning those preferences.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-7:23"
+        },
+        {
+          "id": "WB-04-b6",
+          "answer": "distribution channel",
+          "unit": 7,
+          "vocabId": "vocab-u7-distribution-channel",
+          "explanation": "Retail chains and online platforms are routes used to reach customers.",
+          "closestDistractor": "exclusive distributor",
+          "whyNot": "An exclusive distributor is one specific intermediary arrangement; the sentence lists multiple channels/platforms.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-7:15"
+        },
+        {
+          "id": "WB-04-b7",
+          "answer": "acquisition",
+          "unit": 4,
+          "vocabId": "vocab-u4-acquisition",
+          "explanation": "The company is considering buying an existing local manufacturer rather than building a new operation.",
+          "closestDistractor": "licensing",
+          "whyNot": "Licensing grants permission to use intellectual property; it does not involve purchasing the local manufacturer.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-4:10",
+          "theoryId": "theory-u4-entry-modes"
+        },
+        {
+          "id": "WB-04-b8",
+          "answer": "gain control",
+          "unit": 4,
+          "vocabId": "vocab-u4-gain-control",
+          "explanation": "A sufficiently large ownership stake can give the investor managerial control over the acquired business.",
+          "closestDistractor": "joint venture",
+          "whyNot": "A joint venture shares ownership/control; the clue emphasizes obtaining control through ownership purchase.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "COLLOCATION",
+          "termKey": "unit-4:42",
+          "theoryId": "theory-u4-investment-control"
+        }
+      ]
+    },
+    {
+      "id": "WB-05",
+      "title": "Managing an Import Payment",
+      "level": "Standard",
+      "units": [
+        5,
+        6
+      ],
+      "sourceFocus": "U5 FX quotations/spot-forward/hedging + U6 documentary-credit process and banking roles.",
+      "bank": [
+        "quote an exchange rate",
+        "spot rate",
+        "forward rate",
+        "forward contract",
+        "currency option",
+        "lock in an exchange rate",
+        "mitigate currency risk",
+        "speculation",
+        "issue a letter of credit",
+        "advising bank",
+        "confirming bank",
+        "present documents"
+      ],
+      "segments": [
+        "A Vietnamese importer agrees to pay a European machinery supplier in EUR. Its bank can ",
+        {
+          "blank": "WB-05-b1"
+        },
+        " showing how much VND is required for the foreign currency.",
+        "\n\n",
+        "If settlement took place immediately, the relevant quotation would be based on the ",
+        {
+          "blank": "WB-05-b2"
+        },
+        ". However, payment is due in three months and the importer fears that the euro may become more expensive.",
+        "\n\n",
+        "The company therefore enters a ",
+        {
+          "blank": "WB-05-b3"
+        },
+        ". This allows it to ",
+        {
+          "blank": "WB-05-b4"
+        },
+        " for the future payment and helps ",
+        {
+          "blank": "WB-05-b5"
+        },
+        " rather than deliberately taking a currency position in search of profit.",
+        "\n\n",
+        "The exporter also wants greater payment security. At the buyer's request, its bank agrees to ",
+        {
+          "blank": "WB-05-b6"
+        },
+        ". The credit is communicated to the exporter through an ",
+        {
+          "blank": "WB-05-b7"
+        },
+        ". After shipment, the exporter must ",
+        {
+          "blank": "WB-05-b8"
+        },
+        " that satisfy the credit's requirements."
+      ],
+      "blanks": [
+        {
+          "id": "WB-05-b1",
+          "answer": "quote an exchange rate",
+          "unit": 5,
+          "vocabId": "vocab-u5-quote-an-exchange-rate",
+          "explanation": "The bank is providing the currency quotation showing how much VND is needed for EUR.",
+          "closestDistractor": "spot rate",
+          "whyNot": "A spot rate is one type of quoted rate; the blank requires the action performed by the bank.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-5:19"
+        },
+        {
+          "id": "WB-05-b2",
+          "answer": "spot rate",
+          "unit": 5,
+          "vocabId": "vocab-u5-spot-rate",
+          "explanation": "The clue is immediate settlement, which corresponds to a spot transaction.",
+          "closestDistractor": "forward rate",
+          "whyNot": "A forward rate applies to an exchange arranged for settlement at a future date.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-5:6",
+          "theoryId": "theory-u5-currency-instruments"
+        },
+        {
+          "id": "WB-05-b3",
+          "answer": "forward contract",
+          "unit": 5,
+          "vocabId": "vocab-u5-forward-contract",
+          "explanation": "The importer needs a binding arrangement for a future currency exchange to manage the three-month exposure.",
+          "closestDistractor": "currency option",
+          "whyNot": "An option gives a right without the same obligation; the passage describes entering an arrangement that fixes the future exchange.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-5:11",
+          "theoryId": "theory-u5-currency-instruments"
+        },
+        {
+          "id": "WB-05-b4",
+          "answer": "lock in an exchange rate",
+          "unit": 5,
+          "vocabId": "vocab-u5-lock-in-an-exchange-rate",
+          "explanation": "The purpose of the forward contract is to fix the exchange rate for the future payment.",
+          "closestDistractor": "quote an exchange rate",
+          "whyNot": "Quoting states a rate; locking in fixes a rate for the planned future transaction.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-5:25",
+          "theoryId": "theory-u5-currency-instruments"
+        },
+        {
+          "id": "WB-05-b5",
+          "answer": "mitigate currency risk",
+          "unit": 5,
+          "vocabId": "vocab-u5-mitigate-currency-risk",
+          "explanation": "The importer is reducing uncertainty from a possible rise in the euro rather than seeking profit from exchange-rate movements.",
+          "closestDistractor": "speculation",
+          "whyNot": "Speculation deliberately accepts currency risk in pursuit of gain; the importer is trying to reduce that exposure.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-5:26",
+          "theoryId": "theory-u5-hedging"
+        },
+        {
+          "id": "WB-05-b6",
+          "answer": "issue a letter of credit",
+          "unit": 6,
+          "vocabId": "vocab-u6-issue-a-letter-of-credit",
+          "explanation": "At the buyer's request, the buyer's bank creates the documentary credit in favor of the exporter.",
+          "closestDistractor": "confirming bank",
+          "whyNot": "A confirming bank adds its own undertaking to an existing credit; it does not originate the credit at the buyer's request.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-6:27",
+          "theoryId": "theory-u6-letter-of-credit"
+        },
+        {
+          "id": "WB-05-b7",
+          "answer": "advising bank",
+          "unit": 6,
+          "vocabId": "vocab-u6-advising-bank",
+          "explanation": "This bank communicates/advises the issued credit to the exporter.",
+          "closestDistractor": "confirming bank",
+          "whyNot": "A confirming bank may add its own payment undertaking; communication alone identifies the advising role.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-6:23",
+          "theoryId": "theory-u6-letter-of-credit"
+        },
+        {
+          "id": "WB-05-b8",
+          "answer": "present documents",
+          "unit": 6,
+          "vocabId": "vocab-u6-present-documents",
+          "explanation": "After shipment, the exporter must submit the required documents for examination under the credit.",
+          "closestDistractor": "issue a letter of credit",
+          "whyNot": "Issuing the credit is the buyer's bank's earlier action; the exporter later presents documents.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-6:34",
+          "theoryId": "theory-u6-letter-of-credit"
+        }
+      ]
+    },
+    {
+      "id": "WB-06",
+      "title": "How Global Production Is Organized",
+      "level": "Standard",
+      "units": [
+        1,
+        2,
+        3
+      ],
+      "sourceFocus": "U1 global production/value-chain language + U2 specialization/economies of scale + U3 local-content policy.",
+      "bank": [
+        "global value chain",
+        "global production network",
+        "upstream activities",
+        "downstream activities",
+        "specialize in",
+        "division of labour",
+        "economies of scale",
+        "outsource",
+        "offshore",
+        "nearshore",
+        "local content requirement",
+        "comparative advantage"
+      ],
+      "segments": [
+        "A modern smartphone may be designed in one country, use components from several others, and be assembled somewhere else before reaching consumers worldwide. This sequence of value-creating activities forms a ",
+        {
+          "blank": "WB-06-b1"
+        },
+        ".",
+        "\n\n",
+        "Raw-material extraction and early-stage production are generally located further ",
+        {
+          "blank": "WB-06-b2"
+        },
+        ", whereas processing, distribution and sales are further ",
+        {
+          "blank": "WB-06-b3"
+        },
+        ".",
+        "\n\n",
+        "Different economies may ",
+        {
+          "blank": "WB-06-b4"
+        },
+        " activities they perform relatively efficiently. At the firm level, producing larger volumes can also create ",
+        {
+          "blank": "WB-06-b5"
+        },
+        " by reducing average cost.",
+        "\n\n",
+        "A manufacturer that contracts an independent specialist to operate its customer-service center chooses to ",
+        {
+          "blank": "WB-06-b6"
+        },
+        " the activity. If it instead moves its own production operation to another country, it chooses to ",
+        {
+          "blank": "WB-06-b7"
+        },
+        ".",
+        "\n\n",
+        "Governments can influence these decisions. A ",
+        {
+          "blank": "WB-06-b8"
+        },
+        ", for example, may require firms to obtain a specified share of inputs domestically."
+      ],
+      "blanks": [
+        {
+          "id": "WB-06-b1",
+          "answer": "global value chain",
+          "unit": 1,
+          "vocabId": "vocab-u1-global-value-chain",
+          "explanation": "The sentence describes the cross-border sequence of value-creating stages from design and components to assembly and final sale.",
+          "closestDistractor": "global production network",
+          "whyNot": "A production network emphasizes relationships among firms and actors; the clue here is the sequence of value-creating activities.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata"
+        },
+        {
+          "id": "WB-06-b2",
+          "answer": "upstream activities",
+          "unit": 1,
+          "vocabId": "vocab-u1-upstream-activities",
+          "explanation": "Raw-material extraction and early-stage production occur nearer the beginning of the value chain.",
+          "closestDistractor": "downstream activities",
+          "whyNot": "Downstream activities occur closer to processing, distribution and final customers.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-1:11"
+        },
+        {
+          "id": "WB-06-b3",
+          "answer": "downstream activities",
+          "unit": 1,
+          "vocabId": "vocab-u1-downstream-activities",
+          "explanation": "Processing, distribution and sales are closer to the final market and customer end of the chain.",
+          "closestDistractor": "upstream activities",
+          "whyNot": "Upstream refers to earlier input/raw-material stages.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-1:12"
+        },
+        {
+          "id": "WB-06-b4",
+          "answer": "specialize in",
+          "unit": 2,
+          "vocabId": "vocab-u2-specialize-in",
+          "explanation": "The economies concentrate on activities they can perform relatively efficiently.",
+          "closestDistractor": "comparative advantage",
+          "whyNot": "Comparative advantage explains why specialization can be beneficial; the blank grammatically requires the action 'specialize in'.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "VERB PHRASE",
+          "termKey": "unit-2:54"
+        },
+        {
+          "id": "WB-06-b5",
+          "answer": "economies of scale",
+          "unit": 1,
+          "vocabId": "vocab-u1-economies-of-scale",
+          "explanation": "The clue is lower average cost as output volume increases.",
+          "closestDistractor": "division of labour",
+          "whyNot": "Division of labour divides tasks among workers/units; it does not itself mean average cost falls because of larger scale.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "NOUN PHRASE",
+          "termKey": "unit-1:36"
+        },
+        {
+          "id": "WB-06-b6",
+          "answer": "outsource",
+          "unit": 1,
+          "vocabId": "vocab-u1-outsource",
+          "explanation": "The firm contracts an independent external specialist to perform the activity.",
+          "closestDistractor": "offshore",
+          "whyNot": "Offshoring concerns moving an activity to another country; outsourcing concerns who performs it.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "VERB",
+          "termKey": "unit-1:37"
+        },
+        {
+          "id": "WB-06-b7",
+          "answer": "offshore",
+          "unit": 1,
+          "vocabId": "vocab-u1-offshore",
+          "explanation": "The firm moves its own production operation to another country.",
+          "closestDistractor": "outsource",
+          "whyNot": "Outsourcing transfers performance to an external provider; the sentence says the firm moves its own operation abroad.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "VERB",
+          "termKey": "unit-1:38"
+        },
+        {
+          "id": "WB-06-b8",
+          "answer": "local content requirement",
+          "unit": 3,
+          "vocabId": "vocab-u3-local-content-requirement",
+          "explanation": "The policy requires a specified share of inputs to be sourced domestically.",
+          "closestDistractor": "comparative advantage",
+          "whyNot": "Comparative advantage is an economic basis for specialization; it is not a government rule requiring a specified domestic share of inputs.",
+          "sourceClass": "CORE / GAP FILLING",
+          "pos": "NOUN PHRASE",
+          "termKey": "unit-3:35"
+        }
+      ]
+    },
+    {
+      "id": "WB-07",
+      "title": "Investing Abroad and Paying Tax",
+      "level": "Standard",
+      "units": [
+        4,
+        10
+      ],
+      "sourceFocus": "U4 FDI/control distinction + U10 taxation vocabulary, readings and exercises.",
+      "bank": [
+        "foreign direct investment",
+        "portfolio investment",
+        "tax-exempt",
+        "tax rebate",
+        "tax refund",
+        "file a tax return",
+        "declare income",
+        "tax avoidance",
+        "tax evasion",
+        "impose a penalty",
+        "close a loophole",
+        "tax haven"
+      ],
+      "segments": [
+        "A manufacturing company builds and controls a factory overseas. Because the investment gives the company a lasting managerial interest rather than simply ownership of financial securities, it is classified as ",
+        {
+          "blank": "WB-07-b1"
+        },
+        ".",
+        "\n\n",
+        "The new operation must comply with the host country's tax system. Certain categories of income may be ",
+        {
+          "blank": "WB-07-b2"
+        },
+        ", but other earnings must be reported. Each year, the company must ",
+        {
+          "blank": "WB-07-b3"
+        },
+        " and accurately ",
+        {
+          "blank": "WB-07-b4"
+        },
+        " as required by law.",
+        "\n\n",
+        "Its advisers may legitimately arrange transactions to reduce tax within the law. This is ",
+        {
+          "blank": "WB-07-b5"
+        },
+        ". Deliberately providing false information to escape tax, by contrast, constitutes ",
+        {
+          "blank": "WB-07-b6"
+        },
+        ".",
+        "\n\n",
+        "If a company breaches tax law, the authorities may ",
+        {
+          "blank": "WB-07-b7"
+        },
+        ". Governments may also amend legislation to ",
+        {
+          "blank": "WB-07-b8"
+        },
+        " that businesses have been exploiting."
+      ],
+      "blanks": [
+        {
+          "id": "WB-07-b1",
+          "answer": "foreign direct investment",
+          "unit": 4,
+          "vocabId": "vocab-u4-foreign-direct-investment",
+          "explanation": "Building and controlling an overseas factory creates a lasting managerial interest, the key distinction from passive financial investment.",
+          "closestDistractor": "portfolio investment",
+          "whyNot": "Portfolio investment normally involves foreign financial assets without seeking managerial control.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-4:1",
+          "theoryId": "theory-u4-investment-control"
+        },
+        {
+          "id": "WB-07-b2",
+          "answer": "tax-exempt",
+          "unit": 10,
+          "vocabId": "vocab-u10-tax-exempt",
+          "explanation": "The clue says the relevant categories of income are legally free from the tax.",
+          "closestDistractor": "tax rebate",
+          "whyNot": "A rebate returns/reduces tax under specified conditions; tax-exempt means the tax does not apply to that income/category.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "ADJECTIVE",
+          "termKey": "unit-10:25"
+        },
+        {
+          "id": "WB-07-b3",
+          "answer": "file a tax return",
+          "unit": 10,
+          "vocabId": "vocab-u10-file-a-tax-return",
+          "explanation": "The yearly compliance action is submitting the formal tax return to the authorities.",
+          "closestDistractor": "declare income",
+          "whyNot": "Declaring income is reporting earnings; filing the return is submitting the formal tax document.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-10:22"
+        },
+        {
+          "id": "WB-07-b4",
+          "answer": "declare income",
+          "unit": 10,
+          "vocabId": "vocab-u10-declare-income",
+          "explanation": "The sentence requires the company to report its earnings accurately.",
+          "closestDistractor": "file a tax return",
+          "whyNot": "Filing is the act of submitting the return; declaring income is reporting the taxable earnings within the required process.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-10:23"
+        },
+        {
+          "id": "WB-07-b5",
+          "answer": "tax avoidance",
+          "unit": 10,
+          "vocabId": "vocab-u10-tax-avoidance",
+          "explanation": "The advisers reduce tax legally by arranging transactions within the law.",
+          "closestDistractor": "tax evasion",
+          "whyNot": "Tax evasion is illegal non-payment or concealment, unlike lawful tax planning.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-10:12"
+        },
+        {
+          "id": "WB-07-b6",
+          "answer": "tax evasion",
+          "unit": 10,
+          "vocabId": "vocab-u10-tax-evasion",
+          "explanation": "Providing false information to escape tax is illegal, which makes it evasion.",
+          "closestDistractor": "tax avoidance",
+          "whyNot": "Avoidance stays within the law; the clue explicitly describes false information and illegal escape from tax.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-10:13"
+        },
+        {
+          "id": "WB-07-b7",
+          "answer": "impose a penalty",
+          "unit": 10,
+          "vocabId": "vocab-u10-impose-a-penalty",
+          "explanation": "Authorities may punish a breach of tax law by applying a formal penalty.",
+          "closestDistractor": "tax refund",
+          "whyNot": "A refund returns overpaid tax; it is not a sanction for breaking tax law.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "COLLOCATION",
+          "termKey": "unit-10:37"
+        },
+        {
+          "id": "WB-07-b8",
+          "answer": "close a loophole",
+          "unit": 10,
+          "vocabId": "vocab-u10-close-a-loophole",
+          "explanation": "The government changes legislation so an unintended legal gap can no longer be exploited.",
+          "closestDistractor": "tax haven",
+          "whyNot": "A tax haven is a low-tax jurisdiction, not a gap in legislation that can be closed.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "COLLOCATION",
+          "termKey": "unit-10:38"
+        }
+      ]
+    },
+    {
+      "id": "WB-08",
+      "title": "When Cargo Is Lost at Sea",
+      "level": "Standard",
+      "units": [
+        9
+      ],
+      "sourceFocus": "U9 insurance principles and marine-insurance vocabulary/readings.",
+      "bank": [
+        "insurable interest",
+        "premium",
+        "underwrite a risk",
+        "reinsurance",
+        "utmost good faith",
+        "concealment",
+        "warranty",
+        "general average",
+        "particular average",
+        "submit a claim",
+        "indemnify",
+        "admit liability"
+      ],
+      "segments": [
+        "An exporter buys marine insurance for machinery being transported overseas. Because the exporter would suffer financially if the cargo were destroyed, it has an ",
+        {
+          "blank": "WB-08-b1"
+        },
+        " in the property.",
+        "\n\n",
+        "The insurer examines the shipment before agreeing to ",
+        {
+          "blank": "WB-08-b2"
+        },
+        ". Once cover is arranged, the exporter pays a ",
+        {
+          "blank": "WB-08-b3"
+        },
+        ".",
+        "\n\n",
+        "Insurance contracts require ",
+        {
+          "blank": "WB-08-b4"
+        },
+        ". Deliberately failing to disclose an important fact affecting the risk may therefore amount to ",
+        {
+          "blank": "WB-08-b5"
+        },
+        ".",
+        "\n\n",
+        "During the voyage, the captain orders part of the cargo to be sacrificed deliberately to save the vessel and the remaining property from a common danger. The resulting loss may fall under ",
+        {
+          "blank": "WB-08-b6"
+        },
+        ".",
+        "\n\n",
+        "The exporter then needs to ",
+        {
+          "blank": "WB-08-b7"
+        },
+        ". If the loss is covered, the insurer may ",
+        {
+          "blank": "WB-08-b8"
+        },
+        " the insured according to the policy rather than allow the insured to profit from the event."
+      ],
+      "blanks": [
+        {
+          "id": "WB-08-b1",
+          "answer": "insurable interest",
+          "unit": 9,
+          "vocabId": "vocab-u9-insurable-interest",
+          "explanation": "The exporter would suffer a financial loss if the insured machinery were destroyed, creating the required financial interest.",
+          "closestDistractor": "premium",
+          "whyNot": "A premium is the price of insurance, not the insured's financial stake in the property.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-9:12"
+        },
+        {
+          "id": "WB-08-b2",
+          "answer": "underwrite a risk",
+          "unit": 9,
+          "vocabId": "vocab-u9-underwrite-a-risk",
+          "explanation": "The insurer is deciding whether to accept the shipment's risk and provide cover.",
+          "closestDistractor": "reinsurance",
+          "whyNot": "Reinsurance is a later risk-sharing arrangement between insurers, not the initial acceptance of the insured's risk.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "COLLOCATION",
+          "termKey": "unit-9:53"
+        },
+        {
+          "id": "WB-08-b3",
+          "answer": "premium",
+          "unit": 9,
+          "vocabId": "vocab-u9-premium",
+          "explanation": "The exporter pays this amount in return for insurance cover.",
+          "closestDistractor": "indemnify",
+          "whyNot": "Indemnify describes compensating an insured for a covered loss; it is not the price paid for the policy.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-9:6"
+        },
+        {
+          "id": "WB-08-b4",
+          "answer": "utmost good faith",
+          "unit": 9,
+          "vocabId": "vocab-u9-utmost-good-faith",
+          "explanation": "The principle requires honest disclosure of material facts by the parties to the insurance contract.",
+          "closestDistractor": "warranty",
+          "whyNot": "A warranty is a contractual promise/condition; the broad disclosure principle in the sentence is utmost good faith.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-9:14"
+        },
+        {
+          "id": "WB-08-b5",
+          "answer": "concealment",
+          "unit": 9,
+          "vocabId": "vocab-u9-concealment",
+          "explanation": "The clue is deliberate failure to disclose an important fact affecting the risk.",
+          "closestDistractor": "utmost good faith",
+          "whyNot": "Utmost good faith is the duty being breached; concealment is the non-disclosure conduct itself.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-9:15"
+        },
+        {
+          "id": "WB-08-b6",
+          "answer": "general average",
+          "unit": 9,
+          "vocabId": "vocab-u9-general-average",
+          "explanation": "The loss results from a deliberate sacrifice made for the common safety of vessel and cargo.",
+          "closestDistractor": "particular average",
+          "whyNot": "Particular average concerns an individual partial loss, not a deliberate sacrifice for the common benefit.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-9:17"
+        },
+        {
+          "id": "WB-08-b7",
+          "answer": "submit a claim",
+          "unit": 9,
+          "vocabId": "vocab-u9-submit-a-claim",
+          "explanation": "After the loss, the exporter must formally request payment under the policy.",
+          "closestDistractor": "admit liability",
+          "whyNot": "Admitting liability means accepting legal responsibility; the insured instead files a claim for compensation.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-9:45"
+        },
+        {
+          "id": "WB-08-b8",
+          "answer": "indemnify",
+          "unit": 9,
+          "vocabId": "vocab-u9-indemnify",
+          "explanation": "Insurance restores the insured financially for a covered loss rather than allowing a profit.",
+          "closestDistractor": "premium",
+          "whyNot": "Premium is paid by the insured for cover; indemnity is the insurer's compensation after a covered loss.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "VERB",
+          "termKey": "unit-9:44"
+        }
+      ]
+    },
+    {
+      "id": "WB-09",
+      "title": "Competing in a Protected Market",
+      "level": "Exam-like",
+      "units": [
+        2,
+        3,
+        7
+      ],
+      "sourceFocus": "U2 trade remedies/support + U3 protection/market access + U7 segmentation/product-life-cycle language.",
+      "bank": [
+        "stifle imports",
+        "subsidy",
+        "tariff",
+        "quota",
+        "dumping",
+        "countervailing duty",
+        "market access",
+        "market segmentation",
+        "target market",
+        "market penetration",
+        "differentiate a product",
+        "reach saturation",
+        "withdraw from the market"
+      ],
+      "segments": [
+        "A domestic footwear industry has been losing sales to inexpensive imported products. Local manufacturers argue that some foreign suppliers are engaging in ",
+        {
+          "blank": "WB-09-b1"
+        },
+        " by selling at unfairly low export prices.",
+        "\n\n",
+        "The government initially gives local producers a ",
+        {
+          "blank": "WB-09-b2"
+        },
+        " to reduce part of their costs. Some industry groups demand even stronger measures designed to ",
+        {
+          "blank": "WB-09-b3"
+        },
+        ".",
+        "\n\n",
+        "At the same time, a Vietnamese footwear company wants better ",
+        {
+          "blank": "WB-09-b4"
+        },
+        " in a foreign country so that its products can compete there under more favorable conditions.",
+        "\n\n",
+        "Its marketing team conducts ",
+        {
+          "blank": "WB-09-b5"
+        },
+        " and identifies university students as the main ",
+        {
+          "blank": "WB-09-b6"
+        },
+        ". Rather than compete only on price, it attempts to ",
+        {
+          "blank": "WB-09-b7"
+        },
+        " through lightweight materials and distinctive designs.",
+        "\n\n",
+        "Sales increase rapidly but eventually ",
+        {
+          "blank": "WB-09-b8"
+        },
+        ". If demand later falls far enough and the product is no longer commercially attractive, management may decide to ",
+        {
+          "blank": "WB-09-b9"
+        },
+        "."
+      ],
+      "blanks": [
+        {
+          "id": "WB-09-b1",
+          "answer": "dumping",
+          "unit": 2,
+          "vocabId": "vocab-u2-dumping",
+          "explanation": "The allegation is that foreign suppliers sell exports at unfairly low prices, matching the trade concept of dumping.",
+          "closestDistractor": "subsidy",
+          "whyNot": "A subsidy is financial support to producers; the sentence describes the exporters' pricing behavior.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-2:17",
+          "theoryId": "theory-u2-trade-barriers"
+        },
+        {
+          "id": "WB-09-b2",
+          "answer": "subsidy",
+          "unit": 2,
+          "vocabId": "vocab-u2-subsidy",
+          "explanation": "The government gives local producers financial support that reduces part of their costs.",
+          "closestDistractor": "countervailing duty",
+          "whyNot": "A countervailing duty is an import duty used against subsidized imports; it is not a payment given to local producers.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-2:11",
+          "theoryId": "theory-u2-trade-barriers"
+        },
+        {
+          "id": "WB-09-b3",
+          "answer": "stifle imports",
+          "unit": 3,
+          "vocabId": "vocab-u3-stifle-imports",
+          "explanation": "The groups want stronger measures that suppress or restrict incoming foreign goods.",
+          "closestDistractor": "tariff",
+          "whyNot": "A tariff is one specific instrument; the sentence asks for the broader intended effect on imports.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata"
+        },
+        {
+          "id": "WB-09-b4",
+          "answer": "market access",
+          "unit": 3,
+          "vocabId": "vocab-u3-market-access",
+          "explanation": "The company wants improved ability to sell and compete in the foreign market under favorable conditions.",
+          "closestDistractor": "market penetration",
+          "whyNot": "Market penetration concerns increasing sales/share within a market; access is the ability to enter and compete there.",
+          "sourceClass": "CORE / GAP FILLING",
+          "pos": "NOUN PHRASE",
+          "termKey": "unit-3:48"
+        },
+        {
+          "id": "WB-09-b5",
+          "answer": "market segmentation",
+          "unit": 7,
+          "vocabId": "vocab-u7-market-segmentation",
+          "explanation": "The team divides the market into meaningful customer groups before selecting one.",
+          "closestDistractor": "target market",
+          "whyNot": "The target market is the group chosen after segmentation, not the grouping process.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-7:7",
+          "theoryId": "theory-u7-segmentation-marketing-mix"
+        },
+        {
+          "id": "WB-09-b6",
+          "answer": "target market",
+          "unit": 7,
+          "vocabId": "vocab-u7-target-market",
+          "explanation": "University students are the specific group selected for the marketing effort.",
+          "closestDistractor": "market segmentation",
+          "whyNot": "Segmentation is the process; the selected group is the target.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-7:8",
+          "theoryId": "theory-u7-segmentation-marketing-mix"
+        },
+        {
+          "id": "WB-09-b7",
+          "answer": "differentiate a product",
+          "unit": 7,
+          "vocabId": "vocab-u7-differentiate-a-product",
+          "explanation": "Lightweight materials and distinctive designs make the footwear different from competing products.",
+          "closestDistractor": "market penetration",
+          "whyNot": "Penetration focuses on increasing sales/share, not creating distinctive product features.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-7:23"
+        },
+        {
+          "id": "WB-09-b8",
+          "answer": "reach saturation",
+          "unit": 7,
+          "vocabId": "vocab-u7-reach-saturation",
+          "explanation": "Sales stop growing rapidly because the product/market reaches a mature saturation point.",
+          "closestDistractor": "market penetration",
+          "whyNot": "Penetration is an effort to increase sales/share; saturation is the state where further growth becomes limited.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "COLLOCATION",
+          "termKey": "unit-7:24",
+          "theoryId": "theory-u7-product-life-cycle"
+        },
+        {
+          "id": "WB-09-b9",
+          "answer": "withdraw from the market",
+          "unit": 7,
+          "vocabId": "vocab-u7-withdraw-from-the-market",
+          "explanation": "The product is no longer commercially attractive and demand has fallen enough for management to leave the market.",
+          "closestDistractor": "reach saturation",
+          "whyNot": "Saturation may precede decline, but it does not itself mean the firm exits the market.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "VERB PHRASE",
+          "termKey": "unit-7:25",
+          "theoryId": "theory-u7-product-life-cycle"
+        }
+      ]
+    },
+    {
+      "id": "WB-10",
+      "title": "Documentary Credit in Practice",
+      "level": "Exam-like",
+      "units": [
+        6
+      ],
+      "sourceFocus": "U6 documentary-credit process, banking roles, drafts and payment vocabulary.",
+      "bank": [
+        "remit payment",
+        "issue a letter of credit",
+        "advise a letter of credit",
+        "advising bank",
+        "confirm a letter of credit",
+        "confirming bank",
+        "present documents",
+        "honour a draft",
+        "accept a bill",
+        "release documents",
+        "collect payment",
+        "default on payment",
+        "open account"
+      ],
+      "segments": [
+        "An exporter is unwilling to ship a large order on open-account terms because the buyer is new. The buyer therefore asks its bank to ",
+        {
+          "blank": "WB-10-b1"
+        },
+        " in favor of the exporter.",
+        "\n\n",
+        "The credit reaches the exporter through an ",
+        {
+          "blank": "WB-10-b2"
+        },
+        ", whose role includes communicating the credit. If another bank adds its own payment undertaking, that bank may ",
+        {
+          "blank": "WB-10-b3"
+        },
+        ".",
+        "\n\n",
+        "After shipment, the exporter must ",
+        {
+          "blank": "WB-10-b4"
+        },
+        " in accordance with the credit's requirements. If the presentation complies, the relevant bank may be required to ",
+        {
+          "blank": "WB-10-b5"
+        },
+        " according to the instrument.",
+        "\n\n",
+        "The documents can then move through the banking system and eventually be ",
+        {
+          "blank": "WB-10-b6"
+        },
+        " to the buyer so that the goods can be obtained.",
+        "\n\n",
+        "The exporter ultimately expects to ",
+        {
+          "blank": "WB-10-b7"
+        },
+        " rather than rely only on the buyer's promise. The buyer, meanwhile, must arrange to ",
+        {
+          "blank": "WB-10-b8"
+        },
+        " through the banking channel.",
+        "\n\n",
+        "The arrangement is particularly useful where the seller is concerned that the buyer could otherwise ",
+        {
+          "blank": "WB-10-b9"
+        },
+        "."
+      ],
+      "blanks": [
+        {
+          "id": "WB-10-b1",
+          "answer": "issue a letter of credit",
+          "unit": 6,
+          "vocabId": "vocab-u6-issue-a-letter-of-credit",
+          "explanation": "The buyer asks its bank to create the documentary credit in favor of the exporter.",
+          "closestDistractor": "advise a letter of credit",
+          "whyNot": "Advising communicates an already-issued credit; the buyer's bank first issues it.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-6:27",
+          "theoryId": "theory-u6-letter-of-credit"
+        },
+        {
+          "id": "WB-10-b2",
+          "answer": "advising bank",
+          "unit": 6,
+          "vocabId": "vocab-u6-advising-bank",
+          "explanation": "This bank communicates the credit to the exporter.",
+          "closestDistractor": "confirming bank",
+          "whyNot": "A confirming bank adds its own undertaking; the stated function here is communication/advice.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-6:23",
+          "theoryId": "theory-u6-letter-of-credit"
+        },
+        {
+          "id": "WB-10-b3",
+          "answer": "confirm a letter of credit",
+          "unit": 6,
+          "vocabId": "vocab-u6-confirm-a-letter-of-credit",
+          "explanation": "The bank adds its own payment undertaking to the existing credit.",
+          "closestDistractor": "advise a letter of credit",
+          "whyNot": "Advising communicates the credit without necessarily adding a separate payment undertaking.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-6:29",
+          "theoryId": "theory-u6-credit-variations"
+        },
+        {
+          "id": "WB-10-b4",
+          "answer": "present documents",
+          "unit": 6,
+          "vocabId": "vocab-u6-present-documents",
+          "explanation": "After shipment, the exporter submits the documents required by the credit for examination.",
+          "closestDistractor": "release documents",
+          "whyNot": "Documents are released later to the buyer; the exporter first presents them.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-6:34",
+          "theoryId": "theory-u6-letter-of-credit"
+        },
+        {
+          "id": "WB-10-b5",
+          "answer": "honour a draft",
+          "unit": 6,
+          "vocabId": "vocab-u6-honour-a-draft",
+          "explanation": "With a complying presentation, the relevant bank may have to meet the draft/payment obligation under the instrument.",
+          "closestDistractor": "accept a bill",
+          "whyNot": "Acceptance specifically creates an undertaking to pay a time bill later; 'honour' is the broader payment-performance concept required by the passage.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-6:30"
+        },
+        {
+          "id": "WB-10-b6",
+          "answer": "release documents",
+          "unit": 6,
+          "vocabId": "vocab-u6-release-documents",
+          "explanation": "The documents are made available to the buyer so the goods can be obtained.",
+          "closestDistractor": "present documents",
+          "whyNot": "Presentation is the exporter's submission to the bank; release is the later movement to the buyer.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-6:35"
+        },
+        {
+          "id": "WB-10-b7",
+          "answer": "collect payment",
+          "unit": 6,
+          "vocabId": "vocab-u6-collect-payment",
+          "explanation": "From the exporter's perspective, the objective is to receive/collect the money due for the sale.",
+          "closestDistractor": "remit payment",
+          "whyNot": "Remitting is the payer's action of sending funds; the exporter is receiving them.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "COLLOCATION",
+          "termKey": "unit-6:38"
+        },
+        {
+          "id": "WB-10-b8",
+          "answer": "remit payment",
+          "unit": 6,
+          "vocabId": "vocab-u6-remit-payment",
+          "explanation": "From the buyer's perspective, funds must be sent through the banking channel.",
+          "closestDistractor": "collect payment",
+          "whyNot": "Collection describes the recipient/exporter's objective, not the buyer's sending action.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-6:26"
+        },
+        {
+          "id": "WB-10-b9",
+          "answer": "default on payment",
+          "unit": 6,
+          "vocabId": "vocab-u6-default-on-payment",
+          "explanation": "The seller is concerned that a new buyer might fail to make the payment when due.",
+          "closestDistractor": "open account",
+          "whyNot": "Open account is a payment arrangement; default is the failure risk that makes the exporter reluctant to use it.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "VERB PHRASE",
+          "termKey": "unit-6:37"
+        }
+      ]
+    },
+    {
+      "id": "WB-11",
+      "title": "Reading Currency Movements",
+      "level": "Exam-like",
+      "units": [
+        5
+      ],
+      "sourceFocus": "U5 exchange-rate movement, intervention, arbitrage/speculation/hedging distinctions.",
+      "bank": [
+        "appreciate",
+        "depreciate",
+        "fluctuate",
+        "devaluation",
+        "revaluation",
+        "intervene in the foreign exchange market",
+        "buy low and sell high",
+        "arbitrage",
+        "speculation",
+        "hedging",
+        "exchange-rate exposure",
+        "forward rate",
+        "currency swap"
+      ],
+      "segments": [
+        "Exchange rates rarely remain unchanged indefinitely. Under a floating system, currencies may ",
+        {
+          "blank": "WB-11-b1"
+        },
+        " as demand and supply conditions change.",
+        "\n\n",
+        "If a currency rises in value relative to another currency, it is said to ",
+        {
+          "blank": "WB-11-b2"
+        },
+        "; if its value falls, it may ",
+        {
+          "blank": "WB-11-b3"
+        },
+        ".",
+        "\n\n",
+        "Authorities sometimes decide to ",
+        {
+          "blank": "WB-11-b4"
+        },
+        " by buying or selling currencies. Private market participants, however, may have very different objectives.",
+        "\n\n",
+        "A trader who attempts to profit from price differences for the same currency in different markets engages in ",
+        {
+          "blank": "WB-11-b5"
+        },
+        ". The basic opportunity is to ",
+        {
+          "blank": "WB-11-b6"
+        },
+        " where price differences exist.",
+        "\n\n",
+        "A trader who deliberately accepts exchange-rate uncertainty in the hope of earning a profit is engaged in ",
+        {
+          "blank": "WB-11-b7"
+        },
+        ". A company expecting to receive foreign currency from an export sale has ",
+        {
+          "blank": "WB-11-b8"
+        },
+        " instead.",
+        "\n\n",
+        "If that company uses a financial technique to reduce the uncertainty rather than profit from it, it is practicing ",
+        {
+          "blank": "WB-11-b9"
+        },
+        "."
+      ],
+      "blanks": [
+        {
+          "id": "WB-11-b1",
+          "answer": "fluctuate",
+          "unit": 5,
+          "vocabId": "vocab-u5-fluctuate",
+          "explanation": "Under a floating system, exchange rates move up and down as market demand and supply change.",
+          "closestDistractor": "appreciate",
+          "whyNot": "Appreciate describes movement specifically upward in value; fluctuate covers movement in either direction.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "VERB",
+          "termKey": "unit-5:22"
+        },
+        {
+          "id": "WB-11-b2",
+          "answer": "appreciate",
+          "unit": 5,
+          "vocabId": "vocab-u5-appreciate",
+          "explanation": "The clue explicitly says the currency rises in value relative to another currency.",
+          "closestDistractor": "revaluation",
+          "whyNot": "Revaluation is an official upward adjustment under a managed/fixed regime; the passage describes market movement under floating conditions.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "VERB",
+          "termKey": "unit-5:20"
+        },
+        {
+          "id": "WB-11-b3",
+          "answer": "depreciate",
+          "unit": 5,
+          "vocabId": "vocab-u5-depreciate",
+          "explanation": "The clue explicitly says the currency falls in value under market conditions.",
+          "closestDistractor": "devaluation",
+          "whyNot": "Devaluation is an official downward adjustment, not ordinary market depreciation under a floating system.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "VERB",
+          "termKey": "unit-5:21"
+        },
+        {
+          "id": "WB-11-b4",
+          "answer": "intervene in the foreign exchange market",
+          "unit": 5,
+          "vocabId": "vocab-u5-intervene-in-the-foreign-exchange-market",
+          "explanation": "Authorities buy or sell currencies to influence market conditions, which is foreign-exchange intervention.",
+          "closestDistractor": "currency swap",
+          "whyNot": "A currency swap exchanges currency cash flows between parties; it is not the authority's market-intervention action described.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "COLLOCATION",
+          "termKey": "unit-5:23"
+        },
+        {
+          "id": "WB-11-b5",
+          "answer": "arbitrage",
+          "unit": 5,
+          "vocabId": "vocab-u5-arbitrage",
+          "explanation": "The trader exploits price differences for the same currency across markets.",
+          "closestDistractor": "speculation",
+          "whyNot": "Speculation takes a view on future price movement; arbitrage exploits simultaneous price differences.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-5:9",
+          "theoryId": "theory-u5-speculation-arbitrage"
+        },
+        {
+          "id": "WB-11-b6",
+          "answer": "buy low and sell high",
+          "unit": 5,
+          "vocabId": "vocab-u5-buy-low-and-sell-high",
+          "explanation": "The phrase captures the immediate profit mechanism when price differences exist between markets.",
+          "closestDistractor": "hedging",
+          "whyNot": "Hedging reduces exposure; it does not describe exploiting a price difference for profit.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-5:24",
+          "theoryId": "theory-u5-speculation-arbitrage"
+        },
+        {
+          "id": "WB-11-b7",
+          "answer": "speculation",
+          "unit": 5,
+          "vocabId": "vocab-u5-speculation",
+          "explanation": "The trader deliberately accepts exchange-rate risk in the hope of earning a profit.",
+          "closestDistractor": "hedging",
+          "whyNot": "Hedging reduces or offsets risk rather than deliberately accepting it for profit.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-5:10",
+          "theoryId": "theory-u5-speculation-arbitrage"
+        },
+        {
+          "id": "WB-11-b8",
+          "answer": "exchange-rate exposure",
+          "unit": 5,
+          "vocabId": "vocab-u5-exchange-rate-exposure",
+          "explanation": "A future foreign-currency receipt creates sensitivity to exchange-rate changes.",
+          "closestDistractor": "forward rate",
+          "whyNot": "A forward rate is a quoted rate for future exchange; exposure is the underlying risk position.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "NOUN PHRASE",
+          "termKey": "unit-5:32",
+          "theoryId": "theory-u5-hedging"
+        },
+        {
+          "id": "WB-11-b9",
+          "answer": "hedging",
+          "unit": 5,
+          "vocabId": "vocab-u5-hedging",
+          "explanation": "The company uses a financial technique to reduce uncertainty from its currency exposure.",
+          "closestDistractor": "speculation",
+          "whyNot": "Speculation seeks gain by accepting risk; hedging is used to reduce that risk.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-5:8",
+          "theoryId": "theory-u5-hedging"
+        }
+      ]
+    },
+    {
+      "id": "WB-12",
+      "title": "Fixing an E-commerce Logistics Network",
+      "level": "Exam-like",
+      "units": [
+        7,
+        8
+      ],
+      "sourceFocus": "U8 logistics operations/green logistics vocabulary + U7 distribution-channel connection.",
+      "bank": [
+        "order fulfilment",
+        "inventory turnover",
+        "warehousing",
+        "last-mile delivery",
+        "freight consolidation",
+        "reverse logistics",
+        "traceability",
+        "carbon footprint",
+        "lag behind",
+        "distribution channel",
+        "logistics outsourcing",
+        "lead time",
+        "back order"
+      ],
+      "segments": [
+        "An online retailer is receiving more complaints about slow deliveries. Management first reviews ",
+        {
+          "blank": "WB-12-b1"
+        },
+        ", examining how efficiently customer orders move from receipt to final completion.",
+        "\n\n",
+        "One problem is excessive stock sitting in warehouses, so the company begins monitoring ",
+        {
+          "blank": "WB-12-b2"
+        },
+        " more closely. Another problem occurs during ",
+        {
+          "blank": "WB-12-b3"
+        },
+        ", the final stage in which parcels move to individual customers.",
+        "\n\n",
+        "To reduce transportation cost, the company introduces ",
+        {
+          "blank": "WB-12-b4"
+        },
+        ", combining smaller shipments where practical. It also improves ",
+        {
+          "blank": "WB-12-b5"
+        },
+        " so that products can be followed through different stages of the supply chain.",
+        "\n\n",
+        "Returned products are handled through a stronger ",
+        {
+          "blank": "WB-12-b6"
+        },
+        " system rather than being treated as an afterthought.",
+        "\n\n",
+        "Management also wants to reduce the company's ",
+        {
+          "blank": "WB-12-b7"
+        },
+        " by cutting unnecessary vehicle movements. Executives recognize that poor logistics can cause the business to ",
+        {
+          "blank": "WB-12-b8"
+        },
+        " competitors even when its products are attractive.",
+        "\n\n",
+        "Finally, management reviews whether its existing ",
+        {
+          "blank": "WB-12-b9"
+        },
+        " still provides an efficient route from the company to its customers."
+      ],
+      "blanks": [
+        {
+          "id": "WB-12-b1",
+          "answer": "order fulfilment",
+          "unit": 8,
+          "vocabId": "vocab-u8-order-fulfilment",
+          "explanation": "The company is examining the complete process from receiving a customer order through completion/delivery.",
+          "closestDistractor": "lead time",
+          "whyNot": "Lead time measures elapsed time; order fulfilment is the broader process being reviewed.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "NOUN PHRASE",
+          "termKey": "unit-8:39"
+        },
+        {
+          "id": "WB-12-b2",
+          "answer": "inventory turnover",
+          "unit": 8,
+          "vocabId": "vocab-u8-inventory-turnover",
+          "explanation": "Excessive stock prompts management to monitor how efficiently inventory moves through the business.",
+          "closestDistractor": "warehousing",
+          "whyNot": "Warehousing is the storage activity/location; inventory turnover measures how quickly stock is used or sold.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "NOUN PHRASE",
+          "termKey": "unit-8:35",
+          "theoryId": "theory-u8-inventory-service"
+        },
+        {
+          "id": "WB-12-b3",
+          "answer": "last-mile delivery",
+          "unit": 8,
+          "vocabId": "vocab-u8-last-mile-delivery",
+          "explanation": "The clue explicitly describes the final movement from a distribution point to individual customers.",
+          "closestDistractor": "distribution channel",
+          "whyNot": "A distribution channel is the broader route/intermediaries used to reach customers, not specifically the final delivery stage.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "NOUN PHRASE",
+          "termKey": "unit-8:36"
+        },
+        {
+          "id": "WB-12-b4",
+          "answer": "freight consolidation",
+          "unit": 8,
+          "vocabId": "vocab-u8-freight-consolidation",
+          "explanation": "The company combines smaller shipments to reduce transport cost.",
+          "closestDistractor": "logistics outsourcing",
+          "whyNot": "Outsourcing transfers logistics work to an external provider; consolidation combines shipments.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "NOUN PHRASE",
+          "termKey": "unit-8:33",
+          "theoryId": "theory-u8-green-transport"
+        },
+        {
+          "id": "WB-12-b5",
+          "answer": "traceability",
+          "unit": 8,
+          "vocabId": "vocab-u8-traceability",
+          "explanation": "The goal is to follow products through different supply-chain stages.",
+          "closestDistractor": "order fulfilment",
+          "whyNot": "Order fulfilment manages customer orders; traceability specifically enables tracking of products through the chain.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "NOUN",
+          "termKey": "unit-8:41"
+        },
+        {
+          "id": "WB-12-b6",
+          "answer": "reverse logistics",
+          "unit": 8,
+          "vocabId": "vocab-u8-reverse-logistics",
+          "explanation": "Returned products move back through the system, which is the function of reverse logistics.",
+          "closestDistractor": "back order",
+          "whyNot": "A back order is an unfulfilled customer order awaiting stock, not the management of product returns.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "NOUN PHRASE",
+          "termKey": "unit-8:34",
+          "theoryId": "theory-u8-green-transport"
+        },
+        {
+          "id": "WB-12-b7",
+          "answer": "carbon footprint",
+          "unit": 8,
+          "vocabId": "vocab-u8-carbon-footprint",
+          "explanation": "Cutting unnecessary vehicle movements is intended to reduce emissions associated with the company's logistics activities.",
+          "closestDistractor": "lead time",
+          "whyNot": "Lead time measures time, not environmental impact.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-8:18",
+          "theoryId": "theory-u8-green-transport"
+        },
+        {
+          "id": "WB-12-b8",
+          "answer": "lag behind",
+          "unit": 8,
+          "vocabId": "vocab-u8-lag-behind",
+          "explanation": "Poor logistics can cause the company to fall behind competitors despite attractive products.",
+          "closestDistractor": "back order",
+          "whyNot": "A back order is a specific unfulfilled order; the sentence describes comparative competitive performance.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "PHRASAL VERB",
+          "termKey": "unit-8:31"
+        },
+        {
+          "id": "WB-12-b9",
+          "answer": "distribution channel",
+          "unit": 7,
+          "vocabId": "vocab-u7-distribution-channel",
+          "explanation": "The company is evaluating the route through which its products move from the firm to customers.",
+          "closestDistractor": "last-mile delivery",
+          "whyNot": "Last-mile delivery is only the final stage; the sentence asks about the entire route to customers.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-7:15"
+        }
+      ]
+    },
+    {
+      "id": "WB-13",
+      "title": "Choosing How to Expand",
+      "level": "Exam-like",
+      "units": [
+        4
+      ],
+      "sourceFocus": "U4 FDI entry modes, M&A vocabulary, working capital and investment incentives.",
+      "bank": [
+        "licensing",
+        "royalty payments",
+        "joint venture",
+        "wholly owned subsidiary",
+        "greenfield investment",
+        "acquisition",
+        "merger",
+        "diversification",
+        "gain control",
+        "working capital",
+        "investment incentives",
+        "cash grant",
+        "exclusive distributor"
+      ],
+      "segments": [
+        "A medical-device company is comparing several ways to expand internationally. The least capital-intensive option is ",
+        {
+          "blank": "WB-13-b1"
+        },
+        ", under which another business may receive permission to use specified technology. In return, the owner may receive ",
+        {
+          "blank": "WB-13-b2"
+        },
+        ".",
+        "\n\n",
+        "If management wants to share ownership and risk with a local partner, it can establish a ",
+        {
+          "blank": "WB-13-b3"
+        },
+        ".",
+        "\n\n",
+        "Another possibility is a ",
+        {
+          "blank": "WB-13-b4"
+        },
+        ", in which the company establishes a new foreign operation rather than purchasing an existing one.",
+        "\n\n",
+        "Alternatively, an ",
+        {
+          "blank": "WB-13-b5"
+        },
+        " can provide quicker access to an established foreign business. A sufficiently large purchase may allow the investor to ",
+        {
+          "blank": "WB-13-b6"
+        },
+        ".",
+        "\n\n",
+        "The company is also considering entering a completely different medical-services business, a strategy of ",
+        {
+          "blank": "WB-13-b7"
+        },
+        ".",
+        "\n\n",
+        "Regardless of the entry mode, the new operation will require enough ",
+        {
+          "blank": "WB-13-b8"
+        },
+        " to finance normal short-term operations. The host government may make the project more attractive by offering ",
+        {
+          "blank": "WB-13-b9"
+        },
+        "."
+      ],
+      "blanks": [
+        {
+          "id": "WB-13-b1",
+          "answer": "licensing",
+          "unit": 4,
+          "vocabId": "vocab-u4-licensing",
+          "explanation": "Another business receives permission to use specified technology without the owner building the foreign operation itself.",
+          "closestDistractor": "exclusive distributor",
+          "whyNot": "An exclusive distributor sells/distributes products in a territory; licensing grants rights to use technology or other intellectual property.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-4:8"
+        },
+        {
+          "id": "WB-13-b2",
+          "answer": "royalty payments",
+          "unit": 4,
+          "vocabId": "vocab-u4-royalty-payments",
+          "explanation": "The owner receives payments in return for allowing another party to use the licensed technology.",
+          "closestDistractor": "cash grant",
+          "whyNot": "A cash grant is generally an incentive/support payment, not the recurring consideration paid to the technology owner under licensing.",
+          "sourceClass": "CORE / GAP FILLING",
+          "pos": "PLURAL NOUN",
+          "termKey": "unit-4:21"
+        },
+        {
+          "id": "WB-13-b3",
+          "answer": "joint venture",
+          "unit": 4,
+          "vocabId": "vocab-u4-joint-venture",
+          "explanation": "The clue explicitly combines shared ownership and shared risk with a local partner.",
+          "closestDistractor": "wholly owned subsidiary",
+          "whyNot": "A wholly owned subsidiary is controlled by one parent rather than jointly owned with a local partner.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-4:9",
+          "theoryId": "theory-u4-entry-modes"
+        },
+        {
+          "id": "WB-13-b4",
+          "answer": "greenfield investment",
+          "unit": 4,
+          "vocabId": "vocab-u4-greenfield-investment",
+          "explanation": "The company creates a new foreign operation from the ground up instead of buying an existing business.",
+          "closestDistractor": "acquisition",
+          "whyNot": "An acquisition purchases an existing firm or operation.",
+          "sourceClass": "CORE / GAP FILLING",
+          "pos": "NOUN PHRASE",
+          "termKey": "unit-4:24",
+          "theoryId": "theory-u4-entry-modes"
+        },
+        {
+          "id": "WB-13-b5",
+          "answer": "acquisition",
+          "unit": 4,
+          "vocabId": "vocab-u4-acquisition",
+          "explanation": "The company obtains quicker access by purchasing an established foreign business.",
+          "closestDistractor": "merger",
+          "whyNot": "A merger combines firms into a new/combined entity; the passage emphasizes one investor purchasing an existing business.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-4:10",
+          "theoryId": "theory-u4-entry-modes"
+        },
+        {
+          "id": "WB-13-b6",
+          "answer": "gain control",
+          "unit": 4,
+          "vocabId": "vocab-u4-gain-control",
+          "explanation": "A sufficiently large ownership purchase can give the investor managerial control over the business.",
+          "closestDistractor": "joint venture",
+          "whyNot": "A joint venture shares ownership/control; the clue is control gained through a large purchase.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "COLLOCATION",
+          "termKey": "unit-4:42",
+          "theoryId": "theory-u4-investment-control"
+        },
+        {
+          "id": "WB-13-b7",
+          "answer": "diversification",
+          "unit": 4,
+          "vocabId": "vocab-u4-diversification",
+          "explanation": "The company is entering a completely different business area from its existing medical-device activity.",
+          "closestDistractor": "licensing",
+          "whyNot": "Licensing is an entry/technology arrangement, not the strategy of moving into a different line of business.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-4:17"
+        },
+        {
+          "id": "WB-13-b8",
+          "answer": "working capital",
+          "unit": 4,
+          "vocabId": "vocab-u4-working-capital",
+          "explanation": "Normal short-term operating needs require funds for day-to-day operations.",
+          "closestDistractor": "investment incentives",
+          "whyNot": "Investment incentives are benefits offered by a host government; they are not the firm's short-term operating funds.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "NOUN PHRASE",
+          "termKey": "unit-4:45"
+        },
+        {
+          "id": "WB-13-b9",
+          "answer": "investment incentives",
+          "unit": 4,
+          "vocabId": "vocab-u4-investment-incentives",
+          "explanation": "The host government offers benefits to make the foreign project more attractive.",
+          "closestDistractor": "working capital",
+          "whyNot": "Working capital finances operations; incentives are external benefits used to attract the investment.",
+          "sourceClass": "CORE / GAP FILLING",
+          "pos": "PLURAL NOUN",
+          "termKey": "unit-4:20",
+          "theoryId": "theory-u4-investment-location"
+        }
+      ]
+    },
+    {
+      "id": "WB-14",
+      "title": "Standardize or Adapt?",
+      "level": "Challenge",
+      "units": [
+        1,
+        7
+      ],
+      "sourceFocus": "U1 standardization/adaptation/liability-of-foreignness reading language + U7 segmentation/market concepts.",
+      "bank": [
+        "standardization",
+        "adaptation",
+        "tailor a product",
+        "differentiate a product",
+        "comply with local law",
+        "liability of foreignness",
+        "market segmentation",
+        "price-conscious",
+        "fragmented market",
+        "maintain a foothold",
+        "retain a competitive advantage",
+        "consumer taste",
+        "market share"
+      ],
+      "segments": [
+        "A multinational food company prefers ",
+        {
+          "blank": "WB-14-b1"
+        },
+        " because using a similar product and marketing approach across countries can reduce complexity and support economies of scale. However, management recognizes that complete uniformity is not always possible.",
+        "\n\n",
+        "In one country, labeling regulations force the company to ",
+        {
+          "blank": "WB-14-b2"
+        },
+        ". In another, differences in flavor preferences lead the company toward ",
+        {
+          "blank": "WB-14-b3"
+        },
+        " rather than using the original recipe unchanged.",
+        "\n\n",
+        "Managers therefore ",
+        {
+          "blank": "WB-14-b4"
+        },
+        " for local customers while trying not to weaken the global brand.",
+        "\n\n",
+        "The challenge is greater because the company suffers from ",
+        {
+          "blank": "WB-14-b5"
+        },
+        ": as an outsider, it faces disadvantages that established local firms may not experience.",
+        "\n\n",
+        "Research also shows that consumers are highly ",
+        {
+          "blank": "WB-14-b6"
+        },
+        " and that demand differs sharply across customer groups. The company therefore uses ",
+        {
+          "blank": "WB-14-b7"
+        },
+        " before deciding which groups deserve separate offers.",
+        "\n\n",
+        "Management accepts lower profits initially because it wants to ",
+        {
+          "blank": "WB-14-b8"
+        },
+        " in the country. In the long run, however, any localization strategy must still help the company ",
+        {
+          "blank": "WB-14-b9"
+        },
+        " over its rivals."
+      ],
+      "blanks": [
+        {
+          "id": "WB-14-b1",
+          "answer": "standardization",
+          "unit": 1,
+          "vocabId": "vocab-u1-standardization",
+          "explanation": "The company uses a similar product and marketing approach across countries to reduce complexity and support scale economies.",
+          "closestDistractor": "adaptation",
+          "whyNot": "Adaptation modifies the offer for local differences; the opening sentence emphasizes similarity across countries.",
+          "sourceClass": "CORE / GAP FILLING",
+          "pos": "NOUN",
+          "termKey": "unit-1:32"
+        },
+        {
+          "id": "WB-14-b2",
+          "answer": "comply with local law",
+          "unit": 1,
+          "vocabId": "vocab-u1-comply-with-local-law",
+          "explanation": "Labeling regulations require the company to act according to host-country legal rules.",
+          "closestDistractor": "tailor a product",
+          "whyNot": "Tailoring modifies a product for a market; the immediate reason here is legal compliance.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "COLLOCATION",
+          "termKey": "unit-1:41"
+        },
+        {
+          "id": "WB-14-b3",
+          "answer": "adaptation",
+          "unit": 1,
+          "vocabId": "vocab-u1-adaptation",
+          "explanation": "Flavor differences lead the company away from an unchanged global recipe toward local modification.",
+          "closestDistractor": "standardization",
+          "whyNot": "Standardization keeps the offer substantially the same; the clue explicitly says the original recipe cannot remain unchanged.",
+          "sourceClass": "CORE / GAP FILLING",
+          "pos": "NOUN",
+          "termKey": "unit-1:33"
+        },
+        {
+          "id": "WB-14-b4",
+          "answer": "tailor a product",
+          "unit": 1,
+          "vocabId": "vocab-u1-tailor-a-product",
+          "explanation": "Managers modify the product for local customers while protecting the global brand.",
+          "closestDistractor": "differentiate a product",
+          "whyNot": "Differentiation makes an offer distinct from competitors; tailoring focuses on fitting local customer needs.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "COLLOCATION",
+          "termKey": "unit-1:43"
+        },
+        {
+          "id": "WB-14-b5",
+          "answer": "liability of foreignness",
+          "unit": 1,
+          "vocabId": "vocab-u1-liability-of-foreignness",
+          "explanation": "The sentence defines the disadvantage an outsider faces compared with established local firms.",
+          "closestDistractor": "fragmented market",
+          "whyNot": "A fragmented market describes dispersed competitors/customer groups, not disadvantages caused by being foreign.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-1:19"
+        },
+        {
+          "id": "WB-14-b6",
+          "answer": "price-conscious",
+          "unit": 1,
+          "vocabId": "vocab-u1-price-conscious",
+          "explanation": "The research shows consumers are strongly influenced by price.",
+          "closestDistractor": "consumer taste",
+          "whyNot": "Consumer taste concerns preferences; the adjective needed here describes price sensitivity.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "ADJECTIVE",
+          "termKey": "unit-1:45"
+        },
+        {
+          "id": "WB-14-b7",
+          "answer": "market segmentation",
+          "unit": 7,
+          "vocabId": "vocab-u7-market-segmentation",
+          "explanation": "Demand differs across groups, so the firm divides the market before deciding which groups need separate offers.",
+          "closestDistractor": "fragmented market",
+          "whyNot": "A fragmented market is a market condition; segmentation is the deliberate analytical process performed by the company.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-7:7",
+          "theoryId": "theory-u7-segmentation-marketing-mix"
+        },
+        {
+          "id": "WB-14-b8",
+          "answer": "maintain a foothold",
+          "unit": 1,
+          "vocabId": "vocab-u1-maintain-a-foothold",
+          "explanation": "The company accepts lower short-term profit to preserve its initial strategic presence in the country.",
+          "closestDistractor": "market share",
+          "whyNot": "Market share is a sales proportion; the sentence stresses keeping a presence for future growth.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "COLLOCATION",
+          "termKey": "unit-1:48"
+        },
+        {
+          "id": "WB-14-b9",
+          "answer": "retain a competitive advantage",
+          "unit": 1,
+          "vocabId": "vocab-u1-retain-a-competitive-advantage",
+          "explanation": "Localization must still preserve an advantage over rivals in the long run.",
+          "closestDistractor": "differentiate a product",
+          "whyNot": "Differentiation may contribute to advantage, but the sentence asks for the broader outcome of keeping an existing competitive edge.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "COLLOCATION",
+          "termKey": "unit-1:39"
+        }
+      ]
+    },
+    {
+      "id": "WB-15",
+      "title": "Financing and Collecting an Export Sale",
+      "level": "Challenge",
+      "units": [
+        2,
+        5,
+        6
+      ],
+      "sourceFocus": "U2 export-finance support + U5 FX-risk management + U6 documentary collection/drafts.",
+      "bank": [
+        "export financing",
+        "loan guarantee",
+        "default on repayment",
+        "hedging",
+        "speculation",
+        "forward contract",
+        "spot rate",
+        "documentary collection",
+        "documents against payment",
+        "documents against acceptance",
+        "accept a bill",
+        "sight draft",
+        "usance draft",
+        "open account"
+      ],
+      "segments": [
+        "A small exporter has won a large overseas contract but needs cash to produce the order before receiving payment. It obtains ",
+        {
+          "blank": "WB-15-b1"
+        },
+        " from a financial institution. Because the lender is concerned about the company's credit risk, a government program provides a ",
+        {
+          "blank": "WB-15-b2"
+        },
+        ". If the exporter later ",
+        {
+          "blank": "WB-15-b3"
+        },
+        ", the guarantee can protect the lender according to its terms.",
+        "\n\n",
+        "The sale is denominated in a foreign currency and payment is due several months later. The exporter therefore uses ",
+        {
+          "blank": "WB-15-b4"
+        },
+        " to reduce currency uncertainty and enters a ",
+        {
+          "blank": "WB-15-b5"
+        },
+        " fixing an exchange rate for the future date.",
+        "\n\n",
+        "For settlement, the parties choose ",
+        {
+          "blank": "WB-15-b6"
+        },
+        " rather than an L/C. The commercial documents will be released only after the buyer agrees to a future payment obligation, so the instruction is ",
+        {
+          "blank": "WB-15-b7"
+        },
+        ".",
+        "\n\n",
+        "The buyer must therefore ",
+        {
+          "blank": "WB-15-b8"
+        },
+        ". Because payment is due after a specified period rather than immediately, the instrument is a ",
+        {
+          "blank": "WB-15-b9"
+        },
+        "."
+      ],
+      "blanks": [
+        {
+          "id": "WB-15-b1",
+          "answer": "export financing",
+          "unit": 2,
+          "vocabId": "vocab-u2-export-financing",
+          "explanation": "The exporter needs funds to produce the order before receiving the foreign buyer's payment.",
+          "closestDistractor": "loan guarantee",
+          "whyNot": "A loan guarantee protects the lender against default; it is not the financing itself received by the exporter.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-2:12"
+        },
+        {
+          "id": "WB-15-b2",
+          "answer": "loan guarantee",
+          "unit": 2,
+          "vocabId": "vocab-u2-loan-guarantee",
+          "explanation": "The government program promises protection to the lender if the exporter fails to repay.",
+          "closestDistractor": "export financing",
+          "whyNot": "Export financing supplies funds; the guarantee supports the lender against repayment risk.",
+          "sourceClass": "CORE / GAP FILLING",
+          "pos": "NOUN PHRASE",
+          "termKey": "unit-2:24"
+        },
+        {
+          "id": "WB-15-b3",
+          "answer": "default on repayment",
+          "unit": 2,
+          "vocabId": "vocab-u2-default-on-repayment",
+          "explanation": "The guarantee becomes relevant if the exporter fails to repay the loan as required.",
+          "closestDistractor": "default on payment",
+          "whyNot": "The approved bank uses the phrase 'default on repayment' for the borrower's failure to repay financing; payment default in a sales transaction is a different context.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "VERB PHRASE",
+          "termKey": "unit-2:51"
+        },
+        {
+          "id": "WB-15-b4",
+          "answer": "hedging",
+          "unit": 5,
+          "vocabId": "vocab-u5-hedging",
+          "explanation": "The exporter is reducing uncertainty created by a future foreign-currency receipt.",
+          "closestDistractor": "speculation",
+          "whyNot": "Speculation deliberately accepts currency risk to seek profit; hedging reduces the exposure.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-5:8",
+          "theoryId": "theory-u5-hedging"
+        },
+        {
+          "id": "WB-15-b5",
+          "answer": "forward contract",
+          "unit": 5,
+          "vocabId": "vocab-u5-forward-contract",
+          "explanation": "The contract fixes an exchange rate for a transaction that will occur at a future date.",
+          "closestDistractor": "spot rate",
+          "whyNot": "A spot rate applies to immediate/near-immediate exchange rather than a rate fixed now for future settlement.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-5:11",
+          "theoryId": "theory-u5-currency-instruments"
+        },
+        {
+          "id": "WB-15-b6",
+          "answer": "documentary collection",
+          "unit": 6,
+          "vocabId": "vocab-u6-documentary-collection",
+          "explanation": "The parties use banks to handle commercial documents and collection without using a documentary credit.",
+          "closestDistractor": "open account",
+          "whyNot": "Open account relies on the buyer paying after shipment without the same documentary collection mechanism.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-6:19",
+          "theoryId": "theory-u6-documentary-collection"
+        },
+        {
+          "id": "WB-15-b7",
+          "answer": "documents against acceptance",
+          "unit": 6,
+          "vocabId": "vocab-u6-documents-against-acceptance",
+          "explanation": "Documents are released after the buyer accepts a future payment obligation rather than paying immediately.",
+          "closestDistractor": "documents against payment",
+          "whyNot": "D/P requires payment before release; the passage says the buyer only accepts a future obligation.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "theoryId": "theory-u6-documentary-collection"
+        },
+        {
+          "id": "WB-15-b8",
+          "answer": "accept a bill",
+          "unit": 6,
+          "vocabId": "vocab-u6-accept-a-bill",
+          "explanation": "Under D/A, the buyer accepts the time bill/draft and undertakes to pay at maturity.",
+          "closestDistractor": "sight draft",
+          "whyNot": "A sight draft is payable on presentation and does not match the future-payment acceptance described.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-6:32",
+          "theoryId": "theory-u6-documentary-collection"
+        },
+        {
+          "id": "WB-15-b9",
+          "answer": "usance draft",
+          "unit": 6,
+          "vocabId": "vocab-u6-usance-draft",
+          "explanation": "The instrument is payable after a specified period rather than immediately.",
+          "closestDistractor": "sight draft",
+          "whyNot": "A sight draft is payable on presentation; a usance draft allows payment at a future maturity.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-6:15",
+          "theoryId": "theory-u6-documentary-collection"
+        }
+      ]
+    },
+    {
+      "id": "WB-16",
+      "title": "Tax Policy and International Business",
+      "level": "Challenge",
+      "units": [
+        2,
+        10
+      ],
+      "sourceFocus": "U10 tax vocabulary/readings + U2/U3 tariff/trade-policy connection.",
+      "bank": [
+        "levy a tax",
+        "tariff",
+        "quota",
+        "tax-exempt",
+        "tax rebate",
+        "tax haven",
+        "tax avoidance",
+        "tax evasion",
+        "impose a penalty",
+        "close a loophole",
+        "double taxation",
+        "withholding tax",
+        "money laundering"
+      ],
+      "segments": [
+        "Governments use taxation both to raise revenue and to influence economic activity. A government may ",
+        {
+          "blank": "WB-16-b1"
+        },
+        " on income, transactions or property. When a charge is specifically imposed on imported goods, it may take the form of a ",
+        {
+          "blank": "WB-16-b2"
+        },
+        ".",
+        "\n\n",
+        "Some organizations or categories of income may be ",
+        {
+          "blank": "WB-16-b3"
+        },
+        ", meaning that the relevant tax does not apply under specified conditions.",
+        "\n\n",
+        "International companies must pay particular attention to cross-border tax rules. A jurisdiction known for very low taxation may be described as a ",
+        {
+          "blank": "WB-16-b4"
+        },
+        ".",
+        "\n\n",
+        "Businesses may legally organize their affairs to reduce tax through ",
+        {
+          "blank": "WB-16-b5"
+        },
+        ". This differs fundamentally from ",
+        {
+          "blank": "WB-16-b6"
+        },
+        ", which involves illegally escaping tax obligations.",
+        "\n\n",
+        "Where illegal conduct occurs, authorities may ",
+        {
+          "blank": "WB-16-b7"
+        },
+        ". They may also amend legislation to ",
+        {
+          "blank": "WB-16-b8"
+        },
+        " that has allowed taxpayers to exploit an unintended gap in the rules.",
+        "\n\n",
+        "International operations can create another problem when the same income becomes subject to tax in more than one jurisdiction, producing ",
+        {
+          "blank": "WB-16-b9"
+        },
+        "."
+      ],
+      "blanks": [
+        {
+          "id": "WB-16-b1",
+          "answer": "levy a tax",
+          "unit": 10,
+          "vocabId": "vocab-u10-levy-a-tax",
+          "explanation": "The government officially imposes a tax on specified bases such as income, transactions or property.",
+          "closestDistractor": "tariff",
+          "whyNot": "A tariff is a specific tax on imported goods; the sentence begins with the general act of imposing tax.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "COLLOCATION",
+          "termKey": "unit-10:20"
+        },
+        {
+          "id": "WB-16-b2",
+          "answer": "tariff",
+          "unit": 2,
+          "vocabId": "vocab-u2-tariff",
+          "explanation": "The charge is specifically imposed on imported goods.",
+          "closestDistractor": "quota",
+          "whyNot": "A quota limits quantity rather than imposing a tax charge.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-2:14",
+          "theoryId": "theory-u2-trade-barriers"
+        },
+        {
+          "id": "WB-16-b3",
+          "answer": "tax-exempt",
+          "unit": 10,
+          "vocabId": "vocab-u10-tax-exempt",
+          "explanation": "The sentence defines a category to which the relevant tax legally does not apply.",
+          "closestDistractor": "tax rebate",
+          "whyNot": "A rebate returns or reduces tax after liability/payment conditions; exemption means the tax does not apply to the category.",
+          "sourceClass": "VOCABULARY EXERCISE",
+          "pos": "ADJECTIVE",
+          "termKey": "unit-10:25"
+        },
+        {
+          "id": "WB-16-b4",
+          "answer": "tax haven",
+          "unit": 10,
+          "vocabId": "vocab-u10-tax-haven",
+          "explanation": "The clue describes a jurisdiction known for very low taxation used in international tax planning.",
+          "closestDistractor": "money laundering",
+          "whyNot": "Money laundering concerns disguising illicit funds; low taxation alone defines the tax-haven concept here.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-10:15"
+        },
+        {
+          "id": "WB-16-b5",
+          "answer": "tax avoidance",
+          "unit": 10,
+          "vocabId": "vocab-u10-tax-avoidance",
+          "explanation": "The business legally arranges its affairs to reduce tax within the law.",
+          "closestDistractor": "tax evasion",
+          "whyNot": "Evasion illegally escapes tax obligations; the sentence explicitly states the arrangement is legal.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-10:12"
+        },
+        {
+          "id": "WB-16-b6",
+          "answer": "tax evasion",
+          "unit": 10,
+          "vocabId": "vocab-u10-tax-evasion",
+          "explanation": "The clue explicitly describes illegally escaping tax obligations.",
+          "closestDistractor": "tax avoidance",
+          "whyNot": "Avoidance uses lawful arrangements; evasion involves illegal non-compliance.",
+          "sourceClass": "APPROVED LEGACY / CORE COURSE TERM --- exact source subtype not encoded in current website dataset",
+          "pos": "Not explicitly encoded in current extended-vocabulary metadata",
+          "termKey": "unit-10:13"
+        },
+        {
+          "id": "WB-16-b7",
+          "answer": "impose a penalty",
+          "unit": 10,
+          "vocabId": "vocab-u10-impose-a-penalty",
+          "explanation": "Authorities may sanction illegal tax conduct with a formal penalty.",
+          "closestDistractor": "tax rebate",
+          "whyNot": "A rebate is tax relief/repayment, not a punishment for illegal conduct.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "COLLOCATION",
+          "termKey": "unit-10:37"
+        },
+        {
+          "id": "WB-16-b8",
+          "answer": "close a loophole",
+          "unit": 10,
+          "vocabId": "vocab-u10-close-a-loophole",
+          "explanation": "Legislation is amended to remove an unintended gap that taxpayers have exploited.",
+          "closestDistractor": "tax avoidance",
+          "whyNot": "Avoidance is the taxpayer's legal behavior; closing a loophole is the government's legislative response.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "COLLOCATION",
+          "termKey": "unit-10:38"
+        },
+        {
+          "id": "WB-16-b9",
+          "answer": "double taxation",
+          "unit": 10,
+          "vocabId": "vocab-u10-double-taxation",
+          "explanation": "The same income is being taxed in more than one jurisdiction.",
+          "closestDistractor": "withholding tax",
+          "whyNot": "Withholding tax is a method/type of tax deducted at source; it does not itself mean the same income is taxed twice.",
+          "sourceClass": "READING / CASE STUDY",
+          "pos": "NOUN PHRASE",
+          "termKey": "unit-10:33"
+        }
+      ]
+    }
+  ],
+  "wordBoxContract": {
+    "passages": 16,
+    "blanks": 134,
+    "specSha256": "1d163955e353e74fbe0eb584c9728cc3931d03e4af406de3a6644c39e00ea710"
   }
 };
