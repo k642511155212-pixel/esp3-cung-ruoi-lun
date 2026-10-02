@@ -18,6 +18,9 @@
     flashOrder: [],
     flashIndex: 0,
     flashFlipped: false,
+    flashcardResumeByUnit: {},
+    flashStudyMode: "unfinished",
+    flashTrackerFilter: "all",
     gapUnit: "all",
     gapIndex: 0,
     gapAnswer: "",
@@ -38,6 +41,8 @@
   let timerHandle = null;
   let learningReturn = "";
   let learningOrigin = "";
+  let learningReference = "";
+  let flashSession = null;
   const learningSnapshots = new Map();
   function rememberLearningRoute() {
     if (!render.lastRoute || state.exam && /test/.test(render.lastRoute)) return;
@@ -50,8 +55,8 @@
   }
 
   function loadState() {
-    try { return { ...defaults, ...JSON.parse(localStorage.getItem(STORE) || "{}") }; }
-    catch { return { ...defaults }; }
+    try { return { ...structuredClone(defaults), ...JSON.parse(localStorage.getItem(STORE) || "{}") }; }
+    catch { return structuredClone(defaults); }
   }
   function saveState() {
     localStorage.setItem(STORE, JSON.stringify(state));
@@ -141,18 +146,10 @@
     const mastered = Object.values(state.termStatus).filter(value => value === "mastered").length;
     const body = `
       <section class="dashboard-intro">
-        <div class="dashboard-copy">
-          <span class="kicker">FULL COURSE · 10 UNITS</span>
-          <span class="gap-release">${allGaps.length} GAP-FILLING QUESTIONS · ALL 10 UNITS</span>
-          <h2>Learn it clearly.<br><em>Answer it confidently.</em></h2>
-          <p>Theory is taught in English, with Vietnamese translations beside key terms and specialist vocabulary. Build understanding through recall, application and writing.</p>
-          <a class="solid-btn hero-cta" href="#final">Prepare for the final exam ↗</a>
-          <img class="dashboard-mascot" src="${MASCOTS.flower}" alt="Cute fly holding a flower">
-        </div>
-        <div class="course-map" aria-label="Bản đồ khóa học">
-          ${D.units.map(unit => `<button data-route="unit/${unit.id}/theory" class="map-node ${unit.midterm ? "core" : ""} ${state.completedUnits.includes(unit.id) ? "done" : ""}"><b>${String(unit.num).padStart(2,"0")}</b><span>${esc(unit.title)}</span>${unit.midterm ? "<small>MIDTERM</small>" : ""}</button>`).join("")}
-        </div>
+        <div class="dashboard-copy"><span class="kicker">ESP3 · THE INTERNATIONAL BUSINESS FIELD GUIDE</span><h2>Understand<br>the world.<br><em>Find your words.</em></h2><p>From a trade decision to a well-made argument. Study the concepts, put them to work, and build the language to explain why.</p><div class="hero-actions"><a class="solid-btn hero-cta" href="#final">Open Final Review ↗</a><a class="hero-secondary" href="#flashcards">Continue your vocabulary →</a></div><span class="hero-footnote">10 units · English first · Vietnamese support</span></div>
+        <aside class="hero-folio"><div class="folio-heading"><span>FIELD NOTES</span><span>VOL. 03</span></div><div class="folio-title">Trade.<br>Connect.<br><em>Understand.</em></div><div class="folio-orbit" aria-hidden="true"><i></i><i></i><i></i></div><img src="${MASCOTS.flower}" alt="Ruồi Lùn, your study companion"><div class="folio-footer"><span>INTERNATIONAL<br>BUSINESS</span><span>WITH<br>RUỒI LÙN</span></div></aside>
       </section>
+      <section class="course-index"><header><span class="eyebrow">THE COURSE, AT A GLANCE</span><h2>Ten perspectives.<br><em>One connected world.</em></h2></header><div class="course-map" aria-label="Course index">${D.units.map(unit=>`<button data-route="unit/${unit.id}/theory" class="map-node ${state.completedUnits.includes(unit.id)?'done':''}"><b>${String(unit.num).padStart(2,'0')}</b><span>${esc(unit.title)}</span><small>↗</small></button>`).join('')}</div></section>
 
       <div class="stat-row">
         <div><strong>${allTerms.length}</strong><span>vocabulary flashcards</span></div>
@@ -258,10 +255,11 @@
   function legacySupport(unit, item) {
     return F.legacyQuestions[`${unit.num}:${unit.shortAnswers.findIndex(q=>q.q===item.q)}`];
   }
+  function legacyAnswer(unit,item) { return legacySupport(unit,item)?.answer || item.a; }
   function legacyExplanation(unit, item) {
     const support=legacySupport(unit,item);
     if(!support?.explanation) return '';
-    return `<button class="outline-btn" data-show-explanation aria-expanded="false">Show explanation</button><div class="answer-explanation" hidden><h4>Explanation</h4><p>${esc(support.explanation)}</p>${finalSource(support.source)}<button class="theory-link" data-related-theory="unit/${unit.id}/theory/${support.theoryId}">Review related theory ↗</button></div>`;
+    return `<button class="outline-btn" data-show-explanation aria-expanded="false">Show explanation</button><div class="answer-explanation" hidden><h4>Explanation</h4><p>${esc(support.explanation)}</p>${support.correctionNote?`<p class="source-note">${esc(support.correctionNote)}</p>`:""}${finalSource(support.source)}<button class="theory-link" data-related-theory="unit/${unit.id}/theory/${support.theoryId}">Review related theory ↗</button></div>`;
   }
   function shortTab(unit) {
     return `<div class="section-intro"><span>04</span><div><h2>Câu hỏi ngắn — tối đa 40 từ</h2><p>Hãy tự viết trước. Website đếm từ và chỉ hiển thị model answer khi bạn chủ động mở.</p></div></div>
@@ -270,7 +268,7 @@
         <h3>${esc(item.q)}</h3><small class="question-ref">${legacySupport(unit,item).id}</small>
         <textarea aria-label="Your answer to ${legacySupport(unit,item).id}" rows="4" data-word-limit="40" placeholder="Write your answer in English…"></textarea>
         <button class="theory-link" data-related-theory="unit/${unit.id}/theory/${legacySupport(unit,item).theoryId}">Review this unit’s theory ↗</button><div class="answer-controls"><span data-word-count>0 / 40 words</span><button class="outline-btn" data-reveal-answer>Reveal model answer</button></div>
-        <div class="model-answer" hidden><img class="feedback-mascot" src="${MASCOTS.heart}" alt="" aria-hidden="true"><small>MODEL ANSWER · ${wordCount(item.a)} WORDS</small><p>${esc(item.a)}</p>${legacyExplanation(unit,item)}</div>
+        <div class="model-answer" hidden><img class="feedback-mascot" src="${MASCOTS.heart}" alt="" aria-hidden="true"><small>MODEL ANSWER · ${wordCount(legacyAnswer(unit,item))} WORDS</small><p>${esc(legacyAnswer(unit,item))}</p>${legacyExplanation(unit,item)}</div>
       </article>`).join("")}</div>`;
   }
 
@@ -283,38 +281,48 @@
       </article>`).join("")}</div>`;
   }
 
+  const flashStatusText = {new:"○ Unlearned",review:"△ Review",mastered:"✓ Remembered"};
+  function flashPool() { return state.flashUnit === "all" ? allTerms : allTerms.filter(t=>t.unit.id===state.flashUnit); }
+  function termState(key) { return ["review","mastered"].includes(state.termStatus[key]) ? state.termStatus[key] : "new"; }
+  function flashQueue() {
+    const pool=flashPool();
+    return (state.flashStudyMode==="all" ? pool : [...pool.filter(t=>termState(t.key)==="new"),...pool.filter(t=>termState(t.key)==="review")]).map(t=>t.key);
+  }
+  function rememberFlash(key) {
+    if(!state.flashcardResumeByUnit || typeof state.flashcardResumeByUnit!=="object" || Array.isArray(state.flashcardResumeByUnit)) state.flashcardResumeByUnit={};
+    if(key && termState(key)!=="mastered") state.flashcardResumeByUnit[state.flashUnit]=key;
+    state.flashOrder=[...flashSession.queue]; state.flashIndex=Math.max(0,flashSession.queue.indexOf(key)); saveState();
+  }
+  function prepareFlash() {
+    if(!flashSession || flashSession.unit!==state.flashUnit || render.lastRoute!=="flashcards") {
+      state.flashStudyMode="unfinished";
+      const queue=flashQueue(), saved=state.flashcardResumeByUnit?.[state.flashUnit];
+      const legacy=state.flashOrder?.[state.flashIndex];
+      const current=queue.includes(saved)?saved:!saved && queue.includes(legacy)?legacy:queue[0] || "";
+      flashSession={unit:state.flashUnit,queue,current,history:[]};state.flashFlipped=false;
+      rememberFlash(current);
+    }
+  }
+  function selectFlash(key, history=true) {
+    if(!flashPool().some(t=>t.key===key)) return;
+    if(history && flashSession.current && flashSession.current!==key) flashSession.history.push(flashSession.current);
+    flashSession.current=key;state.flashFlipped=false;rememberFlash(key);
+  }
+  function openFlashScope(unit) {
+    state.flashUnit=unit;state.flashStudyMode="unfinished";state.flashTrackerFilter="all";
+    flashSession=null;state.flashOrder=[];state.flashIndex=0;saveState();
+    if(currentRoute()==="flashcards") render(); else routeTo("flashcards");
+  }
   function flashcards() {
-    let pool = state.flashUnit === "all" ? allTerms : allTerms.filter(item => item.unit.id === state.flashUnit);
-    const validKeys = new Set(pool.map(item => item.key));
-    let order = state.flashOrder.filter(key => validKeys.has(key));
-    if (order.length !== pool.length) order = pool.map(item => item.key);
-    state.flashOrder = order;
-    state.flashIndex = Math.min(state.flashIndex, Math.max(0, order.length - 1));
-    const item = allTerms.find(term => term.key === order[state.flashIndex]) || pool[0];
-    if (!item) return page({eyebrow:"FLASHCARDS",title:"Không có thẻ",body:""});
-    const status = state.termStatus[item.key] || "new";
-    const mastered = pool.filter(term => state.termStatus[term.key] === "mastered").length;
-    const body = `<div class="flash-toolbar">
-        <label>Phạm vi<select id="flashUnit">${unitOptions(state.flashUnit)}</select></label>
-        <div class="flash-count"><strong>${state.flashIndex + 1}</strong><span>/ ${pool.length}</span></div>
-        <button class="outline-btn" id="shuffleFlash">Trộn thẻ</button>
-      </div>
-      <div class="flash-workspace">
-        <div class="flash-progress"><span>${mastered}/${pool.length} đã nhớ</span><i><b style="width:${pool.length ? mastered / pool.length * 100 : 0}%"></b></i></div>
-        <button class="flash-card ${state.flashFlipped ? "flipped" : ""}" id="flashCard" aria-label="Lật flashcard">
-          <span class="flash-unit">UNIT ${item.unit.num} · ${esc(item.unit.title)}</span>
-          <img class="flash-mascot" src="${state.flashFlipped ? MASCOTS.heart : MASCOTS.neutral}" alt="" aria-hidden="true">
-          <span class="flash-side front"><small>${esc(item.pos)} · ${esc(item.source)}</small><strong>${esc(item.term)}</strong><em>Nhấn để xem định nghĩa</em></span>
-          <span class="flash-side back"><small>ENGLISH DEFINITION · ${esc(item.pos)}</small><strong>${esc(item.definition)}</strong><p>${esc(item.vi)}</p><span class="flash-source">SOURCE · ${esc(item.source)}</span><em>Nhấn để xem từ/cụm từ</em></span>
-        </button>
-        <div class="flash-actions">
-          <button class="review-btn ${status === "review" ? "selected" : ""}" data-flash-status="review">↻ Cần ôn lại</button>
-          <button class="prev-btn" id="prevFlash">←</button>
-          <button class="next-btn" id="nextFlash">→</button>
-          <button class="master-btn ${status === "mastered" ? "selected" : ""}" data-flash-status="mastered">✓ Đã nhớ</button>
-        </div>
-      </div>`;
-    return page({eyebrow:"ACTIVE RECALL",title:"Vocabulary flashcards",lead:`${allTerms.length} từ và cụm từ từ core terms, readings, case studies và exercises của toàn bộ 10 unit.`,body});
+    prepareFlash();
+    const pool=flashPool(), item=pool.find(t=>t.key===flashSession.current);
+    const counts={new:0,review:0,mastered:0};pool.forEach(t=>counts[termState(t.key)]++);
+    const progress=pool.length?Math.round(counts.mastered/pool.length*100):0;
+    const filter=["all","new","review","mastered"].includes(state.flashTrackerFilter)?state.flashTrackerFilter:"all";
+    const body=`<section class="recall-studio"><header class="recall-controls"><label>Study collection<select id="flashUnit">${unitOptions(state.flashUnit)}</select></label><div class="recall-summary"><strong>${counts.mastered}<small> / ${pool.length}</small></strong><span>remembered · ${counts.new+counts.review} unfinished</span></div><button class="outline-btn" id="shuffleFlash">${counts.new+counts.review?'Shuffle unfinished':'Shuffle for review'}</button></header><div class="flash-progress"><span>${progress}% remembered</span><i><b style="width:${progress}%"></b></i></div>
+      ${item?`<div class="flash-workspace"><div class="recall-context"><span>UNIT ${item.unit.num} · ${esc(item.unit.title)}</span><span data-card-status>${flashStatusText[termState(item.key)]}</span></div><button class="flash-card ${state.flashFlipped?'flipped':''}" id="flashCard" data-term-key="${item.key}" aria-label="Flip card: ${esc(item.term)}" aria-pressed="${!!state.flashFlipped}"><span class="flash-side front"><small>${esc(item.pos)}</small><strong>${esc(item.term)}</strong><em>Think of the meaning. Then turn the page. ↗</em></span><span class="flash-side back"><small>MEANING</small><strong>${esc(item.definition)}</strong><p>${esc(item.vi)}</p><em>Return to the term ↗</em></span><span class="card-edition">ESP3 · ACTIVE RECALL</span></button><div class="flash-actions"><button class="review-btn" data-flash-status="review">△ Need review</button><button class="prev-btn" id="prevFlash" aria-label="Previous studied card" ${flashSession.history.length?'':'disabled'}>←</button><button class="next-btn" id="nextFlash" aria-label="Next unfinished card">→</button><button class="master-btn" data-flash-status="mastered">✓ Remembered</button></div><p class="recall-note">${state.flashStudyMode==='all'?'Full review collection.':'Unfinished words come first.'} Flipping and browsing never change your status.</p></div>`:`<div class="recall-complete"><img src="${MASCOTS.flower}" alt="Ruồi Lùn celebrates your progress"><span class="eyebrow">COLLECTION COMPLETE</span><h2>A little knowledge,<br><em>well remembered.</em></h2><p>Every term in this collection is marked Remembered. Revisit any word below, or review the collection again.</p><button class="solid-btn" id="reviewAllFlash">Review all words →</button></div>`}</section>
+      <section class="vocabulary-tracker" aria-labelledby="trackerTitle"><header><div><span class="eyebrow">YOUR LEARNING INDEX</span><h2 id="trackerTitle">Every word, accounted for.</h2></div><p data-tracker-summary>${counts.mastered} Remembered · ${counts.review} Review · ${counts.new} Unlearned</p></header><nav class="tracker-filters" aria-label="Vocabulary status filter">${[['all','All'],['new','Unlearned'],['review','Review'],['mastered','Remembered']].map(([k,label])=>`<button data-flash-filter="${k}" aria-pressed="${filter===k}" class="${filter===k?'active':''}">${label} <small>${k==='all'?pool.length:counts[k]}</small></button>`).join('')}</nav><div class="tracker-list">${pool.filter(t=>filter==='all'||termState(t.key)===filter).map(t=>`<button class="tracker-row ${t.key===item?.key?'current':''}" data-flash-term="${t.key}" data-term-status="${termState(t.key)}" aria-current="${t.key===item?.key?'true':'false'}"><span>${esc(t.term)}${state.flashUnit==='all'?`<small>Unit ${t.unit.num}</small>`:''}</span><small>${flashStatusText[termState(t.key)]}</small></button>`).join('')||'<p class="tracker-empty">No words in this group yet.</p>'}</div></section>`;
+    return page({eyebrow:"THE RECALL ROOM",title:"Make the words yours.",lead:"A focused collection. A place to return. Your progress stays with every word.",className:"flash-page",body});
   }
 
   function gapFilling() {
@@ -372,7 +380,7 @@
       <button class="theory-link" data-related-theory="unit/${item.unit.id}/theory/${legacySupport(item.unit,item).theoryId}">Review this unit’s theory ↗</button>
       <textarea aria-label="Your answer to ${legacySupport(item.unit,item).id}" rows="7" data-word-limit="40" placeholder="Write a complete answer in English. Define, explain, and answer the exact question."></textarea>
       <div class="answer-controls"><span data-word-count>0 / 40 words</span><button class="solid-btn" data-reveal-answer>Check with model answer</button></div>
-      <div class="model-answer large" hidden><img class="feedback-mascot" src="${MASCOTS.heart}" alt="" aria-hidden="true"><small>MODEL ANSWER · ${wordCount(item.a)} WORDS</small><p>${esc(item.a)}</p>${legacyExplanation(item.unit,item)}<ul><li>Answers the exact question</li><li>Uses the correct technical term</li><li>Explains the mechanism or difference</li><li>Stays within 40 words</li></ul></div>
+      <div class="model-answer large" hidden><img class="feedback-mascot" src="${MASCOTS.heart}" alt="" aria-hidden="true"><small>MODEL ANSWER · ${wordCount(legacyAnswer(item.unit,item))} WORDS</small><p>${esc(legacyAnswer(item.unit,item))}</p>${legacyExplanation(item.unit,item)}<ul><li>Answers the exact question</li><li>Uses the correct technical term</li><li>Explains the mechanism or difference</li><li>Stays within 40 words</li></ul></div>
       <div class="stage-nav"><button class="outline-btn" id="prevShort">← Previous</button><button class="outline-btn" id="nextShort">Next →</button></div>
     </article>`;
     return page({eyebrow:"SHORT-ANSWER TRAINER",title:"Viết ngắn nhưng đủ ý",lead:"Mỗi đáp án mẫu đều đã được kiểm tra và không vượt quá 40 từ.",body});
@@ -462,7 +470,7 @@
           <button class="theory-link" data-related-theory="unit/${unit.id}/theory/${legacySupport(unit,item).theoryId}">Review this unit’s theory ↗</button>
           <textarea aria-label="Your answer to ${legacySupport(unit,item).id}" rows="4" data-word-limit="40" placeholder="Write your answer in English…"></textarea>
           <div class="answer-controls"><span data-word-count>0 / 40 words</span><button class="outline-btn" data-reveal-answer>Reveal model answer</button></div>
-          <div class="model-answer" hidden><img class="feedback-mascot" src="${MASCOTS.heart}" alt="" aria-hidden="true"><small>MODEL ANSWER · ${wordCount(item.a)} WORDS</small><p>${esc(item.a)}</p>${legacyExplanation(unit,item)}</div>
+          <div class="model-answer" hidden><img class="feedback-mascot" src="${MASCOTS.heart}" alt="" aria-hidden="true"><small>MODEL ANSWER · ${wordCount(legacyAnswer(unit,item))} WORDS</small><p>${esc(legacyAnswer(unit,item))}</p>${legacyExplanation(unit,item)}</div>
         </article>`;
       }).join("")}</div>
     </section>`).join("");
@@ -592,12 +600,24 @@
     return page({eyebrow:"RESULT & REVIEW",title:"Chấm phần có thể chấm chính xác",lead:"Không tạo điểm giả cho essay hoặc short answers.",body});
   }
 
+  function finalProgressSummary() {
+    const done=finalState().done;
+    const groups=[
+      {label:"Vocabulary & word boxes",route:"final/vocabulary/1",items:F.units.flatMap(u=>[[`vocabulary-${u.num}`],...u.gaps.map(g=>[g.id])])},
+      {label:"Applied situations",route:"final/concepts/2",items:F.units.flatMap(u=>u.situations.map(q=>{const key=q.legacyId||q.id;return [key,...F.sets.map((_,i)=>`set${i+1}-${key}`)];}))},
+      {label:"Writing preparation",route:"final/writing/1",items:F.writing.map((_,i)=>[`writing-${i+1}`,...F.sets.map((_,s)=>`set${s+1}-writing-${i+1}`)])},
+      {label:"Mixed word-box sets",route:"final/sets/1",items:F.sets.flatMap(set=>set.gaps.map(g=>[`set-${g.id}`]))}
+    ];
+    groups.forEach(g=>{g.total=g.items.length;g.done=g.items.filter(keys=>keys.some(k=>done[k])).length;});
+    const total=groups.reduce((n,g)=>n+g.total,0),completed=groups.reduce((n,g)=>n+g.done,0);
+    return `<section class="final-progress-section"><header><div><span class="eyebrow">FINAL EXAM REVIEW</span><h2>Preparation, with purpose.</h2><p>Explicitly reviewed activities. Repeated cases in Practice Sets count once.</p></div><strong>${completed}<small> / ${total}</small></strong></header><div class="final-progress-lines">${groups.map(g=>`<a href="#${g.route}"><span>${g.label}</span><b>${g.done} / ${g.total}</b><progress max="${g.total}" value="${g.done}" aria-label="${g.label}"></progress></a>`).join('')}</div></section>`;
+  }
   function progressPage() {
     const mastered = Object.values(state.termStatus).filter(value => value === "mastered").length;
     const review = Object.values(state.termStatus).filter(value => value === "review").length;
     const body = `<div class="progress-hero"><div><span>OVERALL</span><strong>${progressPercent()}%</strong><p>Tiến độ dựa trên unit hoàn thành và flashcards đã nhớ.</p></div><div><span>UNITS</span><strong>${state.completedUnits.length}/10</strong><p>Đã đánh dấu hoàn thành.</p></div><div><span>KEY TERMS</span><strong>${mastered}</strong><p>Đã nhớ · ${review} cần ôn lại.</p></div></div>
       <div class="progress-units">${D.units.map(unit => {const total=unit.terms.length,done=unit.terms.filter((_,i)=>state.termStatus[`${unit.id}:${i}`]==="mastered").length;return `<article><span>${String(unit.num).padStart(2,"0")}</span><div><h3>${esc(unit.title)}</h3><i><b style="width:${total ? done/total*100 : 0}%"></b></i><small>${done}/${total} terms mastered</small></div><strong>${state.completedUnits.includes(unit.id) ? "Complete" : "In progress"}</strong></article>`;}).join("")}</div>
-      <div class="reset-row"><p>Dữ liệu chỉ được lưu trong trình duyệt hiện tại.</p><button class="danger-btn" id="resetProgress">Xóa toàn bộ tiến độ</button></div>`;
+      ${finalProgressSummary()}<div class="reset-row"><p>Dữ liệu chỉ được lưu trong trình duyệt hiện tại.</p><button class="danger-btn" id="resetProgress">Xóa toàn bộ tiến độ</button></div>`;
     return page({eyebrow:"PROGRESS",title:"Theo dõi phần đã thật sự học",lead:"Không cộng điểm cho việc chỉ mở trang; bạn chủ động đánh dấu hoàn thành và mức nhớ thuật ngữ.",body});
   }
 
@@ -626,10 +646,15 @@
     return `<section class="final-surface theory-reading"><span class="eyebrow">UNIT ${unit.num} · CONCEPT REFERENCE</span><h2>${esc(unit.title)}</h2><p>Paraphrased textbook foundations. Applications below are original learning examples.</p>${unit.concepts.map(c=>{
       const related=unit.situations.filter(q=>q.relatedTheory.includes(c.id));
       return `<section id="${c.id}" class="concept-section" tabindex="-1"><h3>${esc(c.title)}</h3>${c.bigIdea?`<p class="big-idea"><b>Big idea</b> ${esc(c.bigIdea)}</p>`:''}<p>${esc(c.body)}</p>${c.steps?`<h4>How it works</h4><ol class="theory-process">${c.steps.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>`:''}${c.example?`<p class="theory-application"><b>Original application</b><br>${esc(c.example)}</p>`:''}${c.confusion?`<p><b>Common confusion</b><br>${esc(c.confusion)}</p>`:''}${finalSource(c.source)}${related.length?`<nav class="concept-practice" aria-label="Practice this concept">${related.map(q=>`<a class="theory-link" href="#final/concepts/${unit.num}/${q.id}">Practice this concept · ${esc(q.id)} →</a>`).join('')}</nav>`:''}</section>`;
-    }).join('')}<h2>Distinguish before deciding</h2>${unit.distinctions.map(c=>`<section class="distinction"><h3>${esc(c.a)} <span>vs</span> ${esc(c.b)}</h3><p>${esc(c.difference)}</p><div><p><b>${esc(c.a)}</b><br>${esc(c.whenA)}</p><p><b>${esc(c.b)}</b><br>${esc(c.whenB)}</p></div>${finalSource(c.source)}</section>`).join('')}<h2>Common traps</h2><ul class="trap-list">${unit.traps.map(t=>`<li>${esc(t.body)}${finalSource(t.source)}</li>`).join('')}</ul><a class="solid-btn" href="#${returnRoute}">Return to the same question →</a></section>`;
+    }).join('')}<h2>Distinguish before deciding</h2>${unit.distinctions.map(c=>`<section class="distinction"><h3>${esc(c.a)} <span>vs</span> ${esc(c.b)}</h3><p>${esc(c.difference)}</p><div><p><b>${esc(c.a)}</b><br>${esc(c.whenA)}</p><p><b>${esc(c.b)}</b><br>${esc(c.whenB)}</p></div>${finalSource(c.source)}</section>`).join('')}<h2>Common traps</h2><ul class="trap-list">${unit.traps.map(t=>`<li>${esc(t.body)}${finalSource(t.source)}</li>`).join('')}</ul>${learningReturn?`<a class="solid-btn" href="#${returnRoute}">Return to the same question →</a>`:''}</section>`;
   }
   function examMaterial(q) {
-    const document=q.document?`<section class="exam-document"><h4>${esc(q.document.title)}</h4><dl>${q.document.fields.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl></section>`:'';
+    const doc=q.document;
+    let document="";
+    if(doc?.kind==="bill") document=`<section class="commercial-paper bill-paper"><header><span>No. ${esc(doc.reference)}</span><span>${esc(doc.date)}</span></header><h4>${esc(doc.title)}</h4><div class="bill-value">For <strong>${esc(doc.amount)}</strong></div><p class="bill-order">At <u>${esc(doc.tenor)}</u>, pay to the order of<br><strong>${esc(doc.payee)}</strong><br>the sum of <u>${esc(doc.amountWords)}</u>.</p><footer><div><small>To</small><strong>${esc(doc.drawee)}</strong></div><div class="document-signature"><strong>${esc(doc.issuer)}</strong><span class="signature-mark" aria-hidden="true">LW</span><small>Authorized signature</small></div></footer><small class="document-disclaimer">Original educational representation · not a negotiable instrument</small></section>`;
+    else if(doc?.kind==="collection") document=`<section class="commercial-paper letter-paper"><header><strong>${esc(doc.sender)}</strong><span>${esc(doc.date)}</span></header><h4>${esc(doc.title)}</h4><p class="document-reference">Reference ${esc(doc.reference)} · To ${esc(doc.recipient)}</p><p class="document-body">${esc(doc.body)}</p><div class="enclosures"><small>Enclosures</small><ul>${doc.enclosures.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><footer><span>${esc(doc.signature)}</span><small>Original educational document</small></footer></section>`;
+    else if(doc?.kind==="credit") document=`<section class="commercial-paper credit-paper"><header><span>Reference ${esc(doc.reference)}</span><span>${esc(doc.date)}</span></header><h4>${esc(doc.title)}</h4><dl>${doc.fields.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl><p class="document-body">${esc(doc.body)}</p><footer><span>${esc(doc.signature)}</span><small>Original educational excerpt</small></footer></section>`;
+    else if(doc) document=`<section class="exam-document"><h4>${esc(doc.title)}</h4><dl>${doc.fields.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl></section>`;
     const table=q.table?`<div class="exam-table-scroll" tabindex="0" role="region" aria-label="${esc(q.table.caption)}"><table class="exam-table"><caption>${esc(q.table.caption)}</caption><thead><tr>${q.table.columns.map(h=>`<th scope="col">${esc(h)}</th>`).join('')}</tr></thead><tbody>${q.table.rows.map(row=>`<tr>${row.map((v,i)=>i?`<td>${esc(v)}</td>`:`<th scope="row">${esc(v)}</th>`).join('')}</tr>`).join('')}</tbody></table></div>`:'';
     return document+table;
   }
@@ -682,6 +707,9 @@
   function render() {
     const route = currentRoute();
     const preserveScroll = render.lastRoute === route;
+    const returning=!!learningReturn && route===learningReturn;
+    const returnOrigin=returning?learningOrigin:"";
+    if(learningReturn && route!==learningReference) { learningReturn=""; learningReference=""; learningOrigin=""; }
     if (!preserveScroll) rememberLearningRoute();
     const previousScroll = window.scrollY || 0;
     clearInterval(timerHandle);
@@ -705,7 +733,7 @@
       banner.innerHTML=`<span>You opened this reference from a question.</span><button class="solid-btn" data-route="${esc(learningReturn)}">← Return to the same question</button>`;
       app.querySelector(".page")?.prepend(banner);
     }
-    const snapshot=!preserveScroll && learningSnapshots.get(route);
+    const snapshot=!preserveScroll && route!=="flashcards" && learningSnapshots.get(route);
     if (snapshot) {
       app.querySelectorAll("input,textarea,select").forEach((e,i)=>{if(snapshot.fields[i]){e.value=snapshot.fields[i].value;e.checked=snapshot.fields[i].checked;e.className=snapshot.fields[i].className;if(snapshot.fields[i].invalid!==null)e.setAttribute("aria-invalid",snapshot.fields[i].invalid);}});
       app.querySelectorAll(".model-answer,.answer-explanation,.essay-outline,.gap-feedback,.final-gap-feedback").forEach((e,i)=>{const saved=snapshot.panels[i];if(saved){e.hidden=saved.hidden;e.innerHTML=saved.html;e.className=saved.className;}});
@@ -723,8 +751,8 @@
     if (targetId && (targetId.startsWith("theory-") || targetId.startsWith("question-") || targetId.startsWith("vocab-") || targetId.startsWith("exercise-"))) {
       const target=document.getElementById(targetId);
       if (target) { target.classList.add("theory-target"); target.scrollIntoView({block:"start",behavior:"auto"}); target.focus({preventScroll:true}); }
-    } else if (route===learningReturn && learningOrigin) {
-      document.getElementById(learningOrigin)?.scrollIntoView({block:"start",behavior:"auto"});
+    } else if (returning && returnOrigin) {
+      document.getElementById(returnOrigin)?.scrollIntoView({block:"start",behavior:"auto"});
     }
     render.lastRoute = route;
   }
@@ -767,7 +795,7 @@
     const jump = event.target.closest("[data-practice-jump]");
     if (jump) { event.preventDefault(); document.getElementById(jump.dataset.practiceJump)?.scrollIntoView({behavior:"smooth"}); return; }
     const related = event.target.closest("[data-related-theory]");
-    if (related) { event.preventDefault(); learningReturn=currentRoute(); learningOrigin=related.closest("[id^=question-],[id^=exercise-]")?.id || ""; routeTo(related.dataset.relatedTheory); return; }
+    if (related) { event.preventDefault(); learningReturn=currentRoute(); learningReference=related.dataset.relatedTheory; learningOrigin=related.closest("[id^=question-],[id^=exercise-]")?.id || ""; routeTo(related.dataset.relatedTheory); return; }
     const finalMark = event.target.closest("[data-final-done]");
     if (finalMark) { const f=finalState(), key=finalMark.dataset.finalDone; f.done[key]=!f.done[key]; saveState(); finalMark.setAttribute("aria-pressed",String(f.done[key])); finalMark.textContent=f.done[key]?"✓ Reviewed · mark incomplete":"Mark reviewed"; return; }
     const finalCheck = event.target.closest("[data-final-check]");
@@ -791,19 +819,27 @@
       saveState(); render(); return;
     }
     const flashUnit = event.target.closest("[data-flash-unit]");
-    if (flashUnit) { state.flashUnit = flashUnit.dataset.flashUnit; state.flashIndex = 0; state.flashFlipped = false; state.flashOrder = []; saveState(); routeTo("flashcards"); return; }
+    if (flashUnit) { openFlashScope(flashUnit.dataset.flashUnit); return; }
     const gapUnitButton = event.target.closest("[data-gap-unit]");
     if (gapUnitButton) { state.gapUnit = gapUnitButton.dataset.gapUnit; state.gapIndex = 0; state.gapAnswer = ""; state.gapChecked = false; state.gapCorrect = false; saveState(); routeTo("gaps"); return; }
     if (event.target.closest("#flashCard")) { state.flashFlipped = !state.flashFlipped; saveState(); render(); return; }
+    const tracker=event.target.closest("[data-flash-term]");
+    if(tracker) { selectFlash(tracker.dataset.flashTerm);render();document.getElementById("flashCard")?.scrollIntoView({block:"center",behavior:"auto"});return; }
+    const filter=event.target.closest("[data-flash-filter]");
+    if(filter) { state.flashTrackerFilter=filter.dataset.flashFilter;saveState();render();return; }
     const flashStatus = event.target.closest("[data-flash-status]");
-    if (flashStatus) {
-      const key = state.flashOrder[state.flashIndex]; state.termStatus[key] = flashStatus.dataset.flashStatus;
-      if (state.flashIndex < state.flashOrder.length - 1) state.flashIndex++;
-      state.flashFlipped = false; saveState(); render(); return;
+    if(flashStatus && flashSession?.current) {
+      const key=flashSession.current;state.termStatus[key]=flashStatus.dataset.flashStatus;
+      flashSession.queue=flashQueue();const next=flashSession.queue.find(k=>k!==key)||flashSession.queue[0]||"";
+      if(next) selectFlash(next);else {flashSession.history.push(key);flashSession.current="";rememberFlash("");}
+      render();return;
     }
-    if (event.target.closest("#prevFlash")) { state.flashIndex = (state.flashIndex - 1 + state.flashOrder.length) % state.flashOrder.length; state.flashFlipped = false; saveState(); render(); return; }
-    if (event.target.closest("#nextFlash")) { state.flashIndex = (state.flashIndex + 1) % state.flashOrder.length; state.flashFlipped = false; saveState(); render(); return; }
-    if (event.target.closest("#shuffleFlash")) { state.flashOrder = shuffle(state.flashOrder); state.flashIndex = 0; state.flashFlipped = false; saveState(); render(); return; }
+    if(event.target.closest("#prevFlash")) { const key=flashSession.history.pop();if(key)selectFlash(key,false);render();return; }
+    if(event.target.closest("#nextFlash")) { const q=flashSession.queue;if(q.length)selectFlash(q[(q.indexOf(flashSession.current)+1)%q.length]);render();return; }
+    if(event.target.closest("#shuffleFlash") || event.target.closest("#reviewAllFlash")) {
+      state.flashStudyMode=event.target.closest("#reviewAllFlash") || !flashPool().some(t=>termState(t.key)!=="mastered") ? "all":"unfinished";
+      flashSession.queue=shuffle(flashQueue());if(flashSession.queue.length)selectFlash(flashSession.queue[0]);render();return;
+    }
     const unitGapCheck = event.target.closest("[data-unit-gap-check]");
     if (unitGapCheck) {
       const unit = unitById(unitGapCheck.dataset.gapUnitId);
@@ -856,14 +892,14 @@
     if (event.target.closest("#startExam")) { const scope = document.querySelector('input[name="examScope"]:checked')?.value || "midterm"; createExam(scope); return; }
     if (event.target.closest("#submitExam")) { if (confirm("Submit this test now? Answers cannot be edited after submission.")) submitExam(false); return; }
     if (event.target.closest("#newExam")) { state.exam = null; saveState(); render(); return; }
-    if (event.target.closest("#resetProgress")) { if (confirm("Xóa toàn bộ tiến độ và trạng thái flashcards trên trình duyệt này?")) { localStorage.removeItem(STORE); state = {...defaults}; learningSnapshots.clear(); learningReturn=""; render.lastRoute=currentRoute(); render(); } return; }
+    if (event.target.closest("#resetProgress")) { if (confirm("Xóa toàn bộ tiến độ và trạng thái flashcards trên trình duyệt này?")) { localStorage.removeItem(STORE); state = structuredClone(defaults); flashSession=null; learningSnapshots.clear(); learningReturn=""; learningReference=""; learningOrigin=""; render.lastRoute=currentRoute(); render(); } return; }
     const searchRoute = event.target.closest("[data-search-route]");
     if (searchRoute) { document.getElementById("searchDialog").close(); routeTo(searchRoute.dataset.searchRoute); return; }
   });
 
   document.addEventListener("change", event => {
     if (event.target.id === "unitSwitcher") routeTo(`unit/${event.target.value}/theory`);
-    if (event.target.id === "flashUnit") { state.flashUnit = event.target.value; state.flashIndex = 0; state.flashOrder = []; state.flashFlipped = false; saveState(); render(); }
+    if (event.target.id === "flashUnit") { openFlashScope(event.target.value); }
     if (event.target.id === "gapUnit") { state.gapUnit = event.target.value; state.gapIndex = 0; state.gapAnswer = ""; state.gapChecked = false; state.gapCorrect = false; saveState(); render(); }
     if (event.target.id === "practiceUnit") { state.practiceUnit = event.target.value; state.practiceIndex = 0; saveState(); render(); }
     if (event.target.id === "essayUnit") { document.querySelectorAll("[data-essay-unit]").forEach(card => card.hidden = event.target.value !== "all" && card.dataset.essayUnit !== event.target.value); }

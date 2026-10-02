@@ -692,7 +692,15 @@ window.ESP3_FINAL = {
               46
             ]
           },
-          "id": "theory-u2-trade-barriers"
+          "id": "theory-u2-trade-barriers",
+          "bigIdea": "Identify what the policy changes.",
+          "steps": [
+            "A tariff taxes imports; an ad valorem tariff uses a percentage of value.",
+            "A quota directly limits import quantity.",
+            "A subsidy supports producers rather than charging foreign goods at the border."
+          ],
+          "example": "A levy of 8% and a ceiling of 72,000 pairs affect the same import market through different mechanisms.",
+          "confusion": "A policy can benefit protected producers while raising costs for buyers."
         },
         {
           "title": "Trade balances and development",
@@ -709,7 +717,15 @@ window.ESP3_FINAL = {
               46
             ]
           },
-          "id": "theory-u2-trade-development"
+          "id": "theory-u2-trade-development",
+          "bigIdea": "Trade balances describe transactions; development requires a wider diagnosis.",
+          "steps": [
+            "Compare import and export values to identify the trade balance.",
+            "Examine what the economy exports and how exposed its earnings are to price movements.",
+            "Consider diversification and productive capacity when discussing development."
+          ],
+          "example": "Dependence on a single raw crop can make export earnings vulnerable to a price fall.",
+          "confusion": "A deficit is not, by itself, a complete diagnosis of an economy."
         },
         {
           "title": "Terms of trade and scale",
@@ -726,7 +742,14 @@ window.ESP3_FINAL = {
               46
             ]
           },
-          "id": "theory-u2-terms-of-trade-scale"
+          "id": "theory-u2-terms-of-trade-scale",
+          "bigIdea": "Distinguish a relative-price gain from a production-cost gain.",
+          "steps": [
+            "Terms of trade compare export prices with import prices.",
+            "Economies of scale concern average costs as output expands."
+          ],
+          "example": "A larger export market can support scale while falling commodity prices still worsen terms of trade.",
+          "confusion": "More exports by volume do not automatically improve the export/import price ratio."
         }
       ],
       "distinctions": [
@@ -1746,7 +1769,15 @@ window.ESP3_FINAL = {
               74
             ]
           },
-          "id": "theory-u4-entry-modes"
+          "id": "theory-u4-entry-modes",
+          "bigIdea": "Entry choices trade off speed, resources and control.",
+          "steps": [
+            "Building creates a new operation; buying obtains an existing operation.",
+            "A joint venture combines partners’ ownership and contributions.",
+            "Compare these options against the actual market-access and control needs."
+          ],
+          "example": "Buying an established distributor may speed access, while sharing a factory can combine technology with local knowledge.",
+          "confusion": "Cooperation or licensing does not automatically mean joint ownership."
         },
         {
           "title": "Location and investment motives",
@@ -1763,7 +1794,15 @@ window.ESP3_FINAL = {
               74
             ]
           },
-          "id": "theory-u4-investment-location"
+          "id": "theory-u4-investment-location",
+          "bigIdea": "An incentive is one part of the location decision.",
+          "steps": [
+            "Start with the investment motive and operating requirements.",
+            "Compare markets, skills, infrastructure, finance and institutions.",
+            "Assess an incentive alongside continuing operating conditions."
+          ],
+          "example": "A tax benefit may be outweighed by unreliable transport for a time-sensitive producer.",
+          "confusion": "A cheap starting location is not necessarily a reliable operating location."
         },
         {
           "title": "Mergers and integration",
@@ -1780,7 +1819,15 @@ window.ESP3_FINAL = {
               74
             ]
           },
-          "id": "theory-u4-horizontal-vertical-integration"
+          "id": "theory-u4-horizontal-vertical-integration",
+          "bigIdea": "Ask where the acquired activity sits in the production chain.",
+          "steps": [
+            "Same-stage combinations are horizontal.",
+            "Combinations of different linked stages are vertical.",
+            "Then evaluate how integration affects the expected benefit."
+          ],
+          "example": "A food producer buying a packaging supplier expands upstream; buying another food producer expands at the same stage.",
+          "confusion": "Acquisition describes the transaction, while horizontal/vertical describes the relationship between activities."
         }
       ],
       "distinctions": [
@@ -2594,7 +2641,7 @@ window.ESP3_FINAL = {
         {
           "id": "U5-DATA-03",
           "title": "Quotation and transaction",
-          "question": "On 9 October, a fictional bank posts the quotations below. Bid and ask are from the bank’s perspective. Ignore fees.",
+          "question": "On 9 October, a fictional bank publishes the following exchange quotations. Answer the questions using the quoted rates; ignore fees.",
           "answer": "a. VND is the quote currency; EUR and SGD are the respective base currencies. b. EUR bid: VND 27,180 per EUR. SGD ask: VND 19,240 per SGD. c. The EUR buyer pays the ask: 2,000 × 27,460 = VND 54,920,000. The SGD seller receives the bid: 3,000 × 19,020 = VND 57,060,000.",
           "explanation": "Clue: the customer buys or sells the base currency. Concept: the bank buys at bid and sells at ask. A customer purchase therefore uses ask, and a customer sale uses bid. Reversing the perspective selects the wrong column. These are invented educational rates, not current quotations.",
           "source": {
@@ -2626,22 +2673,19 @@ window.ESP3_FINAL = {
             "The EUR buyer pays the ask: 2,000 × 27,460 = VND 54,920,000. The SGD seller receives the bid: 3,000 × 19,020 = VND 57,060,000."
           ],
           "table": {
-            "caption": "Bank quotation · VND per one unit of base currency",
+            "caption": "Bank exchange quotations · 9 October",
             "columns": [
               "Currency pair",
-              "Bid",
-              "Ask"
+              "Quotation"
             ],
             "rows": [
               [
                 "EUR/VND",
-                "27,180",
-                "27,460"
+                "27,180 / 27,460"
               ],
               [
                 "SGD/VND",
-                "19,020",
-                "19,240"
+                "19,020 / 19,240"
               ]
             ]
           }
@@ -2729,22 +2773,19 @@ window.ESP3_FINAL = {
             "The gross gain is (25,460 − 25,420) × 10,000 = VND 400,000. This exploits a simultaneous price difference rather than predicting a later rate movement."
           ],
           "table": {
-            "caption": "Simultaneous dealer quotations · VND per USD",
+            "caption": "Dealer quotations · same observation time",
             "columns": [
               "Dealer",
-              "Bid",
-              "Ask"
+              "USD/VND"
             ],
             "rows": [
               [
                 "A",
-                "25,360",
-                "25,420"
+                "25,360 / 25,420"
               ],
               [
                 "B",
-                "25,460",
-                "25,520"
+                "25,460 / 25,520"
               ]
             ]
           }
@@ -3194,7 +3235,15 @@ window.ESP3_FINAL = {
               103
             ]
           },
-          "id": "theory-u6-payment-methods"
+          "id": "theory-u6-payment-methods",
+          "bigIdea": "Payment timing changes who extends trust and bears exposure.",
+          "steps": [
+            "Advance payment: the buyer pays before dispatch.",
+            "Open account: the exporter ships before receiving payment.",
+            "Collection and credit add different document/bank arrangements between these extremes."
+          ],
+          "example": "A new buyer may want deferred payment, while the exporter may seek protection before releasing control.",
+          "confusion": "Bank participation alone does not identify the bank’s actual obligation."
         },
         {
           "title": "Collection is not a bank guarantee",
@@ -3261,7 +3310,15 @@ window.ESP3_FINAL = {
               103
             ]
           },
-          "id": "theory-u6-credit-variations"
+          "id": "theory-u6-credit-variations",
+          "bigIdea": "Choose the credit feature for the transaction need.",
+          "steps": [
+            "Red clause addresses an authorised pre-shipment advance.",
+            "Revolving availability addresses repeated drawings.",
+            "Transferable, back-to-back and standby arrangements serve other specific needs."
+          ],
+          "example": "Monthly similar shipments suggest repeated availability; buying materials before shipment suggests an advance feature.",
+          "confusion": "Repeated use does not, by itself, mean advance finance is permitted."
         }
       ],
       "distinctions": [
@@ -3392,29 +3449,18 @@ window.ESP3_FINAL = {
             "No. Collection-bank involvement alone is not a payment undertaking."
           ],
           "document": {
-            "title": "Collection instruction · simplified original document",
-            "fields": [
-              [
-                "Exporter",
-                "Riverloom Textiles Ltd."
-              ],
-              [
-                "Importer",
-                "Northbridge Retail Ltd."
-              ],
-              [
-                "Invoice amount",
-                "USD 18,600"
-              ],
-              [
-                "Documents enclosed",
-                "Commercial invoice and shipping documents"
-              ],
-              [
-                "Release instruction",
-                "Release documents only against payment of the full amount."
-              ]
-            ]
+            "kind": "collection",
+            "title": "Collection instruction",
+            "reference": "RT-318",
+            "date": "6 October 2026",
+            "sender": "Riverloom Textiles Ltd.",
+            "recipient": "Trade Operations Department",
+            "body": "Please present the enclosed documents to Northbridge Retail Ltd. Collect USD 18,600 in full before releasing the documents. Do not release them merely against acceptance.",
+            "enclosures": [
+              "Commercial invoice RT-318",
+              "Shipping documents"
+            ],
+            "signature": "For Riverloom Textiles Ltd."
           }
         },
         {
@@ -3452,35 +3498,22 @@ window.ESP3_FINAL = {
             "No. Under D/A, acceptance can release documents before payment. The buyer may dishonour the accepted draft at maturity."
           ],
           "document": {
-            "title": "Bill of exchange · educational representation",
-            "fields": [
-              [
-                "Draft reference",
-                "LW-204"
-              ],
-              [
-                "Issue date",
-                "12 September 2026"
-              ],
-              [
-                "Payment order",
-                "45 days after sight, pay USD 24,750 to Lotus Weave Ltd."
-              ],
-              [
-                "To",
-                "Harbour Home Ltd. (buyer)"
-              ],
-              [
-                "Issued and signed by",
-                "Lotus Weave Ltd. (exporter)"
-              ]
-            ]
+            "kind": "bill",
+            "title": "Bill of Exchange",
+            "reference": "LW-204",
+            "date": "12 September 2026",
+            "amount": "USD 24,750",
+            "tenor": "45 days after sight",
+            "payee": "LOTUS WEAVE LTD.",
+            "amountWords": "Twenty-four thousand seven hundred and fifty US dollars",
+            "drawee": "HARBOUR HOME LTD.",
+            "issuer": "LOTUS WEAVE LTD."
           }
         },
         {
           "id": "U6-DOC-04",
           "title": "Payment document",
-          "question": "An exporter receives the credit information below and asks its local bank to undertake payment too.",
+          "question": "Mekong Loom Ltd. receives the advice below. It asks Delta Commercial Bank to undertake payment under the credit as well.",
           "answer": "a. The issuing bank provides the stated undertaking, subject to complying documents. b. The exporter requests confirmation. Advice communicates/authenticates the credit; confirmation adds the confirming bank’s own payment undertaking.",
           "explanation": "Clue: the local bank is described only as advising, while the undertaking belongs to the issuing bank. Concept: advised versus confirmed credit. The requested extra obligation cannot be inferred merely from receipt of an advice.",
           "source": {
@@ -3510,33 +3543,34 @@ window.ESP3_FINAL = {
             "The exporter requests confirmation. Advice communicates/authenticates the credit; confirmation adds the confirming bank’s own payment undertaking."
           ],
           "document": {
-            "title": "Credit information · fictional summary",
+            "kind": "credit",
+            "title": "Documentary credit advice",
+            "reference": "EG-772",
+            "date": "14 October 2026",
             "fields": [
               [
                 "Applicant",
-                "Overseas buyer"
+                "Westhaven Trading Ltd."
               ],
               [
                 "Beneficiary",
-                "Vietnamese exporter"
+                "Mekong Loom Ltd."
               ],
               [
-                "Issuing bank",
+                "Issuing institution",
                 "Eastgate Bank"
               ],
               [
-                "Local bank role",
-                "Advising bank only"
+                "Amount",
+                "USD 36,400"
               ],
               [
-                "Payment condition",
-                "Presentation of the required complying documents"
-              ],
-              [
-                "Local bank confirmation",
-                "Not added"
+                "Available against",
+                "The documents specified in credit EG-772"
               ]
-            ]
+            ],
+            "body": "We transmit the above credit at the issuing institution’s request. This advice is given without adding our confirmation. Eastgate Bank undertakes payment upon presentation of the required complying documents.",
+            "signature": "For Delta Commercial Bank · Trade Services"
           }
         },
         {
@@ -4017,7 +4051,15 @@ window.ESP3_FINAL = {
               115
             ]
           },
-          "id": "theory-u7-marketing-orientation"
+          "id": "theory-u7-marketing-orientation",
+          "bigIdea": "Begin with the need the offering should satisfy.",
+          "steps": [
+            "Research the customer problem.",
+            "Select the market to serve.",
+            "Coordinate the offering and its delivery, price and communication."
+          ],
+          "example": "More sales calls will not necessarily fix an inconvenient product.",
+          "confusion": "Marketing is broader than promotion or persuasion."
         },
         {
           "title": "Select and serve a segment",
@@ -4084,7 +4126,14 @@ window.ESP3_FINAL = {
               115
             ]
           },
-          "id": "theory-u7-product-life-cycle"
+          "id": "theory-u7-product-life-cycle",
+          "bigIdea": "Marketing decisions must respond to changing product and market conditions.",
+          "steps": [
+            "Early adoption, wider acceptance, saturation and decline present different conditions.",
+            "Review the mix as competition and demand change."
+          ],
+          "example": "A premium launch may need reassessment when similar products become widely available.",
+          "confusion": "A short sales fluctuation alone does not establish an exact life-cycle stage."
         }
       ],
       "distinctions": [
@@ -4753,7 +4802,15 @@ window.ESP3_FINAL = {
               132
             ]
           },
-          "id": "theory-u8-logistics-flow"
+          "id": "theory-u8-logistics-flow",
+          "bigIdea": "Coordinate activities around the customer’s requirements.",
+          "steps": [
+            "Connect product selection, procurement, storage and delivery.",
+            "Check whether a saving in one activity creates costs elsewhere.",
+            "Use information and quality monitoring across the cycle."
+          ],
+          "example": "A low freight price is not useful if it leads to stockouts that undermine the agreed service.",
+          "confusion": "The textbook’s Six Rights exercise on p.127 is unkeyed; no guessed completion is treated as an official answer here."
         },
         {
           "title": "Balance responsiveness and inventory",
@@ -4770,7 +4827,15 @@ window.ESP3_FINAL = {
               132
             ]
           },
-          "id": "theory-u8-inventory-service"
+          "id": "theory-u8-inventory-service",
+          "bigIdea": "Inventory and distribution decisions should meet a stated service requirement.",
+          "steps": [
+            "Compare delivery lead time and reliability.",
+            "Include warehouse and inventory implications.",
+            "Choose a feasible service/cost combination."
+          ],
+          "example": "Regional stock may meet a two-day delivery promise but increase stock and operating costs.",
+          "confusion": "Freight or warehouse cost alone does not represent the entire network cost."
         },
         {
           "title": "Reduce unnecessary movement",
@@ -4787,7 +4852,15 @@ window.ESP3_FINAL = {
               132
             ]
           },
-          "id": "theory-u8-green-transport"
+          "id": "theory-u8-green-transport",
+          "bigIdea": "Reduce unnecessary movements while meeting service requirements.",
+          "steps": [
+            "Improve loading and consolidate suitable freight.",
+            "Use compatible return loads where schedules permit.",
+            "Consider modal shifts and routes in the context of the product and service."
+          ],
+          "example": "A compatible supplier load can use a truck’s previously empty return journey.",
+          "confusion": "No transport mode or consolidation scheme is automatically suitable for every shipment."
         },
         {
           "title": "Manage information and quality",
@@ -6661,23 +6734,88 @@ window.ESP3_FINAL = {
   "legacyQuestions": {
     "1:0": {
       "id": "U1-QNA-01",
-      "theoryId": "theory-u1-legacy-international-and-domestic-business"
+      "theoryId": "theory-u1-legacy-international-and-domestic-business",
+      "explanation": "The defining boundary is national, not the size or nationality of the firm. A small exporter conducts international business even without a foreign subsidiary. The examples show several ways economic activity can cross that boundary.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 1,
+        "pages": [
+          9,
+          30
+        ],
+        "pdfPages": [
+          10,
+          31
+        ]
+      }
     },
     "1:1": {
       "id": "U1-QNA-02",
-      "theoryId": "theory-u1-legacy-international-and-domestic-business"
+      "theoryId": "theory-u1-legacy-international-and-domestic-business",
+      "explanation": "Crossing a border introduces differences in the environment in which a transaction operates. A domestic business may also face uncertainty, but the international firm must coordinate across more than one institutional, cultural and currency setting.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 1,
+        "pages": [
+          9,
+          30
+        ],
+        "pdfPages": [
+          10,
+          31
+        ]
+      }
     },
     "1:2": {
       "id": "U1-QNA-03",
-      "theoryId": "theory-u1-legacy-globalization-internationalization-and-regional-integration"
+      "theoryId": "theory-u1-legacy-globalization-internationalization-and-regional-integration",
+      "explanation": "Extension and integration are the key distinction. Selling into a second country extends activity; interconnected sourcing and production show deeper integration and interdependence. The textbook treats the processes as related, not mutually exclusive stages.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 1,
+        "pages": [
+          9,
+          30
+        ],
+        "pdfPages": [
+          10,
+          31
+        ]
+      }
     },
     "1:3": {
       "id": "U1-QNA-04",
-      "theoryId": "theory-u1-legacy-mnes-ownership-and-foreign-direct-investment"
+      "theoryId": "theory-u1-legacy-mnes-ownership-and-foreign-direct-investment",
+      "explanation": "Look for the investor’s role in the foreign operation. Direct investment involves an ownership/control relationship; a passive holding is a financial investment. A cross-border purchase of shares alone does not prove managerial control.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 1,
+        "pages": [
+          9,
+          30
+        ],
+        "pdfPages": [
+          10,
+          31
+        ]
+      }
     },
     "1:4": {
       "id": "U1-QNA-05",
-      "theoryId": "theory-u1-legacy-fsa-csa-and-lessons-from-international-cases"
+      "theoryId": "theory-u1-legacy-fsa-csa-and-lessons-from-international-cases",
+      "explanation": "The cases show that a firm-specific advantage has to work in a particular country context. A familiar brand or efficient home-market method can be insufficient when shopping preferences, institutions or operating practices differ. Adaptation connects the advantage to that context.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 1,
+        "pages": [
+          9,
+          30
+        ],
+        "pdfPages": [
+          10,
+          31
+        ]
+      }
     },
     "1:5": {
       "id": "U1-QNA-06",
@@ -6698,11 +6836,37 @@ window.ESP3_FINAL = {
     },
     "1:6": {
       "id": "U1-QNA-07",
-      "theoryId": "theory-u1-legacy-mnes-ownership-and-foreign-direct-investment"
+      "theoryId": "theory-u1-legacy-mnes-ownership-and-foreign-direct-investment",
+      "explanation": "A flow is measured over an interval; a stock is measured at a date. For example, investment made during a year is a flow, while the accumulated position at year-end is a stock. Do not confuse new investment with the entire investment position.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 1,
+        "pages": [
+          9,
+          30
+        ],
+        "pdfPages": [
+          10,
+          31
+        ]
+      }
     },
     "1:7": {
       "id": "U1-QNA-08",
-      "theoryId": "theory-u1-legacy-invention-innovation-technology-and-institutions"
+      "theoryId": "theory-u1-legacy-invention-innovation-technology-and-institutions",
+      "explanation": "Written rules and unwritten expectations both constrain business behaviour. A regulation is formal; a customary way of conducting a meeting is informal. Informal does not mean unimportant or without consequences.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 1,
+        "pages": [
+          9,
+          30
+        ],
+        "pdfPages": [
+          10,
+          31
+        ]
+      }
     },
     "2:0": {
       "id": "U2-QNA-01",
@@ -6740,67 +6904,277 @@ window.ESP3_FINAL = {
     },
     "2:2": {
       "id": "U2-QNA-03",
-      "theoryId": "theory-u2-legacy-trade-promotion-and-trade-barriers"
+      "theoryId": "theory-u2-legacy-trade-promotion-and-trade-barriers",
+      "explanation": "A subsidy changes the producer’s cost or revenue position. This may make its exports more competitive, but the support has a financing cost and can alter competition. Explain the mechanism, rather than treating every export increase as proof of a net national gain.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 2,
+        "pages": [
+          31,
+          45
+        ],
+        "pdfPages": [
+          32,
+          46
+        ]
+      }
     },
     "2:3": {
       "id": "U2-QNA-04",
-      "theoryId": "theory-u2-legacy-factor-endowments-and-the-product-life-cycle"
+      "theoryId": "theory-u2-legacy-factor-endowments-and-the-product-life-cycle",
+      "explanation": "The theory links production location to changes in the product and its market. Early innovation and later standardisation create different location requirements. It is an explanatory pattern, not a claim that every product must follow an identical route.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 2,
+        "pages": [
+          31,
+          45
+        ],
+        "pdfPages": [
+          32,
+          46
+        ]
+      }
     },
     "2:4": {
       "id": "U2-QNA-05",
-      "theoryId": "theory-u2-legacy-trade-promotion-and-trade-barriers"
+      "theoryId": "theory-u2-legacy-trade-promotion-and-trade-barriers",
+      "explanation": "Protection can help a domestic producer while imposing costs on buyers and other firms. Higher prices and reduced competition explain why protecting one industry is not automatically the same as improving overall welfare. Consider the wider economy, not only protected employment.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 2,
+        "pages": [
+          31,
+          45
+        ],
+        "pdfPages": [
+          32,
+          46
+        ]
+      }
     },
     "2:5": {
       "id": "U2-QNA-06",
-      "theoryId": "theory-u2-legacy-trade-promotion-and-trade-barriers"
+      "theoryId": "theory-u2-legacy-trade-promotion-and-trade-barriers",
+      "explanation": "Export support can address cost, finance or information obstacles. A subsidy supports the producer financially; financing or a guarantee helps a transaction obtain funding; an export agency can reduce information barriers. Give three distinct mechanisms rather than three names for the same measure.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 2,
+        "pages": [
+          31,
+          45
+        ],
+        "pdfPages": [
+          32,
+          46
+        ]
+      }
     },
     "2:6": {
       "id": "U2-QNA-07",
-      "theoryId": "theory-u2-legacy-trade-promotion-and-trade-barriers"
+      "theoryId": "theory-u2-legacy-trade-promotion-and-trade-barriers",
+      "explanation": "The question asks about a government’s motives, not whether every restriction is desirable. Jobs, strategic concerns or a developing industry may motivate protection even when buyers prefer lower-cost imports. A reason for adopting a policy is not proof that its benefits exceed its costs.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 2,
+        "pages": [
+          31,
+          45
+        ],
+        "pdfPages": [
+          32,
+          46
+        ]
+      }
     },
     "2:7": {
       "id": "U2-QNA-08",
-      "theoryId": "theory-u2-legacy-trade-and-the-balance-of-trade"
+      "theoryId": "theory-u2-legacy-trade-and-the-balance-of-trade",
+      "explanation": "The useful distinction is tangible merchandise versus non-merchandise international receipts/payments in the course terminology. A shipment of goods and an international transport service are different transactions. Do not classify a service as visible trade merely because it supports a physical shipment.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 2,
+        "pages": [
+          31,
+          45
+        ],
+        "pdfPages": [
+          32,
+          46
+        ]
+      }
     },
     "3:0": {
       "id": "U3-QNA-01",
-      "theoryId": "theory-u3-legacy-balance-of-payments"
+      "theoryId": "theory-u3-legacy-balance-of-payments",
+      "explanation": "The balance of payments covers more than merchandise exports and imports. It records several kinds of transactions with the rest of the world over a period. The trade balance is one component; it cannot be substituted for the whole record.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 3,
+        "pages": [
+          46,
+          62
+        ],
+        "pdfPages": [
+          47,
+          63
+        ]
+      }
     },
     "3:1": {
       "id": "U3-QNA-02",
-      "theoryId": "theory-u3-legacy-balance-of-payments"
+      "theoryId": "theory-u3-legacy-balance-of-payments",
+      "explanation": "A trade deficit states that import value exceeds export value; it does not by itself identify why. Imports used for production can have different implications from other imports. Interpretation needs the composition and financing of the transactions, so the sign alone is insufficient.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 3,
+        "pages": [
+          46,
+          62
+        ],
+        "pdfPages": [
+          47,
+          63
+        ]
+      }
     },
     "3:2": {
       "id": "U3-QNA-03",
-      "theoryId": "theory-u3-legacy-free-trade-and-protectionism"
+      "theoryId": "theory-u3-legacy-free-trade-and-protectionism",
+      "explanation": "Protection reduces the competitive pressure from foreign supply. Consumers can therefore pay more or have fewer alternatives, even if domestic producers benefit. Keep the consumer perspective distinct from the producer’s position.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 3,
+        "pages": [
+          46,
+          62
+        ],
+        "pdfPages": [
+          47,
+          63
+        ]
+      }
     },
     "3:3": {
       "id": "U3-QNA-04",
-      "theoryId": "theory-u3-legacy-bilateral-and-multilateral-cooperation"
+      "theoryId": "theory-u3-legacy-bilateral-and-multilateral-cooperation",
+      "explanation": "The first distinction is the number of participating countries. Bilateral cooperation involves two; multilateral cooperation involves many. The actual obligations depend on the agreement, so participation alone does not establish every rule or exception.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 3,
+        "pages": [
+          46,
+          62
+        ],
+        "pdfPages": [
+          47,
+          63
+        ]
+      }
     },
     "3:4": {
       "id": "U3-QNA-05",
-      "theoryId": "theory-u3-legacy-liberalization-and-core-trade-policy-rules"
+      "theoryId": "theory-u3-legacy-liberalization-and-core-trade-policy-rules",
+      "explanation": "The textbook groups safeguards, anti-dumping and countervailing measures under contingent protection. They are different instruments with different triggers. The legacy answer mixed those triggers: dumping and subsidies should not be described as the specific trigger for a safeguard.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 3,
+        "pages": [
+          46,
+          62
+        ],
+        "pdfPages": [
+          47,
+          63
+        ]
+      },
+      "answer": "Safeguards are conditional protection responding to an unexpected import surge that causes injury to domestic industry. Anti-dumping and countervailing measures belong to the same wider family but address different triggers.",
+      "correctionNote": "The earlier digest conflated safeguards with other contingent-protection instruments. This displayed answer separates them; the original data.js is retained."
     },
     "3:5": {
       "id": "U3-QNA-06",
-      "theoryId": "theory-u3-legacy-liberalization-and-core-trade-policy-rules"
+      "theoryId": "theory-u3-legacy-liberalization-and-core-trade-policy-rules",
+      "explanation": "MFN compares treatment of relevant foreign trading partners; national treatment compares imported products with domestic products after entry. Those are different comparisons. Neither term means that all border procedures or every possible exception disappear.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 3,
+        "pages": [
+          46,
+          62
+        ],
+        "pdfPages": [
+          47,
+          63
+        ]
+      }
     },
     "3:6": {
       "id": "U3-QNA-07",
-      "theoryId": "theory-u3-legacy-balance-of-payments"
+      "theoryId": "theory-u3-legacy-balance-of-payments",
+      "explanation": "Terminology note: the textbook uses “capital account” broadly for investment-related flows, while the legacy answer uses the modern financial-account distinction. The economic contrast here is current transactions versus financial-asset transactions. Keep the terminology convention explicit; this item is not automatically graded.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 3,
+        "pages": [
+          46,
+          62
+        ],
+        "pdfPages": [
+          47,
+          63
+        ]
+      }
     },
     "3:7": {
       "id": "U3-QNA-08",
-      "theoryId": "theory-u3-legacy-liberalization-and-core-trade-policy-rules"
+      "theoryId": "theory-u3-legacy-liberalization-and-core-trade-policy-rules",
+      "explanation": "The family contains three distinct responses: anti-dumping, countervailing measures and safeguards. Link each to its own trigger. A damaging import surge need not establish dumping, and an import subsidy is not the same fact as a sudden surge.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 3,
+        "pages": [
+          46,
+          62
+        ],
+        "pdfPages": [
+          47,
+          63
+        ]
+      }
     },
     "4:0": {
       "id": "U4-QNA-01",
-      "theoryId": "theory-u4-legacy-fdi-and-portfolio-investment"
+      "theoryId": "theory-u4-legacy-fdi-and-portfolio-investment",
+      "explanation": "Foreign location is shared by both categories, so it cannot distinguish them. The important difference is participation in control of operations. Liquidity and commitment may also differ, but a passive holding does not become FDI merely because it is held for a long time.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 4,
+        "pages": [
+          63,
+          73
+        ],
+        "pdfPages": [
+          64,
+          74
+        ]
+      }
     },
     "4:1": {
       "id": "U4-QNA-02",
-      "theoryId": "theory-u4-legacy-the-investment-environment"
+      "theoryId": "theory-u4-legacy-the-investment-environment",
+      "explanation": "Incentives aim to influence an investor’s location or project choice by changing the attractiveness of the investment. Jobs, capital and skills are possible host-country objectives. An incentive is an input to that decision, not a guarantee that all anticipated benefits will occur.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 4,
+        "pages": [
+          63,
+          73
+        ],
+        "pdfPages": [
+          64,
+          74
+        ]
+      }
     },
     "4:2": {
       "id": "U4-QNA-03",
@@ -6821,27 +7195,105 @@ window.ESP3_FINAL = {
     },
     "4:3": {
       "id": "U4-QNA-04",
-      "theoryId": "theory-u4-legacy-entry-and-ownership-choices"
+      "theoryId": "theory-u4-legacy-entry-and-ownership-choices",
+      "explanation": "Licensing allows another firm to use rights while the original owner has less direct control over execution. Poor implementation can affect the product or brand. Distinguish income from royalties from the control available in an owned operation.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 4,
+        "pages": [
+          63,
+          73
+        ],
+        "pdfPages": [
+          64,
+          74
+        ]
+      }
     },
     "4:4": {
       "id": "U4-QNA-05",
-      "theoryId": "theory-u4-legacy-mergers-acquisitions-and-buyouts"
+      "theoryId": "theory-u4-legacy-mergers-acquisitions-and-buyouts",
+      "explanation": "The expected benefit of combining firms must survive the price paid and the integration process. An acquisition can fail when coordination problems or lost capabilities outweigh expected gains. “Larger” is not itself a sufficient explanation of higher value.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 4,
+        "pages": [
+          63,
+          73
+        ],
+        "pdfPages": [
+          64,
+          74
+        ]
+      }
     },
     "4:5": {
       "id": "U4-QNA-06",
-      "theoryId": "theory-u4-legacy-entry-and-ownership-choices"
+      "theoryId": "theory-u4-legacy-entry-and-ownership-choices",
+      "explanation": "A licence gives contractual permission to use rights; a joint venture adds shared ownership of an operation. Royalties and shared ownership returns are therefore different arrangements. Do not infer a joint venture from cooperation alone.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 4,
+        "pages": [
+          63,
+          73
+        ],
+        "pdfPages": [
+          64,
+          74
+        ]
+      }
     },
     "4:6": {
       "id": "U4-QNA-07",
-      "theoryId": "theory-u4-legacy-the-investment-environment"
+      "theoryId": "theory-u4-legacy-the-investment-environment",
+      "explanation": "Investment motives determine which location features matter most. Market access, labour, infrastructure and the institutional environment work together. A tax incentive cannot be assessed in isolation if shortages of skills or unreliable delivery undermine the project.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 4,
+        "pages": [
+          63,
+          73
+        ],
+        "pdfPages": [
+          64,
+          74
+        ]
+      }
     },
     "4:7": {
       "id": "U4-QNA-08",
-      "theoryId": "theory-u4-legacy-mergers-acquisitions-and-buyouts"
+      "theoryId": "theory-u4-legacy-mergers-acquisitions-and-buyouts",
+      "explanation": "The relationship between activities is decisive. Firms at the same production stage combine horizontally; a supplier and producer combine vertically. “Merger” describes the combination, while horizontal/vertical describes its position in the value chain.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 4,
+        "pages": [
+          63,
+          73
+        ],
+        "pdfPages": [
+          64,
+          74
+        ]
+      }
     },
     "5:0": {
       "id": "U5-QNA-01",
-      "theoryId": "theory-u5-legacy-the-market-and-exchange-rate-quotations"
+      "theoryId": "theory-u5-legacy-the-market-and-exchange-rate-quotations",
+      "explanation": "These uses answer different needs: obtain currency, manage an existing exposure, exploit a price difference, or take a view on future movements. One market supports all four. Do not infer the purpose solely from whether a trade ultimately earns a profit.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 5,
+        "pages": [
+          74,
+          88
+        ],
+        "pdfPages": [
+          75,
+          89
+        ]
+      }
     },
     "5:1": {
       "id": "U5-QNA-02",
@@ -6896,19 +7348,71 @@ window.ESP3_FINAL = {
     },
     "5:4": {
       "id": "U5-QNA-05",
-      "theoryId": "theory-u5-legacy-derivatives-and-exchange-rate-systems"
+      "theoryId": "theory-u5-legacy-derivatives-and-exchange-rate-systems",
+      "explanation": "The option holder can decline to exercise when the agreed exchange is unattractive. That flexibility differs from the forward obligation and normally has a premium cost. Protection does not mean the option is free or always the cheaper choice.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 5,
+        "pages": [
+          74,
+          88
+        ],
+        "pdfPages": [
+          75,
+          89
+        ]
+      }
     },
     "6:0": {
       "id": "U6-QNA-01",
-      "theoryId": "theory-u6-legacy-the-payment-risk-spectrum"
+      "theoryId": "theory-u6-legacy-the-payment-risk-spectrum",
+      "explanation": "The exporter gives up control before cash is received, so performance depends on the buyer’s later payment. Open account can suit established relationships, but trust does not eliminate default or delay risk. The payment sequence explains the exposure.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 6,
+        "pages": [
+          89,
+          102
+        ],
+        "pdfPages": [
+          90,
+          103
+        ]
+      }
     },
     "6:1": {
       "id": "U6-QNA-02",
-      "theoryId": "theory-u6-legacy-documentary-collections"
+      "theoryId": "theory-u6-legacy-documentary-collections",
+      "explanation": "In collection, banks transmit and present documents according to instructions. Handling the transaction is different from adding a payment undertaking. The exporter should distinguish release against payment from release against acceptance and consider the remaining buyer risk.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 6,
+        "pages": [
+          89,
+          102
+        ],
+        "pdfPages": [
+          90,
+          103
+        ]
+      }
     },
     "6:2": {
       "id": "U6-QNA-03",
-      "theoryId": "theory-u6-legacy-documentary-letters-of-credit"
+      "theoryId": "theory-u6-legacy-documentary-letters-of-credit",
+      "explanation": "Confirmation adds another bank’s undertaking, subject to the credit terms and complying documents. The exporter is no longer relying only on the issuing bank’s undertaking. Merely advising the credit does not add the same commitment.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 6,
+        "pages": [
+          89,
+          102
+        ],
+        "pdfPages": [
+          90,
+          103
+        ]
+      }
     },
     "6:3": {
       "id": "U6-QNA-04",
@@ -6929,15 +7433,54 @@ window.ESP3_FINAL = {
     },
     "6:4": {
       "id": "U6-QNA-05",
-      "theoryId": "theory-u6-legacy-documentary-letters-of-credit"
+      "theoryId": "theory-u6-legacy-documentary-letters-of-credit",
+      "explanation": "The payment mechanism depends on the required documents and their compliance with the credit. A documentary discrepancy can matter even if goods were shipped. Conversely, compliant documents do not prove physical quality; the bank’s documentary role and the commercial contract are distinct.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 6,
+        "pages": [
+          89,
+          102
+        ],
+        "pdfPages": [
+          90,
+          103
+        ]
+      }
     },
     "7:0": {
       "id": "U7-QNA-01",
-      "theoryId": "theory-u7-legacy-selling-and-marketing-concepts"
+      "theoryId": "theory-u7-legacy-selling-and-marketing-concepts",
+      "explanation": "The starting point differs. Selling concentrates on persuading a customer to buy existing output; marketing starts with the customer need and shapes the offering around it. Promotion alone cannot necessarily remedy a poor product–market fit.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 7,
+        "pages": [
+          103,
+          114
+        ],
+        "pdfPages": [
+          104,
+          115
+        ]
+      }
     },
     "7:1": {
       "id": "U7-QNA-02",
-      "theoryId": "theory-u7-legacy-needs-value-and-satisfaction"
+      "theoryId": "theory-u7-legacy-needs-value-and-satisfaction",
+      "explanation": "A need can be met through different wants, while demand additionally requires purchasing power and willingness to buy. A person may want a particular product without being an effective buyer. The three terms describe different stages of market understanding.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 7,
+        "pages": [
+          103,
+          114
+        ],
+        "pdfPages": [
+          104,
+          115
+        ]
+      }
     },
     "7:2": {
       "id": "U7-QNA-03",
@@ -6958,23 +7501,88 @@ window.ESP3_FINAL = {
     },
     "7:3": {
       "id": "U7-QNA-04",
-      "theoryId": "theory-u7-legacy-the-marketing-mix-channels-and-brands"
+      "theoryId": "theory-u7-legacy-the-marketing-mix-channels-and-brands",
+      "explanation": "The four decisions work together around a target customer. For example, a premium product, its price, distribution and communication should convey a coherent proposition. Listing four words is incomplete if the question also asks how the mix works.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 7,
+        "pages": [
+          103,
+          114
+        ],
+        "pdfPages": [
+          104,
+          115
+        ]
+      }
     },
     "7:4": {
       "id": "U7-QNA-05",
-      "theoryId": "theory-u7-legacy-needs-value-and-satisfaction"
+      "theoryId": "theory-u7-legacy-needs-value-and-satisfaction",
+      "explanation": "Satisfaction is a comparison, not simply a product feature. Two customers can judge the same performance differently when expectations differ. High specifications alone do not establish that the promised experience was delivered.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 7,
+        "pages": [
+          103,
+          114
+        ],
+        "pdfPages": [
+          104,
+          115
+        ]
+      }
     },
     "8:0": {
       "id": "U8-QNA-01",
-      "theoryId": "theory-u8-legacy-logistics-and-supply-chains"
+      "theoryId": "theory-u8-legacy-logistics-and-supply-chains",
+      "explanation": "Logistics coordinates movement, storage and related information; supply-chain management connects those activities with wider sourcing, production and relationships. Logistics is therefore part of a broader coordinated system, rather than an unrelated alternative.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 8,
+        "pages": [
+          115,
+          131
+        ],
+        "pdfPages": [
+          116,
+          132
+        ]
+      }
     },
     "8:1": {
       "id": "U8-QNA-02",
-      "theoryId": "theory-u8-legacy-networks-lead-time-and-order-management"
+      "theoryId": "theory-u8-legacy-networks-lead-time-and-order-management",
+      "explanation": "Less stock may require more frequent replenishment or urgent deliveries. The saving in inventory must be compared with the transport and service consequences. This is a possible trade-off, not a rule that every inventory reduction always raises freight cost.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 8,
+        "pages": [
+          115,
+          131
+        ],
+        "pdfPages": [
+          116,
+          132
+        ]
+      }
     },
     "8:2": {
       "id": "U8-QNA-03",
-      "theoryId": "theory-u8-legacy-transport-documents-and-intermediaries"
+      "theoryId": "theory-u8-legacy-transport-documents-and-intermediaries",
+      "explanation": "The document can perform several roles at once: acknowledge receipt, evidence carriage and, where negotiable, support control of title. Do not assume every transport receipt is a negotiable title document. State the qualification rather than treating all forms as identical.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 8,
+        "pages": [
+          115,
+          131
+        ],
+        "pdfPages": [
+          116,
+          132
+        ]
+      }
     },
     "8:3": {
       "id": "U8-QNA-04",
@@ -6995,59 +7603,269 @@ window.ESP3_FINAL = {
     },
     "8:4": {
       "id": "U8-QNA-05",
-      "theoryId": "theory-u8-legacy-networks-lead-time-and-order-management"
+      "theoryId": "theory-u8-legacy-networks-lead-time-and-order-management",
+      "explanation": "Time between placing an order and receiving it affects how much stock or planning flexibility a firm needs. Variability also matters: an unreliable lead time can make replenishment difficult even when its average is short. Consider service and inventory together.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 8,
+        "pages": [
+          115,
+          131
+        ],
+        "pdfPages": [
+          116,
+          132
+        ]
+      }
     },
     "9:0": {
       "id": "U9-QNA-01",
-      "theoryId": "theory-u9-legacy-how-insurance-works"
+      "theoryId": "theory-u9-legacy-how-insurance-works",
+      "explanation": "The definition combines a funding arrangement with the nature of the loss and the protection provided. Pooling spreads losses; fortuity concerns uncertainty; transfer moves pure risk; indemnification addresses the covered financial loss. These are complementary features, not synonyms.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 9,
+        "pages": [
+          132,
+          151
+        ],
+        "pdfPages": [
+          133,
+          152
+        ]
+      }
     },
     "9:1": {
       "id": "U9-QNA-02",
-      "theoryId": "theory-u9-legacy-indemnity-and-insurable-interest"
+      "theoryId": "theory-u9-legacy-indemnity-and-insurable-interest",
+      "explanation": "Indemnity aims to restore the insured’s financial position within the coverage terms. Payment beyond the loss would turn protection into a profit opportunity. The principle explains both compensation and the limit on recovery.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 9,
+        "pages": [
+          132,
+          151
+        ],
+        "pdfPages": [
+          133,
+          152
+        ]
+      }
     },
     "9:2": {
       "id": "U9-QNA-03",
-      "theoryId": "theory-u9-legacy-indemnity-and-insurable-interest"
+      "theoryId": "theory-u9-legacy-indemnity-and-insurable-interest",
+      "explanation": "The insured must stand to suffer a financial loss from the damage or event. Mere curiosity about someone else’s property is insufficient. Insurable interest connects the policy to a real economic exposure.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 9,
+        "pages": [
+          132,
+          151
+        ],
+        "pdfPages": [
+          133,
+          152
+        ]
+      }
     },
     "9:3": {
       "id": "U9-QNA-04",
-      "theoryId": "theory-u9-legacy-subrogation-and-utmost-good-faith"
+      "theoryId": "theory-u9-legacy-subrogation-and-utmost-good-faith",
+      "explanation": "After indemnifying the loss, the insurer can exercise the relevant recovery rights against the responsible third party. This prevents the same loss being collected twice. It also preserves accountability for the party that caused the loss.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 9,
+        "pages": [
+          132,
+          151
+        ],
+        "pdfPages": [
+          133,
+          152
+        ]
+      }
     },
     "9:4": {
       "id": "U9-QNA-05",
-      "theoryId": "theory-u9-legacy-marine-insurance-and-general-average"
+      "theoryId": "theory-u9-legacy-marine-insurance-and-general-average",
+      "explanation": "General average concerns an intentional extraordinary sacrifice or expense for common safety. This is different from ordinary accidental damage affecting only one cargo interest. The shared maritime benefit explains why contribution may be spread among the interests involved.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 9,
+        "pages": [
+          132,
+          151
+        ],
+        "pdfPages": [
+          133,
+          152
+        ]
+      }
     },
     "9:5": {
       "id": "U9-QNA-06",
-      "theoryId": "theory-u9-legacy-marine-insurance-and-general-average"
+      "theoryId": "theory-u9-legacy-marine-insurance-and-general-average",
+      "explanation": "International carriage exposes goods to losses that can be difficult for one trader to absorb. Insurance transfers specified financial risks under the policy. It does not guarantee safe arrival or cover every possible cause of loss.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 9,
+        "pages": [
+          132,
+          151
+        ],
+        "pdfPages": [
+          133,
+          152
+        ]
+      }
     },
     "9:6": {
       "id": "U9-QNA-07",
-      "theoryId": "theory-u9-legacy-marine-insurance-and-general-average"
+      "theoryId": "theory-u9-legacy-marine-insurance-and-general-average",
+      "explanation": "Coverage is defined by both insured perils and exclusions. Ordinary deterioration, inherent properties of the cargo and other excluded causes should not automatically be treated as covered accidents. Check the applicable clauses rather than assuming the word “insurance” means all risks are payable.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 9,
+        "pages": [
+          132,
+          151
+        ],
+        "pdfPages": [
+          133,
+          152
+        ]
+      }
     },
     "9:7": {
       "id": "U9-QNA-08",
-      "theoryId": "theory-u9-legacy-marine-insurance-and-general-average"
+      "theoryId": "theory-u9-legacy-marine-insurance-and-general-average",
+      "explanation": "The policy establishes cover, invoices/packing records establish value and contents, transport records help establish condition and carriage, and a survey helps establish the damage. Documentation links the claimed loss to the insured shipment; a list without this purpose is harder to apply.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 9,
+        "pages": [
+          132,
+          151
+        ],
+        "pdfPages": [
+          133,
+          152
+        ]
+      }
     },
     "10:0": {
       "id": "U10-QNA-01",
-      "theoryId": "theory-u10-legacy-progressive-flat-and-regressive-taxation"
+      "theoryId": "theory-u10-legacy-progressive-flat-and-regressive-taxation",
+      "explanation": "Compare the share of income taken, not just the cash payment. Under a progressive structure the rate rises with income; a regressive burden takes a larger share from lower-income people. An identical cash payment can therefore have unequal proportional effects.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 10,
+        "pages": [
+          152,
+          161
+        ],
+        "pdfPages": [
+          153,
+          162
+        ]
+      }
     },
     "10:1": {
       "id": "U10-QNA-02",
-      "theoryId": "theory-u10-legacy-vat-and-transaction-taxes"
+      "theoryId": "theory-u10-legacy-vat-and-transaction-taxes",
+      "explanation": "Value added excludes costs already taxed at an earlier stage. The input/output mechanism prevents simply taxing the full accumulated value again at every step. The course explanation describes the principle; eligibility details depend on the applicable tax system.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 10,
+        "pages": [
+          152,
+          161
+        ],
+        "pdfPages": [
+          153,
+          162
+        ]
+      }
     },
     "10:2": {
       "id": "U10-QNA-03",
-      "theoryId": "theory-u10-legacy-tax-planning-avoidance-and-evasion"
+      "theoryId": "theory-u10-legacy-tax-planning-avoidance-and-evasion",
+      "explanation": "Legality is the key distinction. Lawful arrangements and allowable deductions differ from concealment or falsification. A low tax bill alone is insufficient evidence of evasion; the means used to achieve it matter.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 10,
+        "pages": [
+          152,
+          161
+        ],
+        "pdfPages": [
+          153,
+          162
+        ]
+      }
     },
     "10:3": {
       "id": "U10-QNA-04",
-      "theoryId": "theory-u10-legacy-direct-and-indirect-taxes"
+      "theoryId": "theory-u10-legacy-direct-and-indirect-taxes",
+      "explanation": "The same consumption-tax rate can absorb different proportions of household income. Lower-income households often spend more of their income on consumption. The relevant comparison is the burden relative to income, not merely the printed tax rate.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 10,
+        "pages": [
+          152,
+          161
+        ],
+        "pdfPages": [
+          153,
+          162
+        ]
+      }
     },
     "10:4": {
       "id": "U10-QNA-05",
-      "theoryId": "theory-u10-legacy-direct-and-indirect-taxes"
+      "theoryId": "theory-u10-legacy-direct-and-indirect-taxes",
+      "explanation": "Taxes raise revenue for government activity and can also influence distribution and behaviour. Those purposes can create trade-offs. Distinguish an explanation of a policy objective from the claim that every tax design achieves it efficiently.",
+      "source": {
+        "kind": "Textbook",
+        "unit": 10,
+        "pages": [
+          152,
+          161
+        ],
+        "pdfPages": [
+          153,
+          162
+        ]
+      }
     }
+  },
+  "finalPassAudit": {
+    "legacyExplanations": 65,
+    "modelAnswerCorrections": [
+      "U3-QNA-05"
+    ],
+    "caseRewrites": [
+      "U5-DATA-03",
+      "U5-DATA-06",
+      "U6-DOC-02",
+      "U6-DOC-03",
+      "U6-DOC-04"
+    ],
+    "theoryImproved": [
+      "theory-u2-trade-barriers",
+      "theory-u2-trade-development",
+      "theory-u2-terms-of-trade-scale",
+      "theory-u4-entry-modes",
+      "theory-u4-investment-location",
+      "theory-u4-horizontal-vertical-integration",
+      "theory-u6-payment-methods",
+      "theory-u6-credit-variations",
+      "theory-u7-marketing-orientation",
+      "theory-u7-product-life-cycle",
+      "theory-u8-logistics-flow",
+      "theory-u8-inventory-service",
+      "theory-u8-green-transport"
+    ]
   }
 };
